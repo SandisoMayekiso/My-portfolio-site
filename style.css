@@ -1,34 +1,34 @@
+/* =================== BASE =================== */
 body {
   margin: 0;
   font-family: 'Roboto Mono', monospace;
   background: linear-gradient(135deg, #0d1117 60%, #1f2937);
   color: #ffffff;
-}
-body {
-  margin: 0;
-  font-family: 'Roboto Mono', monospace;
-  background-image: url('https://your-image-link.com/image.jpg');
-  background-size: cover;         
-  background-repeat: no-repeat;   
-  background-position: right center;   
-  background-attachment: fixed;  
-  color: #ffffff;               
+  background-attachment: fixed;
+  background-image: url('images/SandisoMayekiso.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
+/* =================== NAVIGATION =================== */
 nav {
   background-color: #161b22;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
-  align-items: right;
+  align-items: center;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 nav h1 {
-  color: #ffffff;
-  margin: 0;
+  color: #ff0202;
   font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid #30363d;
 }
 nav ul {
   list-style: none;
@@ -38,57 +38,84 @@ nav ul {
   padding: 0;
 }
 nav ul li a {
-  color: #ffffff;
-  text-decoration: none;
+  color: #ff0000;
   font-weight: bold;
+  text-decoration: none;
   transition: color 0.3s;
 }
 nav ul li a:hover {
-  color: #ffffff;
+  color: #df0000;
 }
+
+/* =================== HEADER =================== */
+/* =================== HEADER =================== */
 header {
   text-align: center;
   padding: 4rem 2rem;
-  background-image: url('Videos/Background.mp4');
-  background-size: cover;
-  background-position: center;
-  color: #ffffff;
+  color: #ff0000;
+  position: relative;
+  border-radius: 16px;
+  border: 4px solid #d64343;
+  box-shadow: 0 8px 24px rgba(214, 67, 67, 0.2);
+  font-family: 'Poppins', sans-serif;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
 }
+
 header h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 4rem);
+  background: linear-gradient(90deg, #f00000, #e75e5e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e75e5e;
 }
+
 header p {
   font-size: 1.2rem;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  color: #d64343;
+  margin-top: 1rem;
 }
-.cta {
-  margin-top: 2rem;
-}
-.cta a {
-  background-color: #ffffff;
-  color: #000000;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-}
+
+/* =================== SECTION =================== */
 section {
   padding: 3rem 2rem;
   max-width: 1000px;
   margin: auto;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease-out;
-}
-section.visible {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+  border-radius: 16px;
+  background: var(--card-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
+/* =================== HEADINGS =================== */
 h2 {
-  color: #ffffff;
-  border-bottom: 2px solid #30363d;
-  padding-bottom: 0.5rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #d64343;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 15px;
+  border: 2px solid #d45454;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* =================== LIST STYLING =================== */
 ul {
   list-style: none;
   padding: 0;
@@ -99,15 +126,16 @@ ul li::before {
   display: inline-block;
   width: 1em;
   margin-left: -1em;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
+
+/* =================== FIGURE & IMAGE =================== */
 figure {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
-}
-figure div {
-  flex: 1 1 45%;
 }
 figure img {
   width: 100%;
@@ -117,22 +145,107 @@ figcaption {
   text-align: center;
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: #ffffff;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.877);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
 }
+
+/* =================== FOOTER =================== */
 footer {
   text-align: center;
   padding: 2rem;
   background-color: #161b22;
   color: #ffffff;
   font-size: 0.9rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* =================== LINK =================== */
 a {
-  color: #2bff00;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+  border: #d87b7b 2px solid;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  font-size: 1rem;
+  font-weight: 600;
 }
-section {
-  opacity: 1 !important;
-  transform: none !important;
+a:hover {
+  color: #df0000;
 }
+
+/* =================== GLOW EFFECT =================== */
+.glow-text {
+  text-shadow: 0 0 10px #ff0000,
+               0 0 20px #ff1e00,
+               0 0 30px #ff0909,
+               0 0 40px #ff0000;
+}
+
+/* =================== PROFILE PHOTO =================== */
+img.profile-photo {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+/* =================== CONTACT ICONS =================== */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.contact-icons a {
+  font-size: 24px;
+  color: #ff0000;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid #30363d;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* WhatsApp icon style */
+.contact-icons a.whatsapp {
+  color: #25D366;
+  border-color: #25D366;
+  background-color: rgba(37, 211, 102, 0.1);
+}
+.contact-icons a.whatsapp:hover {
+  color: #ffffff !important;
+  background-color: rgba(37, 211, 102, 0.3) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.contact-icons a:hover {
+  color: #ff0000;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* =================== RESPONSIVE =================== */
 @media (max-width: 768px) {
   header h1 {
     font-size: 2.5rem;
@@ -148,83 +261,100 @@ section {
     margin-bottom: 0.5rem;
   }
 }
+:root {
+  --bg-color: #0d1117;
+  --text-color: #fff;
+  --card-bg: #1f2937;
+  --accent: #00ffd5;
+}
+
+body.light-mode {
+  --bg-color: #f4f4f4;
+  --text-color: #111;
+  --card-bg: #ffffff;
+  --accent: #0077cc;
+}
+
 body {
-  background-image: url('SandisoMayekiso.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background: blur(8px);
-  z-index: -1;
-}
-img.profile-photo {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-}
-h1 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 0.5em;
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.4s, color 0.4s;
 }
 
 h2 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 1em;
+  border-left: 5px solid var(--accent);
+  padding-left: 10px;
 }
-h1 {
-  background: linear-gradient(90deg, #007CF0, #00DFD8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+section {
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 900px;
+  border-radius: 20px;
+  background: var(--card-bg);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: translateY(40px);
 }
-h2 {
-  border-bottom: 3px solid #00dfd8;
-  display: inline-block;
-  padding-bottom: 5px;
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-h1 {
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+
+ul li {
+  margin: 10px 0;
 }
-h2 {
-  text-transform: uppercase;
-  letter-spacing: 2px;
+
+.profile-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  margin: 20px auto;
+  display: block;
 }
-h1, h2 {
-  text-align: center;
+
+/* CTA Button */
+.cta a, .btn {
+  background: var(--accent);
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
 }
-h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
+.cta a:hover, .btn:hover {
+  opacity: 0.8;
 }
-.title {
-  border: 2px solid white;     
-  padding: 10px;                
-  display: inline-block;       
-  border-radius: 8px;            
-  color: rgb(7, 7, 7);  
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;               
-}
+
+/* Contact icons */
 .contact-icons a {
   margin: 10px;
-  font-size: 30px;
-  color: #fff; /* Change to suit your theme */
-  text-decoration: none;
-  transition: color 0.3s;
+  font-size: 24px;
+  color: var(--accent);
+  transition: transform 0.2s;
+}
+.contact-icons a:hover {
+  transform: scale(1.2);
 }
 
-.contact-icons a:hover {
-  color: #00ffff; /* Highlight color on hover */
-}
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+/* Theme toggle button */
+#theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  background: var(--accent);
+  color: black;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
