@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
-  <title>SecBySandiso.com</title>
+  <title></title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -33,7 +34,7 @@
 </head>
 <body>
   <nav>
-    <h1><strong>SecBySandiso.com</strong></h1>
+    <h1><strong class="glow-text">SecBySandiso</strong></h1>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -44,9 +45,10 @@
   <video autoplay muted loop id="bg-video">
   <source src="Videos/background.mp4" type="video/mp4">
 </video>
+<button id="theme-toggle">Toggle Theme</button>
 
   <header>
-    <h1><strong>SecBySandiso.com</strong></h1>
+    <h1><strong>SecBySandiso</strong></h1>
     <p>Certified Cybersecurity Professional</p>
     <div class="cta">
       <a href="#contact">Contact Me</a>
@@ -55,7 +57,7 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>Certified IT and cybersecurity professional with a strong foundation in IT engineering, business management, and technical support. Backed by advanced certifications from CompTIA (A+, Network+, Server+, Security+) and Cisco (CCNA), I bring hands-on expertise in computer systems, network administration, and security technologies.</p>
+    <p>Certified Cybersecurity and IT Engineering professional with a strong foundation in Python programming, ethical hacking, and cybersecurity tools. Experienced in securing systems using Kali Linux, Bash scripting, and SQL, with a practical focus on penetration testing, vulnerability assessment, and incident response. Backed by advanced certifications including CompTIA A+, Network+, Server+, Security+, and Cisco CCNA. Proficient in network administration, system support, and business IT operations. Known for strong communication skills, problem-solving abilities, and a collaborative mindset, with a passion for staying ahead of evolving cyber threats.</p>
   </section>
 
   <section id="skills">
@@ -73,31 +75,32 @@
   <section id="certifications">
     <h2>Certifications</h2>
     <ul>
-      <li>CompTIA A+, Network+, Server+, Security+, CCNA</li>
-      <li>Python Defensive Programming, Web Development, Pen-testing, Digital Forensics</li>
+      <li>HyperionDev - Cyber Security Cert (Python Defensive Programming, Web Development, Pen-testing, Digital Forensics)</li>
+      <li>Optimi College - IT Engineering Cert (CompTIA A+, Network+, Server+, Security+, CCNA)</li>
     </ul>
     <figure>
+      <div>
+        <img src="https://blog.hyperiondev.com/wp-content/uploads/2018/10/Blog-Article-Free-Trial-Expect.jpg" alt="Cybersecurity Bootcamp">
+        <figcaption>HyperionDev Bootcamp</figcaption>
+      </div>
       <div>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBzh4yk-4En2pJ6allZBdpIkxGvtwpc9wv8Q&s" alt="IT Engineering">
         <figcaption>Optimi College</figcaption>
       </div>
       <div>
-        <img src="https://blog.hyperiondev.com/wp-content/uploads/2018/10/Blog-Article-Free-Trial-Expect.jpg" alt="Cybersecurity Bootcamp">
-        <figcaption>HyperionDev Bootcamp</figcaption>
-      </div>
     </figure>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
     <div class="contact-icons">
-  <a href="mayekisosandiso@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-  <a href="tel:065 8571926"><i class="fas fa-phone"></i></a>
-  <a href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank"><i class="fab fa-linkedin"></i></a>
-  <a href="https://github.com/hyperiondev-bootcamps/SM24120016677.git" target="_blank"><i class="fab fa-github"></i></a>
-</div>
+      <a href="mayekisosandiso@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="tel:065 8571926"><i class="fas fa-phone"></i></a>
+      <a href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/hyperiondev-bootcamps/SM24120016677.git" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
 
-    <p>Address: 8609 NY 111, Gugulethu, Cape Town, Western Cape, South Africa</p>
+    <p>Address: 8609 NY 111, Gugulethu, Cape Town, Western Cape, South Africa 7750</p>
   </section>
   <img src="images/SandisoMayekiso.jpg" alt="My Profile Photo" width="50px" height="50px" class="profile-photo">
   <section id="footer">
@@ -105,7 +108,7 @@
     <p>Thank you for visiting my portfolio website. Feel free to reach out if you have any questions or opportunities.</p>
   </section>    
   <footer>
-    &copy; 2025 SecBySandiso.com. All rights reserved.
+    &copy; 2025 SecBySandiso All rights reserved.
   </footer>
   <script>
     // Smooth scrolling for navigation links
@@ -120,5 +123,27 @@
       });
     });
   </script>
+  <script>
+  // Theme Toggle
+  const toggleBtn = document.getElementById('theme-toggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+  });
+
+  // Scroll Animation
+  const sections = document.querySelectorAll('section');
+  const revealSections = () => {
+    const trigger = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop < trigger) {
+        section.classList.add('visible');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealSections);
+  window.addEventListener('load', revealSections);
+</script>
+<li><i class="fas fa-shield-alt"></i> Penetration Testing & Vulnerability Assessment</li>
 </body>
 </html>
