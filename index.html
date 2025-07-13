@@ -3,63 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
-  <title></title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>SandisoMayekiso</title>
 
-<style>
-  #bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    z-index: -1;
-    pointer-events: none;
-  }
-  header {
-    position: relative;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    z-index: 1;
-  }
-</style>
-
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav>
-    <h1><strong class="glow-text">SecBySandiso</strong></h1>
-    <ul>
+    <h1>SandisoMayekiso</h1>
+    <ul class="menu">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-  <video autoplay muted loop id="bg-video">
-  <source src="Videos/background.mp4" type="video/mp4">
-</video>
-<button id="theme-toggle">Toggle Theme</button>
 
+  <!-- Header with Background Video -->
   <header>
-    <h1><strong>SecBySandiso</strong></h1>
-    <p>Certified Cybersecurity Professional</p>
-    <div class="cta">
-      <a href="#contact">Contact Me</a>
+    <video autoplay muted loop id="header-video">
+      <source src="Videos/background.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-text"></div>
+
+    <div class="header-content">
+      <h1>SandisoMayekiso.com</h1>
+      <p>Certified Cybersecurity Professional</p>
+      <div class="cta">
+        <a href="#contact">Contact Me</a>
+      </div>
     </div>
   </header>
 
+  <!-- Theme Toggle -->
+  <button id="theme-toggle">Toggle Theme</button>
+  <a href="#about" class="scroll-down"><i class="fas fa-angle-double-down"></i></a>
+
+  <!-- About Section -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Certified Cybersecurity and IT Engineering professional with a strong foundation in Python programming, ethical hacking, and cybersecurity tools. Experienced in securing systems using Kali Linux, Bash scripting, and SQL, with a practical focus on penetration testing, vulnerability assessment, and incident response. Backed by advanced certifications including CompTIA A+, Network+, Server+, Security+, and Cisco CCNA. Proficient in network administration, system support, and business IT operations. Known for strong communication skills, problem-solving abilities, and a collaborative mindset, with a passion for staying ahead of evolving cyber threats.</p>
+    <p>
+      I am a certified Cybersecurity and IT engineering professional with a solid foundation in Python programming, ethical hacking, and modern cybersecurity practices. My expertise is backed by certifications from CompTIA (A+, Network+, Server+, Security+) and Cisco (CCNA), and strengthened by hands-on training from the HyperionDev Cybersecurity Bootcamp.
+    </p>
+    
   </section>
 
+  <!-- Skills Section -->
   <section id="skills">
     <h2>Skills</h2>
     <ul>
@@ -72,78 +66,121 @@
     </ul>
   </section>
 
+  <!-- Certifications Section -->
   <section id="certifications">
     <h2>Certifications</h2>
     <ul>
-      <li>HyperionDev - Cyber Security Cert (Python Defensive Programming, Web Development, Pen-testing, Digital Forensics)</li>
-      <li>Optimi College - IT Engineering Cert (CompTIA A+, Network+, Server+, Security+, CCNA)</li>
+      <li>HyperionDev Cybersecurity Bootcamp</li>
+      <li>Optimi College (IT Academy) IT Engineering</li>
     </ul>
     <figure>
-      <div>
-        <img src="https://blog.hyperiondev.com/wp-content/uploads/2018/10/Blog-Article-Free-Trial-Expect.jpg" alt="Cybersecurity Bootcamp">
-        <figcaption>HyperionDev Bootcamp</figcaption>
-      </div>
-      <div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBzh4yk-4En2pJ6allZBdpIkxGvtwpc9wv8Q&s" alt="IT Engineering">
-        <figcaption>Optimi College</figcaption>
-      </div>
-      <div>
+      <img src="https://blog.hyperiondev.com/wp-content/uploads/2018/10/Blog-Article-Free-Trial-Expect.jpg" alt="Cybersecurity Training">
+      <figcaption>HyperionDev Bootcamp</figcaption>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBzh4yk-4En2pJ6allZBdpIkxGvtwpc9wv8Q&s" alt="IT Engineering">
+      <figcaption>Optimi College</figcaption>
     </figure>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact</h2>
     <div class="contact-icons">
-      <a href="mayekisosandiso@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-      <a href="tel:065 8571926"><i class="fas fa-phone"></i></a>
+      <a href="mailto:mayekisosandiso@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="tel:0658571926"><i class="fas fa-phone"></i></a>
       <a href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/hyperiondev-bootcamps/SM24120016677.git" target="_blank"><i class="fab fa-github"></i></a>
     </div>
-
     <p>Address: 8609 NY 111, Gugulethu, Cape Town, Western Cape, South Africa 7750</p>
+    <form action="https://formspree.io/f/yourformid" method="POST" class="contact-form">
+      <label>Name:<input type="text" name="name" required></label>
+      <label>Email:<input type="email" name="_replyto" required></label>
+      <label>Message:<textarea name="message" rows="4" required></textarea></label>
+      <button type="submit">Send</button>
+    </form>
   </section>
-  <img src="images/SandisoMayekiso.jpg" alt="My Profile Photo" width="50px" height="50px" class="profile-photo">
-  <section id="footer">
-    <h2></h2>
-    <p>Thank you for visiting my portfolio website. Feel free to reach out if you have any questions or opportunities.</p>
-  </section>    
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="filters">
+      <button data-filter="all">All</button>
+      <button data-filter="web">Web</button>
+      <button data-filter="security">Security</button>
+    </div>
+    <div class="project-grid">
+      <div class="project-card" data-category="web">
+        <h3>Web App</h3>
+        <p>Details...</p>
+        <a href="https://github.com/hyperiondev-bootcamps/SM24120016677" target="_blank" rel="noopener noreferrer">
+          Visit My GitHub
+        </a>
+      </div>
+      <div class="project-card" data-category="security">
+        <h3>Pen Test Tool</h3>
+        <p>Details...</p>
+        <a href="https://github.com/hyperiondev-bootcamps/SM24120016677" target="_blank" rel="noopener noreferrer">
+          Visit My GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 SecBySandiso All rights reserved.
+    &copy; 2025 SandisoMayekiso.com All rights reserved.
   </footer>
+
+  <!-- JavaScript -->
   <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav ul li a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    document.querySelectorAll('nav ul.menu li a').forEach(link => {
+      link.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
-  </script>
-  <script>
-  // Theme Toggle
-  const toggleBtn = document.getElementById('theme-toggle');
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-  });
 
-  // Scroll Animation
-  const sections = document.querySelectorAll('section');
-  const revealSections = () => {
-    const trigger = window.innerHeight * 0.85;
-    sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      if (sectionTop < trigger) {
-        section.classList.add('visible');
-      }
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
     });
-  };
-  window.addEventListener('scroll', revealSections);
-  window.addEventListener('load', revealSections);
-</script>
-<li><i class="fas fa-shield-alt"></i> Penetration Testing & Vulnerability Assessment</li>
+
+    const sections = document.querySelectorAll('section');
+    const revealSections = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('load', revealSections);
+
+    const scrollBtn = document.createElement('button');
+    scrollBtn.textContent = '↑';
+    scrollBtn.style.position = 'fixed';
+    scrollBtn.style.bottom = '20px';
+    scrollBtn.style.right = '20px';
+    scrollBtn.style.padding = '10px';
+    scrollBtn.style.fontSize = '1.2rem';
+    scrollBtn.style.border = 'none';
+    scrollBtn.style.borderRadius = '8px';
+    scrollBtn.style.backgroundColor = '#007BFF';
+    scrollBtn.style.color = '#fff';
+    scrollBtn.style.display = 'none';
+    scrollBtn.title = 'Scroll to Top';
+    document.body.appendChild(scrollBtn);
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', () => {
+      scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  </script>
 </body>
 </html>
