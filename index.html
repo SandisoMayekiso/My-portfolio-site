@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 </head>
 <body>
 
@@ -40,6 +42,14 @@
     </div>
   </header>
 
+  <!-- Security Status Banner -->
+<div class="security-status">
+  <span class="status-item">🛡️ Firewall: <strong>Active</strong></span>
+  <span class="status-item">🔐 Intrusion Attempts Blocked: <strong id="blocked-count">1293</strong></span>
+  <span class="status-item secure-blink"><i class="fas fa-lock"></i> Secure Connection</span>
+</div>
+
+
   <!-- Theme Toggle -->
   <button id="theme-toggle">Toggle Theme</button>
   <a href="#about" class="scroll-down"><i class="fas fa-angle-double-down"></i></a>
@@ -50,6 +60,7 @@
     <p>
       I am a certified Cybersecurity and IT engineering professional with a solid foundation in Python programming, ethical hacking, and modern cybersecurity practices. My expertise is backed by certifications from CompTIA (A+, Network+, Server+, Security+) and Cisco (CCNA), and strengthened by hands-on training from the HyperionDev Cybersecurity Bootcamp.
     </p>
+    <p>During my cybersecurity bootcamp, I gained hands-on experience with a range of tools and techniques used in ethical hacking and penetration testing. I learned how to perform reconnaissance using tools like Spiderfoot, theHarvester, Sublist3r, and Assetfinder for email harvesting, subdomain enumeration, and asset discovery. I used Nmap for network scanning and Nessus for vulnerability assessment. Web application testing was enhanced through Burp Suite, where I explored attacks like XXE (XML External Entity) injection. For privilege escalation and post-exploitation on Linux and Windows systems, I worked with LinPEAS, LinEnum, Linux Exploit Suggester, and Windows Exploit Suggester. Finally, I utilized the Metasploit Framework to execute exploits and gain deeper insight into real-world penetration testing workflows.</p>
     
   </section>
 
@@ -89,6 +100,8 @@
       <a href="tel:0658571926"><i class="fas fa-phone"></i></a>
       <a href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/hyperiondev-bootcamps/SM24120016677.git" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/27658571926" target="_blank"><i class="fab fa-whatsapp"></i> Chat</a>
+
     </div>
     <p>Address: 8609 NY 111, Gugulethu, Cape Town, Western Cape, South Africa 7750</p>
     <form action="https://formspree.io/f/yourformid" method="POST" class="contact-form">
@@ -182,5 +195,21 @@
       scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
   </script>
+  <script>
+  // Dark/light mode with localStorage
+  const toggleBtn = document.getElementById('theme-toggle');
+  const currentTheme = localStorage.getItem('theme');
+
+  if (currentTheme === 'light') {
+    document.body.classList.add('light-mode');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const theme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+    localStorage.setItem('theme', theme);
+  });
+</script>
+
 </body>
 </html>
