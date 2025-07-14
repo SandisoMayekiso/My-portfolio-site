@@ -1,3 +1,4 @@
+
 /* =================== ROOT VARIABLES =================== */
 :root {
   --bg-color: #000000;
@@ -170,18 +171,22 @@ figure {
 }
 
 figure img {
-  width: 100%;
-  border-radius: 8px;
-  border: 2px solid var(--accent);
+  width: 25%;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
 }
 
 figcaption {
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-color);
-  background-color: #1f6feb33;
-  padding: 0.5rem;
+  display: inline-block; /* allows background to hug the text */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;     
+  padding: 0.5rem 1rem;
   border-radius: 8px;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  width: 100%;
+
 }
 
 /* =================== FOOTER =================== */
@@ -342,4 +347,50 @@ a:hover {
   .header-content h1 { font-size: 2rem; }
   section { padding: 2rem 1rem; }
   figure img { width: 100%; }
+}
+/* =================== SECURITY STATUS BANNER =================== */
+.security-status {
+  background-color: #0d1117;
+  color: #1f6feb;
+  padding: 10px 20px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-top: 1px solid #1f6feb;
+  border-bottom: 1px solid #1f6feb;
+}
+
+.status-item strong {
+  color: #2ecc71;
+}
+
+.secure-blink {
+  animation: blink 1s infinite;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+/* Light mode override */
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light-mode nav,
+body.light-mode .security-status,
+body.light-mode footer {
+  background-color: #f2f2f2;
+  color: #000;
+}
+
+body.light-mode .btn {
+  background-color: #1f6feb;
+  color: #fff;
 }
