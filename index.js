@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
   // Smooth scroll for nav links
   document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
@@ -99,6 +100,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   highlightNav(); // Run on load
+
+  // Simulate increasing blocked intrusion attempts
+let blockedCount = 1293;
+const countDisplay = document.getElementById('blocked-count');
+
+setInterval(() => {
+  // Simulate a random number of new blocked attempts (1–5 every 3 sec)
+  const increase = Math.floor(Math.random() * 5) + 1;
+  blockedCount += increase;
+  countDisplay.textContent = blockedCount;
+}, 3000);
 
   // Theme toggle
   const themeBtn = document.getElementById('theme-toggle');
