@@ -430,5 +430,97 @@ function App() {
 }
 
 export default App;
+// Certifications.jsx
+import React from "react";
+import { ChevronLeft, ChevronRight, FileDown, FileText } from "lucide-react";
+
+export default function Certifications() {
+  const certificates = [
+    { src: "Images/1761387341576-467175dd-10d9-43e7-95eb-8707113bfdcc_1.jpg", title: "Certificate 1" },
+    { src: "Images/1761387472962-b0f3fad7-9f4a-4dd3-a275-bdc0fa603d61_1.jpg", title: "Certificate 2" },
+    { src: "Images/1761387565798-27b3da46-e716-4057-9454-75f918e5b1d4_1.jpg", title: "Certificate 3" },
+    { src: "Images/Junior PenTester-Tryhackme cert.jpg", title: "Junior PenTester (TryHackMe)" },
+    { src: "Images/Optimi Course completion Sandiso Mayekiso IT Engineer.jpg", title: "Optimi Course Completion" },
+  ];
+
+  const pdfs = [
+    { href: "Images/Business%20Management%20Certificate%20N6.pdf", name: "Business Management Certificate N6" },
+    { href: "Images/Cyber101.pdf", name: "Cyber 101 (TryHackMe)" },
+    { href: "Images/CyberSecurity%20certificate.pdf", name: "CyberSecurity Certificate" },
+    { href: "Images/CyberSecurity+certificate-compressed.pdf", name: "CyberSecurity+ Certificate" },
+    { href: "Images/Junior PenTester-Tryhackme cert.pdf", name: "Junior PenTester (TryHackMe)" },
+    { href: "Images/Optimi Course completion Sandiso Mayekiso IT Engineer.pdf", name: "Optimi Course Completion" },
+    { href: "Images/Statement of results Sandiso Mayekiso IT Engineer.pdf", name: "Statement of Results IT Engineer" },
+  ];
+
+  const scrollContainer = React.useRef(null);
+
+  const scroll = (direction) => {
+    const { current } = scrollContainer;
+    if (direction === "left") current.scrollBy({ left: -300, behavior: "smooth" });
+    else current.scrollBy({ left: 300, behavior: "smooth" });
+  };
+
+  return (
+    <section id="certifications" className="py-12 px-6 bg-gray-900 text-white">
+      <h2 className="text-3xl font-bold mb-6 text-center">🎓 My Certifications</h2>
+
+      {/* Scrollable gallery */}
+      <div className="relative">
+        <button
+          onClick={() => scroll("left")}
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-2 rounded-full hover:bg-gray-600"
+        >
+          <ChevronLeft size={24} />
+        </button>
+
+        <div
+          ref={scrollContainer}
+          className="flex overflow-x-auto gap-4 scroll-smooth scrollbar-hide px-10"
+        >
+          {certificates.map((cert, index) => (
+            <div
+              key={index}
+              className="min-w-[250px] flex-shrink-0 bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform"
+            >
+              <img src={cert.src} alt={cert.title} className="w-full h-56 object-cover" />
+              <p className="p-3 text-center text-sm">{cert.title}</p>
+            </div>
+          ))}
+        </div>
+
+        <button
+          onClick={() => scroll("right")}
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-2 rounded-full hover:bg-gray-600"
+        >
+          <ChevronRight size={24} />
+        </button>
+      </div>
+
+      {/* Download / View PDF Links */}
+      <div className="mt-12 text-center">
+        <h3 className="text-2xl font-semibold mb-4 flex justify-center items-center gap-2">
+          <FileText /> Download / View Certificates
+        </h3>
+        <ul className="space-y-3 max-w-xl mx-auto">
+          {pdfs.map((pdf, i) => (
+            <li key={i} className="flex items-center justify-between bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-700 transition">
+              <span>{pdf.name}</span>
+              <a
+                href={pdf.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-blue-400 hover:text-blue-300"
+              >
+                <FileDown size={18} /> View PDF
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 
 
