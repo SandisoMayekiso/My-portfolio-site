@@ -479,5 +479,81 @@ body.light-mode .btn {
 .pdf-links a:hover {
   text-decoration: underline;
 }
+/* === PDF Links Section - Borderless Buttons === */
+.pdf-links a {
+  border: none !important;
+  padding: 8px 0;
+  background: none;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.pdf-links a:hover {
+  color: #00aaff;
+  text-decoration: underline;
+}
+
+/* === Certificate Carousel with Scroll Arrows === */
+.cert-carousel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 10px 40px; /* space for arrows */
+}
+
+.cert-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.cert-track::-webkit-scrollbar {
+  display: none;
+}
+
+.cert-track img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.cert-track img:hover {
+  transform: scale(1.05);
+}
+
+/* Scroll Arrows */
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(31, 111, 235, 0.8);
+  color: #fff;
+  border: none;
+  font-size: 1.8rem;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.scroll-arrow:hover {
+  background: var(--accent);
+}
+
+.scroll-left {
+  left: 10px;
+}
+
+.scroll-right {
+  right: 10px;
+}
 
 
