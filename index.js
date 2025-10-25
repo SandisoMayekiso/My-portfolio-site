@@ -417,3 +417,18 @@ document.addEventListener('DOMContentLoaded', () => {
     .contact-form button:hover {
       background-color: #0056b3;
     }
+    import Certifications from "./components/Certifications";
+
+function App() {
+  return (
+    <>
+      {/* Other sections */}
+      <Certifications />
+      {/* Other sections */}
+    </>
+  );
+}
+
+export default App;
+
+
