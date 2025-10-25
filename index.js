@@ -209,6 +209,113 @@ addResource("script", {
   defer: true,
   onload: () => AOS.init(),
 });
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const certifications = [
+  {
+    title: "CompTIA A+",
+    image: "/certifications/comptia-a-plus.jpg",
+  },
+  {
+    title: "CompTIA Network+",
+    image: "/certifications/comptia-network-plus.jpg",
+  },
+  {
+    title: "CompTIA Server+",
+    image: "/certifications/comptia-server-plus.jpg",
+  },
+  {
+    title: "CompTIA Security+",
+    image: "/certifications/comptia-security-plus.jpg",
+  },
+  {
+    title: "Cisco CCNA",
+    image: "/certifications/cisco-ccna.jpg",
+  },
+  {
+    title: "TryHackMe Cyber Security 101",
+    image: "/certifications/tryhackme-cybersecurity101.jpg",
+  },
+  {
+    title: "TryHackMe Pre-Security",
+    image: "/certifications/tryhackme-presecurity.jpg",
+  },
+  {
+    title: "HyperionDev Cybersecurity Bootcamp",
+    image: "/certifications/hyperiondev-bootcamp.jpg",
+  },
+];
+
+export default function Certifications() {
+  const [current, setCurrent] = useState(0);
+
+  const nextCert = () => {
+    setCurrent((prev) => (prev + 1) % certifications.length);
+  };
+
+  const prevCert = () => {
+    setCurrent((prev) =>
+      prev === 0 ? certifications.length - 1 : prev - 1
+    );
+  };
+
+  return (
+    <section id="certifications" className="py-16 bg-gray-950 text-white relative overflow-hidden">
+      <div className="max-w-4xl mx-auto text-center px-4">
+        <h2 className="text-3xl font-bold mb-8">Certifications</h2>
+
+        <div className="relative flex items-center justify-center">
+          {/* Left Arrow */}
+          <button
+            onClick={prevCert}
+            className="absolute left-0 z-10 bg-gray-800 hover:bg-gray-700 p-3 rounded-full shadow-md transition"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          {/* Certificate Image */}
+          <div className="overflow-hidden w-full max-w-md rounded-2xl shadow-lg">
+            <img
+              src={certifications[current].image}
+              alt={certifications[current].title}
+              className="w-full h-auto object-contain transition-transform duration-500 ease-in-out"
+            />
+            <h3 className="mt-4 text-lg font-semibold">{certifications[current].title}</h3>
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={nextCert}
+            className="absolute right-0 z-10 bg-gray-800 hover:bg-gray-700 p-3 rounded-full shadow-md transition"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Buttons Section */}
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href="/Sandiso_Certifications.pdf"
+            className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-semibold transition"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View PDF
+          </a>
+          <a
+            href="/Sandiso_Certifications.pdf"
+            download
+            className="px-6 py-2 border border-blue-600 hover:bg-blue-600 rounded-full text-white font-semibold transition"
+          >
+            Download PDF
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 import Certifications from "./components/Certifications";
 
 function App() {
@@ -222,3 +329,4 @@ function App() {
 }
 
 export default App;
+
