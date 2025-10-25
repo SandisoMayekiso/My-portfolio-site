@@ -315,6 +315,22 @@ export default function Certifications() {
     </section>
   );
 }
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".cert-track");
+  const leftBtn = document.querySelector(".scroll-left");
+  const rightBtn = document.querySelector(".scroll-right");
+
+  leftBtn.addEventListener("click", () => {
+    track.scrollBy({ left: -300, behavior: "smooth" });
+  });
+
+  rightBtn.addEventListener("click", () => {
+    track.scrollBy({ left: 300, behavior: "smooth" });
+  });
+});
+</script>
+
 
 import Certifications from "./components/Certifications";
 
@@ -329,4 +345,5 @@ function App() {
 }
 
 export default App;
+
 
