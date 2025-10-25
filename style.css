@@ -418,3 +418,66 @@ body.light-mode .btn {
     .btn { flex:1; justify-content:center; }
   }
 </style>
+/* Certifications Carousel */
+.cert-carousel {
+  position: relative;
+  overflow-x: auto;
+  display: flex;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+
+.cert-track {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cert-track img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  scroll-snap-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.cert-track img:hover {
+  transform: scale(1.05);
+}
+
+/* PDF Section Fix */
+.pdf-links {
+  margin-top: 40px;
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.pdf-links h3 {
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.pdf-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pdf-links li {
+  margin: 10px 0;
+}
+
+.pdf-links a {
+  color: #00aaff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pdf-links a:hover {
+  text-decoration: underline;
+}
+
+
