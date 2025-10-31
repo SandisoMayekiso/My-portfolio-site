@@ -419,76 +419,76 @@ body.light-mode .btn {
   }
 </style>
 /* Certifications Carousel */
-/* ====== CERTIFICATES GALLERY ====== */
-.cert-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  justify-items: center;
-  margin-top: 1.5rem;
+/* ===== Certificates Grid Styling ===== */
+#cert-gallery {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--secondary-bg);
 }
 
-.cert-item {
-  background: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 10px var(--shadow);
-  text-align: center;
-  padding: 1rem;
+#cert-gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--text-dark);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.cert-grid img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cert-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 18px var(--shadow);
+.cert-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-.cert-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
-}
-
-.cert-item p {
-  font-weight: 600;
-  color: var(--text-dark);
-  font-size: 0.95rem;
-}
-
-/* PDF LINKS */
 .pdf-links {
-  margin-top: 2rem;
-  background: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px var(--shadow);
+  margin-top: 40px;
+  text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--primary-bg);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .pdf-links h3 {
-  color: var(--accent);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .pdf-links ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .pdf-links li {
-  margin: 0.5rem 0;
+  margin: 10px 0;
 }
 
 .pdf-links a {
   color: var(--accent);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .pdf-links a:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
+  color: var(--text-light);
 }
 
 
