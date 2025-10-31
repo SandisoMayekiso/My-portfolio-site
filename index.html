@@ -186,63 +186,74 @@
 </section>
   
 <!-- Certificates Section -->
+<!-- CERTIFICATES SECTION -->
 <section id="certificates">
-  <h2>Certifications</h2>
+  <h2>Certificates</h2>
 
-  <!-- ===== TryHackMe Section ===== -->
-  <div class="cert-section">
-    <h3>TryHackMe Certifications</h3>
+  <!-- === TRYHACKME SECTION === -->
+  <div class="cert-category">
+    <h3>TryHackMe: Cyber 101 & Penetration Testing</h3>
     <div class="cert-grid">
-      <div class="cert-item" onclick="openModal('Images/Cyber101 Certificate.jpg', 'TryHackMe Cyber Security 101')">
-        <img src="Images/Cyber101.jpg" alt="Cyber101 Certificate">
+      <div class="cert-item">
+        <img src="Images/Cyber101 Certificate.jpg" alt="Cyber101 Certificate"
+             onclick="openModal('Images/Cyber101.pdf', 'Cyber Security 101')" />
         <p>Cyber Security 101</p>
       </div>
 
-      <div class="cert-item" onclick="openModal('Images/Junior PenTester Certificate.jpg', 'TryHackMe Junior PenTester')">
-        <img src="Images/JuniorPenTester.jpg" alt="Junior PenTester Certificate">
+      <div class="cert-item">
+        <img src="Images/Junior PenTester Certificate.jpg" alt="Junior PenTester Certificate"
+             onclick="openModal('Images/Junior PenTester-Tryhackme cert.pdf', 'Junior PenTester Certificate')" />
         <p>Junior PenTester</p>
       </div>
     </div>
   </div>
 
-  <!-- ===== HyperionDev Section ===== -->
-  <div class="cert-section">
+  <!-- === HYPERIONDEV SECTION === -->
+  <div class="cert-category">
     <h3>HyperionDev Bootcamp</h3>
     <div class="cert-grid">
-      <div class="cert-item" onclick="openModal('Images/Cyber Security Certificate.jpg', 'HyperionDev Cyber Security Certificate')">
-        <img src="Images/CyberSecurityCert.jpg" alt="Cyber Security Certificate">
+      <div class="cert-item">
+        <img src="Images/Cyber Security Certificate.jpg" alt="Cyber Security Certificate"
+             onclick="openModal('Images/CyberSecurity certificate.pdf', 'Cyber Security Certificate')" />
         <p>Cyber Security Certificate</p>
       </div>
+    </div>
+  </div>
 
-  <!-- ===== Optimi College Section ===== -->
-  <div class="cert-section">
+  <!-- === OPTIMI COLLEGE SECTION === -->
+  <div class="cert-category">
     <h3>Optimi College</h3>
     <div class="cert-grid">
-      <div class="cert-item" onclick="openModal('Images/Optimi Course Certificate.jpg', 'Optimi Course Completion')">
-        <img src="Images/OptimiCourse.jpg" alt="Optimi Course Certificate">
+      <div class="cert-item">
+        <img src="Images/Optimi Course Certificate.jpg" alt="Optimi Course Certificate"
+             onclick="openModal('Images/Optimi Course completion Sandiso Mayekiso IT Engineer.pdf', 'Course Completion (IT Engineer)')" />
         <p>Course Completion (IT Engineer)</p>
       </div>
+    </div>
+  </div>
 
-  <!-- ===== Business Management Section ===== -->
-  <div class="cert-section">
+  <!-- === BUSINESS MANAGEMENT SECTION === -->
+  <div class="cert-category">
     <h3>Business Management</h3>
     <div class="cert-grid">
-      <div class="cert-item" onclick="openModal('Images/Business Management Certificate.jpg', 'Business Management Certificate N6')">
-        <img src="Images/BusinessManagement.jpg" alt="Business Management Certificate">
+      <div class="cert-item">
+        <img src="Images/Business Management Certificate.jpg" alt="Business Management Certificate"
+             onclick="openModal('Images/Business Management Certificate N6.pdf', 'Business Management Certificate (N6)')" />
         <p>Business Management Certificate (N6)</p>
       </div>
     </div>
   </div>
-
-  <!-- ===== Modal (Pop-up Preview) ===== -->
-  <div id="certModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <div class="modal-content">
-      <h3 id="certTitle"></h3>
-      <iframe id="certFrame" src="" frameborder="0"></iframe>
-    </div>
-  </div>
 </section>
+
+<!-- CERTIFICATE POPUP MODAL -->
+<div id="certModal" class="cert-modal">
+  <div class="cert-modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h3 id="certTitle"></h3>
+    <iframe id="certFrame" src="" frameborder="0"></iframe>
+  </div>
+</div>
+
 
   <!-- PDF Links -->
 <div class="pdf-links">
@@ -404,6 +415,7 @@
 
 </body>
 </html>
+
 
 
 
