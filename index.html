@@ -185,17 +185,78 @@
   </div>
 </section>
   
-<!-- Certifications Gallery -->
-<section id="cert-gallery">
-  <h2>Certificates</h2>
+<!-- Certificates Section -->
+<section id="certificates">
+  <h2>Certifications</h2>
 
-  <div class="cert-grid">
-    <img src="Images/1761387472962-b0f3fad7-9f4a-4dd3-a275-bdc0fa603d61_1.jpg" alt="Certificate 2" />
-    <img src="Images/1761387565798-27b3da46-e716-4057-9454-75f918e5b1d4_1.jpg" alt="Certificate 3" />
-    <img src="Images/Junior PenTester-Tryhackme cert.jpg" alt="Junior PenTester" />
-    <img src="Images/Optimi Course completion Sandiso Mayekiso IT Engineer.jpg" alt="Optimi Course Completion" />
-    <img src="Images/1761387341576-467175dd-10d9-43e7-95eb-8707113bfdcc_1.jpg" alt="Certificate 1" />
+  <!-- ===== TryHackMe Section ===== -->
+  <div class="cert-section">
+    <h3>TryHackMe Certifications</h3>
+    <div class="cert-grid">
+      <div class="cert-item" onclick="openModal('Images/Cyber101.pdf', 'TryHackMe Cyber Security 101')">
+        <img src="Images/Cyber101.jpg" alt="Cyber101 Certificate">
+        <p>Cyber Security 101</p>
+      </div>
+
+      <div class="cert-item" onclick="openModal('Images/Junior PenTester-Tryhackme cert.pdf', 'TryHackMe Junior PenTester')">
+        <img src="Images/JuniorPenTester.jpg" alt="Junior PenTester Certificate">
+        <p>Junior PenTester</p>
+      </div>
+    </div>
   </div>
+
+  <!-- ===== HyperionDev Section ===== -->
+  <div class="cert-section">
+    <h3>HyperionDev Bootcamp</h3>
+    <div class="cert-grid">
+      <div class="cert-item" onclick="openModal('Images/CyberSecurity certificate.pdf', 'HyperionDev Cyber Security Certificate')">
+        <img src="Images/CyberSecurityCert.jpg" alt="Cyber Security Certificate">
+        <p>Cyber Security Certificate</p>
+      </div>
+
+      <div class="cert-item" onclick="openModal('Images/CyberSecurity+certificate-compressed.pdf', 'HyperionDev Security+ Certificate')">
+        <img src="Images/CyberSecurityPlus.jpg" alt="Security+ Certificate">
+        <p>Security+ Certificate</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Optimi College Section ===== -->
+  <div class="cert-section">
+    <h3>Optimi College</h3>
+    <div class="cert-grid">
+      <div class="cert-item" onclick="openModal('Images/Optimi Course completion Sandiso Mayekiso IT Engineer.pdf', 'Optimi Course Completion')">
+        <img src="Images/OptimiCourse.jpg" alt="Optimi Course Certificate">
+        <p>Course Completion (IT Engineer)</p>
+      </div>
+
+      <div class="cert-item" onclick="openModal('Images/Statement of results Sandiso Mayekiso IT Engineer.pdf', 'Statement of Results')">
+        <img src="Images/StatementResults.jpg" alt="Statement of Results">
+        <p>Statement of Results</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Business Management Section ===== -->
+  <div class="cert-section">
+    <h3>Business Management</h3>
+    <div class="cert-grid">
+      <div class="cert-item" onclick="openModal('Images/Business Management Certificate N6.pdf', 'Business Management Certificate N6')">
+        <img src="Images/BusinessManagement.jpg" alt="Business Management Certificate">
+        <p>Business Management Certificate (N6)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Modal (Pop-up Preview) ===== -->
+  <div id="certModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <h3 id="certTitle"></h3>
+      <iframe id="certFrame" src="" frameborder="0"></iframe>
+    </div>
+  </div>
+</section>
 
   <!-- PDF Links -->
 <div class="pdf-links">
@@ -357,6 +418,7 @@
 
 </body>
 </html>
+
 
 
 
