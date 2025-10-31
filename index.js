@@ -365,6 +365,17 @@ export default App;
     }
   }
 </script>
+function openModal(filePath, title) {
+  document.getElementById('certModal').style.display = 'block';
+  document.getElementById('certFrame').src = filePath;
+  document.getElementById('certTitle').innerText = title;
+}
+
+function closeModal() {
+  document.getElementById('certModal').style.display = 'none';
+  document.getElementById('certFrame').src = '';
+}
+
 
 
 
