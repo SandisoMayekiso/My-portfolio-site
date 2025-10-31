@@ -461,8 +461,6 @@ body.light-mode .btn {
   margin-right: auto;
   background: var(--primary-bg);
   padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .pdf-links h3 {
@@ -490,6 +488,7 @@ body.light-mode .btn {
 .pdf-links a:hover {
   color: var(--text-light);
 }
+
 
 
 
