@@ -345,5 +345,26 @@ function App() {
 }
 
 export default App;
+<script>
+  function openModal(pdfSrc, title) {
+    document.getElementById('certFrame').src = pdfSrc;
+    document.getElementById('certTitle').innerText = title;
+    document.getElementById('certModal').style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById('certModal').style.display = "none";
+    document.getElementById('certFrame').src = "";
+  }
+
+  // Close modal when clicking outside of content
+  window.onclick = function(event) {
+    const modal = document.getElementById('certModal');
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+</script>
+
 
 
