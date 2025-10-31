@@ -419,141 +419,77 @@ body.light-mode .btn {
   }
 </style>
 /* Certifications Carousel */
-.cert-carousel {
-  position: relative;
-  overflow-x: auto;
-  display: flex;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
-  padding: 10px;
+/* ====== CERTIFICATES GALLERY ====== */
+.cert-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin-top: 1.5rem;
 }
 
-.cert-track {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+.cert-item {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px var(--shadow);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.cert-track img {
-  width: 250px;
+.cert-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px var(--shadow);
+}
+
+.cert-item img {
+  width: 100%;
   height: auto;
-  border-radius: 10px;
-  scroll-snap-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
 }
 
-.cert-track img:hover {
-  transform: scale(1.05);
+.cert-item p {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
 }
 
-/* PDF Section Fix */
+/* PDF LINKS */
 .pdf-links {
-  margin-top: 40px;
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
+  margin-top: 2rem;
+  background: var(--card-bg);
+  padding: 1.5rem;
   border-radius: 10px;
+  box-shadow: 0 4px 12px var(--shadow);
 }
 
 .pdf-links h3 {
-  margin-bottom: 15px;
-  font-size: 1.3em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 .pdf-links ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 .pdf-links li {
-  margin: 10px 0;
+  margin: 0.5rem 0;
 }
 
 .pdf-links a {
-  color: #00aaff;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.pdf-links a:hover {
-  text-decoration: underline;
-}
-/* === PDF Links Section - Borderless Buttons === */
-.pdf-links a {
-  border: none !important;
-  padding: 8px 0;
-  background: none;
   color: var(--accent);
-  font-weight: 600;
   text-decoration: none;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .pdf-links a:hover {
-  color: #00aaff;
+  color: var(--accent-hover);
   text-decoration: underline;
 }
 
-/* === Certificate Carousel with Scroll Arrows === */
-.cert-carousel {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 10px 40px; /* space for arrows */
-}
-
-.cert-track {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
-
-.cert-track::-webkit-scrollbar {
-  display: none;
-}
-
-.cert-track img {
-  width: 250px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-}
-
-.cert-track img:hover {
-  transform: scale(1.05);
-}
-
-/* Scroll Arrows */
-.scroll-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(31, 111, 235, 0.8);
-  color: #fff;
-  border: none;
-  font-size: 1.8rem;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  z-index: 10;
-}
-
-.scroll-arrow:hover {
-  background: var(--accent);
-}
-
-.scroll-left {
-  left: 10px;
-}
-
-.scroll-right {
-  right: 10px;
-}
 
 
