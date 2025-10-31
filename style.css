@@ -452,6 +452,136 @@ body.light-mode .btn {
   transform: scale(1.05);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
+/* ===== Certificates Section ===== */
+#certificates {
+  padding: 80px 20px;
+  background: var(--primary-bg);
+  color: var(--text-light);
+  text-align: center;
+}
+
+#certificates h2 {
+  font-size: 2.3rem;
+  margin-bottom: 40px;
+  color: var(--accent);
+}
+
+.cert-section {
+  margin-bottom: 60px;
+  text-align: left;
+  position: relative;
+}
+
+.cert-section h3 {
+  color: var(--accent);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.cert-item {
+  background: var(--secondary-bg);
+  color: var(--text-dark);
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  padding: 15px;
+  max-width: 260px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.cert-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.cert-item img {
+  width: 100%;
+  height: 170px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.cert-item p {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* ===== Modal (Pop-up) ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content iframe {
+  width: 100%;
+  height: 70vh;
+  border-radius: 10px;
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+  color: var(--primary-bg);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--accent);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cert-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .modal-content iframe {
+    height: 60vh;
+  }
+}
 
 /* ===== PDF Links Grid Styling ===== */
 .pdf-links {
@@ -553,6 +683,7 @@ body.light-mode .btn {
   opacity: 0.85;
   line-height: 1.5;
 }
+
 
 
 
