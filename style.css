@@ -488,6 +488,69 @@ body.light-mode .btn {
 .pdf-links a:hover {
   color: var(--text-light);
 }
+/* ===== Skills Section Styling ===== */
+#skills {
+  background: var(--secondary-bg);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#skills h2 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 30px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.skill-item {
+  background: var(--primary-bg);
+  color: var(--text-light);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.skill-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.skill-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-top: 5px;
+}
+
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icon-row img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.icon-row img:hover {
+  transform: scale(1.1);
+}
+
+
 
 
 
