@@ -92,7 +92,7 @@ I’m always open to collaboration and learning opportunities in cybersecurity, 
 📧 **Email:** [sandisomayekiso@gmail.com](mailto:sandisomayekiso@gmail.com)  
 💼 **LinkedIn:** [linkedin.com/in/sandiso-mayekiso](https://linkedin.com/in/sandiso-mayekiso)  
 🌍 **Portfolio:** [CyberWithSandiso.com](https://sandisomayekiso.github.io/My-portfolio-site/)  
-💻 **GitHub:** [github.com/SandisoMayekiso](https://github.com/SandisoMayekiso)
+💻 **GitHub:** [github.com/SandisoMayekiso](https://github.com/SandisoMayekiso/My-portfolio-site/blob/main/README.md)
 
 ---
 
