@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h4>Add Task</h4>
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label">Assign to (username)</label>
+        <select name="assigned_to" class="form-select">
+          {% for u in users %}
+            <option value="{{ u }}">{{ u }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input name="title" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea name="description" class="form-control" rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Due date (YYYY-MM-DD)</label>
+        <input name="due_date" class="form-control" required>
+      </div>
+      <button class="btn btn-primary">Save Task</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

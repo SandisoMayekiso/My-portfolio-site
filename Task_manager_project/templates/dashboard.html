@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <h3>Welcome, {{ user }}</h3>
+    <p>Summary: Total tasks: {{ total }} • Completed: {{ completed }} • Overdue: {{ overdue }}</p>
+    <div class="d-grid gap-2 d-md-block">
+      <a class="btn btn-outline-primary me-2 mb-2" href="{{ url_for('add_task') }}">Add Task</a>
+      <a class="btn btn-outline-secondary me-2 mb-2" href="{{ url_for('view_all') }}">View All Tasks</a>
+      <a class="btn btn-outline-secondary me-2 mb-2" href="{{ url_for('view_mine') }}">View My Tasks</a>
+      {% if admin %}
+        <a class="btn btn-success me-2 mb-2" href="{{ url_for('register') }}">Register User</a>
+        <a class="btn btn-warning me-2 mb-2" href="{{ url_for('generate_reports') }}">Generate Reports</a>
+        <a class="btn btn-info me-2 mb-2" href="{{ url_for('stats') }}">View Statistics</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Reports</h4>
+<div class="mb-3">
+  <h5>Task Overview</h5>
+  <pre>{{ task_text or "No task overview found." }}</pre>
+</div>
+<div class="mb-3">
+  <h5>User Overview</h5>
+  <pre>{{ user_text or "No user overview found." }}</pre>
+</div>
+<div class="mb-3">
+  <a class="btn btn-outline-primary" href="{{ url_for('download_file', filename='task_overview.txt') }}">Download Task Overview</a>
+  <a class="btn btn-outline-primary" href="{{ url_for('download_file', filename='user_overview.txt') }}">Download User Overview</a>
+</div>
+{% endblock %}

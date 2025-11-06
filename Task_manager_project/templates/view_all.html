@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>All Tasks</h4>
+<table class="table table-striped">
+  <thead>
+    <tr><th>#</th><th>User</th><th>Title</th><th>Due</th><th>Assigned</th><th>Completed</th></tr>
+  </thead>
+  <tbody>
+    {% for t in tasks %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ t.username }}</td>
+      <td>{{ t.title }}</td>
+      <td>{{ t.due_date }}</td>
+      <td>{{ t.assigned_date }}</td>
+      <td>{{ 'Yes' if t.completed else 'No' }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
