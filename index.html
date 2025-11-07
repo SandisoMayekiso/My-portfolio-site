@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CyberWithSandiso.com</title>
-
+  <!-- AOS Scroll Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
@@ -337,31 +338,82 @@
   </div>
 </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>More Projects</h2>
-    <div class="filters">
-      <button data-filter="all">All</button>
-      <button data-filter="web">Web</button>
-      <button data-filter="security">Security</button>
-    </div>
-    <div class="project-grid">
-      <div class="project-card" data-category="web">
-        <h3>Web App</h3>
-        <p>Details...</p>
-        <a href="https://github.com/SandisoMayekiso/My-portfolio-site/blob/main/README.md" target="_blank" rel="noopener noreferrer">
-          Visit My GitHub
-        </a>
+ <!-- Projects Section -->
+<section id="projects" class="projects-section">
+  <h2 class="section-title" data-aos="fade-up">Projects & Case Studies</h2>
+
+  <div class="filters" data-aos="fade-up" data-aos-delay="100">
+    <button data-filter="all" class="active">All</button>
+    <button data-filter="web">Web</button>
+    <button data-filter="security">Cybersecurity</button>
+    <button data-filter="python">Python</button>
+  </div>
+
+  <div class="project-grid">
+    
+    <!-- Project 1 -->
+    <div class="project-card" data-category="python" data-aos="zoom-in">
+      <img src="images/task_manager_gui.png" alt="Task Manager GUI" class="project-img">
+      <div class="project-content">
+        <h3>Task Manager GUI</h3>
+        <p>Python-based task management system with Tkinter GUI, user authentication, and admin reporting.</p>
+        <p><strong>Tech:</strong> Python, Tkinter, File I/O</p>
+        <div class="project-links">
+          <a href="https://github.com/SandisoMayekiso/Task-Manager-GUI" target="_blank" class="btn">GitHub</a>
+        </div>
       </div>
-      <div class="project-card" data-category="security">
-        <h3>Pen Test Tool</h3>
-        <p>Details...</p>
-        <a href="https://github.com/SandisoMayekiso/My-portfolio-site/blob/main/README.md" target="_blank" rel="noopener noreferrer">
-          Visit My GitHub
-        </a>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card" data-category="python" data-aos="zoom-in" data-aos-delay="100">
+      <img src="images/bookstore_inventory.png" alt="Bookstore Inventory System" class="project-img">
+      <div class="project-content">
+        <h3>Bookstore Inventory System</h3>
+        <p>CRUD-based application for managing books using SQLite database and Python backend.</p>
+        <p><strong>Tech:</strong> Python, SQLite, Tkinter</p>
+        <div class="project-links">
+          <a href="https://github.com/SandisoMayekiso/Bookstore-Inventory-System" target="_blank" class="btn">GitHub</a>
+        </div>
       </div>
     </div>
-  </section>
+
+    <!-- Project 3 -->
+    <div class="project-card" data-category="security" data-aos="zoom-in" data-aos-delay="200">
+      <img src="images/tryhackme-labs.png" alt="TryHackMe Labs" class="project-img">
+      <div class="project-content">
+        <h3>TryHackMe Labs & Writeups</h3>
+        <p>Documented penetration testing and ethical hacking labs with detailed writeups and tool demonstrations.</p>
+        <p><strong>Focus:</strong> Network scanning, privilege escalation, exploitation</p>
+        <div class="project-links">
+          <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups" target="_blank" class="btn">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card" data-category="web" data-aos="zoom-in" data-aos-delay="300">
+      <img src="images/portfolio_site.png" alt="Portfolio Website" class="project-img">
+      <div class="project-content">
+        <h3>Personal Portfolio Website</h3>
+        <p>Responsive portfolio website showcasing IT and cybersecurity projects, built with HTML, CSS, and JS.</p>
+        <p><strong>Tech:</strong> HTML, CSS, JavaScript</p>
+        <div class="project-links">
+          <a href="https://github.com/SandisoMayekiso/My-Portfolio-Site" target="_blank" class="btn">GitHub</a>
+          <a href="https://cyberwithsandiso.com" target="_blank" class="btn secondary">Live Demo</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: true      // only animate once when scrolling down
+  });
+</script>
 
   <!-- Footer -->
   <footer>
@@ -438,6 +490,7 @@
 
 </body>
 </html>
+
 
 
 
