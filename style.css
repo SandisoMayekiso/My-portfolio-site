@@ -643,6 +643,11 @@ body.light-mode .btn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
+@media (min-width: 1024px) {
+  .cert-item img {
+    height: 320px; /* bigger on desktop screens */
+  }
+}
 
 /* ===== PDF Links Grid Styling ===== */
 .pdf-links {
@@ -911,6 +916,7 @@ body.light-mode .btn {
 .prev:hover, .next:hover {
   background: rgba(0, 0, 0, 0.7);
 }
+
 
 
 
