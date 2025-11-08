@@ -544,24 +544,17 @@ body.light-mode .btn {
 .cert-item {
   background: rgba(255, 255, 255, 0.05);
   border: none;
-  border-radius: 18px;
-  padding: 1rem;
-  width: 100%;
-  max-width: 420px;
-  transition: all 0.35s ease;
-  box-shadow: 0 0 20px rgba(0, 180, 216, 0.1);
 }
 
 .cert-item:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(0, 180, 216, 0.6);
+
 }
 
 .cert-item img {
   width: 100%;
   height: 280px;
   object-fit: cover;
-  border-radius: 12px;
   cursor: pointer;
   transition: transform 0.4s ease, filter 0.4s ease;
   filter: brightness(0.9);
@@ -576,7 +569,7 @@ body.light-mode .btn {
   margin-top: 0.8rem;
   font-size: 1.05rem;
   font-weight: 500;
-  color: #f1f1f1;
+  color: blue;
   letter-spacing: 0.5px;
 }
 
@@ -918,6 +911,7 @@ body.light-mode .btn {
 .prev:hover, .next:hover {
   background: rgba(0, 0, 0, 0.7);
 }
+
 
 
 
