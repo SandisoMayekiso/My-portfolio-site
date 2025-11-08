@@ -746,6 +746,62 @@ body.light-mode .btn {
   opacity: 0.85;
   line-height: 1.5;
 }
+/* Slideshow Styling */
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slide {
+  display: none;
+}
+
+.slide img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Fade animation */
+.fade {
+  animation: fadeEffect 1s ease-in-out;
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0.4;}
+  to {opacity: 1;}
+}
+
+/* Navigation arrows */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 8px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  transition: 0.3s;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  user-select: none;
+}
+
+.next {
+  right: 8px;
+}
+
+.prev {
+  left: 8px;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
 
 
 
