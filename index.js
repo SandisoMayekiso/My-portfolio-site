@@ -375,6 +375,27 @@ function closeModal() {
   document.getElementById('certModal').style.display = 'none';
   document.getElementById('certFrame').src = '';
 }
+// Slideshow functionality for multiple project cards
+let slideIndex = [1,1,1]; // supports multiple slideshows
+let slideId = ["slide1", "slide2", "slide3"]; // optional if more
+
+showSlides(1, 2); // Project 3 slideshow index (change if more added)
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  let slides = document.querySelectorAll(".project-card:nth-of-type(" + (no+1) + ") .slide");
+  if (slides.length === 0) return;
+
+  if (n > slides.length) {slideIndex[no] = 1}
+  if (n < 1) {slideIndex[no] = slides.length}
+  
+  slides.forEach(slide => slide.style.display = "none");
+  slides[slideIndex[no]-1].style.display = "block";
+}
+
 
 
 
