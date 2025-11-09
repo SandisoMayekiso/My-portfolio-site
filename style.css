@@ -512,7 +512,7 @@ body.light-mode .btn {
 #certificates h2 {
   font-size: 2.4rem;
   margin-bottom: 2.5rem;
-  color: blue;
+  color: light blue;
   letter-spacing: 1px;
   position: relative;
   z-index: 1;
@@ -527,7 +527,7 @@ body.light-mode .btn {
 .cert-category h3 {
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
-  color: blue; /* Cyber blue accent */
+  color: light blue; /* Cyber blue accent */
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -569,7 +569,7 @@ body.light-mode .btn {
   margin-top: 0.8rem;
   font-size: 1.05rem;
   font-weight: 500;
-  color: blue;
+  color: light blue;
   letter-spacing: 0.5px;
 }
 
@@ -911,6 +911,7 @@ body.light-mode .btn {
 .prev:hover, .next:hover {
   background: rgba(0, 0, 0, 0.7);
 }
+
 
 
 
