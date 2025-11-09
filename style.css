@@ -911,6 +911,58 @@ body.light-mode .btn {
 .prev:hover, .next:hover {
   background: rgba(0, 0, 0, 0.7);
 }
+.project-card {
+  background: var(--secondary-bg);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-align: center;
+  padding: 20px;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.project-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.project-info h3 {
+  color: var(--accent);
+  margin-top: 12px;
+}
+
+.project-info p {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin: 10px 0;
+}
+
+.project-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.project-links .btn {
+  background: var(--accent);
+  color: var(--text-light);
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.project-links .btn:hover {
+  background: #0094b3;
+}
+
 
 
 
