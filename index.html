@@ -3,162 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CyberWithSandiso | Portfolio</title>
-
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a2d9b5a64d.js" crossorigin="anonymous"></script>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <title>CyberWithSandiso.com</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- ========== HEADER ========== -->
+  <!-- Navigation -->
+  <nav>
+    <h1>CyberWithSandiso.com</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
   <header>
-    <div class="logo">CyberWithSandiso</div>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+    <h1>CyberWithSandiso.com</h1>
+    <p>Cybersecurity | IT Engineer</p>
+    <div class="cta">
+      <a href="#contact">Contact Me</a>
+    </div>
   </header>
 
-  <!-- ========== HERO SECTION ========== -->
-  <section id="hero">
-    <video autoplay muted loop id="bg-video">
-      <source src="assets/hero-bg.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-content">
-      <h1>Hi, I’m <span>Sandiso Mayekiso</span></h1>
-      <h2><span class="typing"></span></h2>
-      <a href="#projects" class="btn">View My Work</a>
-    </div>
-  </section>
-
-  <!-- ========== ABOUT SECTION ========== -->
-  <section id="about" class="section">
+  <!-- About Section -->
+  <section id="about">
     <h2>About Me</h2>
-    <p>
-      I’m a Cybersecurity and IT Engineer passionate about system security, network defense, and ethical hacking. 
-      I specialize in building secure systems, conducting vulnerability assessments, and continuously learning through platforms like TryHackMe and Hack The Box.
-    </p>
+    <p>I'm a certified IT and cybersecurity professional with a strong foundation in IT engineering, business management, and technical support. Backed by CompTIA (A+, Network+, Server+, Security+) and Cisco CCNA, I bring hands-on expertise in computer systems, network administration, and security technologies.</p>
   </section>
 
-  <!-- ========== SKILLS SECTION ========== -->
-  <section id="skills" class="section">
+  <!-- Skills Section -->
+  <section id="skills">
     <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill">Python</div>
-      <div class="skill">Networking</div>
-      <div class="skill">Linux</div>
-      <div class="skill">Active Directory</div>
-      <div class="skill">Penetration Testing</div>
-      <div class="skill">Wireshark</div>
-    </div>
+    <ul>
+      <li>Network device configuration and management</li>
+      <li>Operating systems and network protocols</li>
+      <li>Cybersecurity best practices and compliance</li>
+      <li>Penetration testing and vulnerability assessment</li>
+      <li>Digital forensics and incident response</li>
+      <li>Python, HTML, CSS, Kali Linux, SSH, HTTP analysis</li>
+    </ul>
   </section>
 
-  <!-- ========== CERTIFICATIONS SECTION ========== -->
-  <section id="certifications" class="section">
+  <!-- Certifications Section -->
+  <section id="certifications">
     <h2>Certifications</h2>
-    <div class="certificates-scroll">
-      <div class="certificate-card">
-        <img src="images/tryhackme-cert.png" alt="TryHackMe Certificate">
-        <div class="cert-buttons">
-          <a href="certificates/TryHackMe.pdf" class="btn" download>Download PDF</a>
-          <a href="certificates/TryHackMe.pdf" target="_blank" class="btn">View PDF</a>
-        </div>
+    <ul>
+      <li>CompTIA A+, Network+, Server+, Security+, CCNA</li>
+      <li>Python Defensive Programming, Web Development, Pen-testing, Digital Forensics</li>
+    </ul>
+    <figure>
+      <div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBzh4yk-4En2pJ6allZBdpIkxGvtwpc9wv8Q&s" alt="IT Engineering">
+        <figcaption>Optimi College</figcaption>
       </div>
-      <div class="certificate-card">
-        <img src="images/google-cybersecurity-cert.png" alt="Google Cybersecurity Certificate">
-        <div class="cert-buttons">
-          <a href="certificates/GoogleCyber.pdf" class="btn" download>Download PDF</a>
-          <a href="certificates/GoogleCyber.pdf" target="_blank" class="btn">View PDF</a>
-        </div>
+      <div>
+        <img src="https://blog.hyperiondev.com/wp-content/uploads/2018/10/Blog-Article-Free-Trial-Expect.jpg" alt="Cybersecurity Bootcamp">
+        <figcaption>HyperionDev Bootcamp</figcaption>
       </div>
-    </div>
+    </figure>
   </section>
 
-  <!-- ========== PROJECTS SECTION ========== -->
-  <section id="projects" class="section">
+  <!-- Projects Section -->
+  <section id="projects">
     <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card" data-aos="fade-up">
-        <img src="images/metadata-extractor.png" alt="Metadata Extractor Project">
-        <div class="project-info">
-          <h3>File Metadata Extractor</h3>
-          <p>A Python Tkinter app that extracts and exports detailed file metadata (size, timestamps, type) into a CSV file.</p>
-          <a href="https://github.com/SandisoMayekiso/File-Metadata-Extractor" target="_blank" class="btn">View on GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card" data-aos="fade-up">
-        <img src="images/task-manager.png" alt="Task Manager Project">
-        <div class="project-info">
-          <h3>Task Manager</h3>
-          <p>A command-line and GUI-based Python task manager with user authentication and report generation features.</p>
-          <a href="https://github.com/SandisoMayekiso/Task-Manager" target="_blank" class="btn">View on GitHub</a>
-        </div>
-      </div>
+    <div class="project-card">
+      <img src="images/project1.png" alt="Project 1">
+      <p>Project 1 description</p>
+    </div>
+    <div class="project-card">
+      <img src="images/project2.png" alt="Project 2">
+      <p>Project 2 description</p>
     </div>
   </section>
 
-  <!-- ========== CONTACT SECTION ========== -->
-  <section id="contact" class="section">
+  <!-- Contact Section -->
+  <section id="contact">
     <h2>Contact</h2>
-    <form action="https://formspree.io/f/yourformid" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
+    <p>Email: <a href="mailto:mayekisosandiso@gmail.com">mayekisosandiso@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank">linkedin.com/in/sandiso-mayekiso</a></p>
+    <p>GitHub: <a href="https://github.com/sandiso-mayekiso" target="_blank">github.com/sandiso-mayekiso</a></p>
+    <p>Phone: <a href="tel:+27658571926">+27 65 857 1926</a></p>
+    <p>Address: 8609 NY 111, Gugulethu, Cape Town, Western Cape, South Africa</p>
   </section>
 
-  <!-- ========== FOOTER ========== -->
   <footer>
-    <p>© 2025 CyberWithSandiso | Built with 💙 in Python & Web Tech</p>
+    &copy; 2025 CyberWithSandiso.com. All rights reserved.
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="script.js"></script>
-  <script// ====== TYPING EFFECT ======
-document.addEventListener("DOMContentLoaded", function () {
-  new Typed(".typing", {
-    strings: ["Cybersecurity Engineer", "IT Engineer", "Network Defender", "Ethical Hacker"],
-    typeSpeed: 80,
-    backSpeed: 40,
-    loop: true,
-  });
-});
-
-// ====== DARK/LIGHT MODE TOGGLE ======
-const toggleButton = document.getElementById("theme-toggle");
-const body = document.body;
-
-// Load saved theme preference
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light") {
-  body.classList.add("light-mode");
-  toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
-}
-
-// Toggle theme when clicked
-toggleButton.addEventListener("click", () => {
-  body.classList.toggle("light-mode");
-
-  if (body.classList.contains("light-mode")) {
-    localStorage.setItem("theme", "light");
-    toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
-  } else {
-    localStorage.setItem("theme", "dark");
-    toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
-  }
-});
-</script>
 </body>
 </html>
