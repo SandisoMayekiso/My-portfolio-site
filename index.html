@@ -3,554 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CyberWithSandiso</title>
-
-  <!-- External CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <title>CyberWithSandiso | Portfolio</title>
 
   <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2d9b5a64d.js" crossorigin="anonymous"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Your header/navigation goes here -->
+  <!-- ========== HEADER ========== -->
   <header>
-    <h1>CyberWithSandiso</h1>
+    <div class="logo">CyberWithSandiso</div>
     <nav>
       <ul>
-        <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <button id="theme-toggle">🌙</button>
+    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
   </header>
 
-  <!-- About Section -->
-  <section id="about">
+  <!-- ========== HERO SECTION ========== -->
+  <section id="hero">
+    <video autoplay muted loop id="bg-video">
+      <source src="assets/hero-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-content">
+      <h1>Hi, I’m <span>Sandiso Mayekiso</span></h1>
+      <h2><span class="typing"></span></h2>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT SECTION ========== -->
+  <section id="about" class="section">
     <h2>About Me</h2>
     <p>
-      I am a certified Cybersecurity and IT engineering professional with a solid foundation in Python programming, ethical hacking, and modern cybersecurity practices. My expertise is backed by certifications from CompTIA (A+, Network+, Server+, Security+) and Cisco (CCNA), and strengthened by hands-on training from the HyperionDev Cybersecurity Bootcamp.
+      I’m a Cybersecurity and IT Engineer passionate about system security, network defense, and ethical hacking. 
+      I specialize in building secure systems, conducting vulnerability assessments, and continuously learning through platforms like TryHackMe and Hack The Box.
     </p>
-    <p>During my cybersecurity bootcamp, I gained hands-on experience with a range of tools and techniques used in ethical hacking and penetration testing. I learned how to perform reconnaissance using tools like Spiderfoot, theHarvester, Sublist3r, and Assetfinder for email harvesting, subdomain enumeration, and asset discovery. I used Nmap for network scanning and Nessus for vulnerability assessment. Web application testing was enhanced through Burp Suite, where I explored attacks like XXE (XML External Entity) injection. For privilege escalation and post-exploitation on Linux and Windows systems, I worked with LinPEAS, LinEnum, Linux Exploit Suggester, and Windows Exploit Suggester. Finally, I utilized the Metasploit Framework to execute exploits and gain deeper insight into real-world penetration testing workflows.</p>
-    
   </section>
 
-  <!-- Skills Section -->
-<section id="skills">
-  <h2>Skills</h2>
-
-  <div class="skills-grid">
-
-    <!-- Networking -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2991/2991102.png" alt="Networking Icon">
-      <h3>Network Device Configuration</h3>
-      <p>Setup and manage routers, switches, and firewalls across complex networks.</p>
+  <!-- ========== SKILLS SECTION ========== -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">Python</div>
+      <div class="skill">Networking</div>
+      <div class="skill">Linux</div>
+      <div class="skill">Active Directory</div>
+      <div class="skill">Penetration Testing</div>
+      <div class="skill">Wireshark</div>
     </div>
+  </section>
 
-    <!-- OS & Protocols -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732223.png" alt="Windows Icon">
-      <h3>Operating Systems & Protocols</h3>
-      <p>Strong understanding of Windows, Linux, and common networking protocols.</p>
-    </div>
-
-    <!-- Cybersecurity -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828640.png" alt="Shield Icon">
-      <h3>Cybersecurity & Compliance</h3>
-      <p>Protect systems from threats while maintaining compliance with security standards.</p>
-    </div>
-
-    <!-- Pen Testing -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Hacker Icon">
-      <h3>Penetration Testing & Vulnerability Assessment</h3>
-      <p>Identify and mitigate security risks through ethical hacking practices.</p>
-    </div>
-
-    <!-- Digital Forensics -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2010/2010978.png" alt="Forensics Icon">
-      <h3>Digital Forensics & Incident Response</h3>
-      <p>Investigate cyber incidents and collect digital evidence securely.</p>
-    </div>
-
-    <!-- HTML -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" alt="HTML Icon">
-      <h3>Mastering Responsive HTML</h3>
-      <p>Build semantic and responsive web pages using modern HTML5 techniques.</p>
-    </div>
-
-    <!-- CSS -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS Icon">
-      <h3>Styling with CSS</h3>
-      <p>Design visually appealing web pages with advanced CSS styling and layout methods.</p>
-    </div>
-
-    <!-- JavaScript -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript Icon">
-      <h3>Interactive Web Experiences</h3>
-      <p>Create dynamic and interactive websites using modern JavaScript.</p>
-    </div>
-
-    <!-- VS Code -->
-    <div class="skill-item">
-      <img src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/3254514/visual-studio-code-icon-md.png" alt="VS Code Icon">
-      <h3>Boost Productivity with VS Code</h3>
-      <p>Efficient coding using Visual Studio Code extensions and shortcuts.</p>
-    </div>
-
-    <!-- API -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920342.png" alt="API Icon">
-      <h3>Understanding APIs</h3>
-      <p>Integrate and consume APIs to connect software systems effectively.</p>
-    </div>
-
-    <!-- Git -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111288.png" alt="Git Icon">
-      <h3>Version Control with Git</h3>
-      <p>Track and manage project changes using Git for efficient development.</p>
-    </div>
-
-    <!-- GitHub -->
-    <div class="skill-item">
-      <img src="https://www.kindpng.com/picc/m/181-1817010_github-github-icon-hd-png-download.png" alt="GitHub Icon">
-      <h3>Collaborating with GitHub</h3>
-      <p>Host and collaborate on projects with team members on GitHub.</p>
-    </div>
-
-    <!-- Hosting -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/1239/1239525.png" alt="Hosting Icon">
-      <h3>Web Hosting Basics</h3>
-      <p>Deploy websites and applications on various hosting platforms securely.</p>
-    </div>
-
-    <!-- Python -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python Icon">
-      <h3>Programming with Python</h3>
-      <p>Develop automation scripts and backend applications using Python.</p>
-    </div>
-
-    <!-- Technical Support -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/3616/3616197.png" alt="Support Icon">
-      <h3>Providing Technical Support</h3>
-      <p>Troubleshoot and resolve user issues with professional customer service.</p>
-    </div>
-
-    <!-- Customer Care -->
-    <div class="skill-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/1087/1087840.png" alt="Customer Care Icon">
-      <h3>Excellence in Customer Service</h3>
-      <p>Deliver quality assistance and maintain strong client relationships.</p>
-    </div>
-
-  </div>
-</section>
-  
-<!-- Certificates Section -->
-<!-- CERTIFICATES SECTION -->
-<section id="certificates">
-  <h2>Certificates</h2>
-
-  <!-- === TRYHACKME SECTION === -->
-  <div class="cert-category">
-    <h3>TryHackMe: Cyber 101 & Penetration Testing</h3>
-    <div class="cert-grid">
-      <div class="cert-item">
-        <img src="Images/Cyber101 Certificate.jpg" alt="Cyber101 Certificate"
-             onclick="openModal('Images/Cyber101.pdf', 'Cyber Security 101')" />
-        <p>Cyber Security 101</p>
+  <!-- ========== CERTIFICATIONS SECTION ========== -->
+  <section id="certifications" class="section">
+    <h2>Certifications</h2>
+    <div class="certificates-scroll">
+      <div class="certificate-card">
+        <img src="images/tryhackme-cert.png" alt="TryHackMe Certificate">
+        <div class="cert-buttons">
+          <a href="certificates/TryHackMe.pdf" class="btn" download>Download PDF</a>
+          <a href="certificates/TryHackMe.pdf" target="_blank" class="btn">View PDF</a>
+        </div>
       </div>
-
-      <div class="cert-item">
-        <img src="Images/Junior PenTester Certificate.jpg" alt="Junior PenTester Certificate"
-             onclick="openModal('Images/Junior PenTester-Tryhackme cert.pdf', 'Junior PenTester Certificate')" />
-        <p>Junior PenTester</p>
+      <div class="certificate-card">
+        <img src="images/google-cybersecurity-cert.png" alt="Google Cybersecurity Certificate">
+        <div class="cert-buttons">
+          <a href="certificates/GoogleCyber.pdf" class="btn" download>Download PDF</a>
+          <a href="certificates/GoogleCyber.pdf" target="_blank" class="btn">View PDF</a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- === HYPERIONDEV SECTION === -->
-  <div class="cert-category">
-    <h3>HyperionDev Bootcamp</h3>
-    <div class="cert-grid">
-      <div class="cert-item">
-        <img src="Images/Cyber Security Certificate.jpg" alt="Cyber Security Certificate"
-             onclick="openModal('Images/CyberSecurity certificate.pdf', 'Cyber Security Certificate')" />
-        <p>Cyber Security Certificate</p>
+  <!-- ========== PROJECTS SECTION ========== -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" data-aos="fade-up">
+        <img src="images/metadata-extractor.png" alt="Metadata Extractor Project">
+        <div class="project-info">
+          <h3>File Metadata Extractor</h3>
+          <p>A Python Tkinter app that extracts and exports detailed file metadata (size, timestamps, type) into a CSV file.</p>
+          <a href="https://github.com/SandisoMayekiso/File-Metadata-Extractor" target="_blank" class="btn">View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-aos="fade-up">
+        <img src="images/task-manager.png" alt="Task Manager Project">
+        <div class="project-info">
+          <h3>Task Manager</h3>
+          <p>A command-line and GUI-based Python task manager with user authentication and report generation features.</p>
+          <a href="https://github.com/SandisoMayekiso/Task-Manager" target="_blank" class="btn">View on GitHub</a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- === OPTIMI COLLEGE SECTION === -->
-  <div class="cert-category">
-    <h3>Optimi College</h3>
-    <div class="cert-grid">
-      <div class="cert-item">
-        <img src="Images/Optimi Course Certificate.jpg" alt="Optimi Course Certificate"
-             onclick="openModal('Images/Optimi Course completion Sandiso Mayekiso IT Engineer.pdf', 'Course Completion (IT Engineer)')" />
-        <p>Course Completion (IT Engineer)</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- === BUSINESS MANAGEMENT SECTION === -->
-  <div class="cert-category">
-    <h3>College of Cape Town</h3>
-    <div class="cert-grid">
-      <div class="cert-item">
-        <img src="Images/Business Management Certificate.jpg" alt="Business Management Certificate"
-             onclick="openModal('Images/Business Management Certificate N6.pdf', 'Business Management Certificate (N6)')" />
-        <p>Business Management Certificate NQF 5</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATE POPUP MODAL -->
-<div id="certModal" class="cert-modal">
-  <div class="cert-modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h3 id="certTitle"></h3>
-    <iframe id="certFrame" src="" frameborder="0"></iframe>
-  </div>
-</div>
-
-
-  <!-- PDF Links -->
-<div class="pdf-links">
-  <h3>Download / View as PDF</h3>
-  <div class="pdf-grid">
-    <a href="Images/Cyber101.pdf" target="_blank">Cyber 101 (TryHackMe)</a>
-    <a href="Images/CyberSecurity%20certificate.pdf" target="_blank">CyberSecurity Certificate</a>
-    <a href="Images/CyberSecurity+certificate-compressed.pdf" target="_blank">CyberSecurity+ Certificate</a>
-    <a href="Images/Junior PenTester-Tryhackme cert.pdf" target="_blank">Junior PenTester TryHackMe</a>
-    <a href="Images/Optimi Course completion Sandiso Mayekiso IT Engineer.pdf" target="_blank">Optimi Course Completion</a>
-    <a href="Images/Statement of results Sandiso Mayekiso IT Engineer.pdf" target="_blank">Statement of Results IT Engineer</a>
-    <a href="Images/Business%20Management%20Certificate%20N6.pdf" target="_blank">Business Management Certificate</a>
-  </div>
-</div>
-
-  <!-- Contact Section -->
-  <section id="contact">
+  <!-- ========== CONTACT SECTION ========== -->
+  <section id="contact" class="section">
     <h2>Contact</h2>
-    <div class="contact-icons">
-      <a href="mailto:mayekisosandiso@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="tel:0658571926"><i class="fas fa-phone"></i></a>
-      <a href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/hyperiondev-bootcamps/SM24120016677.git" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://wa.me/27658571926" target="_blank"><i class="fab fa-whatsapp"></i> Chat</a>
-
-    </div>
-    <p>Address: 8609 NY 111, Gugulethu, Cape Town, Western Cape, South Africa 7750</p>
-    <form action="https://formspree.io/f/xrblkvbz" method="POST" class="contact-form">
-      <label>Name:<input type="text" name="name" required></label>
-      <label>Email:<input type="email" name="_replyto" required></label>
-      <label>Message:<textarea name="message" rows="4" required></textarea></label>
-      <button type="submit">Send</button>
+    <form action="https://formspree.io/f/yourformid" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
     </form>
   </section>
-<section class="My-Curriculum-Vitae" aria-label="Resume and documents">
-  <div class="showcase-inner">
-    <div class="showcase-label" role="text">
-      <svg class="doc-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="currentColor"/>
-      </svg>
-      <span>Supporting Documents — CV · Cover Letter · Project</span>
-    </div>
 
-    <nav class="Documents-actions" aria-label="Document actions">
-      <!-- View CV -->
-      <a class="btn" href="Files/cv-of-sandiso-mayekiso.pdf" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        View CV
-      </a>
-
-      <!-- View Cover Letter -->
-      <a class="btn" href="Files/cover-letter-of-sandiso-mayekiso.pdf" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        View Cover Letter
-      </a>
-
-      <!-- Download Cover Letter -->
-      <a class="btn outline" href="Files/cover-letter-of-sandiso-mayekiso.pdf" download>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M7 10l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-        Download Cover Letter
-      </a>
-
-      <!-- View Project (Incident Response Plan) -->
-      <a class="btn" href="Files/Project.pdf" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M8 11l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        View Incident Response Plan
-      </a>
-    </nav>
-  </div>
-</section>
-
- <!-- Projects Section -->
-<section id="projects" class="projects-section">
-  <h2 class="section-title" data-aos="fade-up">Projects & Case Studies</h2>
-
-  <div class="filters" data-aos="fade-up" data-aos-delay="100">
-    <button data-filter="all" class="active">All</button>
-    <button data-filter="web">Web</button>
-    <button data-filter="security">Cybersecurity</button>
-    <button data-filter="python">Python</button>
-  </div>
-
-  <div class="project-grid">
-  <!-- Project 1 -->
-  <div class="project-card" data-category="python" data-aos="zoom-in">
-    <img src="images/task_manager_gui.png" alt="Task Manager GUI" class="project-img">
-    <div class="project-content">
-      <h3>Task Manager GUI</h3>
-      <p>Python-based task management system with Tkinter GUI, user authentication, and admin reporting.</p>
-      <p><strong>Tech:</strong> Python, Tkinter, File I/O</p>
-      <div class="project-links">
-        <a href="https://github.com/SandisoMayekiso/Task-Manager-GUI" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 2 -->
-  <div class="project-card" data-category="python" data-aos="zoom-in" data-aos-delay="100">
-    <img src="images/bookstore_inventory.jpg" alt="Bookstore Inventory System" class="project-img">
-    <div class="project-content">
-      <h3>Bookstore Inventory System</h3>
-      <p>CRUD-based application for managing books using SQLite database and Python backend.</p>
-      <p><strong>Tech:</strong> Python, SQLite, Tkinter</p>
-      <div class="project-links">
-        <a href="https://github.com/SandisoMayekiso/Bookstore_inventory_system" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 3 (with slideshow) -->
-  <div class="project-card" data-category="security" data-aos="zoom-in" data-aos-delay="200">
-    <div class="slideshow-container">
-      <div class="slide fade">
-        <img src="images/tryhackme-labs.png" alt="TryHackMe Labs Screenshot 1" class="project-img">
-      </div>
-      <div class="slide fade">
-        <img src="images/tryhackme-labs2.png" alt="TryHackMe Labs Screenshot 2" class="project-img">
-      </div>
-      <div class="slide fade">
-        <img src="images/tryhackme-labs3.png" alt="TryHackMe Labs Screenshot 3" class="project-img">
-      </div>
-      <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
-    </div>
-
-    <div class="project-content">
-      <h3>TryHackMe Labs & Writeups</h3>
-      <p>Documented penetration testing and ethical hacking labs with detailed writeups and tool demonstrations.</p>
-      <p><strong>Focus:</strong> Network scanning, privilege escalation, exploitation</p>
-      <div class="project-links">
-        <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups/blob/main/README.md" target="_blank" class="btn">GitHub</a>
-      </div>
-    </div>
-  </div>
-</div>
-  <!-- === PROJECT: File Metadata Extractor === -->
-<div class="project-card" data-category="python" data-aos="zoom-in" data-aos-delay="200">
-  <div class="slideshow-container">
-    <div class="slide fade">
-      <img src="images/metadata-gui.png" alt="File Metadata Extractor App" class="project-img">
-    </div>
-  </div>
-
-  <div class="project-info">
-    <h3>🧾 File Metadata Extractor</h3>
-    <p>A Python-based GUI tool built with tkinter that extracts detailed file metadata such as name, type, size, and timestamps. 
-    It includes CSV export and logging functionality — ideal for digital forensics and IT professionals.</p>
-
-    <div class="project-links">
-      <a href="https://github.com/<your-username>/file-metadata-extractor" target="_blank" class="btn">View on GitHub</a>
-      <a href="images/metadata-gui.png" target="_blank" class="btn">View Screenshot</a>
-    </div>
-  </div>
-</div>
-
-</section>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000, // animation duration in ms
-    once: true      // only animate once when scrolling down
-  });
-</script>
-
-  <!-- Footer -->
+  <!-- ========== FOOTER ========== -->
   <footer>
-    &copy; 2025 CyberWithSandiso.com All rights reserved.
+    <p>© 2025 CyberWithSandiso | Built with 💙 in Python & Web Tech</p>
   </footer>
 
-  <!-- JavaScript -->
-  <script>
-    document.querySelectorAll('nav ul.menu li a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-    });
-
-    const sections = document.querySelectorAll('section');
-    const revealSections = () => {
-      const trigger = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < trigger) {
-          section.classList.add('visible');
-        }
-      });
-    };
-    window.addEventListener('scroll', revealSections);
-    window.addEventListener('load', revealSections);
-
-    const scrollBtn = document.createElement('button');
-    scrollBtn.textContent = '↑';
-    scrollBtn.style.position = 'fixed';
-    scrollBtn.style.bottom = '20px';
-    scrollBtn.style.right = '20px';
-    scrollBtn.style.padding = '10px';
-    scrollBtn.style.fontSize = '1.2rem';
-    scrollBtn.style.border = 'none';
-    scrollBtn.style.borderRadius = '8px';
-    scrollBtn.style.backgroundColor = '#007BFF';
-    scrollBtn.style.color = '#fff';
-    scrollBtn.style.display = 'none';
-    scrollBtn.title = 'Scroll to Top';
-    document.body.appendChild(scrollBtn);
-
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    window.addEventListener('scroll', () => {
-      scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-  </script>
-  <script>
-  // Dark/light mode with localStorage
-  const toggleBtn = document.getElementById('theme-toggle');
-  const currentTheme = localStorage.getItem('theme');
-
-  if (currentTheme === 'light') {
-    document.body.classList.add('light-mode');
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    const theme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
-    localStorage.setItem('theme', theme);
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="script.js"></script>
+  <script// ====== TYPING EFFECT ======
+document.addEventListener("DOMContentLoaded", function () {
+  new Typed(".typing", {
+    strings: ["Cybersecurity Engineer", "IT Engineer", "Network Defender", "Ethical Hacker"],
+    typeSpeed: 80,
+    backSpeed: 40,
+    loop: true,
   });
-    // Slideshow functionality for multiple project cards
-let slideIndex = [1,1,1]; // supports multiple slideshows
-let slideId = ["slide1", "slide2", "slide3"]; // optional if more
-
-showSlides(1, 2); // Project 3 slideshow index (change if more added)
-
-function plusSlides(n, no) {
-  showSlides(slideIndex[no] += n, no);
-}
-
-function showSlides(n, no) {
-  let slides = document.querySelectorAll(".project-card:nth-of-type(" + (no+1) + ") .slide");
-  if (slides.length === 0) return;
-
-  if (n > slides.length) {slideIndex[no] = 1}
-  if (n < 1) {slideIndex[no] = slides.length}
-  
-  slides.forEach(slide => slide.style.display = "none");
-  slides[slideIndex[no]-1].style.display = "block";
-}
-  // Theme Toggle Script
-const toggleBtn = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme');
-
-// Load saved theme
-if (currentTheme === 'light') {
-  document.body.classList.add('light-mode');
-  toggleBtn.textContent = '☀️';
-}
-
-// Toggle theme on click
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
-
-  if (document.body.classList.contains('light-mode')) {
-    toggleBtn.textContent = '☀️';
-    localStorage.setItem('theme', 'light');
-  } else {
-    toggleBtn.textContent = '🌙';
-    localStorage.setItem('theme', 'dark');
-  }
 });
 
+// ====== DARK/LIGHT MODE TOGGLE ======
+const toggleButton = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Load saved theme preference
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "light") {
+  body.classList.add("light-mode");
+  toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+}
+
+// Toggle theme when clicked
+toggleButton.addEventListener("click", () => {
+  body.classList.toggle("light-mode");
+
+  if (body.classList.contains("light-mode")) {
+    localStorage.setItem("theme", "light");
+    toggleButton.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    localStorage.setItem("theme", "dark");
+    toggleButton.innerHTML = '<i class="fas fa-moon"></i>';
+  }
+});
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
