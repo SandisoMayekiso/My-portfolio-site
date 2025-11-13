@@ -136,4 +136,4 @@ This repository contains all source code for my **personal portfolio website**, 
 
 ---
 
-© 2025 **Sandiso Mayekiso** | CyberWithSandiso  
+© 2025 **Sandiso Mayekiso** | CyberWithSandiso
