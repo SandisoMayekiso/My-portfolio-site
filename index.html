@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberWithSandiso | Portfolio Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- ✅ Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <div class="brand">
+      <div class="brand-left">
+        <i class="fas fa-shield-alt brand-icon"></i>
+        <span>CyberWithSandiso</span>
+      </div>
+      <button id="collapse-btn"><i class="fas fa-bars"></i></button>
+    </div>
+
+    <button id="theme-toggle" class="theme-toggle">
+  <i class="fas fa-moon"></i>
+</button>
+
+    <ul class="menu">
+      <li><a href="#" class="active" data-target="dashboard"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+      <li><a href="#" data-target="projects"><i class="fas fa-folder-open"></i> <span>Projects</span></a></li>
+      <li><a href="#" data-target="notifications"><i class="fas fa-bell"></i> <span>Notifications</span></a></li>
+      <li><a href="#" data-target="certificates"><i class="fas fa-award"></i> <span>Certificates</span></a></li>
+      <li><a href="#" data-target="skills"><i class="fas fa-star"></i> <span>Skills</span></a></li>
+      <li><a href="#" data-target="contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main id="main-content">
+    <header>
+      <h1 class="page-title">Dashboard</h1>
+    </header>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page-section">
+      <div class="about">
+        <div class="about-text">
+          <h2>About</h2>
+          <p>I am a certified Cybersecurity and IT Engineering professional with a strong foundation in Python programming, ethical hacking, and modern cybersecurity practices. My expertise is supported by globally recognized certifications including CompTIA A+, Network+, Server+, Security+ and Cisco CCNA, and strengthened through intensive hands-on training at the HyperionDev Cybersecurity Bootcamp.</p>
+          <p>I have completed TryHackMe's Cyber Security 101 and Junior Penetration Tester paths, gaining hands-on experience in Linux, reconnaissance, web security, and penetration testing.</p>
+          <p>During my bootcamp I used tools such as: Nmap, Burp Suite, Metasploit, LinPEAS, Nessus and Wireshark.</p>
+
+          <h3>🧰 Tools & Technologies</h3>
+          <table class="tools-table">
+            <tr><th>Tool</th><th>Description</th></tr>
+            <tr><td>🐍 Python</td><td>Scripting, automation & data handling</td></tr>
+            <tr><td>🌐 HTML, CSS, JS</td><td>Responsive web design & interactivity</td></tr>
+            <tr><td>💻 VS Code</td><td>Primary development environment</td></tr>
+            <tr><td>🔐 TryHackMe</td><td>Hands-on cybersecurity training</td></tr>
+            <tr><td>🧠 Git & GitHub</td><td>Version control & collaboration</td></tr>
+            <tr><td>☁️ Hosting</td><td>GitHub Pages, Netlify, or local servers</td></tr>
+          </table>
+
+          <h3>🌟 Professional Highlights</h3>
+          <ul>
+            <li>⚙️ Built and deployed multiple web projects using HTML, CSS, JS, Firebase.</li>
+            <li>🧠 Configured Windows Server 2019 for Active Directory and pentesting simulations.</li>
+            <li>🧩 Completed TryHackMe cybersecurity pathways for network defense & ethical hacking.</li>
+            <li>🕵️ Practiced incident response and vulnerability analysis with Kali Linux.</li>
+            <li>📈 Expanding skills in SOC analysis, SIEM (Splunk), and threat hunting.</li>
+          </ul>
+        </div>
+
+
+<aside class="main-right">
+  <section class="profile-card card">
+    <img src="images/profile.jpg" alt="Sandiso profile" class="profile-img">
+    <h3>Sandiso Mayekiso</h3>
+    <p class="muted">Cybersecurity & IT Engineer</p>
+
+    <div class="social-links">
+      <a href="www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/SandisoMayekiso/My-portfolio-site/blob/main/README.md" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://tryhackme.com/p/mayekisosandiso" target="_blank" aria-label="TryHackMe"><i class="fas fa-award"></i></a>
+    </div>
+  </section>
+
+  <!-- Recent Activities -->
+  <section class="recent-activities card">
+    <div class="notifications-header">
+      <i class="fas fa-bell"></i>
+      <h4>Recent Activities</h4>
+    </div>
+
+    <div class="notifications-list">
+      <div class="notification-card success">
+        <i class="fas fa-check-circle"></i>
+        <div class="n-body">
+          <p>Bookstore Inventory project deployed</p>
+          <span class="timestamp">1 hour ago</span>
+        </div>
+      </div>
+
+      <div class="notification-card info">
+        <i class="fas fa-info-circle"></i>
+        <div class="n-body">
+          <p>New comment on TryHackMe report</p>
+          <span class="timestamp">10 mins ago</span>
+        </div>
+      </div>
+
+      <div class="notification-card warning">
+        <i class="fas fa-exclamation-triangle"></i>
+        <div class="n-body">
+          <p>System scan completed with warnings</p>
+          <span class="timestamp">Yesterday</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</aside>
+
+      <div class="github-stats">
+        <h3>📊 GitHub Stats</h3>
+        <img src="https://github-readme-stats.vercel.app/api?username=SandisoMayekiso&show_icons=true&theme=tokyonight" alt="GitHub Stats">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SandisoMayekiso&layout=compact&theme=tokyonight" alt="Top Languages">
+
+        <h3>🧠 Additional Visuals</h3>
+        <img src="https://github-profile-trophy.vercel.app/?username=SandisoMayekiso&theme=tokyonight&no-frame=true&column=4" alt="GitHub Trophies">
+        <img src="https://github-readme-activity-graph.vercel.app/graph?username=SandisoMayekiso&theme=react-dark&hide_border=true" alt="GitHub Activity">
+      </div>
+  </section>  
+  
+      <!-- PROJECTS -->
+<section id="projects" class="page-section hidden">
+  <h2>🚀 Projects & Case Studies</h2>
+
+  <div class="projects-grid">
+    <!-- Bookstore Inventory -->
+    <div class="project-card" data-modal="modal1">
+      <img src="images/bookstore_inventory.jpg" alt="Bookstore Inventory">
+      <div class="project-info">
+        <h3>Bookstore Inventory</h3>
+        <p>Python & SQLite inventory management system.</p>
+      </div>
+    </div>
+
+    <!-- Metadata GUI -->
+    <div class="project-card" data-modal="modal2">
+      <img src="images/metadata-gui.png" alt="Metadata GUI">
+      <div class="project-info">
+        <h3>Metadata GUI</h3>
+        <p>View and edit file metadata with a GUI interface.</p>
+      </div>
+    </div>
+
+    <!-- Task Manager -->
+    <div class="project-card" data-modal="modal3">
+      <img src="images/task_manager_gui.png" alt="Task Manager">
+      <div class="project-info">
+        <h3>Task Manager</h3>
+        <p>Desktop app for managing user tasks and statistics.</p>
+      </div>
+    </div>
+
+    <!-- TryHackMe Labs -->
+    <div class="project-card" data-modal="modal4">
+      <img src="images/tryhackme-labs1.png" alt="TryHackMe Labs">
+      <div class="project-info">
+        <h3>TryHackMe Labs</h3>
+        <p>Hands-on cybersecurity training & CTF writeups.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODALS -->
+<div id="modal1" class="project-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>📚 Bookstore Inventory System</h2>
+    <img src="images/bookstore_inventory.jpg" alt="">
+    <p>This system manages books, sales, and stock levels using SQLite. It includes features for adding, searching, and updating records.</p>
+    <p><strong>Tech Used:</strong> Python, SQLite, Tkinter</p>
+    <div class="modal-links">
+      <a href="https://github.com/SandisoMayekiso/Bookstore_inventory_system" target="_blank" class="github-btn">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="modal2" class="project-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>🧩 Metadata GUI</h2>
+    <img src="images/metadata-gui.png" alt="">
+    <p>A desktop app to analyze and modify file metadata. Ideal for digital forensics and media management.</p>
+    <p><strong>Tech Used:</strong> Python, Tkinter, Pillow</p>
+    <div class="modal-links">
+      <a href="https://github.com/SandisoMayekiso/Digital_Forensics_app" target="_blank" class="github-btn">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="modal3" class="project-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>🗂️ Task Manager</h2>
+    <img src="images/task_manager_gui.png" alt="">
+    <p>Task management desktop app featuring user authentication, reports, and admin tools.</p>
+    <p><strong>Tech Used:</strong> Python, Tkinter, DateTime</p>
+    <div class="modal-links">
+      <a href="https://github.com/SandisoMayekiso/Task-Manager-GUI" target="_blank" class="github-btn">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="modal4" class="project-modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>🛡️ TryHackMe Labs</h2>
+    <div class="gallery-container">
+      <button class="scroll-btn left"><i class="fas fa-chevron-left"></i></button>
+      <div class="gallery">
+        <img src="images/tryhackme-labs1.png" alt="">
+        <img src="images/tryhackme-labs2.png" alt="">
+        <img src="images/tryhackme-labs3.png" alt="">
+      </div>
+      <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <p>Capture The Flag (CTF) writeups, penetration testing labs, and cybersecurity learning from TryHackMe.</p>
+    <p><strong>Tech Used:</strong> Networking, Linux, Penetration Testing</p>
+    <div class="modal-links">
+      <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups" target="_blank" class="github-btn">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+
+    <!-- NOTIFICATIONS -->
+<section id="notifications" class="page-section hidden">
+  <div class="notifications-header">
+    <h2><i class="fas fa-bell"></i> Notifications</h2>
+    <div class="notification-actions">
+      <button id="mark-all-read"><i class="fas fa-check-double"></i> Mark All Read</button>
+      <button id="clear-all"><i class="fas fa-trash-alt"></i> Clear All</button>
+    </div>
+  </div>
+
+  <div class="notifications-filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="success">Success</button>
+    <button class="filter-btn" data-filter="warning">Warning</button>
+    <button class="filter-btn" data-filter="error">Error</button>
+    <button class="filter-btn" data-filter="info">Info</button>
+  </div>
+
+  <div class="notifications-container">
+    <div class="notification-card success">
+      <i class="fas fa-check-circle"></i>
+      <div class="n-body">
+        <p><strong>Deployment Successful:</strong> Bookstore Inventory project deployed</p>
+        <span class="timestamp">1 hour ago</span>
+      </div>
+    </div>
+
+    <div class="notification-card info">
+      <i class="fas fa-info-circle"></i>
+      <div class="n-body">
+        <p><strong>New Comment:</strong> Someone commented on your TryHackMe lab report</p>
+        <span class="timestamp">10 mins ago</span>
+      </div>
+    </div>
+
+    <div class="notification-card warning">
+      <i class="fas fa-exclamation-triangle"></i>
+      <div class="n-body">
+        <p><strong>System Alert:</strong> Scan completed with warnings</p>
+        <span class="timestamp">Yesterday</span>
+      </div>
+    </div>
+
+    <div class="notification-card error">
+      <i class="fas fa-times-circle"></i>
+      <div class="n-body">
+        <p><strong>Repository Error:</strong> Failed to connect to GitHub</p>
+        <span class="timestamp">2 days ago</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- CERTIFICATES -->
+<section id="certificates" class="page-section hidden">
+  <h2></h2>
+  <div class="certificates-grid">
+    <!-- Pair 1 -->
+    <div class="certificate-card">
+      <img src="images/hyperiondev-bootcamp.jpg" alt="HyperionDev Bootcamp">
+      <p class="cert-name">HyperionDev Cybersecurity Bootcamp</p>
+    </div>
+    <div class="certificate-card">
+      <img src="images/optimi-it-engineering.jpg" alt="Optimi IT Engineering">
+      <p class="cert-name">Optimi IT Engineering Certification</p>
+    </div>
+
+    <!-- Pair 2 -->
+    <div class="certificate-card">
+      <img src="images/tryhackme-cyber101.jpg" alt="TryHackMe Cyber 101">
+      <p class="cert-name">TryHackMe Cyber Security 101</p>
+    </div>
+    <div class="certificate-card">
+      <img src="images/tryhackme-jr-pentester.jpg" alt="TryHackMe Junior Pentester">
+      <p class="cert-name">TryHackMe Junior Pentester</p>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- SKILLS -->
+<section id="skills" class="page-section hidden">
+  <h2>Skills & Tools</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Cybersecurity</h3>
+      <p>Pen testing & defense</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-sitemap"></i>
+      <h3>Networking</h3>
+      <p>Routing, switching, TCP/IP</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-server"></i>
+      <h3>System Admin</h3>
+      <p>Windows Server & Linux</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-code"></i>
+      <h3>Web Dev</h3>
+      <p>HTML, CSS, JS, Python</p>
+    </div>
+    <div class="skill-card">
+      <i class="fab fa-github"></i>
+      <h3>Version Control</h3>
+      <p>Git & GitHub</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-cloud-upload-alt"></i>
+      <h3>Hosting</h3>
+      <p>GitHub Pages, Netlify</p>
+    </div>
+  </div>
+
+  <!-- Enhanced Skills Table -->
+  <h3>Detailed Skills Overview</h3>
+  <table class="skills-table">
+    <thead>
+      <tr>
+        <th>Skill</th>
+        <th>Tools / Technologies</th>
+        <th>Experience Level</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><i class="fas fa-shield-alt skill-icon"></i> Cybersecurity</td>
+        <td>Nmap, Burp Suite, Metasploit, LinPEAS, Wireshark</td>
+        <td><span class="skill-level advanced">Junior or entry-level</span></td>
+        <td>n/a</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-network-wired skill-icon"></i> Networking</td>
+        <td>Cisco Routers, Switches, TCP/IP, Wireshark</td>
+        <td><span class="skill-level intermediate">Junior or entry-level</span></td>
+        <td>n/a</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-server skill-icon"></i> System Admin</td>
+        <td>Windows Server, Linux, Active Directory</td>
+        <td><span class="skill-level intermediate">Junior or entry-level</span></td>
+        <td>n/a</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-code skill-icon"></i> Web Development</td>
+        <td>HTML, CSS, JavaScript, Python, Firebase</td>
+        <td><span class="skill-level intermediate">Junior or entry-level</span></td>
+        <td>n/a</td>
+      </tr>
+      <tr>
+        <td><i class="fab fa-github skill-icon"></i> Version Control</td>
+        <td>Git, GitHub, GitHub Pages</td>
+        <td><span class="skill-level advanced">Junior or entry-level</span></td>
+        <td>n/a</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-cloud-upload-alt skill-icon"></i> Hosting</td>
+        <td>Netlify, GitHub Pages</td>
+        <td><span class="skill-level intermediate">Junior or entry-level</span></td>
+        <td>n/a</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="page-section hidden">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> +27 65 857 1926</p>
+        <p><i class="fab fa-whatsapp"></i> WhatsApp: +27 65 857 1926</p>
+        <p><i class="fas fa-envelope"></i> mayekisosandiso@gmail.com</p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/SandisoMayekiso/My-portfolio-site/edit/main/README.md">GitHub</a></p>
+        <p><i class="fab fa-linkedin"></i> <a href="www.linkedin.com/in/sandiso-mayekiso-4824aa129">LinkedIn</a></p>
+      </div>
+      <form action="https://formspree.io/f/xdkykylg" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sidebar = document.getElementById("sidebar");
+      const collapseBtn = document.getElementById("collapse-btn");
+      const mainContent = document.getElementById("main-content");
+      const menuLinks = document.querySelectorAll(".menu a");
+      const sections = document.querySelectorAll(".page-section");
+      const pageTitle = document.querySelector(".page-title");
+
+      collapseBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("collapsed");
+        mainContent.classList.toggle("expanded");
+      });
+
+      menuLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          menuLinks.forEach(l => l.classList.remove("active"));
+          link.classList.add("active");
+          sections.forEach(section => section.classList.add("hidden"));
+
+          const targetId = link.getAttribute("data-target");
+          const targetSection = document.getElementById(targetId);
+
+          if (targetSection) {
+            targetSection.classList.remove("hidden");
+            pageTitle.textContent = link.querySelector("span").textContent;
+          }
+        });
+      });
+    });
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.getElementById("theme-toggle");
+  const currentTheme = localStorage.getItem("theme");
+
+  // Apply stored theme
+  if (currentTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+
+  // Toggle theme
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+      localStorage.setItem("theme", "light");
+      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const notificationCards = document.querySelectorAll(".notification-card");
+  const markAllBtn = document.getElementById("mark-all-read");
+  const clearAllBtn = document.getElementById("clear-all");
+
+  // Filter notifications
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const filter = btn.dataset.filter;
+
+      notificationCards.forEach(card => {
+        if (filter === "all" || card.classList.contains(filter)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+
+  // Mark all as read
+  markAllBtn.addEventListener("click", () => {
+    notificationCards.forEach(card => {
+      card.style.opacity = "0.6";
+    });
+  });
+
+  // Clear all notifications
+  clearAllBtn.addEventListener("click", () => {
+    document.querySelector(".notifications-container").innerHTML = 
+      "<p class='muted'>No new notifications 🎉</p>";
+  });
+});
+
+// ====== PROJECT MODAL HANDLING ======
+const projectCards = document.querySelectorAll(".project-card");
+const modals = document.querySelectorAll(".project-modal");
+const closeButtons = document.querySelectorAll(".close");
+
+// Open modal when card is clicked
+projectCards.forEach(card => {
+  card.addEventListener("click", () => {
+    const modalId = card.getAttribute("data-modal");
+    const modal = document.getElementById(modalId);
+    if (modal) modal.classList.add("active");
+    document.body.style.overflow = "hidden"; // prevent background scroll
+  });
+});
+
+// Close modal when close button clicked
+closeButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.closest(".project-modal").classList.remove("active");
+    document.body.style.overflow = "";
+  });
+});
+
+// Close modal when clicking outside content
+modals.forEach(modal => {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+});
+
+// ====== GALLERY SCROLL CONTROLS ======
+const galleries = document.querySelectorAll(".gallery-container");
+
+galleries.forEach(container => {
+  const gallery = container.querySelector(".gallery");
+  const leftBtn = container.querySelector(".scroll-btn.left");
+  const rightBtn = container.querySelector(".scroll-btn.right");
+
+  leftBtn.addEventListener("click", () => {
+    gallery.scrollBy({ left: -300, behavior: "smooth" });
+  });
+  rightBtn.addEventListener("click", () => {
+    gallery.scrollBy({ left: 300, behavior: "smooth" });
+  });
+});
+
+
+  </script>
+</body>
+</html>
