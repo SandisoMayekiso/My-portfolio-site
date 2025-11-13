@@ -1,0 +1,133 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const sidebar = document.getElementById('sidebar');
+  const collapseBtn = document.getElementById('collapse-btn');
+  const menuLinks = document.querySelectorAll('.menu a');
+  const sections = document.querySelectorAll('section');
+  const mainContent = document.getElementById('main-content');
+
+  // Accessibility attrs for toggle button
+  collapseBtn.setAttribute('aria-expanded', !sidebar.classList.contains('collapsed'));
+  collapseBtn.setAttribute('aria-label', 'Toggle sidebar');
+
+  // Create overlay for small screens
+  const overlay = document.createElement('div');
+  overlay.id = 'sidebar-overlay';
+  Object.assign(overlay.style, {
+    position: 'fixed',
+    inset: '0',
+    background: 'rgba(0,0,0,0.4)',
+    zIndex: '900',
+    display: 'none'
+  });
+  document.body.appendChild(overlay);
+
+  // ===== Helper Functions =====
+  function openSidebar() {
+    sidebar.classList.remove('collapsed');
+    mainContent.classList.remove('expanded');
+    collapseBtn.setAttribute('aria-expanded', 'true');
+
+    if (window.innerWidth <= 900) {
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    } else {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  function closeSidebar() {
+    sidebar.classList.add('collapsed');
+    mainContent.classList.add('expanded');
+    collapseBtn.setAttribute('aria-expanded', 'false');
+
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  function toggleSidebar() {
+    sidebar.classList.contains('collapsed') ? openSidebar() : closeSidebar();
+  }
+
+  function showSection(id) {
+    sections.forEach(section => {
+      section.id === id 
+        ? section.classList.remove('hidden') && section.classList.add('fade-in')
+        : section.classList.add('hidden') && section.classList.remove('fade-in');
+    });
+  }
+
+  function initResponsiveState() {
+    if (window.innerWidth <= 900) closeSidebar();
+    else openSidebar();
+  }
+
+  // ===== Initialization =====
+  initResponsiveState();
+  showSection('dashboard'); // default section
+
+  // ===== Event Listeners =====
+  collapseBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    toggleSidebar();
+  });
+
+  overlay.addEventListener('click', closeSidebar);
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      menuLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+
+      const target = link.getAttribute('data-target');
+      if (target) showSection(target);
+
+      if (window.innerWidth <= 900) closeSidebar();
+    });
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (window.innerWidth <= 900 && !sidebar.classList.contains('collapsed')) closeSidebar();
+      else if (window.innerWidth > 900 && sidebar.classList.contains('collapsed')) openSidebar();
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if (window.innerWidth > 900) return;
+    if (!sidebar.contains(e.target) && !collapseBtn.contains(e.target)) closeSidebar();
+  });
+
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      if (window.innerWidth > 900) {
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+        openSidebar();
+      } else {
+        if (!sidebar.classList.contains('collapsed')) {
+          overlay.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+          mainContent.classList.remove('expanded');
+        } else {
+          overlay.style.display = 'none';
+        }
+      }
+    }, 120);
+  });
+});
+collapseBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('collapsed');
+  mainContent.classList.toggle('expanded');
+});
+const sidebar = document.getElementById('sidebar');
+const collapseBtn = document.getElementById('collapse-btn');
+const mainContent = document.getElementById('main-content');
+
+collapseBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('collapsed');
+  mainContent.classList.toggle('expanded');
+});
