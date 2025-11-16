@@ -163,6 +163,24 @@
           <p>Hands-on cybersecurity labs.</p>
           <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups/edit/main/README.md" class="github-btn">View on GitHub</a>
         </div>
+
+        <!-- Project Card with Image Carousel -->
+        <div class="project-card">
+          <div class="carousel" id="carousel-eternalblue">
+            <div class="carousel-track">
+              <img src="images/eternalblue.png" alt="EternalBlue 1" />
+              <img src="images/eternalblue1.png" alt="EternalBlue 2" />
+              <img src="images/eternalblue2.png" alt="EternalBlue 3" />
+              <img src="images/eternalblue3.png" alt="EternalBlue 4" />
+              <img src="images/eternalblue4.png" alt="EternalBlue 5" />
+          </div>
+              <button class="carousel-btn prev">&#10094;</button>
+              <button class="carousel-btn next">&#10095;</button>
+          </div>
+            <h3>MS17-010 EternalBlue Exploit</h3>
+            <p>Full exploitation of Windows 7 using MS17-010 (EternalBlue). Included gaining shell access, upgrading to Meterpreter, dumping hashes, and cracking NTLM passwords.</p>
+            <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups" class="github-btn" target="_blank">View Writeup</a>
+          </div>
       </div>
     </section>
 
@@ -370,3 +388,4 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 </body>
 </html>
+
