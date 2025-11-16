@@ -174,8 +174,25 @@
         <p>Hands-on cybersecurity training & CTF writeups.</p>
       </div>
     </div>
-  </div>
-</section>
+    <!-- Project Card with Image Carousel -->
+        <div class="project-card">
+          <div class="carousel" id="carousel-eternalblue">
+            <div class="carousel-track">
+              <img src="images/eternalblue.png" alt="EternalBlue 1" />
+              <img src="images/eternalblue1.png" alt="EternalBlue 2" />
+              <img src="images/eternalblue2.png" alt="EternalBlue 3" />
+              <img src="images/eternalblue3.png" alt="EternalBlue 4" />
+              <img src="images/eternalblue4.png" alt="EternalBlue 5" />
+          </div>
+              <button class="carousel-btn prev">&#10094;</button>
+              <button class="carousel-btn next">&#10095;</button>
+          </div>
+            <h3>MS17-010 EternalBlue Exploit</h3>
+            <p>Full exploitation of Windows 7 using MS17-010 (EternalBlue). Included gaining shell access, upgrading to Meterpreter, dumping hashes, and cracking NTLM passwords.</p>
+            <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups" class="github-btn" target="_blank">View Writeup</a>
+          </div>
+      </div>
+    </section>
 
 <!-- MODALS -->
 <div id="modal1" class="project-modal">
@@ -576,11 +593,43 @@ galleries.forEach(container => {
     gallery.scrollBy({ left: 300, behavior: "smooth" });
   });
 });
+// === CAROUSEL SCRIPT ===
+function initCarousel(id) {
+const carousel = document.querySelector(id);
+const track = carousel.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+let index = 0;
 
+
+const nextBtn = carousel.querySelector('.next');
+const prevBtn = carousel.querySelector('.prev');
+
+
+function updateSlide() {
+track.style.transform = `translateX(-${index * 100}%)`;
+}
+
+
+nextBtn.addEventListener('click', () => {
+index = (index + 1) % slides.length;
+updateSlide();
+});
+
+
+prevBtn.addEventListener('click', () => {
+index = (index - 1 + slides.length) % slides.length;
+updateSlide();
+});
+}
+
+
+// Init EternalBlue carousel
+initCarousel('#carousel-eternalblue');
 
   </script>
 </body>
 </html>
+
 
 
 
