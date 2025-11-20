@@ -29,7 +29,7 @@
     <ul class="menu">
       <li><a href="#" class="active" data-target="dashboard"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
       <li><a href="#" data-target="projects"><i class="fas fa-folder-open"></i> <span>Projects</span></a></li>
-      <li><a href="#" data-target="notifications"><i class="fas fa-bell"></i> <span>Notifications</span></a></li>
+      <li><a href="#" data-target="events"><i class="fas fa-stream"></i> <span>Events</span></a></li>
       <li><a href="#" data-target="certificates"><i class="fas fa-award"></i> <span>Certificates</span></a></li>
       <li><a href="#" data-target="skills"><i class="fas fa-star"></i> <span>Skills</span></a></li>
       <li><a href="#" data-target="contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
@@ -134,188 +134,129 @@
   
       <!-- PROJECTS -->
 <section id="projects" class="page-section hidden">
-  <h2>🚀 Projects & Case Studies</h2>
+  <h2>🚀 Projects</h2>
 
-  <div class="projects-grid">
-    <!-- Bookstore Inventory -->
-    <div class="project-card" data-modal="modal1">
-      <img src="images/bookstore_inventory.jpg" alt="Bookstore Inventory">
-      <div class="project-info">
-        <h3>Bookstore Inventory</h3>
-        <p>Python & SQLite inventory management system.</p>
+  <div class="projects-grid-vertical">
+
+    <div class="project-card" data-image="images/bookstore_inventory.jpg">
+      <div class="image-wrapper">
+        <img src="images/bookstore_inventory.jpg" alt="">
       </div>
+      <h3>Bookstore Inventory</h3>
+      <p>Python & SQLite inventory system.</p>
+      <a href="https://github.com/SandisoMayekiso/bookstore-inventory" target="_blank" class="github-btn">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
     </div>
 
-    <!-- Metadata GUI -->
-    <div class="project-card" data-modal="modal2">
-      <img src="images/metadata-gui.png" alt="Metadata GUI">
-      <div class="project-info">
-        <h3>Metadata GUI</h3>
-        <p>View and edit file metadata with a GUI interface.</p>
+    <div class="project-card" data-image="images/metadata-gui.png">
+      <div class="image-wrapper">
+        <img src="images/metadata-gui.png" alt="">
       </div>
+      <h3>Metadata GUI</h3>
+      <p>Digital forensics metadata editor.</p>
+      <a href="https://github.com/SandisoMayekiso/metadata-gui" target="_blank" class="github-btn">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
     </div>
 
-    <!-- Task Manager -->
-    <div class="project-card" data-modal="modal3">
-      <img src="images/task_manager_gui.png" alt="Task Manager">
-      <div class="project-info">
-        <h3>Task Manager</h3>
-        <p>Desktop app for managing user tasks and statistics.</p>
+    <div class="project-card" data-image="images/task_manager_gui.png">
+      <div class="image-wrapper">
+        <img src="images/task_manager_gui.png" alt="">
       </div>
+      <h3>Task Manager</h3>
+      <p>Task tracking and reporting system.</p>
+      <a href="https://github.com/SandisoMayekiso/task-manager-gui" target="_blank" class="github-btn">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
     </div>
 
-    <!-- TryHackMe Labs -->
-    <div class="project-card" data-modal="modal4">
-      <img src="images/tryhackme-labs.png" alt="TryHackMe Labs">
-      <img src="images/tryhackme-labs2.png" alt="TryHackMe Labs">
-      <img src="images/tryhackme-labs3.png" alt="TryHackMe Labs">
-      <div class="project-info">
-        <h3>TryHackMe Labs</h3>
-        <p>Hands-on cybersecurity training & CTF writeups.</p>
+    <div class="project-card" data-image="images/tryhackme-labs.png">
+      <div class="image-wrapper">
+        <img src="images/tryhackme-labs.png" alt="">
       </div>
+      <h3>TryHackMe Labs</h3>
+      <p>Cybersecurity labs & CTF writeups.</p>
+      <a href="https://github.com/SandisoMayekiso/tryhackme-labs" target="_blank" class="github-btn">
+        <i class="fab fa-github"></i> View on GitHub
+      </a>
     </div>
-    
-    <div class="project-card">
-  <h3>MS17-010 EternalBlue Exploit</h3>
-  <p>Full exploitation of Windows 7 using MS17-010 (EternalBlue). Included gaining shell access, upgrading to Meterpreter, dumping hashes, and cracking NTLM passwords.</p>
 
-  <div class="carousel">
-    <img src="images/eternalblue.png" alt="EternalBlue Exploit">
-    <img src="images/eternalblue1.png" alt="EternalBlue Exploit">
-    <img src="images/eternalblue2.png" alt="EternalBlue Exploit">
-    <img src="images/eternalblue3.png" alt="EternalBlue Exploit">
-    <img src="images/eternalblue4.png" alt="EternalBlue Exploit">
+    <div class="project-card slideshow-card" data-image="images/eternalblue.png">
+  <div class="image-wrapper">
+    <img src="images/eternalblue.png" class="slide active" alt="">
+    <img src="images/eternalblue1.png" class="slide" alt="">
+    <img src="images/eternalblue2.png" class="slide" alt="">
+    <img src="images/eternalblue3.png" class="slide" alt="">
+    <img src="images/eternalblue4.png" class="slide" alt="">
+
+    <button class="slide-btn prev">&#10094;</button>
+    <button class="slide-btn next">&#10095;</button>
   </div>
 
-    <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups" class="github-btn" target="_blank">View Writeup</a>
-  </div>
+  <h3>EternalBlue Exploit</h3>
+  <p>MS17-010 Windows exploit.</p>
+  <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups" target="_blank" class="github-btn">
+    <i class="fab fa-github"></i> View more on GitHub
+  </a>
+</div>
+
+
   </div>
 </section>
 
-<!-- MODALS -->
-<div id="modal1" class="project-modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>📚 Bookstore Inventory System</h2>
-    <img src="images/bookstore_inventory.jpg" alt="">
-    <p>This system manages books, sales, and stock levels using SQLite. It includes features for adding, searching, and updating records.</p>
-    <p><strong>Tech Used:</strong> Python, SQLite, Tkinter</p>
-    <div class="modal-links">
-      <a href="https://github.com/SandisoMayekiso/Bookstore_inventory_system" target="_blank" class="github-btn">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-<div id="modal2" class="project-modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>🧩 Metadata GUI</h2>
-    <img src="images/metadata-gui.png" alt="">
-    <p>A desktop app to analyze and modify file metadata. Ideal for digital forensics and media management.</p>
-    <p><strong>Tech Used:</strong> Python, Tkinter, Pillow</p>
-    <div class="modal-links">
-      <a href="https://github.com/SandisoMayekiso/Digital_Forensics_app" target="_blank" class="github-btn">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-<div id="modal3" class="project-modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>🗂️ Task Manager</h2>
-    <img src="images/task_manager_gui.png" alt="">
-    <p>Task management desktop app featuring user authentication, reports, and admin tools.</p>
-    <p><strong>Tech Used:</strong> Python, Tkinter, DateTime</p>
-    <div class="modal-links">
-      <a href="https://github.com/SandisoMayekiso/Task-Manager-GUI" target="_blank" class="github-btn">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-<div id="modal4" class="project-modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>🛡️ TryHackMe Labs</h2>
-    <div class="gallery-container">
-      <button class="scroll-btn left"><i class="fas fa-chevron-left"></i></button>
-      <div class="gallery">
-        <img src="images/tryhackme-labs1.png" alt="">
-        <img src="images/tryhackme-labs2.png" alt="">
-        <img src="images/tryhackme-labs3.png" alt="">
-      </div>
-      <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
-    </div>
-    <p>Capture The Flag (CTF) writeups, penetration testing labs, and cybersecurity learning from TryHackMe.</p>
-    <p><strong>Tech Used:</strong> Networking, Linux, Penetration Testing</p>
-    <div class="modal-links">
-      <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups" target="_blank" class="github-btn">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-    </div>
-  </div>
-</div>
-
-    <!-- Modal -->
-<div id="modal" class="modal hidden">
+<!-- FULLSCREEN IMAGE MODAL -->
+<div id="img-modal" class="modal">
   <span class="close">&times;</span>
-  <img class="modal-content" id="modal-img">
-  <div id="caption"></div>
+  <img id="modal-full-img">
 </div>
 
-    <!-- NOTIFICATIONS -->
-<section id="notifications" class="page-section hidden">
-  <div class="notifications-header">
-    <h2><i class="fas fa-bell"></i> Notifications</h2>
-    <div class="notification-actions">
-      <button id="mark-all-read"><i class="fas fa-check-double"></i> Mark All Read</button>
-      <button id="clear-all"><i class="fas fa-trash-alt"></i> Clear All</button>
-    </div>
+
+
+    <!-- ===================== EVENTS (TIMELINE) ===================== -->
+<section id="events" class="page-section hidden">
+  <div class="section-title">
+    <h2>Events & Updates</h2>
   </div>
 
-  <div class="notifications-filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="success">Success</button>
-    <button class="filter-btn" data-filter="warning">Warning</button>
-    <button class="filter-btn" data-filter="error">Error</button>
-    <button class="filter-btn" data-filter="info">Info</button>
-  </div>
-
-  <div class="notifications-container">
-    <div class="notification-card success">
-      <i class="fas fa-check-circle"></i>
-      <div class="n-body">
-        <p><strong>Deployment Successful:</strong> Bookstore Inventory project deployed</p>
-        <span class="timestamp">1 hour ago</span>
+  <div class="timeline">
+    <!-- Timeline Item 1 -->
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="timeline-content">
+        <h3>2025 Bootcamp Graduation</h3>
+        <span class="timeline-date">June 2025</span>
+        <p>Successfully completed the Cybersecurity Engineering Bootcamp.</p>
       </div>
     </div>
 
-    <div class="notification-card info">
-      <i class="fas fa-info-circle"></i>
-      <div class="n-body">
-        <p><strong>New Comment:</strong> Someone commented on your TryHackMe lab report</p>
-        <span class="timestamp">10 mins ago</span>
+    <!-- Timeline Item 2 -->
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="fas fa-code"></i></div>
+      <div class="timeline-content">
+        <h3>New Project Released</h3>
+        <span class="timeline-date">March 2025</span>
+        <p>Launched a new penetration testing automation tool on GitHub.</p>
       </div>
     </div>
 
-    <div class="notification-card warning">
-      <i class="fas fa-exclamation-triangle"></i>
-      <div class="n-body">
-        <p><strong>System Alert:</strong> Scan completed with warnings</p>
-        <span class="timestamp">Yesterday</span>
+    <!-- Timeline Item 3 -->
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="fas fa-shield-alt"></i></div>
+      <div class="timeline-content">
+        <h3>Cybersecurity Challenge Joined</h3>
+        <span class="timeline-date">January 2025</span>
+        <p>Participated in an advanced red-team vs blue-team security event.</p>
       </div>
     </div>
 
-    <div class="notification-card error">
-      <i class="fas fa-times-circle"></i>
-      <div class="n-body">
-        <p><strong>Repository Error:</strong> Failed to connect to GitHub</p>
-        <span class="timestamp">2 days ago</span>
+    <!-- Example Additional Item -->
+    <div class="timeline-item">
+      <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+      <div class="timeline-content">
+        <h3>Side Project Launch</h3>
+        <span class="timeline-date">April 2025</span>
+        <p>Released an open-source cybersecurity utility on GitHub.</p>
       </div>
     </div>
   </div>
@@ -458,50 +399,48 @@
   </main>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const sidebar = document.getElementById("sidebar");
-      const collapseBtn = document.getElementById("collapse-btn");
-      const mainContent = document.getElementById("main-content");
-      const menuLinks = document.querySelectorAll(".menu a");
-      const sections = document.querySelectorAll(".page-section");
-      const pageTitle = document.querySelector(".page-title");
-
-      collapseBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("collapsed");
-        mainContent.classList.toggle("expanded");
-      });
-
-      menuLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          menuLinks.forEach(l => l.classList.remove("active"));
-          link.classList.add("active");
-          sections.forEach(section => section.classList.add("hidden"));
-
-          const targetId = link.getAttribute("data-target");
-          const targetSection = document.getElementById(targetId);
-
-          if (targetSection) {
-            targetSection.classList.remove("hidden");
-            pageTitle.textContent = link.querySelector("span").textContent;
-          }
-        });
-      });
-    });
 document.addEventListener("DOMContentLoaded", () => {
+  // ===== SIDEBAR & PAGE SWITCHING =====
+  const sidebar = document.getElementById("sidebar");
+  const collapseBtn = document.getElementById("collapse-btn");
+  const mainContent = document.getElementById("main-content");
+  const menuLinks = document.querySelectorAll(".menu a");
+  const sections = document.querySelectorAll(".page-section");
+  const pageTitle = document.querySelector(".page-title");
+
+  collapseBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    mainContent.classList.toggle("expanded");
+  });
+
+  menuLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      menuLinks.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+      sections.forEach(section => section.classList.add("hidden"));
+
+      const targetId = link.getAttribute("data-target");
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        targetSection.classList.remove("hidden");
+        pageTitle.textContent = link.querySelector("span").textContent;
+      }
+    });
+  });
+
+  // ===== THEME TOGGLE =====
   const themeToggle = document.getElementById("theme-toggle");
   const currentTheme = localStorage.getItem("theme");
 
-  // Apply stored theme
   if (currentTheme === "dark") {
     document.body.classList.add("dark-mode");
     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
   }
 
-  // Toggle theme
   themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-
     if (document.body.classList.contains("dark-mode")) {
       localStorage.setItem("theme", "dark");
       themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
@@ -510,121 +449,122 @@ document.addEventListener("DOMContentLoaded", () => {
       themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const notificationCards = document.querySelectorAll(".notification-card");
-  const markAllBtn = document.getElementById("mark-all-read");
-  const clearAllBtn = document.getElementById("clear-all");
+  // ===== TIMELINE ANIMATION =====
+  const timelineItems = document.querySelectorAll(".timeline-item");
 
-  // Filter notifications
-  filterButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      filterButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      const filter = btn.dataset.filter;
+  function showTimelineItems() {
+    const triggerPoint = window.innerHeight * 0.85;
+    timelineItems.forEach((item) => {
+      const itemTop = item.getBoundingClientRect().top;
+      if (itemTop < triggerPoint) item.classList.add("visible");
+    });
+  }
 
-      notificationCards.forEach(card => {
-        if (filter === "all" || card.classList.contains(filter)) {
-          card.style.display = "flex";
-        } else {
-          card.style.display = "none";
-        }
-      });
+  window.addEventListener("scroll", showTimelineItems);
+  window.addEventListener("load", showTimelineItems);
+
+  // ===== PROJECT CARD MODAL =====
+  const imgModal = document.getElementById("img-modal");
+  const modalImg = document.getElementById("modal-full-img");
+
+  document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", (e) => {
+      // Don't trigger modal if GitHub button clicked
+      if (e.target.closest(".github-btn")) return;
+
+      const imgSrc = card.getAttribute("data-image");
+      modalImg.src = imgSrc;
+      imgModal.style.display = "flex";
     });
   });
 
-  // Mark all as read
-  markAllBtn.addEventListener("click", () => {
-    notificationCards.forEach(card => {
-      card.style.opacity = "0.6";
-    });
+  // Close modal on X
+  imgModal.querySelector(".close").addEventListener("click", () => {
+    imgModal.style.display = "none";
   });
 
-  // Clear all notifications
-  clearAllBtn.addEventListener("click", () => {
-    document.querySelector(".notifications-container").innerHTML = 
-      "<p class='muted'>No new notifications 🎉</p>";
+  // Close modal on background click
+  imgModal.addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) imgModal.style.display = "none";
   });
 });
 
-// ====== PROJECT MODAL HANDLING ======
-const projectCards = document.querySelectorAll(".project-card");
-const modals = document.querySelectorAll(".project-modal");
-const closeButtons = document.querySelectorAll(".close");
+// ========== MODAL LOGIC (WORKS WITH SLIDESHOW) ==========
+const imgModal = document.getElementById("img-modal");
+const modalImg = document.getElementById("modal-full-img");
+const modalClose = imgModal.querySelector(".close");
 
-// Open modal when card is clicked
-projectCards.forEach(card => {
-  card.addEventListener("click", () => {
-    const modalId = card.getAttribute("data-modal");
-    const modal = document.getElementById(modalId);
-    if (modal) modal.classList.add("active");
-    document.body.style.overflow = "hidden"; // prevent background scroll
-  });
-});
+// When user clicks a project card
+document.querySelectorAll(".project-card").forEach(card => {
+  card.addEventListener("click", (e) => {
 
-// Close modal when close button clicked
-closeButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    btn.closest(".project-modal").classList.remove("active");
-    document.body.style.overflow = "";
-  });
-});
+    // Don't open modal if clicking GitHub button or arrows
+    if (e.target.closest(".github-btn") || e.target.classList.contains("slide-btn")) return;
 
-// Close modal when clicking outside content
-modals.forEach(modal => {
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("active");
-      document.body.style.overflow = "";
+    // Find the current active slide
+    const activeSlide = card.querySelector(".slide.active");
+    if (activeSlide) {
+      modalImg.src = activeSlide.src;   // Show active image in modal
+      imgModal.style.display = "flex";
     }
   });
 });
 
-// ====== GALLERY SCROLL CONTROLS ======
-const galleries = document.querySelectorAll(".gallery-container");
-
-galleries.forEach(container => {
-  const gallery = container.querySelector(".gallery");
-  const leftBtn = container.querySelector(".scroll-btn.left");
-  const rightBtn = container.querySelector(".scroll-btn.right");
-
-  leftBtn.addEventListener("click", () => {
-    gallery.scrollBy({ left: -300, behavior: "smooth" });
-  });
-  rightBtn.addEventListener("click", () => {
-    gallery.scrollBy({ left: 300, behavior: "smooth" });
-  });
-});
-
-// Modal popup logic
-const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modal-img");
-const captionText = document.getElementById("caption");
-
-document.querySelectorAll(".carousel img").forEach(img => {
-  img.addEventListener("click", () => {
-    modal.style.display = "block";
-    modalImg.src = img.src;
-    captionText.innerText = img.alt;
-  });
-});
-
 // Close modal
-document.querySelector(".close").addEventListener("click", () => {
-  modal.style.display = "none";
+modalClose.addEventListener("click", () => {
+  imgModal.style.display = "none";
 });
 
-// Close when clicking outside image
-modal.addEventListener("click", (e) => {
-  if(e.target === modal) modal.style.display = "none";
+imgModal.addEventListener("click", (e) => {
+  if (e.target === imgModal) imgModal.style.display = "none";
 });
 
-  </script>
+
+// ========== SLIDESHOW LOGIC ==========
+document.querySelectorAll('.slideshow-card').forEach(card => {
+  let slides = card.querySelectorAll('.slide');
+  let index = 0;
+
+  const showSlide = (i) => {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[i].classList.add('active');
+  };
+
+  card.querySelector('.prev').addEventListener('click', () => {
+    index = (index === 0) ? slides.length - 1 : index - 1;
+    showSlide(index);
+  });
+
+  card.querySelector('.next').addEventListener('click', () => {
+    index = (index === slides.length - 1) ? 0 : index + 1;
+    showSlide(index);
+  });
+});
+
+// ===== SWIPE SUPPORT =====
+document.querySelectorAll('.image-wrapper').forEach(wrapper => {
+  let startX = 0;
+
+  wrapper.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  wrapper.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    const card = wrapper.closest('.slideshow-card');
+    const nextBtn = card.querySelector('.next');
+    const prevBtn = card.querySelector('.prev');
+
+    if (startX - endX > 50) nextBtn.click();  // swipe left
+    if (endX - startX > 50) prevBtn.click();  // swipe right
+  });
+});
+
+</script>
+
 </body>
 </html>
-
 
 
 
