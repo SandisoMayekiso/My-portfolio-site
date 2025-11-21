@@ -305,6 +305,7 @@ header,
   gap: 1.5rem;
 }
 
+/* Profile card stays the same */
 .profile-card {
   text-align: center;
   background: var(--card-bg);
@@ -314,16 +315,63 @@ header,
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
 }
 
-.profile-card img,
+/* Wrapper for rotating border */
+.profile-photo-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 50%;
+  padding: 6px; /* border thickness */
+  overflow: hidden;
+}
+
+/* Rotating multi-color border */
+.profile-photo-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    #ff005e,
+    #ff7b00,
+    #ffee00,
+    #00ff88,
+    #00c8ff,
+    #9a00ff,
+    #ff00e0,
+    #ff005e
+  );
+  animation: rotate 3s linear infinite;
+  z-index: 1;
+}
+
+/* Cover inside area */
+.profile-photo-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 6px; /* must match padding */
+  background: var(--card-bg);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Actual image */
 .profile-img {
-  width: 110px;
-  height: 110px;
+  position: relative;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 10px;
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 10px var(--accent);
+  z-index: 3;
 }
+
+/* Animation */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 
 .recent-activities {
   background: var(--secondary-bg);
@@ -1065,5 +1113,6 @@ button:hover {
 .hidden {
   display: none;
 }
+
 
 
