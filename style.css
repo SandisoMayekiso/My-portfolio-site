@@ -71,19 +71,53 @@ body {
   opacity: 0;
   pointer-events: none;
 }
-
-/* Collapse button stays visible */
-#collapse-btn {
-  background: none;
-  border: none;
-  color: var(--text-light);
-  font-size: 1.3rem;
+/* === Animated Morph Collapse Button === */
+.collapse-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
   cursor: pointer;
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 2px;
   transform: translateY(-50%);
+  transition: all 0.3s ease;
+  z-index: 10;
 }
+
+.collapse-btn span {
+  width: 22px;
+  height: 2px;
+  background: #38bdf8;
+  border-radius: 2px;
+  transition: all 0.35s ease;
+}
+
+.collapse-btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+}
+
+/* Morph animation */
+.sidebar.collapsed .collapse-btn span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.sidebar.collapsed .collapse-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+.sidebar.collapsed .collapse-btn span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
 
 /* Brand container */
 .brand {
@@ -97,19 +131,6 @@ body {
   position: relative; /* keep collapse button absolute inside */
 }
 
-/* Collapse button */
-#collapse-btn {
-  position: absolute;
-  top: 50%;                /* vertically center */
-  right: -1px;             /* always 10px from right edge */
-  transform: translateY(-50%); /* correct vertical centering */
-  background: none;
-  border: none;
-  color: var(--text-light);
-  font-size: 1.3rem;
-  cursor: pointer;
-  z-index: 10;
-}
 
 /* Menu */
 .menu {
