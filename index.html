@@ -62,15 +62,39 @@
             <tr><td>☁️ Hosting</td><td>GitHub Pages, Netlify, or local servers</td></tr>
           </table>
 
-          <h3>🌟 Professional Highlights</h3>
-          <ul>
-            <li>⚙️ Built and deployed multiple web projects using HTML, CSS, JS, Firebase.</li>
-            <li>🧠 Configured Windows Server 2019 for Active Directory and pentesting simulations.</li>
-            <li>🧩 Completed TryHackMe cybersecurity pathways for network defense & ethical hacking.</li>
-            <li>🕵️ Practiced incident response and vulnerability analysis with Kali Linux.</li>
-            <li>📈 Expanding skills in SOC analysis, SIEM (Splunk), and threat hunting.</li>
-          </ul>
-        </div>
+          <h3 class="section-title">Professional Highlights</h3>
+
+<table class="highlight-table">
+  <thead>
+    <tr>
+      <th>Area</th>
+      <th>Experience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Web Development</td>
+      <td>Built and deployed web projects using HTML, CSS, JavaScript, and Firebase</td>
+    </tr>
+    <tr>
+      <td>Windows Server</td>
+      <td>Configured Windows Server 2019 for Active Directory and pentesting labs</td>
+    </tr>
+    <tr>
+      <td>Cybersecurity Labs</td>
+      <td>Completed TryHackMe pathways focused on network defense and ethical hacking</td>
+    </tr>
+    <tr>
+      <td>Incident Response</td>
+      <td>Performed vulnerability analysis and IR simulations using Kali Linux</td>
+    </tr>
+    <tr>
+      <td>SOC Skills</td>
+      <td>Developing skills in SIEM (Splunk), SOC analysis, and threat hunting</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 <aside class="main-right">
@@ -127,15 +151,6 @@
   </section>
 </aside>
 
-      <div class="github-stats">
-        <h3>📊 GitHub Stats</h3>
-        <img src="https://github-readme-stats.vercel.app/api?username=SandisoMayekiso&show_icons=true&theme=tokyonight" alt="GitHub Stats">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SandisoMayekiso&layout=compact&theme=tokyonight" alt="Top Languages">
-
-        <h3>🧠 Additional Visuals</h3>
-        <img src="https://github-profile-trophy.vercel.app/?username=SandisoMayekiso&theme=tokyonight&no-frame=true&column=4" alt="GitHub Trophies">
-        <img src="https://github-readme-activity-graph.vercel.app/graph?username=SandisoMayekiso&theme=react-dark&hide_border=true" alt="GitHub Activity">
-      </div>
   </section>  
   
       <!-- PROJECTS -->
@@ -521,22 +536,50 @@ class="github-btn">
 </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="page-section hidden">
-      <h2>Contact</h2>
-      <div class="contact-info">
-        <p><i class="fas fa-phone"></i> +27 65 857 1926</p>
-        <p><i class="fab fa-whatsapp"></i> WhatsApp: +27 65 857 1926</p>
-        <p><i class="fas fa-envelope"></i> mayekisosandiso@gmail.com</p>
-        <p><i class="fab fa-github"></i> <a href="https://github.com/SandisoMayekiso/My-portfolio-site/blob/main/README.md">GitHub</a></p>
-        <p><i class="fab fa-linkedin"></i> <a href="www.linkedin.com/in/sandiso-mayekiso-4824aa129">LinkedIn</a></p>
-      </div>
-      <form action="https://formspree.io/f/xdkykylg" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="_replyto" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
+<section id="contact" class="contact-section page-section hidden">
+  <h2>Get in Touch</h2>
+  <p class="contact-subtitle">
+    Feel free to reach out for collaborations, opportunities, or questions.
+  </p>
+
+  <div class="contact-grid">
+    <!-- Contact Cards -->
+    <div class="contact-card">
+      <i class="fas fa-phone"></i>
+      <a href="tel:+27658571926">+27 65 857 1926</a>
+    </div>
+
+    <div class="contact-card">
+      <i class="fab fa-whatsapp"></i>
+      <a href="https://wa.me/27658571926" target="_blank">WhatsApp</a>
+    </div>
+
+    <div class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <a href="mailto:mayekisosandiso@gmail.com">Email Me</a>
+    </div>
+
+    <div class="contact-card">
+      <i class="fab fa-github"></i>
+      <a href="https://github.com/SandisoMayekiso" target="_blank">GitHub</a>
+    </div>
+
+    <div class="contact-card">
+      <i class="fab fa-linkedin"></i>
+      <a href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank">
+        LinkedIn
+      </a>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <form class="contact-form" action="https://formspree.io/f/xdkykylg" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="_replyto" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
   </main>
 
   <script>
@@ -706,6 +749,7 @@ document.querySelectorAll('.image-wrapper').forEach(wrapper => {
 
 </body>
 </html>
+
 
 
 
