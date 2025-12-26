@@ -554,54 +554,53 @@ form:hover {
 }
 
 /* ====== HIGHLIGHTS ====== */
-.highlights {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
-  margin-top: 1.5rem;
-}
-
-.highlights h3 {
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 0.5rem;
+.section-title {
   margin-bottom: 1rem;
-  font-size: 1.4rem;
-  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.highlights ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: table;
+.highlight-table {
   width: 100%;
   border-collapse: collapse;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-.highlights li {
-  display: table-row;
-  border-bottom: 1px solid var(--border-color);
+.highlight-table th,
+.highlight-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
 }
 
-.highlights li::before {
-  content: "✔";
-  display: table-cell;
-  color: var(--accent);
-  padding-right: 1rem;
-  text-align: center;
+.highlight-table thead {
+  background: rgba(56, 189, 248, 0.15);
 }
 
-.highlights li:last-child {
-  border-bottom: none;
+.highlight-table th {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #38bdf8;
 }
 
-.highlights li span {
-  display: table-cell;
-  padding: 0.8rem 0;
-  color: var(--text-light);
+.highlight-table tbody tr {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.2s ease;
 }
+
+.highlight-table tbody tr:hover {
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.highlight-table td:first-child {
+  font-weight: 600;
+  color: #e5e7eb;
+  white-space: nowrap;
+}
+
 
 
 /* ====== PROJECTS SECTION ====== */
@@ -1070,55 +1069,98 @@ margin-top: 10px;
 }
 
 /* ====== CONTACT ====== */
-.contact-info {
-  margin-bottom: 1.5rem;
+.contact-section {
+  padding: 4rem 1.5rem;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
 }
 
-.contact-info p {
-  margin-bottom: 0.7rem;
-  font-size: 1rem;
+.contact-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
 }
 
-.contact-info i {
-  color: var(--accent);
-  margin-right: 10px;
+.contact-subtitle {
+  color: #aaa;
+  margin-bottom: 2.5rem;
 }
 
-form {
+/* Contact Cards */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.contact-card {
+  background: #111;
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card i {
+  font-size: 1.8rem;
+  color: #4fc3f7;
+}
+
+.contact-card a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(79, 195, 247, 0.25);
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 600px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background: var(--card-bg);
-  padding: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #0d0d0d;
+  border: 1px solid #222;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
-  max-width: 600px;
-}
-
-input,
-textarea {
-  padding: 0.8rem;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background: #0f172a;
-  color: var(--text-light);
-  font-size: 1rem;
-}
-
-button {
-  background: var(--accent);
-  border: none;
-  padding: 0.8rem;
+  padding: 0.9rem 1rem;
   color: #fff;
   font-size: 1rem;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
 }
 
-button:hover {
-  background: #0056b3;
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #4fc3f7;
+}
+
+.contact-form button {
+  background: linear-gradient(135deg, #4fc3f7, #0288d1);
+  border: none;
+  padding: 0.9rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 195, 247, 0.35);
 }
 
 /* ====== UTILS ====== */
@@ -1144,6 +1186,5 @@ button:hover {
 .hidden {
   display: none;
 }
-
 
 
