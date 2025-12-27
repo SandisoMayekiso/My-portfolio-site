@@ -457,6 +457,17 @@ header,
   color: gray;
 }
 
+body {
+  overflow-x: hidden;    /* 🔥 stops horizontal shifts */
+}
+
+.main-content,
+.dashboard,
+.page-section {
+  width: 100%;
+  max-width: 100%;
+}
+
 /* ====== DASHBOARD ====== */
 .about {
   display: flex;
@@ -1119,22 +1130,34 @@ margin-top: 10px;
   background: #111;
   border-radius: 14px;
   padding: 1.5rem;
+
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   align-items: center;
+
+  text-decoration: none;
+  color: #fff;
+
+  cursor: pointer;
+  min-height: 90px;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .contact-card i {
   font-size: 1.8rem;
   color: #4fc3f7;
 }
 
-.contact-card a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
+.contact-card:focus-visible {
+  outline: 2px solid #4fc3f7;
+  outline-offset: 4px;
+}
+.contact-card {
+  touch-action: manipulation;
+}
 }
 
 .contact-card:hover {
@@ -1208,5 +1231,53 @@ margin-top: 10px;
   display: none;
 }
 
+/* ================= CYBER BACKGROUND (HARD ISOLATED) ================= */
 
+#cyber-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
 
+  width: 100vw;
+  height: 100vh;
+
+  z-index: -1;              /* 🔥 push behind everything */
+  pointer-events: none;
+
+  overflow: hidden;
+  isolation: isolate;       /* 🔥 stronger than contain */
+}
+
+/* Floating symbols */
+.cyber-symbol {
+  position: absolute;
+  left: 0;
+  white-space: nowrap;
+
+  color: rgba(0, 153, 255, 0.18);
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+
+  animation: floatUp linear infinite;
+  text-shadow: 0 0 10px rgba(0, 153, 255, 0.6);
+
+  user-select: none;
+  will-change: transform;
+}
+
+/* Animation */
+@keyframes floatUp {
+  from {
+    transform: translateY(120vh);
+  }
+  to {
+    transform: translateY(-140vh);
+  }
+}
+
+/* Lock viewport width */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
