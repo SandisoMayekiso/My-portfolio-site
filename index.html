@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MayekisoSandiso | Portfolio Dashboard</title>
+  <title> CyberWithSandiso | Portfolio Dashboard</title>
   <link rel="stylesheet" href="style.css" />
   <!-- ✅ Font Awesome CDN -->
   <link
@@ -13,13 +13,13 @@
 </head>
 
 <body>
-  
+    <div id="cyber-bg"></div> 
  <!-- Sidebar -->
   <aside id="sidebar" class="sidebar">
     <div class="brand">
       <div class="brand-left">
         <i class="fas fa-shield-alt brand-icon"></i>
-        <span> MayekisoSandiso </span>
+        <span> CyberWithSandiso </span>
       </div>
       <button id="collapse-btn" class="collapse-btn" aria-label="Toggle sidebar">
   <span></span>
@@ -352,7 +352,7 @@ class="github-btn">
   </div>
 </div>
 
-    <!-- Wireshark Network Traffic Analysis -->
+<!-- Wireshark Network Traffic Analysis -->
 <div class="project-card" data-image="images/wireshark-analysis.png">
   <div class="image-wrapper">
     <img src="images/wireshark-analysis.png" alt="Wireshark Network Traffic Analysis">
@@ -375,7 +375,7 @@ class="github-btn">
   </ul>
 
   <div class="project-links">
-    <a href="https://github.com/SandisoMayekiso/Wireshark-Network-Analysis-ARP-Traffic-Investigation/blob/main/README.md" 
+    <a href="https://github.com/SandisoMayekiso/Wireshark-Network-Traffic-Analysis" 
        target="_blank" 
        class="github-btn">
       <i class="fab fa-github"></i> View Analysis
@@ -580,34 +580,35 @@ class="github-btn">
   </p>
 
   <div class="contact-grid">
-    <!-- Contact Cards -->
-    <div class="contact-card">
-      <i class="fas fa-phone"></i>
-      <a href="tel:0658571926">065 857 1926</a>
-    </div>
 
-    <div class="contact-card">
-      <i class="fab fa-whatsapp"></i>
-      <a href="https://wa.me/27658571926" target="_blank">WhatsApp</a>
-    </div>
+  <a class="contact-card" href="tel:0658571926">
+    <i class="fas fa-phone"></i>
+    <span>065 857 1926</span>
+  </a>
 
-    <div class="contact-card">
-      <i class="fas fa-envelope"></i>
-      <a href="mailto:mayekisosandiso@gmail.com">Email Me</a>
-    </div>
+  <a class="contact-card" href="https://wa.me/0658571926" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span>WhatsApp</span>
+  </a>
 
-    <div class="contact-card">
-      <i class="fab fa-github"></i>
-      <a href="https://github.com/SandisoMayekiso" target="_blank">GitHub</a>
-    </div>
+  <a class="contact-card" href="mailto:mayekisosandiso@gmail.com">
+  <i class="fas fa-envelope"></i>
+  <span>Email Me</span>
+</a>
 
-    <div class="contact-card">
-      <i class="fab fa-linkedin"></i>
-      <a href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank">
-        LinkedIn
-      </a>
-    </div>
-  </div>
+
+  <a class="contact-card" href="https://github.com/SandisoMayekiso" target="_blank">
+    <i class="fab fa-github"></i>
+    <span>GitHub</span>
+  </a>
+
+  <a class="contact-card" href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank">
+    <i class="fab fa-linkedin"></i>
+    <span>LinkedIn</span>
+  </a>
+
+</div>
+
 
   <!-- Contact Form -->
   <form class="contact-form" action="https://formspree.io/f/xdkykylg" method="POST">
@@ -799,14 +800,35 @@ document.querySelectorAll('.image-wrapper').forEach(wrapper => {
   });
 });
 
-</script>
 
+/* ================= CYBER BACKGROUND ================= */
+
+const cyberBg = document.getElementById("cyber-bg");
+
+if (cyberBg) {
+  const symbols = [
+    "</>", "{}", "[]", "0101", "TCP", "UDP",
+    "IP", "ARP", "SSH", "TLS", "HTTP",
+    "🛡", "🔐", "⚡"
+  ];
+
+  for (let i = 0; i < 70; i++) {
+    const s = document.createElement("span");
+    s.className = "cyber-symbol";
+    s.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.fontSize = Math.random() * 16 + 14 + "px";
+    s.style.animationDuration = Math.random() * 30 + 15 + "s";
+    s.style.animationDelay = Math.random() * 10 + "s";
+
+    cyberBg.appendChild(s);
+  }
+}
+
+</script>
 </body>
 </html>
-
-
-
-
 
 
 
