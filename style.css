@@ -95,7 +95,7 @@ body {
 .collapse-btn span {
   width: 22px;
   height: 2px;
-  background: #38bdf8;
+  background: #4d3ce7;
   border-radius: 2px;
   transition: all 0.35s ease;
 }
@@ -1207,5 +1207,6 @@ margin-top: 10px;
 .hidden {
   display: none;
 }
+
 
 
