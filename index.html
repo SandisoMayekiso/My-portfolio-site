@@ -19,7 +19,7 @@
     <div class="brand">
       <div class="brand-left">
         <i class="fas fa-user-secret brand-icon"></i>
-        <span> RED-TEAMER </span>
+       <span class="scan-text" id="scanText">RED-TEAMER</span>
       </div>
       <button id="collapse-btn" class="collapse-btn" aria-label="Toggle sidebar">
   <span></span>
@@ -58,42 +58,60 @@
           <p>I have completed TryHackMe’s Cyber Security 101 and Junior Penetration Tester paths, gaining practical experience in Linux, reconnaissance, web application security, vulnerability assessment, and penetration testing. My experience spans both offensive and defensive security, using tools such as Nmap, Nessus, Burp Suite, Metasploit, and Splunk, with exposure to SOC operations, DFIR, threat intelligence, malware analysis, and SIEM-based monitoring.</p>
           <h3>🧰 Tools & Technologies</h3>
           <table class="tools-table">
-  <tr>
-    <th>Tool</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>🐍 Python</td>
-    <td>Scripting, automation & data handling</td>
-  </tr>
-  <tr>
-    <td>🌐 HTML, CSS, JS</td>
-    <td>Responsive web design & interactivity</td>
-  </tr>
-  <tr>
-    <td>💻 VS Code</td>
-    <td>Primary development environment</td>
-  </tr>
-  <tr>
-    <td>🔐 TryHackMe</td>
-    <td>Hands-on cybersecurity training</td>
-  </tr>
-  <tr>
-    <td>🧠 Git & GitHub</td>
-    <td>Version control & collaboration</td>
-  </tr>
-  <tr>
-    <td>📡 Wireshark</td>
-    <td>Network traffic analysis & packet inspection</td>
-  </tr>
-  <tr>
-    <td>📊 Splunk (SIEM)</td>
-    <td>Log analysis, monitoring & incident detection</td>
-  </tr>
-  <tr>
-    <td>☁️ Hosting</td>
-    <td>GitHub Pages, Netlify, or local servers</td>
-  </tr>
+ <tr>
+  <th>Tool</th>
+  <th>Description</th>
+</tr>
+
+<tr>
+  <td>🐍 Python</td>
+  <td>Scripting, automation & data handling</td>
+</tr>
+
+<tr>
+  <td>🌐 HTML, CSS, JS</td>
+  <td>Responsive web design & interactivity</td>
+</tr>
+
+<tr>
+  <td>💻 VS Code</td>
+  <td>Primary development environment</td>
+</tr>
+
+<tr>
+  <td>🐧 Linux</td>
+  <td>Command-line mastery, system administration & security tooling</td>
+</tr>
+
+<tr>
+  <td>💣 Metasploit</td>
+  <td>Exploitation framework for penetration testing & vulnerability research</td>
+</tr>
+
+<tr>
+  <td>🔐 TryHackMe</td>
+  <td>Hands-on cybersecurity training</td>
+</tr>
+
+<tr>
+  <td>🧠 Git & GitHub</td>
+  <td>Version control & collaboration</td>
+</tr>
+
+<tr>
+  <td>📡 Wireshark</td>
+  <td>Network traffic analysis & packet inspection</td>
+</tr>
+
+<tr>
+  <td>📊 Splunk (SIEM)</td>
+  <td>Log analysis, monitoring & incident detection</td>
+</tr>
+
+<tr>
+  <td>☁️ Hosting</td>
+  <td>GitHub Pages, Netlify, or local servers</td>
+</tr>
 </table>
 
 
@@ -854,10 +872,15 @@ if (cyberBg) {
   }
 }
 
+  
+const el = document.getElementById("scanText");
+  if (el) {
+    el.innerHTML = [...el.textContent].map(c => `<span>${c}</span>`).join("");
+  }
+
 </script>
 </body>
 </html>
-
 
 
 
