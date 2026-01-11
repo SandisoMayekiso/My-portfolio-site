@@ -46,7 +46,7 @@
   <!-- Main -->
   <main id="main-content">
     <header>
-      <h1 class="page-title">Dashboard</h1>
+      <h1 class="page-title" id="dashboardTitle">Dashboard</h1>
     </header>
 
     <!-- DASHBOARD -->
@@ -913,9 +913,37 @@ const el = document.getElementById("scanText");
     el.innerHTML = [...el.textContent].map(c => `<span>${c}</span>`).join("");
   }
 
+const dashboardTitle = document.getElementById("dashboardTitle");
+const finalText = "DASHBOARD";
+const binary = ["0", "1"];
+
+let index = 0;
+dashboardTitle.textContent = "";
+
+function animateDashboard() {
+  if (index <= finalText.length) {
+    dashboardTitle.textContent =
+      finalText
+        .split("")
+        .map((char, i) =>
+          i < index ? char : binary[Math.floor(Math.random() * binary.length)]
+        )
+        .join("");
+
+    index++;
+    setTimeout(animateDashboard, 200);
+  } else {
+    dashboardTitle.textContent = finalText;
+  }
+}
+
+window.addEventListener("DOMContentLoaded", animateDashboard);
+
+    
 </script>
 </body>
 </html>
+
 
 
 
