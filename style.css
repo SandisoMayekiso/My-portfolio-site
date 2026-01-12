@@ -1150,22 +1150,22 @@ margin-top: 10px;
 }
 
 .download-card {
-  background: var(--card-bg, #111);
+  background: var(--card-bg,black;
   border-radius: 12px;
   padding: 1.8rem;
   text-align: center;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.08);
+  box-shadow: 0 0 20px red;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .download-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+  box-shadow: 0 0 30px red;
 }
 
 .download-icon {
   font-size: 2.8rem;
-  color: #ff0000;
+  color: red;
   margin-bottom: 0.8rem;
 }
 
@@ -1185,8 +1185,8 @@ margin-top: 10px;
   gap: 0.5rem;
   padding: 0.7rem 1.2rem;
   border-radius: 8px;
-  background: linear-gradient(135deg, #ff0505, #ffffff);
-  color: #000;
+  background: linear-gradient(135deg, red, white;
+  color: black;
   font-weight: bold;
   text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease;
@@ -1194,7 +1194,7 @@ margin-top: 10px;
 
 .download-btn:hover {
   transform: scale(1.05);
-  background: linear-gradient(135deg, #e60000, #ffffff);
+  background: linear-gradient(135deg, red, white;
 }
 
 /* ====== CONTACT ====== */
@@ -1378,6 +1378,7 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
 
 
 
