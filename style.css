@@ -19,10 +19,8 @@
 }
 
 body {
-  display: flex;
-  background-color: var(black);
+  background-color: black;
   color: var(--text-light);
-  height: 100vh;
   overflow: hidden;
 }
 
@@ -430,7 +428,7 @@ header,
 
 
 .recent-activities {
-  background: var(black);
+  background: black;
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -493,8 +491,16 @@ header,
 }
 
 body {
-  overflow-x: hidden;    /* 🔥 stops horizontal shifts */
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  font-family: "Poppins", sans-serif;
 }
+
 
 .main-content,
 .dashboard,
@@ -730,11 +736,8 @@ form:hover {
 .project-card h3 {
   margin: 15px 10px 5px;
   color: #f8f8f8;
-  body {
-  font-family: "Verdana", "Geneva", sans-serif;
 }
 
-}
 
 .project-card p {
   margin: 0 10px 10px;
@@ -1150,7 +1153,7 @@ margin-top: 10px;
 }
 
 .download-card {
-  background: var(--card-bg,black;
+  background: var(--card-bg,black);
   border-radius: 12px;
   padding: 1.8rem;
   text-align: center;
@@ -1185,7 +1188,7 @@ margin-top: 10px;
   gap: 0.5rem;
   padding: 0.7rem 1.2rem;
   border-radius: 8px;
-  background: linear-gradient(135deg, red, white;
+  background: linear-gradient(135deg, red, white);
   color: black;
   font-weight: bold;
   text-decoration: none;
@@ -1194,7 +1197,7 @@ margin-top: 10px;
 
 .download-btn:hover {
   transform: scale(1.05);
-  background: linear-gradient(135deg, red, white;
+  background: linear-gradient(135deg, red, white);
 }
 
 /* ====== CONTACT ====== */
@@ -1378,7 +1381,6 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
-
 
 
 
