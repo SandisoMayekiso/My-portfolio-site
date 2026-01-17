@@ -212,7 +212,7 @@
   </section>  
   
       <!-- PROJECTS -->
-<section id="projects" class="page-section hidden">
+<section id="projects" class="projects-section page-section hidden">
   <h2>🚀 Projects and Case studies</h2>
 
   <div class="projects-grid-vertical">
@@ -478,7 +478,7 @@ class="github-btn">
 
 
     <!-- ===================== EVENTS (TIMELINE) ===================== -->
-<section id="events" class="page-section hidden">
+<section id="events" class="events-section page-section hidden">
   <div class="section-title">
     <h2>Events & Updates</h2>
   </div>
@@ -539,7 +539,7 @@ class="github-btn">
 
 
     <!-- CERTIFICATES -->
-<section id="certificates" class="page-section hidden">
+<section id="certificates" class="certificates-section page-section hidden">
   <h2></h2>
   <div class="certificates-grid">
     <!-- Pair 1 -->
@@ -564,10 +564,8 @@ class="github-btn">
   </div>
 </section>
 
-
-
     <!-- SKILLS -->
-<section id="skills" class="page-section hidden">
+<section id="skills" class="skills-section page-section hidden">
   <h2>Skills & Tools</h2>
   <div class="skills-grid">
     <div class="skill-card">
@@ -654,7 +652,7 @@ class="github-btn">
   </table>
 </section>
 
-    <!-- CV and Cover letter-->
+<!-- CV and Cover letter-->
 <section id="downloads" class="downloads-section page-section hidden">
   <h2>📄 CV & Cover Letter</h2>
   <p class="section-subtitle">
@@ -684,6 +682,7 @@ class="github-btn">
     </div>
   </div>
 </section>
+   
 
     <!-- CONTACT -->
 <section id="contact" class="contact-section page-section hidden">
@@ -975,7 +974,6 @@ window.addEventListener("DOMContentLoaded", animateDashboard);
 </script>
 </body>
 </html>
-
 
 
 
