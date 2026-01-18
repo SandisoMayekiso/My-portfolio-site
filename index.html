@@ -734,246 +734,229 @@ class="github-btn">
   </main>
 
   <script>
+"use strict";
+
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== SIDEBAR & PAGE SWITCHING =====
+
+  /* ===================== ELEMENT CACHE ===================== */
   const sidebar = document.getElementById("sidebar");
   const collapseBtn = document.getElementById("collapse-btn");
   const mainContent = document.getElementById("main-content");
-  const menuLinks = document.querySelectorAll(".menu a");
+  const menu = document.querySelector(".menu");
   const sections = document.querySelectorAll(".page-section");
   const pageTitle = document.querySelector(".page-title");
-
-  collapseBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("collapsed");
-    mainContent.classList.toggle("expanded");
-  });
-// Restore sidebar state
-if (localStorage.getItem("sidebarCollapsed") === "true") {
-  sidebar.classList.add("collapsed");
-  mainContent.classList.add("expanded");
-}
-
-collapseBtn.addEventListener("click", () => {
-  const isCollapsed = sidebar.classList.contains("collapsed");
-  localStorage.setItem("sidebarCollapsed", isCollapsed);
-});
-document.addEventListener("keydown", (e) => {
-  if (e.ctrlKey && e.key.toLowerCase() === "b") {
-    sidebar.classList.toggle("collapsed");
-    mainContent.classList.toggle("expanded");
-  }
-});
-
-  menuLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      menuLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
-      sections.forEach(section => section.classList.add("hidden"));
-
-      const targetId = link.getAttribute("data-target");
-      const targetSection = document.getElementById(targetId);
-
-      if (targetSection) {
-        targetSection.classList.remove("hidden");
-        pageTitle.textContent = link.querySelector("span").textContent;
-      }
-    });
-  });
-
-  // ===== THEME TOGGLE =====
   const themeToggle = document.getElementById("theme-toggle");
-  const currentTheme = localStorage.getItem("theme");
 
-  if (currentTheme === "dark") {
+  const imgModal = document.getElementById("img-modal");
+  const modalImg = document.getElementById("modal-full-img");
+  const modalClose = imgModal?.querySelector(".close");
+
+  /* ===================== SIDEBAR STATE ===================== */
+  const restoreSidebar = () => {
+    const collapsed = localStorage.getItem("sidebarCollapsed") === "true";
+    sidebar?.classList.toggle("collapsed", collapsed);
+    mainContent?.classList.toggle("expanded", collapsed);
+  };
+
+  restoreSidebar();
+
+  collapseBtn?.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    mainContent.classList.toggle("expanded");
+    localStorage.setItem(
+      "sidebarCollapsed",
+      sidebar.classList.contains("collapsed")
+    );
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.ctrlKey && e.key.toLowerCase() === "b") {
+      sidebar.classList.toggle("collapsed");
+      mainContent.classList.toggle("expanded");
+    }
+  });
+
+  /* ===================== PAGE NAVIGATION ===================== */
+  menu?.addEventListener("click", e => {
+    const link = e.target.closest("a[data-target]");
+    if (!link) return;
+
+    e.preventDefault();
+
+    menu.querySelectorAll("a").forEach(a => a.classList.remove("active"));
+    link.classList.add("active");
+
+    sections.forEach(sec => sec.classList.add("hidden"));
+
+    const target = document.getElementById(link.dataset.target);
+    if (target) {
+      target.classList.remove("hidden");
+      const label = link.querySelector("span");
+      if (label) pageTitle.textContent = label.textContent;
+    }
+  });
+
+  /* ===================== THEME TOGGLE ===================== */
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
   }
 
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    if (document.body.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark");
-      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-      localStorage.setItem("theme", "light");
-      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    }
+  themeToggle?.addEventListener("click", () => {
+    const dark = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+    themeToggle.innerHTML = dark
+      ? '<i class="fas fa-sun"></i>'
+      : '<i class="fas fa-moon"></i>';
   });
 
-  // ===== TIMELINE ANIMATION =====
+  /* ===================== TIMELINE ANIMATION ===================== */
   const timelineItems = document.querySelectorAll(".timeline-item");
 
-  function showTimelineItems() {
-    const triggerPoint = window.innerHeight * 0.85;
-    timelineItems.forEach((item) => {
-      const itemTop = item.getBoundingClientRect().top;
-      if (itemTop < triggerPoint) item.classList.add("visible");
+  const revealTimeline = () => {
+    const trigger = window.innerHeight * 0.85;
+    timelineItems.forEach(item => {
+      if (item.getBoundingClientRect().top < trigger) {
+        item.classList.add("visible");
+      }
     });
-  }
+  };
 
-  window.addEventListener("scroll", showTimelineItems);
-  window.addEventListener("load", showTimelineItems);
+  window.addEventListener("scroll", revealTimeline);
+  revealTimeline();
 
-  // ===== PROJECT CARD MODAL =====
-  const imgModal = document.getElementById("img-modal");
-  const modalImg = document.getElementById("modal-full-img");
+  /* ===================== MODAL (SECURE) ===================== */
+  document.addEventListener("click", e => {
+    const card = e.target.closest(".project-card");
+    if (!card) return;
 
-  document.querySelectorAll(".project-card").forEach(card => {
-    card.addEventListener("click", (e) => {
-      // Don't trigger modal if GitHub button clicked
-      if (e.target.closest(".github-btn")) return;
+    if (
+      e.target.closest(".github-btn") ||
+      e.target.classList.contains("slide-btn")
+    ) return;
 
-      const imgSrc = card.getAttribute("data-image");
-      modalImg.src = imgSrc;
-      imgModal.style.display = "flex";
-    });
-  });
-
-  // Close modal on X
-  imgModal.querySelector(".close").addEventListener("click", () => {
-    imgModal.style.display = "none";
-  });
-
-  // Close modal on background click
-  imgModal.addEventListener("click", (e) => {
-    if (e.target === e.currentTarget) imgModal.style.display = "none";
-  });
-});
-
-// ========== MODAL LOGIC (WORKS WITH SLIDESHOW) ==========
-const imgModal = document.getElementById("img-modal");
-const modalImg = document.getElementById("modal-full-img");
-const modalClose = imgModal.querySelector(".close");
-
-// When user clicks a project card
-document.querySelectorAll(".project-card").forEach(card => {
-  card.addEventListener("click", (e) => {
-
-    // Don't open modal if clicking GitHub button or arrows
-    if (e.target.closest(".github-btn") || e.target.classList.contains("slide-btn")) return;
-
-    // Find the current active slide
     const activeSlide = card.querySelector(".slide.active");
-    if (activeSlide) {
-      modalImg.src = activeSlide.src;   // Show active image in modal
+    const imgSrc = activeSlide?.src || card.dataset.image;
+
+    if (imgSrc && imgModal && modalImg) {
+      modalImg.src = imgSrc;
       imgModal.style.display = "flex";
     }
   });
-});
 
-// Close modal
-modalClose.addEventListener("click", () => {
-  imgModal.style.display = "none";
-});
-
-imgModal.addEventListener("click", (e) => {
-  if (e.target === imgModal) imgModal.style.display = "none";
-});
-
-
-// ========== SLIDESHOW LOGIC ==========
-document.querySelectorAll('.slideshow-card').forEach(card => {
-  let slides = card.querySelectorAll('.slide');
-  let index = 0;
-
-  const showSlide = (i) => {
-    slides.forEach(s => s.classList.remove('active'));
-    slides[i].classList.add('active');
-  };
-
-  card.querySelector('.prev').addEventListener('click', () => {
-    index = (index === 0) ? slides.length - 1 : index - 1;
-    showSlide(index);
+  modalClose?.addEventListener("click", () => {
+    imgModal.style.display = "none";
+    modalImg.src = "";
   });
 
-  card.querySelector('.next').addEventListener('click', () => {
-    index = (index === slides.length - 1) ? 0 : index + 1;
-    showSlide(index);
-  });
-});
-
-// ===== SWIPE SUPPORT =====
-document.querySelectorAll('.image-wrapper').forEach(wrapper => {
-  let startX = 0;
-
-  wrapper.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
+  imgModal?.addEventListener("click", e => {
+    if (e.target === imgModal) {
+      imgModal.style.display = "none";
+      modalImg.src = "";
+    }
   });
 
-  wrapper.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    const card = wrapper.closest('.slideshow-card');
-    const nextBtn = card.querySelector('.next');
-    const prevBtn = card.querySelector('.prev');
+  /* ===================== SLIDESHOW ===================== */
+  document.querySelectorAll(".slideshow-card").forEach(card => {
+    const slides = card.querySelectorAll(".slide");
+    let index = 0;
 
-    if (startX - endX > 50) nextBtn.click();  // swipe left
-    if (endX - startX > 50) prevBtn.click();  // swipe right
+    const show = i => {
+      slides.forEach(s => s.classList.remove("active"));
+      slides[i].classList.add("active");
+    };
+
+    card.querySelector(".prev")?.addEventListener("click", e => {
+      e.stopPropagation();
+      index = index === 0 ? slides.length - 1 : index - 1;
+      show(index);
+    });
+
+    card.querySelector(".next")?.addEventListener("click", e => {
+      e.stopPropagation();
+      index = index === slides.length - 1 ? 0 : index + 1;
+      show(index);
+    });
   });
-});
 
+  /* ===================== TOUCH SWIPE ===================== */
+  document.querySelectorAll(".image-wrapper").forEach(wrapper => {
+    let startX = 0;
 
-/* ================= CYBER BACKGROUND ================= */
+    wrapper.addEventListener("touchstart", e => {
+      startX = e.touches[0].clientX;
+    });
 
-const cyberBg = document.getElementById("cyber-bg");
+    wrapper.addEventListener("touchend", e => {
+      const endX = e.changedTouches[0].clientX;
+      const card = wrapper.closest(".slideshow-card");
+      if (!card) return;
 
-if (cyberBg) {
-  const symbols = [
-    "</>", "{}", "[]", "0101", "TCP", "UDP",
-    "IP", "ARP", "SSH", "TLS", "HTTP",
-    "🛡", "🔐", "⚡"
-  ];
+      if (startX - endX > 50) card.querySelector(".next")?.click();
+      if (endX - startX > 50) card.querySelector(".prev")?.click();
+    });
+  });
 
-  for (let i = 0; i < 70; i++) {
-    const s = document.createElement("span");
-    s.className = "cyber-symbol";
-    s.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+  /* ===================== CYBER BACKGROUND ===================== */
+  const cyberBg = document.getElementById("cyber-bg");
+  if (cyberBg) {
+    const symbols = ["</>", "{}", "[]", "0101", "TCP", "UDP", "SSH", "TLS"];
 
-    s.style.left = Math.random() * 100 + "vw";
-    s.style.fontSize = Math.random() * 16 + 14 + "px";
-    s.style.animationDuration = Math.random() * 30 + 15 + "s";
-    s.style.animationDelay = Math.random() * 10 + "s";
-
-    cyberBg.appendChild(s);
-  }
-}
-
-  
-const el = document.getElementById("scanText");
-  if (el) {
-    el.innerHTML = [...el.textContent].map(c => `<span>${c}</span>`).join("");
+    for (let i = 0; i < 60; i++) {
+      const span = document.createElement("span");
+      span.className = "cyber-symbol";
+      span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      span.style.left = Math.random() * 100 + "vw";
+      span.style.fontSize = 14 + Math.random() * 14 + "px";
+      span.style.animationDuration = 15 + Math.random() * 25 + "s";
+      cyberBg.appendChild(span);
+    }
   }
 
-const dashboardTitle = document.getElementById("dashboardTitle");
-const finalText = "DASHBOARD";
-const binary = ["0", "1"];
-
-let index = 0;
-dashboardTitle.textContent = "";
-
-function animateDashboard() {
-  if (index <= finalText.length) {
-    dashboardTitle.textContent =
-      finalText
-        .split("")
-        .map((char, i) =>
-          i < index ? char : binary[Math.floor(Math.random() * binary.length)]
-        )
-        .join("");
-
-    index++;
-    setTimeout(animateDashboard, 200);
-  } else {
-    dashboardTitle.textContent = finalText;
+  /* ===================== SCAN TEXT (XSS SAFE) ===================== */
+  const scanText = document.getElementById("scanText");
+  if (scanText) {
+    const text = scanText.textContent;
+    scanText.textContent = "";
+    [...text].forEach(char => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      scanText.appendChild(span);
+    });
   }
-}
 
-window.addEventListener("DOMContentLoaded", animateDashboard);
+  /* ===================== DASHBOARD ANIMATION ===================== */
+  const dashboardTitle = document.getElementById("dashboardTitle");
+  if (dashboardTitle) {
+    const finalText = "DASHBOARD";
+    const binary = ["0", "1"];
+    let i = 0;
+
+    const animate = () => {
+      if (i <= finalText.length) {
+        dashboardTitle.textContent = finalText
+          .split("")
+          .map((c, idx) =>
+            idx < i ? c : binary[Math.floor(Math.random() * 2)]
+          )
+          .join("");
+        i++;
+        setTimeout(animate, 180);
+      } else {
+        dashboardTitle.textContent = finalText;
+      }
+    };
+
+    animate();
+  }
+});
 
     
 </script>
 </body>
 </html>
+
 
 
 
