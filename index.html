@@ -714,11 +714,21 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
 
   <!-- Contact Form -->
   <form class="contact-form" action="https://formspree.io/f/xdkykylg" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="_replyto" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+  <input type="text" name="_gotcha" style="display:none">
+
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name" placeholder="Your Name" required>
+
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" placeholder="Your Email" required>
+
+  <label for="message">Message</label>
+  <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+  <button type="submit">Send Message</button>
+  <p id="form-status" class="form-status"></p>
+</form>
+
 </section>
 
   </main>
