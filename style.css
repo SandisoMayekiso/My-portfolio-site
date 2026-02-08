@@ -1053,6 +1053,22 @@ margin-top: 10px;
   text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
 }
 
+.cert-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: #ff0000;
+  color: #000;
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.cert-btn:hover {
+  background: #ffffff;
+}
+
 /* Fade-in animation */
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(20px);}
@@ -1381,6 +1397,7 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
+
 
 
 
