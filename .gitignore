@@ -1,0 +1,15 @@
+# secrets and local config
+firebase.js
+.env
+service-account-*.json
+firebase-adminsdk-*.json
+
+# node / build artifacts
+node_modules/
+dist/
+build/
+public/
+
+# editor / OS
+.vscode/
+.DS_Store
