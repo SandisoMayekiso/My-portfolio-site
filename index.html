@@ -10,6 +10,7 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
+
 </head>
 
 <body>
@@ -41,6 +42,19 @@
       <li><a href="#" data-target="skills"><i class="fas fa-star"></i> <span>Skills</span></a></li>
       <li><a href="#" data-target="downloads"><i class="fas fa-file-download"></i><span>Downloads</span></a></li>
       <li><a href="#" data-target="contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+      
+      <h2>🔐Cyber Security Lab</h2>
+      
+      <li id="authMenu"><a href="#" data-target="auth"><i class="fas fa-user-lock"></i> <span>Tools and Resources</span></a></li>
+      <!-- SCANNER (auth only) -->
+      <li id="scannerMenu" class="hidden"><a href="#" data-target="scanner"><i class="fas fa-shield-alt"></i> <span>Security Scanner</span></a></li>
+      <!-- Security Quiz (Auth Only) -->
+      <li id="quizMenu" class="hidden"><a href="#" data-target="quiz"><i class="fas fa-brain"></i><span>Security Quiz</span></a></li>
+      <li id="cryptoMenu" class="hidden"><a href="#" data-target="crypto"><i class="fas fa-key"></i> <span>Crypto Playground</span></a></li>
+      <li id="tlsMenu" class="hidden"><a href="#" data-target="tls"><i class="fas fa-lock"></i> <span>HTTPS & TLS Validation</span></a></li>
+      <li id="ifaMenu" class="hidden"><a href="#" data-target="input-analysis"><i class="fas fa-search"></i> <span>Input Field Analysis</span></a></li>
+      <li id="libraryMenu" class="hidden"><a href="#" data-target="library"><i class="fas fa-book"></i> <span>Resources Library</span></a></li>
+      <li id="logoutMenu" class="hidden"><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
     </ul>
   </aside>
 
@@ -54,7 +68,7 @@
     <section id="dashboard" class="page-section">
       <div class="about">
         <div class="about-text">
-          <h2>About me</h2>
+          <h2>About Me</h2>
           <p>Hi, I’m Sandiso 👋 — a Penetration Tester / Ethical Hacker with a strong focus on offensive security, web application testing, network exploitation, and attack simulation. I have hands-on experience identifying, exploiting, and reporting security vulnerabilities, supported by solid fundamentals in networking, Linux, and Python scripting.
 
             My offensive security skills are backed by strong IT and networking foundations, validated through CompTIA (A+, Network+, Security+) and Cisco CCNA certifications, alongside intensive hands-on training from the HyperionDev Cybersecurity Bootcamp.</p>
@@ -786,12 +800,440 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
   <button type="submit">Send Message</button>
   <p id="form-status" class="form-status"></p>
 </form>
+</section>
+
+
+<section id="auth" class="page-section hidden">
+  <h2>🔐Cyber Security Lab</h2>
+
+  <p>Create an account to access exclusive cybersecurity tools and testing environments.</p>
+    <div class="tools-preview">
+      <ul>
+        <li><strong>Web Scanning Tool</strong></li>
+        <li><strong>Security Quiz Web App</strong> <span>(Coming Soon)</span></li>
+        <li><strong>Crypto Playground</strong> <span>(Coming Soon)</span></li>
+        <li><strong>HTTPS & TLS Validation</strong> <span>(Coming Soon)</span></li>
+        <li><strong>Input Field Analysis</strong> <span>(Coming Soon)</span></li>
+      </ul>
+    </div>
+
+    
+  <div class="consent-text">
+    <p>By creating an account or signing in, you confirm that you understand and agree to the following:</p>
+    <ul>
+      <li>This web scanning tool is provided for <strong>educational purposes, personal projects, and legal security testing only</strong>.</li>
+      <li>You may only scan websites or applications that you <strong>own, manage, or have explicit permission to test</strong>.</li>
+      <li>Unauthorized scanning, probing, or testing of third‑party systems <strong>without written consent is strictly prohibited</strong>.</li>
+      <li>This tool must <strong>not</strong> be used for illegal activity, malicious intent, or to cause harm, disruption, or data loss.</li>
+      <li>All activity may be logged for <strong>security, monitoring, and compliance purposes</strong>.</li>
+      <li>Failure to follow these rules may result in <strong>account suspension or permanent access removal</strong>.</li>
+    </ul>
+    <p>By continuing, you agree to use this tool <strong>responsibly, ethically, and within the law</strong>.</p>
+  </div>
+
+  <div class="consent-checkbox">
+    <input type="checkbox" id="consentCheckbox">
+    <label for="consentCheckbox">I have read and agree to the terms above.</label>
+  </div>
+
+  <div class="auth-buttons">
+    <button id="signupBtn" disabled>Create Account</button>
+    <button id="loginBtn" disabled>Sign In</button>
+  </div>
+  
+<input type="email" id="authEmail" placeholder="Email">
+<input type="password" id="authPassword" placeholder="Password">
 
 </section>
 
-  </main>
 
-  <script>
+
+<section id="scanner" class="page-section hidden">
+  <h2>🔐 Authorized Web Security Scan</h2>
+
+  <input type="url" id="targetUrl" placeholder="https://example.com" required />
+
+  <select id="scanMode">
+    <option value="lab">Lab Environment</option>
+    <option value="verified">Verified Domain</option>
+  </select>
+
+  <label>
+    <input type="checkbox" id="scanConsentCheckbox" />
+    I confirm I own this system or have explicit permission to test it
+  </label>
+
+  <button id="startScanBtn">Start Scan</button>
+
+
+  <div id="scanResult"></div>
+
+  <div class="progress-container">
+  <div id="progressBar" class="progress-bar">0%</div>
+  </div>
+
+
+</section>
+
+<section id="quiz" class="page-section hidden">
+
+  <div class="quiz-container">
+
+    <!-- ================= HEADER ================= -->
+    <div class="quiz-header">
+      <h2>Cyber Security Knowledge Assessment</h2>
+      <p>
+        Test your cybersecurity knowledge across multiple levels — from awareness
+        fundamentals to advanced ethical hacking concepts.
+      </p>
+    </div>
+
+    <!-- ================= LEVEL SELECT ================= -->
+    <div class="quiz-level-select">
+      <h3>Select Difficulty Level</h3>
+      <div class="level-buttons">
+        <button data-level="beginner">Beginner</button>
+        <button data-level="intermediate">Intermediate</button>
+        <button data-level="advanced">Advanced</button>
+      </div>
+    </div>
+
+    <!-- ================= QUIZ AREA ================= -->
+    <div id="quizArea" class="hidden">
+
+      <!-- Progress -->
+      <div class="quiz-progress">
+        <span id="questionCounter">Question 1 of 10</span>
+        <div class="progress-bar-container">
+          <div id="quizProgressBar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Question -->
+      <div class="question-box">
+        <h3 id="questionText">
+          Question will appear here...
+        </h3>
+      </div>
+
+      <!-- Answers -->
+      <div id="answerButtons" class="answers-container">
+        <!-- JS will inject answer buttons here -->
+      </div>
+
+      <!-- Controls -->
+      <div class="quiz-controls">
+        <button id="nextQuestionBtn">Next Question</button>
+      </div>
+
+    </div>
+
+    <!-- ================= RESULT SECTION ================= -->
+    <div id="quizResult" class="quiz-result hidden">
+
+      <h3>Assessment Complete</h3>
+
+      <p><strong>Your Score:</strong> <span id="finalScore">0</span></p>
+      <p><strong>Difficulty Level:</strong> <span id="finalLevel">Beginner</span></p>
+      <p><strong>Performance Rating:</strong> <span id="performanceRating">Intermediate</span></p>
+
+      <div class="result-message">
+        <p id="resultFeedback">
+        </p>
+      </div>
+
+      <button id="restartQuizBtn">Retake Assessment</button>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="crypto" class="page-section hidden">
+  <h2>🔐 Crypto Playground</h2>
+
+  <p class="muted">Interactive, in-browser cryptography sandbox for learning. Keys and operations stay in the browser.</p>
+
+  <div class="crypto-grid">
+    <div class="crypto-left">
+      <label for="cpKeyName">Key Pair Name</label>
+      <input id="cpKeyName" type="text" placeholder="e.g., demo-key-1" />
+
+      <div class="row">
+        <button id="cpGenKeyBtn" type="button">Generate Key Pair</button>
+        <button id="cpExportPubBtn" type="button" class="secondary">Export Public</button>
+        <button id="cpExportPrivBtn" type="button" class="secondary">Export Private</button>
+      </div>
+
+      <hr />
+
+      <label for="cpSignMessage">Message to sign</label>
+      <textarea id="cpSignMessage" placeholder="Type a message to sign"></textarea>
+      <div class="row">
+        <button id="cpSignBtn" type="button">Sign Message</button>
+        <button id="cpVerifyBtn" type="button" class="secondary">Verify Signature</button>
+      </div>
+
+      <label for="cpSignatureOut">Signature (base64)</label>
+      <textarea id="cpSignatureOut" readonly class="output"></textarea>
+
+      <hr />
+
+      <label for="cpHashInput">Text to hash (SHA-256)</label>
+      <input id="cpHashInput" type="text" placeholder="Text to hash" />
+      <div class="row">
+        <button id="cpHashBtn" type="button">Compute Hash</button>
+        <button id="cpCopyHash" type="button" class="secondary">Copy</button>
+      </div>
+      <div>
+        <label>Hash (hex)</label>
+        <div id="cpHashOut" class="output">—</div>
+      </div>
+
+      <hr />
+
+      <label for="cpPlaintext">Plaintext for AES-GCM</label>
+      <textarea id="cpPlaintext" placeholder="Text to encrypt"></textarea>
+      <div class="row">
+        <button id="cpDeriveBtn" type="button">Derive Shared Key</button>
+        <button id="cpEncryptBtn" type="button" class="secondary">Encrypt</button>
+        <button id="cpDecryptBtn" type="button" class="secondary">Decrypt</button>
+      </div>
+
+      <label for="cpCipherOut">Ciphertext (base64 JSON)</label>
+      <textarea id="cpCipherOut" readonly class="output"></textarea>
+    </div>
+
+    <aside class="crypto-right">
+      <div class="section-title">
+        <strong>Keys</strong>
+        <span id="cpKeyStatus" class="badge">No Key</span>
+      </div>
+
+      <div>
+        <div class="small muted">Public Key (base64 JWK)</div>
+        <pre id="cpPubKey" class="output">—</pre>
+      </div>
+
+      <div style="margin-top:10px">
+        <div class="small muted">Private Key (base64 JWK)</div>
+        <pre id="cpPrivKey" class="output">—</pre>
+      </div>
+
+      <div style="margin-top:12px">
+        <div class="section-title"><strong>Derived Secret</strong><span class="small muted">ECDH</span></div>
+        <div id="cpDerivedOut" class="output">—</div>
+      </div>
+
+      <div style="margin-top:12px">
+        <div class="section-title"><strong>Operations Log</strong></div>
+        <div id="cpOpLog" class="output">No operations yet.</div>
+        <div class="row" style="margin-top:8px">
+          <button id="cpDownloadReport" type="button">⬇️ Download Report</button>
+          <button id="cpClearLog" type="button" class="secondary">Clear</button>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="small muted">
+        <p>Notes</p>
+        <ul>
+          <li>All crypto runs locally in your browser.</li>
+          <li>Do not use for production secrets.</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="tls" class="page-section hidden">
+  <h2>🔒 HTTPS & TLS Validation</h2>
+
+  <p class="muted">Quick checks for TLS configuration, certificate chain, and HTTPS headers. Runs client-side checks and optionally queries a backend if available.</p>
+
+  <div class="tls-grid">
+    <div class="tls-left">
+      <label for="tlsTargetUrl">Target URL</label>
+      <input id="tlsTargetUrl" type="url" placeholder="https://example.com" />
+
+      <label for="tlsCheckMode">Check Mode</label>
+      <select id="tlsCheckMode">
+        <option value="quick">Quick (client-side)</option>
+        <option value="full">Full (backend scan if available)</option>
+      </select>
+
+      <label class="checkbox-label">
+        <input id="tlsConsent" type="checkbox" />
+        I confirm I own this domain or have explicit permission to test
+      </label>
+
+      <div class="row">
+        <button id="tlsRunBtn" type="button">Run Validation</button>
+        <button id="tlsClearBtn" type="button" class="secondary">Clear</button>
+      </div>
+
+      <div class="progress-container">
+        <div id="tlsProgress" class="progress-bar">0%</div>
+      </div>
+
+      <div style="margin-top:12px">
+        <label for="tlsOutput">Summary</label>
+        <textarea id="tlsOutput" readonly class="output" placeholder="Results will appear here"></textarea>
+      </div>
+
+      <div style="margin-top:10px" class="small muted">
+        <p>Notes</p>
+        <ul>
+          <li>Client-side checks are limited by browser capabilities.</li>
+          <li>Use Full mode only if your backend scan endpoint is configured and you have permission.</li>
+        </ul>
+      </div>
+    </div>
+
+    <aside class="tls-right">
+      <div class="section-title">
+        <strong>Certificate</strong>
+        <span id="tlsCertStatus" class="badge">No Check</span>
+      </div>
+
+      <div>
+        <div class="small muted">Issuer</div>
+        <pre id="tlsIssuer" class="output">—</pre>
+      </div>
+
+      <div style="margin-top:10px">
+        <div class="small muted">Valid From / To</div>
+        <pre id="tlsValidity" class="output">—</pre>
+      </div>
+
+      <div style="margin-top:10px">
+        <div class="small muted">TLS Version / Cipher</div>
+        <pre id="tlsCipher" class="output">—</pre>
+      </div>
+
+      <div style="margin-top:12px">
+        <div class="section-title"><strong>Headers</strong></div>
+        <pre id="tlsHeaders" class="output">—</pre>
+      </div>
+
+      <div style="margin-top:12px">
+        <div class="section-title"><strong>Operations Log</strong></div>
+        <pre id="tlsLog" class="output">No operations yet.</pre>
+        <div class="row" style="margin-top:8px">
+          <button id="tlsDownloadReport" type="button">⬇️ Download Report</button>
+          <button id="tlsClearLog" type="button" class="secondary">Clear</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="input-analysis" class="page-section hidden">
+  <h2>🔍 Input Field Analysis</h2>
+
+  <p class="muted">Analyze form inputs for common issues: missing attributes, autocomplete, maxlength, input type mismatches, and potential injection sinks. Client-side checks only — no active probing.</p>
+
+  <div class="ifa-grid">
+    <div class="ifa-left">
+      <label for="ifaTargetUrl">Page URL (to analyze)</label>
+      <input id="ifaTargetUrl" type="url" placeholder="https://example.com/contact" />
+
+      <label for="ifaSelector">Form selector (CSS)</label>
+      <input id="ifaSelector" type="text" placeholder="form, form#contact, form.login" />
+
+      <label for="ifaConsent" class="checkbox-label">
+        <input id="ifaConsent" type="checkbox" />
+        I confirm I own this page or have permission to analyze it
+      </label>
+
+      <div class="row">
+        <button id="ifaRunBtn" type="button">Run Analysis</button>
+        <button id="ifaClearBtn" type="button" class="secondary">Clear</button>
+      </div>
+
+      <div style="margin-top:12px">
+        <label for="ifaSummary">Summary</label>
+        <textarea id="ifaSummary" readonly class="output" placeholder="Analysis summary will appear here"></textarea>
+      </div>
+    </div>
+
+    <aside class="ifa-right">
+      <div class="section-title">
+        <strong>Findings</strong>
+        <span id="ifaStatus" class="badge">Idle</span>
+      </div>
+
+      <div style="margin-top:8px">
+        <div class="small muted">Inputs Found</div>
+        <pre id="ifaInputs" class="output">—</pre>
+      </div>
+
+      <div style="margin-top:10px">
+        <div class="small muted">Potential Issues</div>
+        <pre id="ifaIssues" class="output">—</pre>
+      </div>
+
+      <div style="margin-top:12px">
+        <div class="section-title"><strong>Operations Log</strong></div>
+        <pre id="ifaLog" class="output">No operations yet.</pre>
+        <div class="row" style="margin-top:8px">
+          <button id="ifaDownloadReport" type="button">⬇️ Download Report</button>
+          <button id="ifaClearLog" type="button" class="secondary">Clear</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ===================== LIBRARY SECTION  ===================== -->
+<section id="library" class="page-section hidden">
+  <div class="library-inner">
+    <header class="library-header">
+      <h2>📚 Cyber Security Resources</h2>
+      <p class="muted">Curated PDFs, guides, and reference materials. Click View to preview or Download to save a copy.</p>
+    </header>
+
+    <div class="library-controls">
+      <input id="libSearch" type="search" placeholder="Search resources (title, tag)"/>
+      <select id="libFilter">
+        <option value="all">All</option>
+        <option value="pdf">PDF</option>
+        <option value="guide">Guide</option>
+        <option value="cheatsheet">Cheatsheet</option>
+      </select>
+    </div>
+
+    <div id="libList" class="lib-list" aria-live="polite"></div>
+
+    <div class="lib-footer">
+      <small class="muted">Resources are for learning and reference. Only analyze or scan sites you own or have permission to test.</small>
+    </div>
+  </div>
+
+  
+  <div id="libViewer" class="lib-viewer hidden" role="dialog" aria-modal="true" aria-label="Resource preview">
+    <div class="lib-viewer__backdrop"></div>
+    <div class="lib-viewer__panel">
+      <div class="lib-viewer__header">
+        <strong id="libViewerTitle">Preview</strong>
+        <button id="libViewerClose" class="btn-icon" aria-label="Close preview">✕</button>
+      </div>
+      <div class="lib-viewer__body">
+        <iframe id="libViewerFrame" src="" frameborder="0" sandbox="allow-same-origin allow-scripts allow-forms" title="Resource preview"></iframe>
+      </div>
+      <div class="lib-viewer__actions">
+        <a id="libViewerDownload" class="btn" download>⬇️ Download</a>
+        <button id="libViewerOpenNew" class="btn secondary">Open in new tab</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+
+ <script>
+
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -1010,12 +1452,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-    
+
 </script>
+
+<script type="module" src="firebase.js"></script>
+
 </body>
 </html>
-
-
 
 
 
