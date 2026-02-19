@@ -1069,6 +1069,7 @@ margin-top: 10px;
   background: #ffffff;
 }
 
+
 /* Fade-in animation */
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(20px);}
@@ -1323,6 +1324,7 @@ margin-top: 10px;
   box-shadow: 0 8px 20px rgba(247, 79, 79, 0.35);
 }
 
+
 /* ====== UTILS ====== */
 .hidden {
   display: none;
@@ -1372,7 +1374,9 @@ margin-top: 10px;
 
   color: rgba(255, 0, 0, 0.18);
   font-family: "Courier New", monospace;
-  font-size: 18px;
+  font-size: 14px;
+  opacity: 0.08;
+  filter: blur(0.5px);
 
   animation: floatUp linear infinite;
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
@@ -1400,4 +1404,811 @@ html, body {
 
 
 
+/* ===================== SCANNER & AUTH SECTIONS ONLY ===================== */
+#scanner.page-section,
+#auth.page-section {
+  display: block;
+  background-color: #0f111a;
+  color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 850px;
+  margin: 40px auto;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.87);
+}
 
+/* Hidden sections (controlled by JS) */
+#scanner.hidden,
+#auth.hidden {
+  display: none !important;
+}
+
+/* ===================== HEADINGS ===================== */
+#scanner h2,
+#auth h2 {
+  font-size: 1.9rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 8px #f50404;
+}
+
+
+/* ===================== PARAGRAPHS & LISTS ===================== */
+
+#scanner,
+#auth {
+  font-family: 'Rajdhani', sans-serif;
+  background: #fcfcfc;
+  padding: 50px;
+  border: 1px solid #1f1f1f;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===================== TERMINAL STYLE HEADING ===================== */
+
+#scanner h2,
+#auth h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Terminal Command Effect */
+#scanner h2::before,
+#auth h2::before {
+  content: "> ";
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Animated Underline */
+#scanner h2::after,
+#auth h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.4s ease;
+}
+
+#scanner h2:hover::after,
+#auth h2:hover::after {
+  width: 100%;
+}
+
+/* ===================== PARAGRAPHS ===================== */
+
+#scanner p,
+#auth p {
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.9;
+  letter-spacing: 0.6px;
+  margin-bottom: 22px;
+  color: #d9d9d9;
+}
+
+/* ===================== LISTS ===================== */
+
+#scanner ul,
+#auth ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+#scanner li,
+#auth li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+}
+
+/* Minimal arrow bullet */
+#scanner li::before,
+#auth li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Strong text emphasis */
+#scanner li strong,
+#auth li strong {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ===================== Subtle Panel Glow Animation ===================== */
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 20px rgba(255,255,255,0.02); }
+  50% { box-shadow: 0 0 35px rgba(255,255,255,0.06); }
+  100% { box-shadow: 0 0 20px rgba(255,255,255,0.02); }
+}
+
+#scanner,
+#auth {
+  animation: pulseGlow 6s infinite ease-in-out;
+}
+
+
+/* ===================== INPUTS & SELECTS ===================== */
+#scanner input[type="url"],
+#scanner select,
+#auth input[type="email"],
+#auth input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0 20px 0;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: #1a1c2b;
+  color: #e0e0e0;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#scanner input:focus,
+#scanner select:focus,
+#auth input:focus {
+  border: 1px solid #ff0000;
+  box-shadow: 0 0 8px #ff0000;
+}
+
+/* ===================== CHECKBOXES ===================== */
+#scanner label,
+#auth label {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#scanner input[type="checkbox"],
+#auth input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: #ff0000;
+}
+
+/* ===================== BUTTONS ===================== */
+#scanner button,
+#auth button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ff0000;
+  color: #0f111a;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#scanner button:disabled,
+#auth button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+#scanner button:hover:not(:disabled),
+#auth button:hover:not(:disabled) {
+  background-color: #cc0000;
+  transform: translateY(-2px);
+}
+
+/* ===================== CONSENT TEXT ===================== */
+#auth .consent-text {
+  background-color: #1a1c2b;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#auth .consent-text ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* ===================== AUTH BUTTONS CONTAINER ===================== */
+#auth .auth-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+
+
+/* ===================== SCANNER PROGRESS BAR ===================== */
+#scanner .progress-container {
+  background-color: #0e0d0d;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 20px;
+  height: 22px;
+}
+
+#scanner .progress-bar {
+  background-color: #00ff99;
+  height: 100%;
+  width: 0%;
+  text-align: center;
+  color: #f80505;
+  font-weight: bold;
+  line-height: 22px;
+  transition: width 0.5s ease;
+  border-radius: 6px 0 0 6px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* ===================== SCAN RESULTS ===================== */
+#scanner #scanResult {
+  margin-top: 25px;
+  background-color: #1a1c2b;
+  padding: 15px;
+  border-radius: 8px;
+  color: #fff;
+  max-height: 400px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+}
+
+/* ===================== REPORT BADGES ===================== */
+#scanner .risk-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-left: 10px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#scanner .risk-high { background-color: #ff3c3c; color: #fff; }
+#scanner .risk-medium { background-color: #ffaa00; color: #0f111a; }
+#scanner .risk-low { background-color: #00ff99; color: #0f111a; }
+
+/* ===================== DOWNLOAD BUTTON ===================== */
+#scanner .download-btn {
+  margin-top: 20px;
+  background-color: #fd0d0d;
+}
+
+#scanner .download-btn:hover {
+  background-color: #c20a0a;
+}
+
+
+/* ===================== QUIZ SECTION ===================== */
+
+#quiz {
+  background: #0f111a;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-container {
+  max-width: 850px;
+  width: 100%;
+  background: #141625;
+  padding: 50px;
+  border-radius: 12px;
+  border: 1px solid #1f2233;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  font-family: 'Rajdhani', sans-serif;
+  color: #ffffff;
+}
+
+/* ===================== HEADER ===================== */
+
+.quiz-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.quiz-header p {
+  color: #b8bccf;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* ===================== LEVEL SELECT ===================== */
+
+.quiz-level-select h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.level-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.level-buttons button {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 18px;
+  background: #1f2233;
+  border: 1px solid #2a2e45;
+  color: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.level-buttons button:hover {
+  background: #ffffff;
+  color: #0f111a;
+  transform: translateY(-2px);
+}
+
+/* ===================== QUIZ AREA ===================== */
+
+.quiz-progress {
+  margin-bottom: 25px;
+}
+
+#questionCounter {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #aeb3c9;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: #1f2233;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #ffffff;
+  transition: width 0.4s ease;
+}
+
+/* ===================== QUESTION ===================== */
+
+.question-box {
+  margin-bottom: 25px;
+}
+
+.question-box h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* ===================== ANSWERS ===================== */
+
+.answers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.answers-container button {
+  padding: 12px 15px;
+  background: #1f2233;
+  border: 1px solid #2a2e45;
+  border-radius: 6px;
+  color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.answers-container button:hover {
+  background: #ffffff;
+  color: #0f111a;
+}
+
+/* Correct / Incorrect states (JS will toggle these classes) */
+.answers-container button.correct {
+  background: #00cc88;
+  color: #0f111a;
+}
+
+.answers-container button.incorrect {
+  background: #ff3c3c;
+  color: #ffffff;
+}
+
+/* ===================== CONTROLS ===================== */
+
+.quiz-controls {
+  text-align: right;
+}
+
+.quiz-controls button {
+  padding: 10px 20px;
+  background: #ffffff;
+  color: #0f111a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.quiz-controls button:hover {
+  background: #e6e6e6;
+}
+
+/* ===================== RESULT SECTION ===================== */
+
+.quiz-result {
+  margin-top: 40px;
+  padding: 30px;
+  background: #1a1d2e;
+  border-radius: 10px;
+  border: 1px solid #2a2e45;
+}
+
+.quiz-result h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.quiz-result p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.result-message {
+  margin-top: 20px;
+  padding: 15px;
+  background: #141625;
+  border-radius: 6px;
+  border: 1px solid #2a2e45;
+}
+
+.quiz-result button {
+  margin-top: 25px;
+  padding: 10px 18px;
+  background: #ffffff;
+  color: #0f111a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.quiz-result button:hover {
+  background: #e6e6e6;
+}
+
+/* ===================== HIDDEN CLASS ===================== */
+
+.hidden {
+  display: none !important;
+}
+
+button.correct {
+  background-color: #28a745;
+  color: white;
+}
+
+button.wrong {
+  background-color: #dc3545;
+  color: white;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+
+/* ===================== Crypto Playground  ===================== */
+/* Container */
+section#crypto.page-section {
+  background-color: #0f111a;
+  color: #e6edf3;
+  padding: 36px;
+  border-radius: 12px;
+  max-width: 980px;
+  margin: 36px auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 18px rgba(255,0,0,0.06);
+  font-family: 'Rajdhani', Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Layout */
+section#crypto .crypto-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Panels */
+section#crypto .panel,
+section#crypto .crypto-left,
+section#crypto .crypto-right {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+  border-radius: 10px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Headings & small text */
+section#crypto h2 { color: #ff4d4d; margin: 0 0 10px 0; font-size: 1.6rem; }
+section#crypto .muted { color: #bfc9cc; font-size: 0.95rem; }
+section#crypto .small { font-size: 0.88rem; color: #9aa6ab; }
+
+/* Inputs, textarea, select */
+section#crypto input[type="text"],
+section#crypto input[type="url"],
+section#crypto textarea,
+section#crypto select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: #0b0b0d;
+  color: #e6edf3;
+  font-size: 0.95rem;
+  outline: none;
+  transition: box-shadow .15s, border-color .15s;
+  font-family: 'Courier New', monospace;
+}
+section#crypto textarea { min-height: 84px; resize: vertical; }
+
+/* Focus */
+section#crypto input:focus,
+section#crypto textarea:focus,
+section#crypto select:focus {
+  border-color: #ff4d4d;
+  box-shadow: 0 0 8px rgba(255,77,77,0.12);
+}
+
+/* Buttons */
+section#crypto button {
+  background: #ff4d4d;
+  color: #0f1116;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease, opacity .12s;
+}
+section#crypto button.secondary {
+  background: #15161a;
+  color: #cfd8dc;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+section#crypto button:disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+section#crypto .row { display:flex; gap:10px; flex-wrap:wrap; }
+
+/* Output blocks */
+section#crypto .output {
+  background: #0b0b0d;
+  color: #dfe7ea;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  font-family: monospace;
+  font-size: 0.92rem;
+  white-space: pre-wrap;
+  max-height: 320px;
+  overflow: auto;
+}
+
+/* Badges and status */
+section#crypto .badge,
+#cpKeyStatus {
+  display:inline-block;
+  padding:6px 8px;
+  border-radius:8px;
+  background: rgba(255,77,77,0.08);
+  color: #ff4d4d;
+  font-weight:700;
+}
+
+/* Section titles */
+section#crypto .section-title { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+
+/* Responsive */
+@media (max-width: 980px) {
+  section#crypto .crypto-grid { grid-template-columns: 1fr; }
+  section#crypto .crypto-right { order: 2; }
+}
+
+/* Small utilities */
+section#crypto .muted-list { color:#bfc9cc; margin:8px 0 0 18px; }
+section#crypto hr { border: none; border-top: 1px solid rgba(255,255,255,0.03); margin:12px 0; }
+
+/* Ensure hidden class still works */
+section#crypto.hidden { display: none !important; }
+
+/* Accessibility: focus outline for keyboard users */
+section#crypto button:focus,
+section#crypto input:focus,
+section#crypto textarea:focus,
+section#crypto select:focus {
+  outline: 3px solid rgba(0,217,132,0.12);
+  outline-offset: 2px;
+}
+
+/* ===================== TLS Validation Styles  ===================== */
+section#tls.page-section {
+  background: #0f111a;
+  color: #e6edf3;
+  padding: 28px;
+  border-radius: 10px;
+  max-width: 980px;
+  margin: 28px auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+section#tls .tls-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 16px;
+  align-items: start;
+}
+
+section#tls input[type="url"],
+section#tls select,
+section#tls textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: #0b0b0d;
+  color: #e6edf3;
+  font-size: 0.95rem;
+}
+
+section#tls .checkbox-label { display:flex; gap:8px; align-items:center; margin-top:8px; color:#bfc9cc; }
+section#tls .row { display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
+section#tls button { background:#ff4d4d; color:#fff; border:none; padding:10px 12px; border-radius:8px; cursor:pointer; font-weight:700; }
+section#tls button.secondary { background:#15161a; color:#cfd8dc; border:1px solid rgba(255,255,255,0.03); }
+section#tls .output { min-height:120px; background:#0b0b0d; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); font-family:monospace; color:#dfe7ea; white-space:pre-wrap; }
+section#tls .badge { display:inline-block; padding:6px 8px; border-radius:8px; background: rgba(255,77,77,0.08); color:#ff4d4d; font-weight:700; }
+
+section#tls .tls-right .output { max-height:220px; overflow:auto; }
+
+@media (max-width:980px) {
+  section#tls .tls-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ===================== Input Field Analysis Styles  ===================== */
+section#input-analysis.page-section {
+  background: #0f111a;
+  color: #e6edf3;
+  padding: 28px;
+  border-radius: 10px;
+  max-width: 980px;
+  margin: 28px auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+section#input-analysis .ifa-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 16px;
+  align-items: start;
+}
+
+section#input-analysis input[type="url"],
+section#input-analysis input[type="text"],
+section#input-analysis textarea,
+section#input-analysis select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: #0b0b0d;
+  color: #e6edf3;
+  font-size: 0.95rem;
+}
+
+section#input-analysis .checkbox-label { display:flex; gap:8px; align-items:center; margin-top:8px; color:#bfc9cc; }
+section#input-analysis .row { display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
+section#input-analysis button { background:#ff4d4d; color:#fff; border:none; padding:10px 12px; border-radius:8px; cursor:pointer; font-weight:700; }
+section#input-analysis button.secondary { background:#15161a; color:#cfd8dc; border:1px solid rgba(255,255,255,0.03); }
+section#input-analysis .output { min-height:120px; background:#0b0b0d; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); font-family:monospace; color:#dfe7ea; white-space:pre-wrap; }
+section#input-analysis .badge { display:inline-block; padding:6px 8px; border-radius:8px; background: rgba(255,77,77,0.08); color:#ff4d4d; font-weight:700; }
+
+@media (max-width:980px) {
+  section#input-analysis .ifa-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ===================== LIBRARY STYLES  ===================== */
+section#library.page-section {
+  background: #0f111a;
+  color: #e6edf3;
+  padding: 24px;
+  border-radius: 10px;
+  max-width: 1100px;
+  margin: 28px auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.library-inner { display:flex; flex-direction:column; gap:12px; }
+.library-header h2 { margin:0 0 6px 0; }
+.library-controls { display:flex; gap:10px; align-items:center; margin-top:6px; }
+.library-controls input[type="search"], .library-controls select {
+  padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:#0b0b0d; color:#e6edf3;
+}
+
+.lib-list { display:flex; flex-direction:column; gap:10px; margin-top:12px; }
+
+/* Resource card */
+.lib-card {
+  display:flex; gap:12px; align-items:flex-start; padding:12px; border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.03);
+}
+.lib-card .meta { flex:1; }
+.lib-card h3 { margin:0 0 6px 0; font-size:1rem; }
+.lib-card p { margin:0; color:#bfc9cc; font-size:0.95rem; }
+.lib-card .tags { margin-top:8px; color:#cfd8dc; font-size:0.85rem; }
+.lib-card .actions { display:flex; gap:8px; align-items:center; }
+
+/* Buttons */
+.btn { background:#ff4d4d; color:#fff; border:none; padding:8px 10px; border-radius:8px; cursor:pointer; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px; }
+.btn.secondary { background:#15161a; color:#cfd8dc; border:1px solid rgba(255,255,255,0.03); }
+.btn-icon { background:transparent; border:none; color:#cfd8dc; font-size:1.05rem; cursor:pointer; }
+
+/* Viewer modal */
+.lib-viewer { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:1200; }
+.lib-viewer.hidden { display:none; }
+.lib-viewer__backdrop { position:absolute; inset:0; background:rgba(2,6,23,0.7); backdrop-filter: blur(4px); }
+.lib-viewer__panel { position:relative; width:min(1100px, 96%); max-height:86vh; background:#0b0b0d; border-radius:10px; overflow:hidden; z-index:2; box-shadow:0 20px 60px rgba(0,0,0,0.7); display:flex; flex-direction:column; }
+.lib-viewer__header { display:flex; justify-content:space-between; align-items:center; padding:12px 14px; border-bottom:1px solid rgba(255,255,255,0.03); }
+.lib-viewer__body { flex:1; min-height:320px; }
+.lib-viewer__body iframe { width:100%; height:100%; border:0; background:#fff; }
+.lib-viewer__actions { display:flex; gap:8px; padding:10px 14px; border-top:1px solid rgba(255,255,255,0.03); justify-content:flex-end; }
+
+/* Responsive */
+@media (max-width:900px) {
+  .lib-card { flex-direction:column; }
+  .library-controls { flex-direction:column; align-items:stretch; }
+}
