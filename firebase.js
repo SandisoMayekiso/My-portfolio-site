@@ -11,6 +11,16 @@ import {
   sendEmailVerification
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
+/* ===================== FIREBASE CONFIG & INIT ===================== */
+const firebaseConfig = {
+  apiKey: "AIzaSyCV83vKvrFXtzLGc1JqywDxMn-Phx9MvB4",
+  authDomain: "cyberwithsandiso.firebaseapp.com",
+  projectId: "cyberwithsandiso",
+  storageBucket: "cyberwithsandiso.firebasestorage.app",
+  messagingSenderId: "944817950451",
+  appId: "1:944817950451:web:4e58e982359c8e3b00b186"
+};
+
 /* ================= INIT ================= */
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
