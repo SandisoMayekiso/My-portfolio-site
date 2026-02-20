@@ -1,3 +1,16 @@
+"use strict";
+
+/* ===================== FIREBASE IMPORTS (CDN VERSION) ===================== */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  sendEmailVerification
+} from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
 /* ================= INIT ================= */
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
