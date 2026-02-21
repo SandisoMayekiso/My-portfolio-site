@@ -1,6 +1,6 @@
 "use strict";
 
-/* ===================== FIREBASE IMPORTS (CDN VERSION) ===================== */
+/* ===================== FIREBASE IMPORTS (CDN MODULE) ===================== */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
 import {
   getAuth,
@@ -8,10 +8,20 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  sendEmailVerification
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  updateEmail,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
+  PhoneAuthProvider,
+  PhoneMultiFactorGenerator,
+  multiFactor
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
-/* ===================== FIREBASE CONFIG & INIT ===================== */
+/* ===================== FIREBASE CONFIG (Option A: inline) ===================== */
+/* Replace the apiKey and other values with your project's values from Firebase Console */
 const firebaseConfig = {
   apiKey: "AIzaSyAw0zt1S3xFhbb45WcjFOYs4pBrS_xYfBI",
   authDomain: "cyberwithsandiso.firebaseapp.com",
@@ -21,19 +31,27 @@ const firebaseConfig = {
   appId: "1:944817950451:web:4e58e982359c8e3b00b186"
 };
 
-/* ================= INIT ================= */
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+/* ===================== INITIALIZE FIREBASE ===================== */
+let app = null;
+let auth = null;
 
-/* ===================== AUTH (REWRITTEN) ===================== */
+try {
+  app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+} catch (initErr) {
+  // Initialization failed — auth will remain null and UI will show warnings
+  // Keep the error visible in console for debugging
+  // eslint-disable-next-line no-console
+  console.error("Firebase initialization failed:", initErr);
+}
+
+/* ===================== AUTH MODULE ===================== */
 document.addEventListener("DOMContentLoaded", () => {
-  // Add loading guard to avoid flicker while Firebase resolves auth state
   document.body.classList.add("auth-loading");
 
-  // Defensive selectors (prefer elements inside the auth section)
+  /* ---------- Defensive DOM selectors ---------- */
   const authSection = document.querySelector("section#auth") || document.getElementById("auth");
   const dashboardSection = document.getElementById("dashboard");
-
   const $inAuth = (sel) => authSection?.querySelector(sel) || document.querySelector(sel);
 
   const emailInput = $inAuth("#authEmail") || document.getElementById("authEmail");
@@ -41,26 +59,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const registerBtn = $inAuth("#signupBtn") || document.getElementById("signupBtn");
   const loginBtn = $inAuth("#loginBtn") || document.getElementById("loginBtn");
   const consentCheckbox = $inAuth("#consentCheckbox") || document.getElementById("consentCheckbox");
+  const resetBtn = $inAuth("#resetBtn") || document.getElementById("resetBtn");
+  const changeEmailBtn = $inAuth("#changeEmailBtn") || document.getElementById("changeEmailBtn");
+  const enrollPhoneBtn = $inAuth("#enrollPhoneBtn") || document.getElementById("enrollPhoneBtn");
+  const phoneInput = $inAuth("#phoneNumber") || document.getElementById("phoneNumber");
 
-  // Protected menus (may be null)
   const scannerMenu = document.getElementById("scannerMenu");
   const quizMenu = document.getElementById("quizMenu");
   const cryptoMenu = document.getElementById("cryptoMenu");
   const logoutMenu = document.getElementById("logoutMenu");
 
-  // If critical auth elements are missing, log and continue (do not block entire app)
-  if (!emailInput || !passwordInput || !registerBtn || !loginBtn) {
-    console.error("Critical auth elements missing:", { emailInput, passwordInput, registerBtn, loginBtn });
-    // Still continue so onAuthStateChanged can manage UI; avoid early return
+  /* ---------- Small defensive check ---------- */
+  if (!auth) {
+    console.warn("Firebase Auth not initialized; auth UI will be disabled.");
+    document.body.classList.remove("auth-loading");
+    document.body.classList.add("auth-loaded");
+    return;
   }
 
-  /* ================= Inline message helper ================= */
+  /* ---------- UI helpers ---------- */
   function showMessage(text = "", type = "info") {
     if (!authSection) return;
     let box = authSection.querySelector("#authMessage");
     if (!box) {
       box = document.createElement("div");
       box.id = "authMessage";
+      box.setAttribute("aria-live", "polite");
       box.style.margin = "0.75rem 0";
       box.style.fontSize = "0.95rem";
       authSection.prepend(box);
@@ -70,39 +94,31 @@ document.addEventListener("DOMContentLoaded", () => {
     box.style.display = text ? "block" : "none";
   }
 
-  /* ================= BUTTON TOGGLE (login allowed without consent) ================= */
   function toggleAuthButtons() {
     const emailEl = document.getElementById("authEmail");
     const passEl = document.getElementById("authPassword");
     const signupEl = document.getElementById("signupBtn");
     const loginEl = document.getElementById("loginBtn");
     const consentEl = document.getElementById("consentCheckbox");
+    const resetEl = document.getElementById("resetBtn");
 
     const emailFilled = !!(emailEl && emailEl.value && emailEl.value.trim() !== "");
     const passFilled = !!(passEl && passEl.value && passEl.value.trim() !== "");
     const consentChecked = !!(consentEl && consentEl.checked);
 
-    // Login: enable when email + password are filled (do not require consent)
     if (loginEl) loginEl.disabled = !(emailFilled && passFilled);
-
-    // Register: require consent if checkbox exists, otherwise require only email+password
     if (signupEl) {
       const requireConsent = !!consentEl;
       signupEl.disabled = !(emailFilled && passFilled && (!requireConsent || consentChecked));
     }
-
-    console.debug("toggleAuthButtons", { emailFilled, passFilled, consentChecked, loginDisabled: loginEl?.disabled, signupDisabled: signupEl?.disabled });
+    if (resetEl) resetEl.disabled = !emailFilled;
   }
 
-  // Wire input listeners defensively
   if (emailInput) emailInput.addEventListener("input", toggleAuthButtons);
   if (passwordInput) passwordInput.addEventListener("input", toggleAuthButtons);
   if (consentCheckbox) consentCheckbox.addEventListener("change", toggleAuthButtons);
-
-  // Ensure initial state after wiring
   setTimeout(toggleAuthButtons, 50);
 
-  /* ================= ERROR MAPPING ================= */
   function formatError(code) {
     const map = {
       "auth/email-already-in-use": "Email already registered.",
@@ -110,12 +126,13 @@ document.addEventListener("DOMContentLoaded", () => {
       "auth/weak-password": "Password must be at least 6 characters.",
       "auth/user-not-found": "Account not found.",
       "auth/wrong-password": "Incorrect password.",
-      "auth/network-request-failed": "Network error."
+      "auth/network-request-failed": "Network error.",
+      "auth/multi-factor-auth-required": "Multi-factor authentication required.",
+      "auth/api-key-expired": "API key expired. Renew the API key in Google Cloud Console."
     };
     return map[code] || "Authentication error.";
   }
 
-  /* ================= UTILS ================= */
   function resetAuthForm() {
     if (emailInput) emailInput.value = "";
     if (passwordInput) passwordInput.value = "";
@@ -126,16 +143,17 @@ document.addEventListener("DOMContentLoaded", () => {
   function setButtonsDisabled(state) {
     if (registerBtn) registerBtn.disabled = !!state;
     if (loginBtn) loginBtn.disabled = !!state;
+    if (resetBtn) resetBtn.disabled = !!state;
+    if (changeEmailBtn) changeEmailBtn.disabled = !!state;
+    if (enrollPhoneBtn) enrollPhoneBtn.disabled = !!state;
   }
 
-  /* ================= ACTIVATE AUTHENTICATED UI ================= */
   function activateAuthenticatedUI(user) {
     scannerMenu?.classList.remove("hidden");
     quizMenu?.classList.remove("hidden");
     cryptoMenu?.classList.remove("hidden");
     logoutMenu?.classList.remove("hidden");
 
-    // Hide all sections and show scanner if available, otherwise dashboard
     document.querySelectorAll(".page-section").forEach(s => s.classList.add("hidden"));
     const scanner = document.getElementById("scanner");
     if (scanner) {
@@ -150,11 +168,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resetAuthForm();
     showMessage("", "info");
-
     setTimeout(() => document.getElementById("targetUrl")?.focus(), 50);
   }
 
-  /* ================= REGISTER HANDLER ================= */
+  /* ---------- Password reset ---------- */
+  async function requestPasswordReset(email) {
+    await sendPasswordResetEmail(auth, email);
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const email = emailInput?.value?.trim();
+      if (!email) {
+        showMessage("Enter your email to reset password.", "error");
+        return;
+      }
+      setButtonsDisabled(true);
+      try {
+        await requestPasswordReset(email);
+        showMessage("Password reset email sent. Check your inbox.");
+      } catch (err) {
+        console.error("Password reset error:", err);
+        showMessage(formatError(err.code), "error");
+      } finally {
+        setButtonsDisabled(false);
+      }
+    });
+  }
+
+  /* ---------- Register (with email verification) ---------- */
   if (registerBtn) {
     registerBtn.addEventListener("click", async (e) => {
       e.preventDefault();
@@ -166,8 +209,6 @@ document.addEventListener("DOMContentLoaded", () => {
         showMessage("Enter email and password.", "error");
         return;
       }
-
-      // If consent checkbox exists, require it for registration
       if (consentCheckbox && !consentCheckbox.checked) {
         showMessage("You must agree to the terms to register.", "error");
         return;
@@ -175,8 +216,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       setButtonsDisabled(true);
       try {
-        await createUserWithEmailAndPassword(auth, email, password);
-        showMessage("Account created. Please verify your email before signing in.");
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await sendEmailVerification(userCredential.user);
+        showMessage("Account created. A verification email has been sent. Verify before signing in.");
         resetAuthForm();
       } catch (err) {
         console.error("Register error:", err);
@@ -187,7 +229,91 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================= LOGIN HANDLER ================= */
+  /* ---------- Change email (reauth required) ---------- */
+  async function changeEmail(currentPassword, newEmail) {
+    if (!auth.currentUser) throw new Error("Not signed in");
+    const user = auth.currentUser;
+    const cred = EmailAuthProvider.credential(user.email, currentPassword);
+    await reauthenticateWithCredential(user, cred);
+    await updateEmail(user, newEmail);
+    await sendEmailVerification(user);
+  }
+
+  if (changeEmailBtn) {
+    changeEmailBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const currentPassword = window.prompt("Enter your current password to confirm email change:");
+      const newEmail = window.prompt("Enter your new email address:");
+      if (!currentPassword || !newEmail) {
+        showMessage("Email change cancelled.", "error");
+        return;
+      }
+      setButtonsDisabled(true);
+      try {
+        await changeEmail(currentPassword, newEmail);
+        showMessage("Email updated. Please verify your new address.");
+      } catch (err) {
+        console.error("Change email error:", err);
+        showMessage(formatError(err.code), "error");
+      } finally {
+        setButtonsDisabled(false);
+      }
+    });
+  }
+
+  /* ---------- Recaptcha helper (phone / MFA) ---------- */
+  function ensureRecaptcha(containerId = "recaptcha-container") {
+    let el = document.getElementById(containerId);
+    if (!el) {
+      el = document.createElement("div");
+      el.id = containerId;
+      el.style.display = "none";
+      document.body.appendChild(el);
+    }
+    if (!window.recaptchaVerifier && typeof RecaptchaVerifier === "function") {
+      window.recaptchaVerifier = new RecaptchaVerifier(containerId, { size: "invisible" }, auth);
+    }
+    return window.recaptchaVerifier;
+  }
+
+  /* ---------- Enroll phone as MFA second factor ---------- */
+  async function enrollPhoneMfa(user, phoneNumber) {
+    const verifier = ensureRecaptcha();
+    const phoneAuthProvider = new PhoneAuthProvider(auth);
+    const verificationId = await phoneAuthProvider.verifyPhoneNumber(phoneNumber, verifier);
+    const code = window.prompt("Enter the SMS code sent to your phone to enroll as MFA:");
+    if (!code) throw new Error("Enrollment cancelled");
+    const cred = PhoneAuthProvider.credential(verificationId, code);
+    const assertion = PhoneMultiFactorGenerator.assertion(cred);
+    await multiFactor(user).enroll(assertion, "Primary phone");
+  }
+
+  if (enrollPhoneBtn) {
+    enrollPhoneBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const phone = phoneInput?.value?.trim() || window.prompt("Enter phone number (E.164 format, e.g. +27123456789):");
+      if (!phone) {
+        showMessage("Phone number required to enroll MFA.", "error");
+        return;
+      }
+      setButtonsDisabled(true);
+      try {
+        if (!auth.currentUser) {
+          showMessage("You must be signed in to enroll a second factor.", "error");
+          return;
+        }
+        await enrollPhoneMfa(auth.currentUser, phone);
+        showMessage("Phone enrolled for MFA.");
+      } catch (err) {
+        console.error("MFA enroll error:", err);
+        showMessage(formatError(err.code) || "MFA enrollment failed.", "error");
+      } finally {
+        setButtonsDisabled(false);
+      }
+    });
+  }
+
+  /* ---------- Login (with MFA resolution) ---------- */
   if (loginBtn) {
     loginBtn.addEventListener("click", async (e) => {
       e.preventDefault();
@@ -204,8 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
-        // Enforce email verification if required
-        if (userCredential?.user && !userCredential.user.emailVerified) {
+        if (userCredential?.user && userCredential.user.emailVerified === false) {
           await signOut(auth);
           showMessage("Please verify your email before logging in.", "error");
           return;
@@ -215,6 +340,41 @@ document.addEventListener("DOMContentLoaded", () => {
         showMessage("Login successful.");
         resetAuthForm();
       } catch (err) {
+        if (err && err.code === "auth/multi-factor-auth-required") {
+          try {
+            const resolver = err.resolver;
+            const hint = resolver.hints && resolver.hints[0];
+            if (!hint) throw new Error("No second factor available.");
+
+            ensureRecaptcha();
+
+            const phoneAuthProvider = new PhoneAuthProvider(auth);
+            const verificationId = await phoneAuthProvider.verifyPhoneNumber({
+              multiFactorHint: hint,
+              session: resolver.session
+            }, window.recaptchaVerifier);
+
+            const code = window.prompt("Enter the SMS verification code sent to your phone:");
+            if (!code) {
+              showMessage("MFA verification cancelled.", "error");
+              return;
+            }
+
+            const cred = PhoneAuthProvider.credential(verificationId, code);
+            const multiFactorAssertion = PhoneMultiFactorGenerator.assertion(cred);
+
+            const finalUserCredential = await resolver.resolveSignIn(multiFactorAssertion);
+            activateAuthenticatedUI(finalUserCredential.user);
+            showMessage("Login successful (MFA completed).");
+          } catch (mfaErr) {
+            console.error("MFA resolution failed:", mfaErr);
+            showMessage("Multi-factor authentication failed.", "error");
+          } finally {
+            setButtonsDisabled(false);
+          }
+          return;
+        }
+
         console.error("Login error:", err);
         showMessage(formatError(err.code), "error");
       } finally {
@@ -223,12 +383,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ================= LOGOUT ================= */
+  /* ---------- Logout ---------- */
   window.logout = async () => {
     try {
       await signOut(auth);
       showMessage("Logged out.");
-      // Return to public landing (dashboard) by default
       document.querySelectorAll(".page-section").forEach(s => s.classList.add("hidden"));
       if (dashboardSection) {
         dashboardSection.classList.remove("hidden");
@@ -245,13 +404,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  /* ================= AUTH STATE HANDLER ================= */
+  /* ---------- Auth state handler ---------- */
   onAuthStateChanged(auth, (user) => {
-    // Remove loading guard once auth state resolves
     document.body.classList.remove("auth-loading");
     document.body.classList.add("auth-loaded");
 
-    // Helper to show a section and set menu active
     function showSection(id) {
       document.querySelectorAll(".page-section").forEach(s => s.classList.add("hidden"));
       const el = document.getElementById(id);
@@ -264,13 +421,11 @@ document.addEventListener("DOMContentLoaded", () => {
       activateAuthenticatedUI(user);
       console.log("User logged in:", user.email);
     } else {
-      // Hide protected menus
       scannerMenu?.classList.add("hidden");
       quizMenu?.classList.add("hidden");
       cryptoMenu?.classList.add("hidden");
       logoutMenu?.classList.add("hidden");
 
-      // If user explicitly navigated to auth (menu link active), show auth; otherwise show dashboard
       const activeMenu = document.querySelector(".menu a.active");
       const explicitTarget = activeMenu?.dataset?.target;
 
@@ -279,20 +434,16 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (dashboardSection) {
         showSection("dashboard");
       } else {
-        // fallback: keep auth hidden unless explicitly requested
         document.querySelectorAll(".page-section").forEach(s => s.classList.add("hidden"));
         document.getElementById("auth")?.classList.add("hidden");
       }
 
-      console.log("No authenticated user - showing public landing (or auth if explicitly requested)");
       resetAuthForm();
     }
   }, (error) => {
     console.error("onAuthStateChanged error:", error);
     document.body.classList.remove("auth-loading");
     document.body.classList.add("auth-loaded");
-
-    // Fallback to dashboard on error
     if (dashboardSection) {
       document.querySelectorAll(".page-section").forEach(s => s.classList.add("hidden"));
       dashboardSection.classList.remove("hidden");
@@ -304,6 +455,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // End DOMContentLoaded
 });
+
+
+
 
 /* ===================== SCANNER SETUP ===================== */
 
