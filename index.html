@@ -803,22 +803,25 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
 </section>
 
 
+<!-- Firebase config must be loaded first -->
+<script src="/firebase.js"></script>
+
+<!-- Auth UI section (merge with your existing content) -->
 <section id="auth" class="page-section hidden">
-  <h2>🔐Cyber Security Lab</h2>
+  <h2>🔐 Cyber Security Lab</h2>
 
-  <p>Create an account to access exclusive cybersecurity DEMO tools and testing environments.</p>
-    <div class="tools-preview">
-      <ul>
-        <li><strong>Web Scanning Tool</strong></li>
-        <li><strong>Security Quiz Web App</strong> <span></span></li>
-        <li><strong>Crypto Playground</strong> <span></span></li>
-        <li><strong>HTTPS & TLS Validation</strong> <span></span></li>
-        <li><strong>Input Field Analysis</strong> <span></span></li>
-        <li><strong>Cyber Security Resources</strong> <span></span></li>
-      </ul>
-    </div>
+  <p>Create an account to access exclusive cybersecurity tools and testing environments.</p>
 
-    
+  <div class="tools-preview">
+    <ul>
+      <li><strong>Web Scanning Tool</strong></li>
+      <li><strong>Security Quiz Web App</strong> <span>(Coming Soon)</span></li>
+      <li><strong>Crypto Playground</strong> <span>(Coming Soon)</span></li>
+      <li><strong>HTTPS & TLS Validation</strong> <span>(Coming Soon)</span></li>
+      <li><strong>Input Field Analysis</strong> <span>(Coming Soon)</span></li>
+    </ul>
+  </div>
+
   <div class="consent-text">
     <p>By creating an account or signing in, you confirm that you understand and agree to the following:</p>
     <ul>
@@ -837,22 +840,38 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
     <label for="consentCheckbox">I have read and agree to the terms above.</label>
   </div>
 
+  <!-- Auth inputs -->
+  <div class="auth-fields">
+    <input type="email" id="authEmail" placeholder="Email" autocomplete="email" required>
+    <input type="password" id="authPassword" placeholder="Password" autocomplete="current-password" required>
+  </div>
+
+  <!-- Buttons -->
   <div class="auth-buttons">
     <button id="signupBtn" disabled>Create Account</button>
     <button id="loginBtn" disabled>Sign In</button>
+    <button id="resetBtn" disabled type="button">Reset Password</button>
   </div>
-  
-<input type="email" id="authEmail" placeholder="Email">
-<input type="password" id="authPassword" placeholder="Password">
 
-<div class="disclaimer-compact">
-  ⚠ All tools and resources on this site are demo-based and intended 
-  strictly for educational purposes. Only test systems you own or have 
-  written authorization to assess. Misuse is prohibited.
-</div>
+  <!-- Optional: change email and MFA enrollment -->
+  <div class="auth-advanced">
+    <input type="tel" id="phoneNumber" placeholder="Phone (E.164, e.g. +27123456789)">
+    <button id="enrollPhoneBtn" type="button">Enroll Phone (MFA)</button>
+    <button id="changeEmailBtn" type="button">Change Email</button>
+  </div>
 
+  <!-- Recaptcha container (invisible) required for phone auth / MFA -->
+  <div id="recaptcha-container" style="display:none;"></div>
+
+  <div class="disclaimer-compact">
+    ⚠ All tools and resources on this site are demo-based and intended 
+    strictly for educational purposes. Only test systems you own or have 
+    written authorization to assess. Misuse is prohibited.
+  </div>
+
+  <!-- Auth script (module) must be loaded after firebase.js and after the DOM elements above -->
+  <script type="module" src="/js/auth.js"></script>
 </section>
-
 
 
 <section id="scanner" class="page-section hidden">
@@ -1462,24 +1481,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </script>
 
-<script type="module" src="cyberwithsandiso.js"></script>
-
-
+<script type="module" src="firebase.js"></script>
 
 </body>
 <footer id="siteFooter">
   &copy; 2026 CyberWithSandiso
 </footer>
+
 </html>
-
-
-
-
-
-
-
-
-
 
 
 
