@@ -13,7 +13,7 @@ import {
 
 /* ===================== FIREBASE CONFIG & INIT ===================== */
 const firebaseConfig = {
-  apiKey: "AIzaSyCV83vKvrFXtzLGc1JqywDxMn-Phx9MvB4",
+  apiKey: "AIzaSyAw0zt1S3xFhbb45WcjFOYs4pBrS_xYfBI",
   authDomain: "cyberwithsandiso.firebaseapp.com",
   projectId: "cyberwithsandiso",
   storageBucket: "cyberwithsandiso.firebasestorage.app",
