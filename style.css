@@ -2212,3 +2212,14 @@ section#library.page-section {
   .lib-card { flex-direction:column; }
   .library-controls { flex-direction:column; align-items:stretch; }
 }
+
+#siteFooter {
+  position: relative;       /* needed for pseudo-element if used */
+  height: 60px;             /* adjust as needed */
+  background: #111;         /* dark background for contrast */
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  box-shadow: 0 -5px 20px rgba(255, 0, 0, 0.6); /* red glow upward */
+}
+
