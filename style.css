@@ -2373,3 +2373,377 @@ section#library.page-section {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ======================================================
+   VISITOR STATISTICS DASHBOARD
+   CyberWithSandiso Theme
+====================================================== */
+
+
+#visitor-stats {
+    min-height: 100vh;
+    padding: 30px;
+}
+
+
+/* Main Title */
+
+#visitor-stats h2 {
+
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 30px;
+
+    text-shadow:
+    0 0 10px red,
+    0 0 20px red;
+
+}
+
+
+
+/* ===============================
+   STAT CARDS
+================================ */
+
+
+.stats-dashboard {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.stats-card {
+
+
+    background:
+
+    linear-gradient(
+    145deg,
+    rgba(255,0,0,0.15),
+    rgba(0,0,0,0.8)
+    );
+
+
+    border:1px solid red;
+
+    border-radius:15px;
+
+    padding:25px;
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+
+    box-shadow:
+
+    0 0 15px rgba(255,0,0,0.5);
+
+
+    transition:0.3s;
+
+
+}
+
+
+
+.stats-card:hover {
+
+
+    transform:translateY(-5px);
+
+
+    box-shadow:
+
+    0 0 25px red;
+
+
+}
+
+
+
+.stats-card i {
+
+
+    font-size:45px;
+
+    color:red;
+
+    text-shadow:
+
+    0 0 10px red;
+
+
+}
+
+
+
+.stats-card h3 {
+
+
+    color:white;
+
+    margin:0;
+
+    font-size:18px;
+
+}
+
+
+
+.stats-card p {
+
+
+    color:red;
+
+    font-size:35px;
+
+    font-weight:bold;
+
+    margin-top:10px;
+
+
+    text-shadow:
+
+    0 0 10px red;
+
+
+}
+
+
+
+
+/* ===============================
+   CHART PANEL
+================================ */
+
+
+
+.chart-card {
+
+
+    background:
+
+    rgba(0,0,0,0.75);
+
+
+    border:
+
+    1px solid red;
+
+
+    border-radius:15px;
+
+
+    padding:30px;
+
+
+    box-shadow:
+
+
+    0 0 20px rgba(255,0,0,.4);
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+.chart-card h3 {
+
+
+    color:white;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+#visitorChart {
+
+
+    max-height:400px;
+
+}
+
+
+
+/* ===============================
+   ANALYTICS INFO
+================================ */
+
+
+
+.analytics-info {
+
+
+    background:
+
+    linear-gradient(
+
+    145deg,
+
+    rgba(255,0,0,.12),
+
+    rgba(0,0,0,.9)
+
+    );
+
+
+    border-left:
+
+    5px solid red;
+
+
+    padding:25px;
+
+
+    border-radius:10px;
+
+
+}
+
+
+
+.analytics-info h3 {
+
+
+    color:white;
+
+
+}
+
+
+
+.analytics-info ul {
+
+
+    color:white;
+
+
+    line-height:2;
+
+
+}
+
+
+
+.analytics-info li::marker {
+
+
+    color:red;
+
+
+}
+
+
+
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
+
+
+
+@media(max-width:768px){
+
+
+#visitor-stats {
+
+    padding:15px;
+
+}
+
+
+
+#visitor-stats h2 {
+
+    font-size:24px;
+
+}
+
+
+
+.stats-dashboard {
+
+
+    grid-template-columns:
+
+    1fr;
+
+
+}
+
+
+
+.stats-card {
+
+
+    padding:20px;
+
+
+}
+
+
+
+.stats-card p {
+
+
+    font-size:28px;
+
+
+}
+
+
+
+.chart-card {
+
+
+    padding:15px;
+
+
+}
+
+
+}
