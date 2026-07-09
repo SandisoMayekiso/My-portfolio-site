@@ -809,31 +809,7 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
   <p id="form-status" class="form-status"></p>
 </form>
 
-  
 
-<section class="visitor-stats">
-    <h2>📊 Portfolio Statistics</h2>
-
-    <div class="stats-card">
-        <h3>Total Visitors</h3>
-        <p id="visitor-count">Loading...</p>
-    </div>
-</section>
-
-<script>
-const namespace = "sandisomayekiso-portfolio";
-const key = "visitors";
-
-fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("visitor-count").textContent =
-            data.value.toLocaleString();
-    })
-    .catch(() => {
-        document.getElementById("visitor-count").textContent = "Unavailable";
-    });
-</script>
 </section>
 
 
@@ -1517,7 +1493,31 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script type="module" src="cyberwithsandiso.js"></script>
-  
+
+========================================================================
+<section class="visitor-stats">
+    <h2>📊 Portfolio Statistics</h2>
+
+    <div class="stats-card">
+        <h3>Total Visitors</h3>
+        <p id="visitor-count">Loading...</p>
+    </div>
+</section>
+
+<script>
+fetch("https://api.counterapi.dev/v1/sandisomayekiso-portfolio/visits/up")
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("visitor-count").textContent =
+            data.count.toLocaleString();
+    })
+    .catch(error => {
+        console.error("Visitor counter error:", error);
+        document.getElementById("visitor-count").textContent = "Unavailable";
+    });
+</script>
+
+  =========================================================================
 </body>
 <footer id="siteFooter">
   &copy; 2026 CyberWithSandiso
