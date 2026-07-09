@@ -808,6 +808,32 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
   <button type="submit">Send Message</button>
   <p id="form-status" class="form-status"></p>
 </form>
+
+  
+
+<section class="visitor-stats">
+    <h2>📊 Portfolio Statistics</h2>
+
+    <div class="stats-card">
+        <h3>Total Visitors</h3>
+        <p id="visitor-count">Loading...</p>
+    </div>
+</section>
+
+<script>
+const namespace = "sandisomayekiso-portfolio";
+const key = "visitors";
+
+fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("visitor-count").textContent =
+            data.value.toLocaleString();
+    })
+    .catch(() => {
+        document.getElementById("visitor-count").textContent = "Unavailable";
+    });
+</script>
 </section>
 
 
