@@ -1756,16 +1756,138 @@ document.addEventListener("DOMContentLoaded", () => {
 // Create a unique visitor ID
 // =======================================
 
-let visitorId = localStorage.getItem("visitorId");
+import { db } from "./firebase.js"; // Ensure db is accessible
+import { doc, setDoc, serverTimestamp } from "https://gstatic.com";
 
-if (!visitorId) {
-    visitorId = crypto.randomUUID();
-    localStorage.setItem("visitorId", visitorId);
+async function logPortfolioVisitor() {
+    let visitorId = localStorage.getItem("visitorId");
+    let isNew = false;
 
-    console.log("New Visitor:", visitorId);
-} else {
-    console.log("Returning Visitor:", visitorId);
+    if (!visitorId) {
+        visitorId = crypto.randomUUID();
+        localStorage.setItem("visitorId", visitorId);
+        isNew = true;
+    }
+
+    // Capture organic client-side fingerprints
+    const fingerprint = {
+        visitorId: visitorId,
+        lastSeen: serverTimestamp(),
+        device: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
+        language: navigator.language || "unknown",
+        referrer: document.referrer || "Direct"
+    };
+
+    if (isNew) {
+        fingerprint.firstSeen = serverTimestamp();
+    }
+
+    try {
+        // Save straight to a root collection named 'visitors'
+        await setDoc(doc(db, "visitors", visitorId), fingerprint, { merge: true });
+        console.log("Analytics hit recorded successfully.");
+    } catch (err) {
+        console.error("Failed writing analytics telemetry to Firestore:", err);
+    }
 }
+
+// Fire tracking payload instantly when window initializes
+logPortfolioVisitor();
+
+
+
+
+
+import { db } from "./firebase.js";
+import { collection, onSnapshot } from "https://gstatic.com";
+
+function setupLiveAnalyticsDashboard() {
+    const totalCountEl = document.getElementById("visitor-count");
+    const todayCountEl = document.getElementById("today-visitors");
+    const activeUsersEl = document.getElementById("activeUsers");
+    const lastUpdatedEl = document.getElementById("lastUpdated");
+
+    if (!totalCountEl) return; // Prevent crashing if tab isn't rendered
+
+    // Hook onto the 'visitors' collection in real-time
+    onSnapshot(collection(db, "visitors"), (snapshot) => {
+        const docs = snapshot.docs.map(doc => doc.data());
+        
+        // 1. Total Unique Visitors Calculation
+        const totalVisitors = docs.length;
+        totalCountEl.textContent = totalVisitors;
+
+        // 2. Filter Today's Hits
+        const startOfToday = new Date();
+        startOfToday.setHours(0, 0, 0, 0);
+        
+        const todayHits = docs.filter(v => {
+            if (!v.lastSeen) return false;
+            const lastSeenDate = v.lastSeen.toDate(); // Converts Firestore timestamp to standard JS Date
+            return lastSeenDate >= startOfToday;
+        }).length;
+        
+        todayCountEl.textContent = todayHits;
+
+        // 3. Simulating 'Active Now' via recent interactions (5 minutes window)
+        const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
+        const liveNow = docs.filter(v => {
+            if (!v.lastSeen) return false;
+            return v.lastSeen.toDate() >= fiveMinutesAgo;
+        }).length;
+        
+        // Ensure at least 1 active user is displayed (the current individual viewing it)
+        activeUsersEl.textContent = liveNow || 1;
+
+        // 4. Update Header Timestamp
+        const now = new Date();
+        lastUpdatedEl.textContent = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+        
+        // 5. Aggregate Analytics metadata arrays dynamically for your charts
+        processAnalyticalMetrics(docs);
+    });
+}
+
+function processAnalyticalMetrics(visitorData) {
+    // Tally devices
+    let mobile = 0;
+    let desktop = 0;
+    
+    // Tally referrers
+    let referrers = { Direct: 0, GitHub: 0, LinkedIn: 0, Search: 0 };
+
+    visitorData.forEach(v => {
+        if (v.device === "Mobile") mobile++; else desktop++;
+        
+        const ref = v.referrer.toLowerCase();
+        if (ref.includes("github")) referrers.GitHub++;
+        else if (ref.includes("linkedin")) referrers.LinkedIn++;
+        else if (ref.includes("google") || ref.includes("bing")) referrers.Search++;
+        else referrers.Direct++;
+    });
+
+    // Dynamically update progress rows directly in the DOM
+    updateSourceProgressRow("Direct", referrers.Direct, visitorData.length);
+    updateSourceProgressRow("GitHub", referrers.GitHub, visitorData.length);
+    updateSourceProgressRow("LinkedIn", referrers.LinkedIn, visitorData.length);
+    updateSourceProgressRow("Search", referrers.Search, visitorData.length);
+}
+
+function updateSourceProgressRow(label, count, total) {
+    const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
+    // Query matching row to rewrite live widths and labels
+    const rows = document.querySelectorAll(".progress-row");
+    rows.forEach(row => {
+        if (row.querySelector("span").textContent.trim() === label) {
+            row.querySelector(".progress div").style.width = `${percentage}%`;
+            row.querySelectorAll("span")[1].textContent = `${percentage}%`;
+        }
+    });
+}
+
+// Call on load
+setupLiveAnalyticsDashboard();
+
    
 
 
