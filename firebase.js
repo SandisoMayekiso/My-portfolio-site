@@ -9,27 +9,20 @@ import {
   signOut,
   onAuthStateChanged,
   sendEmailVerification,
-  sendPasswordResetEmail,
-  updateEmail,
-  reauthenticateWithCredential,
-  EmailAuthProvider,
-  RecaptchaVerifier,
-  signInWithPhoneNumber,
-  PhoneAuthProvider,
-  PhoneMultiFactorGenerator,
-  multiFactor,
+  sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+// ✅ FIXED: Imported from the correct Firestore library source
+import { 
   getFirestore, 
   collection, 
   doc, 
   setDoc, 
-  getDocs, 
   onSnapshot,
-  query,
-  where
-} from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+  serverTimestamp
+} from "https://gstatic.com";
 
-/* ===================== FIREBASE CONFIG (Option A: inline) ===================== */
-/* Replace the apiKey and other values with your project's values from Firebase Console */
+/* ===================== FIREBASE CONFIG ===================== */
 const firebaseConfig = {
   apiKey: "AIzaSyAw0zt1S3xFhbb45WcjFOYs4pBrS_xYfBI",
   authDomain: "cyberwithsandiso.firebaseapp.com",
@@ -42,17 +35,53 @@ const firebaseConfig = {
 /* ===================== INITIALIZE FIREBASE ===================== */
 let app = null;
 let auth = null;
+let db = null; // Defined globally inside the module scope
 
 try {
   app = initializeApp(firebaseConfig);
   auth = getAuth(app);
-  export const db = getFirestore(app);
+  db = getFirestore(app); // ✅ FIXED: Removed inline 'export' to prevent crash
 } catch (initErr) {
-  // Initialization failed — auth will remain null and UI will show warnings
-  // Keep the error visible in console for debugging
-  // eslint-disable-next-line no-console
   console.error("Firebase initialization failed:", initErr);
 }
+
+// Export the initialized db instance for other scripts
+export { db };
+
+/* ===================== LIVE VISITOR ANALYTICS LOGIC ===================== */
+async function logPortfolioVisitor() {
+  if (!db) return;
+  let visitorId = localStorage.getItem("visitorId");
+  let isNew = false;
+
+  if (!visitorId) {
+    visitorId = crypto.randomUUID();
+    localStorage.setItem("visitorId", visitorId);
+    isNew = true;
+  }
+
+  const fingerprint = {
+    visitorId: visitorId,
+    lastSeen: serverTimestamp(),
+    device: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
+    language: navigator.language || "unknown",
+    referrer: document.referrer || "Direct"
+  };
+
+  if (isNew) {
+    fingerprint.firstSeen = serverTimestamp();
+  }
+
+  try {
+    await setDoc(doc(db, "visitors", visitorId), fingerprint, { merge: true });
+    console.log("Analytics telemetry recorded securely.");
+  } catch (err) {
+    console.error("Failed writing analytics hit to Firestore:", err);
+  }
+}
+
+// Fire tracking payload instantly when script executes
+logPortfolioVisitor();
 
 /* ===================== AUTH MODULE ===================== */
 document.addEventListener("DOMContentLoaded", () => {
