@@ -13,14 +13,23 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 // ✅ FIXED: Imported from the correct Firestore library source
-import { 
-  getFirestore, 
-  collection, 
-  doc, 
-  setDoc, 
+import {
+  getFirestore,
+  collection,
+  doc,
+  setDoc,
+  getDoc,
+  updateDoc,
+  addDoc,
+  query,
+  where,
+  orderBy,
+  limit,
+  getDocs,
   onSnapshot,
+  increment,
   serverTimestamp
-} from "https://gstatic.com";
+} from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
 /* ===================== FIREBASE CONFIG ===================== */
 const firebaseConfig = {
