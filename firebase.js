@@ -17,7 +17,15 @@ import {
   signInWithPhoneNumber,
   PhoneAuthProvider,
   PhoneMultiFactorGenerator,
-  multiFactor
+  multiFactor,
+  getFirestore, 
+  collection, 
+  doc, 
+  setDoc, 
+  getDocs, 
+  onSnapshot,
+  query,
+  where
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 /* ===================== FIREBASE CONFIG (Option A: inline) ===================== */
