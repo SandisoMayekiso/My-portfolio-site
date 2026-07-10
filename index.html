@@ -21,6 +21,10 @@
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script src="https://jsdelivr.net"></script>
+</head>
+
 </head>
 
 <body>
@@ -1756,137 +1760,167 @@ document.addEventListener("DOMContentLoaded", () => {
 // Create a unique visitor ID
 // =======================================
 
-import { db } from "./firebase.js"; // Ensure db is accessible
-import { doc, setDoc, serverTimestamp } from "https://gstatic.com";
+  /* ===================== LIVE DASHBOARD DISPLAY ENGINE ===================== */
+  let visitorChartInstance = null;
+  let deviceChartInstance = null;
 
-async function logPortfolioVisitor() {
-    let visitorId = localStorage.getItem("visitorId");
-    let isNew = false;
-
-    if (!visitorId) {
-        visitorId = crypto.randomUUID();
-        localStorage.setItem("visitorId", visitorId);
-        isNew = true;
-    }
-
-    // Capture organic client-side fingerprints
-    const fingerprint = {
-        visitorId: visitorId,
-        lastSeen: serverTimestamp(),
-        device: /Mobi|Android|iPhone/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
-        language: navigator.language || "unknown",
-        referrer: document.referrer || "Direct"
-    };
-
-    if (isNew) {
-        fingerprint.firstSeen = serverTimestamp();
-    }
-
-    try {
-        // Save straight to a root collection named 'visitors'
-        await setDoc(doc(db, "visitors", visitorId), fingerprint, { merge: true });
-        console.log("Analytics hit recorded successfully.");
-    } catch (err) {
-        console.error("Failed writing analytics telemetry to Firestore:", err);
-    }
-}
-
-// Fire tracking payload instantly when window initializes
-logPortfolioVisitor();
-
-
-
-
-
-import { db } from "./firebase.js";
-import { collection, onSnapshot } from "https://gstatic.com";
-
-function setupLiveAnalyticsDashboard() {
+  function setupLiveAnalyticsDashboard() {
     const totalCountEl = document.getElementById("visitor-count");
     const todayCountEl = document.getElementById("today-visitors");
     const activeUsersEl = document.getElementById("activeUsers");
     const lastUpdatedEl = document.getElementById("lastUpdated");
 
-    if (!totalCountEl) return; // Prevent crashing if tab isn't rendered
+    if (!totalCountEl || !db) return;
 
-    // Hook onto the 'visitors' collection in real-time
     onSnapshot(collection(db, "visitors"), (snapshot) => {
-        const docs = snapshot.docs.map(doc => doc.data());
-        
-        // 1. Total Unique Visitors Calculation
-        const totalVisitors = docs.length;
-        totalCountEl.textContent = totalVisitors;
+      const docs = snapshot.docs.map(d => d.data());
+      
+      // Update text data points
+      totalCountEl.textContent = docs.length;
 
-        // 2. Filter Today's Hits
-        const startOfToday = new Date();
-        startOfToday.setHours(0, 0, 0, 0);
-        
-        const todayHits = docs.filter(v => {
-            if (!v.lastSeen) return false;
-            const lastSeenDate = v.lastSeen.toDate(); // Converts Firestore timestamp to standard JS Date
-            return lastSeenDate >= startOfToday;
-        }).length;
-        
-        todayCountEl.textContent = todayHits;
+      const startOfToday = new Date();
+      startOfToday.setHours(0, 0, 0, 0);
+      
+      const todayHits = docs.filter(v => {
+        if (!v.lastSeen) return false;
+        return v.lastSeen.toDate() >= startOfToday;
+      }).length;
+      todayCountEl.textContent = todayHits;
 
-        // 3. Simulating 'Active Now' via recent interactions (5 minutes window)
-        const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
-        const liveNow = docs.filter(v => {
-            if (!v.lastSeen) return false;
-            return v.lastSeen.toDate() >= fiveMinutesAgo;
-        }).length;
-        
-        // Ensure at least 1 active user is displayed (the current individual viewing it)
-        activeUsersEl.textContent = liveNow || 1;
+      const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
+      const liveNow = docs.filter(v => {
+        if (!v.lastSeen) return false;
+        return v.lastSeen.toDate() >= fiveMinutesAgo;
+      }).length;
+      activeUsersEl.textContent = liveNow || 1;
 
-        // 4. Update Header Timestamp
-        const now = new Date();
-        lastUpdatedEl.textContent = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-        
-        // 5. Aggregate Analytics metadata arrays dynamically for your charts
-        processAnalyticalMetrics(docs);
+      const now = new Date();
+      lastUpdatedEl.textContent = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+      
+      // Pass data array downstream to redraw UI graphs and list progress cards
+      processTrafficMetrics(docs);
+      renderLiveCharts(docs);
     });
-}
+  }
 
-function processAnalyticalMetrics(visitorData) {
-    // Tally devices
-    let mobile = 0;
-    let desktop = 0;
-    
-    // Tally referrers
+  function processTrafficMetrics(visitorData) {
     let referrers = { Direct: 0, GitHub: 0, LinkedIn: 0, Search: 0 };
 
     visitorData.forEach(v => {
-        if (v.device === "Mobile") mobile++; else desktop++;
-        
-        const ref = v.referrer.toLowerCase();
-        if (ref.includes("github")) referrers.GitHub++;
-        else if (ref.includes("linkedin")) referrers.LinkedIn++;
-        else if (ref.includes("google") || ref.includes("bing")) referrers.Search++;
-        else referrers.Direct++;
+      const ref = (v.referrer || "").toLowerCase();
+      if (ref.includes("github")) referrers.GitHub++;
+      else if (ref.includes("linkedin")) referrers.LinkedIn++;
+      else if (ref.includes("google") || ref.includes("bing")) referrers.Search++;
+      else referrers.Direct++;
     });
 
-    // Dynamically update progress rows directly in the DOM
-    updateSourceProgressRow("Direct", referrers.Direct, visitorData.length);
-    updateSourceProgressRow("GitHub", referrers.GitHub, visitorData.length);
-    updateSourceProgressRow("LinkedIn", referrers.LinkedIn, visitorData.length);
-    updateSourceProgressRow("Search", referrers.Search, visitorData.length);
-}
+    updateProgressUI("Direct", referrers.Direct, visitorData.length);
+    updateProgressUI("GitHub", referrers.GitHub, visitorData.length);
+    updateProgressUI("LinkedIn", referrers.LinkedIn, visitorData.length);
+    updateProgressUI("Search", referrers.Search, visitorData.length);
+  }
 
-function updateSourceProgressRow(label, count, total) {
+  function updateProgressUI(label, count, total) {
     const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
-    // Query matching row to rewrite live widths and labels
     const rows = document.querySelectorAll(".progress-row");
     rows.forEach(row => {
-        if (row.querySelector("span").textContent.trim() === label) {
-            row.querySelector(".progress div").style.width = `${percentage}%`;
-            row.querySelectorAll("span")[1].textContent = `${percentage}%`;
-        }
+      if (row.querySelector("span")?.textContent.trim() === label) {
+        const bar = row.querySelector(".progress div");
+        const badge = row.querySelector("span:last-child");
+        if (bar) bar.style.width = `${percentage}%`;
+        if (badge) badge.textContent = `${percentage}%`;
+      }
     });
-}
+  }
 
-// Call on load
-setupLiveAnalyticsDashboard();
+  /* ---------- Chart Rendering Engine ---------- */
+  function renderLiveCharts(visitorData) {
+    // 1. Compile Traffic Over Time metrics (Last 7 Days)
+    const dailyCounts = {};
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date();
+      d.setDate(d.getDate() - i);
+      const key = d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+      dailyCounts[key] = 0;
+    }
+
+    // 2. Compile Device splits metrics
+    let mobileCount = 0;
+    let desktopCount = 0;
+
+    visitorData.forEach(v => {
+      // Tally devices
+      if (v.device === "Mobile") mobileCount++;
+      else desktopCount++;
+
+      // Tally days
+      if (v.lastSeen) {
+        const dateKey = v.lastSeen.toDate().toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+        if (dailyCounts[dateKey] !== undefined) {
+          dailyCounts[dateKey]++;
+        }
+      }
+    });
+
+    const chartLabels = Object.keys(dailyCounts);
+    const chartDataValues = Object.values(dailyCounts);
+
+    // Render Traffic Overview Area Chart
+    const ctxVisitor = document.getElementById('visitorChart');
+    if (ctxVisitor) {
+      if (visitorChartInstance) visitorChartInstance.destroy(); // Clear stale reference canvas
+      visitorChartInstance = new Chart(ctxVisitor, {
+        type: 'line',
+        data: {
+          labels: chartLabels,
+          datasets: [{
+            label: 'Visits',
+            data: chartDataValues,
+            borderColor: '#0070f3',
+            backgroundColor: 'rgba(0, 112, 243, 0.1)',
+            fill: true,
+            tension: 0.4
+          }]
+        },
+        options: { responsive: true, plugins: { legend: { display: false } } }
+      });
+    }
+
+    // Render Devices Doughnut Chart
+    const ctxDevice = document.getElementById('deviceChart');
+    if (ctxDevice) {
+      if (deviceChartInstance) deviceChartInstance.destroy(); // Clear stale reference canvas
+      deviceChartInstance = new Chart(ctxDevice, {
+        type: 'doughnut',
+        data: {
+          labels: ['Desktop', 'Mobile'],
+          datasets: [{
+            data: [desktopCount, mobileCount],
+            backgroundColor: ['#0070f3', '#00d084'],
+            borderWidth: 0
+          }]
+        },
+        options: { responsive: true }
+      });
+    }
+  }
+
+  setupLiveAnalyticsDashboard();
+
+  /* ---------- Track Authentication State ---------- */
+  onAuthStateChanged(auth, (user) => {
+    document.body.classList.remove("auth-loading");
+    document.body.classList.add("auth-loaded");
+    if (user) {
+      activateAuthenticatedUI(user);
+    } else {
+      scannerMenu?.classList.add("hidden");
+      quizMenu?.classList.add("hidden");
+      cryptoMenu?.classList.add("hidden");
+      logoutMenu?.classList.add("hidden");
+    }
+  });
+});
 
    
 
