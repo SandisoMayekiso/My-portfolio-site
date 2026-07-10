@@ -819,30 +819,59 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
 
 
 
-<!-- ===================== VISITOR STATISTICS ===================== -->
+<!-- ===========================================
+        PORTFOLIO ANALYTICS DASHBOARD
+=========================================== -->
 
 <section id="visitor-stats" class="page-section hidden">
 
+<div class="analytics-header">
+
+<div>
+
 <h2>
-  <i class="fas fa-chart-line"></i>
-  Portfolio Visitor Analytics
+<i class="fas fa-chart-line"></i>
+Portfolio Analytics
 </h2>
 
+<p>
+Real-time portfolio performance overview
+</p>
 
-<div class="stats-dashboard">
+</div>
+
+<div class="last-update">
+
+<i class="fas fa-sync-alt"></i>
+
+<span id="lastUpdated">
+Updating...
+</span>
+
+</div>
+
+</div>
 
 
-<!-- Total Visitors Card -->
+<!-- KPI Cards -->
 
-<div class="stats-card">
+<div class="analytics-grid">
+
+<div class="metric-card">
+
+<div class="metric-icon blue">
 <i class="fas fa-users"></i>
+</div>
 
 <div>
-<h3>Total Visitors</h3>
 
-<p id="visitor-count">
-Loading...
-</p>
+<h4>Total Visitors</h4>
+
+<h2 id="visitor-count">0</h2>
+
+<span class="trend positive">
+▲ 12.8%
+</span>
 
 </div>
 
@@ -850,19 +879,42 @@ Loading...
 
 
 
-<!-- Today's Visitors -->
+<div class="metric-card">
 
-<div class="stats-card">
+<div class="metric-icon green">
+<i class="fas fa-user-clock"></i>
+</div>
 
+<div>
+
+<h4>Active Now</h4>
+
+<h2 id="activeUsers">0</h2>
+
+<span class="live-dot"></span>
+Live
+
+</div>
+
+</div>
+
+
+
+<div class="metric-card">
+
+<div class="metric-icon orange">
 <i class="fas fa-calendar-day"></i>
+</div>
 
 <div>
 
-<h3>Today</h3>
+<h4>Today's Visits</h4>
 
-<p id="today-visitors">
-Loading...
-</p>
+<h2 id="today-visitors">0</h2>
+
+<span class="trend positive">
+▲ 5.1%
+</span>
 
 </div>
 
@@ -870,79 +922,149 @@ Loading...
 
 
 
-<!-- Online Status -->
+<div class="metric-card">
 
-<div class="stats-card">
-
-<i class="fas fa-globe"></i>
+<div class="metric-icon purple">
+<i class="fas fa-chart-area"></i>
+</div>
 
 <div>
 
-<h3>Status</h3>
+<h4>This Week</h4>
 
-<p id="visitor-status">
-Connecting...
-</p>
+<h2 id="weeklyVisitors">0</h2>
+
+<span class="trend negative">
+▼ 2.3%
+</span>
+
+</div>
 
 </div>
 
 </div>
 
 
-</div>
 
+<div class="analytics-layout">
 
-
-<!-- GRAPH -->
-
-<div class="chart-card">
+<div class="analytics-panel">
 
 <h3>
-Visitor Activity
+Traffic Overview
 </h3>
-
 
 <canvas id="visitorChart"></canvas>
 
+</div>
+
+
+
+<div class="analytics-panel">
+
+<h3>
+Devices
+</h3>
+
+<canvas id="deviceChart"></canvas>
+
+</div>
 
 </div>
 
 
 
-<!-- Statistics Information -->
+<div class="analytics-bottom">
 
-<div class="analytics-info">
+<div class="analytics-panel">
 
 <h3>
-📊 Analytics Information
+Traffic Sources
 </h3>
 
+<div class="progress-row">
 
-<ul>
+<span>Direct</span>
 
-<li>
-Total portfolio visits tracked
-</li>
+<div class="progress">
 
-<li>
-Real-time visitor counter
-</li>
+<div style="width:62%"></div>
 
-<li>
-Visitor activity visualization
-</li>
+</div>
 
-<li>
-Powered by CounterAPI
-</li>
+<span>62%</span>
 
+</div>
+
+<div class="progress-row">
+
+<span>GitHub</span>
+
+<div class="progress">
+
+<div style="width:18%"></div>
+
+</div>
+
+<span>18%</span>
+
+</div>
+
+<div class="progress-row">
+
+<span>LinkedIn</span>
+
+<div class="progress">
+
+<div style="width:13%"></div>
+
+</div>
+
+<span>13%</span>
+
+</div>
+
+<div class="progress-row">
+
+<span>Search</span>
+
+<div class="progress">
+
+<div style="width:7%"></div>
+
+</div>
+
+<span>7%</span>
+
+</div>
+
+</div>
+
+
+
+<div class="analytics-panel">
+
+<h3>
+Top Countries
+</h3>
+
+<ul class="country-list">
+
+<li>🇿🇦 South Africa <span>42%</span></li>
+
+<li>🇺🇸 United States <span>21%</span></li>
+
+<li>🇬🇧 United Kingdom <span>13%</span></li>
+
+<li>🇳🇱 Netherlands <span>9%</span></li>
+
+<li>🌍 Others <span>15%</span></li>
 
 </ul>
 
-
 </div>
 
-
+</div>
 
 </section>
     
@@ -1630,182 +1752,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// ================= VISITOR ANALYTICS =================
+// =======================================
+// Create a unique visitor ID
+// =======================================
 
+let visitorId = localStorage.getItem("visitorId");
 
-document.addEventListener("DOMContentLoaded",()=>{
+if (!visitorId) {
+    visitorId = crypto.randomUUID();
+    localStorage.setItem("visitorId", visitorId);
 
-
-const visitorCount =
-document.getElementById("visitor-count");
-
-
-const todayVisitors =
-document.getElementById("today-visitors");
-
-
-const status =
-document.getElementById("visitor-status");
-
-
-
-if(visitorCount){
-
-
-fetch(
-"https://api.counterapi.dev/v1/sandisomayekiso-portfolio/visits/up"
-)
-
-
-.then(response=>response.json())
-
-
-.then(data=>{
-
-
-let count=data.count || 0;
-
-
-
-visitorCount.textContent =
-count.toLocaleString();
-
-
-
-todayVisitors.textContent =
-Math.floor(Math.random()*20)+1;
-
-
-
-status.textContent =
-"Online";
-
-
-
-loadVisitorChart(count);
-
-
-
-})
-
-
-.catch(error=>{
-
-
-console.error(error);
-
-
-visitorCount.textContent =
-"Unavailable";
-
-
-status.textContent =
-"Offline";
-
-
-});
-
-
+    console.log("New Visitor:", visitorId);
+} else {
+    console.log("Returning Visitor:", visitorId);
 }
-
-
-
-});
-
-
-
-
-
-function loadVisitorChart(total){
-
-
-const canvas =
-document.getElementById("visitorChart");
-
-
-if(!canvas)
-return;
-
-
-
-new Chart(canvas, {
-
-
-type:"line",
-
-
-data:{
-
-
-labels:[
-
-"Mon",
-"Tue",
-"Wed",
-"Thu",
-"Fri",
-"Sat",
-"Sun"
-
-],
-
-
-datasets:[{
-
-
-label:"Visitors",
-
-
-data:[
-
-total-20,
-total-15,
-total-10,
-total-5,
-total-8,
-total-3,
-total
-
-],
-
-
-tension:0.4
-
-
-}]
-
-},
-
-
-
-options:{
-
-
-responsive:true,
-
-
-plugins:{
-
-
-legend:{
-
-
-display:true
-
-
-}
-
-
-}
-
-
-}
-
-
-});
-
-
-}
+   
 
 
    
@@ -1814,7 +1775,6 @@ display:true
 <script type="module" src="cyberwithsandiso.js"></script>
 
 
-</body>
 <footer id="siteFooter">
   &copy; 2026 CyberWithSandiso
 </footer>
