@@ -252,7 +252,6 @@ logPortfolioVisitor();
       logoutMenu?.classList.add("hidden");
     }
   });
-});
 
 /* ===================== AUTH MODULE ===================== */
 document.addEventListener("DOMContentLoaded", () => {
