@@ -46,6 +46,7 @@ let auth = null;
 try {
   app = initializeApp(firebaseConfig);
   auth = getAuth(app);
+  export const db = getFirestore(app);
 } catch (initErr) {
   // Initialization failed — auth will remain null and UI will show warnings
   // Keep the error visible in console for debugging
