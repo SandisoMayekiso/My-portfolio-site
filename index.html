@@ -1076,7 +1076,7 @@ Top Countries
 <!-- Firebase config must be loaded first -->
 
 
-<!-- Auth UI section (merge with your existing content) -->
+<!-- Auth UI section -->
 <section id="auth" class="page-section hidden">
   <h2>🔐 Cyber Security Lab</h2>
 
@@ -1111,42 +1111,44 @@ Top Countries
     <label for="consentCheckbox">I have read and agree to the terms above.</label>
   </div>
 
-  <!-- Auth inputs -->
-  <div class="auth-fields">
-    <input type="email" id="authEmail" placeholder="Email" autocomplete="email" required>
-    <input type="password" id="authPassword" placeholder="Password" autocomplete="current-password" required>
-  </div>
+  <!-- ✅ FIX: Wrapped credentials and direct login/signup actions inside a semantic form tag -->
+  <form id="loginForm" autocomplete="on">
+    <!-- Auth inputs -->
+    <div class="auth-fields">
+      <input type="email" id="authEmail" placeholder="Email" autocomplete="username" required>
+      <input type="password" id="authPassword" placeholder="Password" autocomplete="current-password" required>
+    </div>
 
-  <!-- Buttons -->
-  <div class="auth-buttons">
-    <button id="signupBtn" disabled>Create Account</button>
-    <button id="loginBtn" disabled>Sign In</button>
-    <button id="resetBtn" disabled type="button">Reset Password</button>
-  </div>
+    <!-- Buttons -->
+    <div class="auth-buttons">
+      <!-- Changed buttons to explicit semantic submission types -->
+      <button type="submit" id="loginBtn" disabled>Sign In</button>
+      <button type="button" id="signupBtn" disabled>Create Account</button>
+      <button type="button" id="resetBtn" disabled>Reset Password</button>
+    </div>
+  </form>
 
-  <!-- Optional: change email and MFA enrollment -->
+  <!-- Optional: change email and MFA enrollment (Kept outside main form) -->
   <div class="auth-advanced">
     <input type="tel" id="phoneNumber" placeholder="Phone (E.164, e.g. +27123456789)">
     <button id="enrollPhoneBtn" type="button">Enroll Phone (MFA)</button>
     <button id="changeEmailBtn" type="button">Change Email</button>
   </div>
 
-  <!-- Social Login Gateways -->
+  <!-- Social Login Gateways (Kept outside main form) -->
   <div class="social-login-separator" style="text-align: center; margin: 1.5rem 0; color: #888; font-size: 0.85rem; position: relative;">
     <span style="background: var(--card-bg, #1a1a1a); padding: 0 10px; position: relative; z-index: 1;">OR CONTINUE WITH</span>
     <div style="position: absolute; top: 50%; left: 0; right: 0; border-top: 1px solid #333; z-index: 0;"></div>
   </div>
 
   <div class="social-auth-grid" style="display: flex; gap: 12px; margin-top: 1rem; justify-content: center;">
-    <button id="googleLoginBtn" class="social-btn" aria-label="Sign in with Google" style="flex: 1; padding: 12px; border: 1px solid #333; background: #222; color: #fff; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 500; transition: background 0.2s;">
+    <button id="googleLoginBtn" type="button" class="social-btn" aria-label="Sign in with Google" style="flex: 1; padding: 12px; border: 1px solid #333; background: #222; color: #fff; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 500; transition: background 0.2s;">
       <i class="fab fa-google" style="color: #db4437;"></i> Google
     </button>
-    <button id="githubLoginBtn" class="social-btn" aria-label="Sign in with GitHub" style="flex: 1; padding: 12px; border: 1px solid #333; background: #222; color: #fff; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 500; transition: background 0.2s;">
+    <button id="githubLoginBtn" type="button" class="social-btn" aria-label="Sign in with GitHub" style="flex: 1; padding: 12px; border: 1px solid #333; background: #222; color: #fff; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 500; transition: background 0.2s;">
       <i class="fab fa-github"></i> GitHub
     </button>
   </div>
-
-
 
   <!-- Recaptcha container (invisible) required for phone auth / MFA -->
   <div id="recaptcha-container" style="display:none;"></div>
@@ -1156,10 +1158,8 @@ Top Countries
     strictly for educational purposes. Only test systems you own or have 
     written authorization to assess. Misuse is prohibited.
   </div>
-
-  <!-- Auth script (module) must be loaded after firebase.js and after the DOM elements above -->
-  
 </section>
+
 
 
 <section id="scanner" class="page-section hidden">
