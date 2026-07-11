@@ -9,7 +9,10 @@ import {
   signOut,
   onAuthStateChanged,
   sendEmailVerification,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  signInWithPopup
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 // ✅ FIXED: Imported from the correct Firestore library source
