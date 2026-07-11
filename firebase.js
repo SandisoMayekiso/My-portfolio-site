@@ -524,14 +524,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- Login (with MFA resolution) ---------- */
-  if (loginBtn) {
-    loginBtn.addEventListener("click", async (e) => {
-      e.preventDefault();
+    /* ---------- Upgraded Login (Form Submission with MFA Resolution) ---------- */
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault(); // ✅ CRITICAL: Prevents the HTML form from refreshing the page
       showMessage("", "info");
 
-      const email = emailInput?.value.trim();
-      const password = passwordInput?.value.trim();
+      const email = emailInput?.value?.trim();
+      const password = passwordInput?.value; // Kept un-trimmed to preserve blank spaces in original passwords
+      
       if (!email || !password) {
         showMessage("Enter email and password.", "error");
         return;
@@ -551,6 +553,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showMessage("Login successful.");
         resetAuthForm();
       } catch (err) {
+        // Handle Multi-Factor Authentication Redirection Path
         if (err && err.code === "auth/multi-factor-auth-required") {
           try {
             const resolver = err.resolver;
@@ -586,7 +589,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        console.error("Login error:", err);
+        console.error("Login error caught:", err);
         showMessage(formatError(err.code), "error");
       } finally {
         toggleAuthButtons();
