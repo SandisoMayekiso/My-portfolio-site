@@ -594,6 +594,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+    /* ---------- Google OAuth Handler ---------- */
+  const googleBtn = document.getElementById("googleLoginBtn");
+  if (googleBtn) {
+    googleBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      setButtonsDisabled(true);
+      const provider = new GoogleAuthProvider();
+      
+      try {
+        const result = await signInWithPopup(auth, provider);
+        console.log("Google Login Authenticated:", result.user.email);
+        activateAuthenticatedUI(result.user);
+      } catch (err) {
+        console.error("Google Auth error caught:", err);
+        showMessage(formatError(err.code) || "Google login failed.", "error");
+      } finally {
+        setButtonsDisabled(false);
+      }
+    });
+  }
+
+  /* ---------- GitHub OAuth Handler ---------- */
+  const githubBtn = document.getElementById("githubLoginBtn");
+  if (githubBtn) {
+    githubBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      setButtonsDisabled(true);
+      const provider = new GithubAuthProvider();
+      
+      try {
+        const result = await signInWithPopup(auth, provider);
+        console.log("GitHub Login Authenticated:", result.user.email);
+        activateAuthenticatedUI(result.user);
+      } catch (err) {
+        console.error("GitHub Auth error caught:", err);
+        showMessage(formatError(err.code) || "GitHub login failed.", "error");
+      } finally {
+        setButtonsDisabled(false);
+      }
+    });
+  }
+
   /* ---------- Logout ---------- */
   window.logout = async () => {
     try {
