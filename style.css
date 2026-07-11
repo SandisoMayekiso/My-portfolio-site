@@ -2648,3 +2648,128 @@ grid-template-columns:1fr;
   transform: none !important;
   box-shadow: none !important;
 }
+
+
+
+
+
+
+
+/* ==========================================================================
+   MOBILE & SMALL SCREEN RESPONSIVENESS OVERRIDES (MAX-WIDTH: 768px)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Unpin Sidebar Layout and Stack Main Content */
+  body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  /* Make sidebar top-pinned or full-width collapsible */
+  #sidebar {
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    padding: 15px !important;
+    box-sizing: border-box;
+    border-right: none !important;
+    border-bottom: 1px solid #222;
+  }
+
+  /* Adjust sidebar menu list layout into compact items */
+  #sidebar .menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  #sidebar .menu h2 {
+    width: 100%;
+    font-size: 0.8rem;
+    margin: 10px 0 5px 0;
+  }
+
+  #sidebar .menu li {
+    flex: calc(50% - 4px); /* Splits dashboard links neatly into two columns */
+    min-width: 120px;
+  }
+
+  /* 2. Reposition Main Content Panel */
+  #main-content {
+    margin-left: 0 !important; /* Removes the heavy left indent used for desktop sidebars */
+    padding: 15px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* 3. Stack Dashboard Sections Grid Columns */
+  #dashboard, .analytics-grid, .analytics-layout, .analytics-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  /* Re-arrange Profile Card to stack vertically below About Text */
+  .about {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .main-right {
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  .profile-card, .recent-activities {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* 4. Force Tables to support Horizontal Sweeping without breaking layout container bounds */
+  .tools-table, .highlight-table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important; /* Enables smooth native swipe-to-scroll for table data fields */
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 5. Fluid Typography Scalers */
+  .page-title {
+    font-size: 1.5rem !important;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.3rem !important;
+  }
+
+  /* 6. Form input field and authentication container updates */
+  #loginForm, .auth-fields, .auth-buttons, .auth-advanced {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .auth-fields input, .auth-buttons button, .auth-advanced button {
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 12px !important; /* Enhances finger tap target surface area */
+  }
+
+  .social-auth-grid {
+    flex-direction: column !important; /* Stacks Google and GitHub buttons vertically on small devices */
+    gap: 10px !important;
+    width: 100%;
+  }
+}
+
