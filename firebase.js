@@ -12,7 +12,10 @@ import {
   sendPasswordResetEmail,
   GoogleAuthProvider,
   GithubAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  PhoneAuthProvider,
+  PhoneMultiFactorGenerator,
+  RecaptchaVerifier
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
 // ✅ FIXED: Imported from the correct Firestore library source
@@ -472,7 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- Recaptcha helper (phone / MFA) ---------- */
+    /* ---------- Recaptcha helper (phone / MFA) ---------- */
   function ensureRecaptcha(containerId = "recaptcha-container") {
     let el = document.getElementById(containerId);
     if (!el) {
@@ -481,8 +484,12 @@ document.addEventListener("DOMContentLoaded", () => {
       el.style.display = "none";
       document.body.appendChild(el);
     }
-    if (!window.recaptchaVerifier && typeof RecaptchaVerifier === "function") {
-      window.recaptchaVerifier = new RecaptchaVerifier(containerId, { size: "invisible" }, auth);
+    
+    // Create reCAPTCHA instance safely using the web modular pattern parameters
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(auth, containerId, { 
+        size: "invisible" 
+      });
     }
     return window.recaptchaVerifier;
   }
@@ -490,39 +497,58 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- Enroll phone as MFA second factor ---------- */
   async function enrollPhoneMfa(user, phoneNumber) {
     const verifier = ensureRecaptcha();
+    const session = await user.multiFactor.getSession(); // ✅ Required step to get a valid MFA target context
+    
     const phoneAuthProvider = new PhoneAuthProvider(auth);
-    const verificationId = await phoneAuthProvider.verifyPhoneNumber(phoneNumber, verifier);
+    
+    // Request multi-factor challenge token allocation from Firebase servers
+    const verificationId = await phoneAuthProvider.verifyPhoneNumber({
+      phoneNumber: phoneNumber,
+      session: session
+    }, verifier);
+    
     const code = window.prompt("Enter the SMS code sent to your phone to enroll as MFA:");
     if (!code) throw new Error("Enrollment cancelled");
+    
     const cred = PhoneAuthProvider.credential(verificationId, code);
     const assertion = PhoneMultiFactorGenerator.assertion(cred);
-    await multiFactor(user).enroll(assertion, "Primary phone");
+    
+    // ✅ FIXED: Using the native modern v9 instance extension path instead of multiFactor(user)
+    await user.multiFactor.enroll(assertion, "Primary phone");
   }
 
+  /* ---------- MFA Enrollment Action Click Hook ---------- */
   if (enrollPhoneBtn) {
     enrollPhoneBtn.addEventListener("click", async (e) => {
       e.preventDefault();
+      
+      const phoneInput = document.getElementById("phoneNumber");
       const phone = phoneInput?.value?.trim() || window.prompt("Enter phone number (E.164 format, e.g. +27123456789):");
+      
       if (!phone) {
         showMessage("Phone number required to enroll MFA.", "error");
         return;
       }
+      
       setButtonsDisabled(true);
       try {
         if (!auth.currentUser) {
           showMessage("You must be signed in to enroll a second factor.", "error");
           return;
         }
+        
         await enrollPhoneMfa(auth.currentUser, phone);
-        showMessage("Phone enrolled for MFA.");
+        showMessage("Phone enrolled for MFA successfully!");
+        if (phoneInput) phoneInput.value = "";
       } catch (err) {
-        console.error("MFA enroll error:", err);
-        showMessage(formatError(err.code) || "MFA enrollment failed.", "error");
+        console.error("MFA enroll error caught:", err);
+        showMessage(formatError(err.code) || "MFA enrollment failed. Ensure phone format is +E164.", "error");
       } finally {
         setButtonsDisabled(false);
       }
     });
   }
+
 
     /* ---------- Upgraded Login (Form Submission with MFA Resolution) ---------- */
   const loginForm = document.getElementById("loginForm");
