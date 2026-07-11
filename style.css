@@ -2539,3 +2539,52 @@ grid-template-columns:1fr;
 }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+/* Tiny Custom OAuth Buttons */
+.mini-oauth-btn {
+  background: #111111;
+  border: 1px solid #333333;
+  color: #cccccc;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover States to Match Red-Teamer Theme */
+.mini-oauth-btn:hover {
+  border-color: #ff3333; /* Crimson outline on hover */
+  color: #ffffff;
+  background: #1a1a1a;
+  transform: translateY(-1px);
+}
+
+/* Optional Specific Brand Colors on Hover */
+.mini-oauth-btn.btn-google:hover i {
+  color: #db4437;
+}
+
+.mini-oauth-btn.btn-github:hover i {
+  color: #ffffff;
+}
+
+/* Smooth out button click action transitions */
+.mini-oauth-btn:active {
+  transform: translateY(0);
+  background: #0a0a0a;
+}
