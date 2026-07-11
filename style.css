@@ -2550,41 +2550,101 @@ grid-template-columns:1fr;
 
 
 
-/* Tiny Custom OAuth Buttons */
-.mini-oauth-btn {
-  background: #111111;
-  border: 1px solid #333333;
-  color: #cccccc;
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
+/* ==========================================================================
+   SOCIAL OAUTH AUTHENTICATION STYLES (PREMIUM INDUSTRIAL/DARK THEME)
+   ========================================================================== */
+
+/* 1. Elegant Separator Title Layout */
+.social-login-separator {
+  text-align: center;
+  margin: 1.5rem 0 1rem 0;
+  color: #666666;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+.social-login-separator span {
+  background: var(--card-bg, #151515); /* Pulls card container depth background color */
+  padding: 0 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.social-login-separator .separator-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #262626; /* Clean thin splitter border line */
+  z-index: 0;
+}
+
+/* 2. Flex Grid Layout Container */
+.social-auth-grid {
+  display: flex;
+  gap: 12px;
+  margin-top: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+/* 3. Base Typography & Structural Button Tokens */
+.social-btn {
+  flex: 1;
+  padding: 11px 16px;
+  border: 1px solid #2d2d2d;
+  background: #1c1c1c;
+  color: #dddddd;
+  border-radius: 6px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   font-size: 0.85rem;
-  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  font-family: inherit;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover States to Match Red-Teamer Theme */
-.mini-oauth-btn:hover {
-  border-color: #ff3333; /* Crimson outline on hover */
+/* 4. Brand Distinct Colors */
+.social-btn i.fa-google {
+  color: #db4437; /* Clean Official Google Red Brand Token */
+}
+
+.social-btn i.fa-github {
+  color: #ffffff; /* Stark White for GitHub Dark Icon */
+}
+
+/* 5. Smooth Hover & Active States */
+.social-btn:hover {
+  background: #252525;
   color: #ffffff;
-  background: #1a1a1a;
+  border-color: #444444;
   transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Optional Specific Brand Colors on Hover */
-.mini-oauth-btn.btn-google:hover i {
-  color: #db4437;
+/* Red-Teamer Focus Glow State when Keyboard Navigating (Tab Key accessibility) */
+.social-btn:focus-visible {
+  outline: 2px solid #ff3333;
+  outline-offset: 2px;
 }
 
-.mini-oauth-btn.btn-github:hover i {
-  color: #ffffff;
-}
-
-/* Smooth out button click action transitions */
-.mini-oauth-btn:active {
+/* Natural Press Squeeze Effect */
+.social-btn:active {
   transform: translateY(0);
-  background: #0a0a0a;
+  background: #181818;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled State handling while async Firebase operations execute */
+.social-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
 }
