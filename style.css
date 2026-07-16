@@ -1160,61 +1160,315 @@ margin-top: 10px;
   background-color: #dc3545; /* Red */
 }
 
-/* ================= DOWNLOADS SECTION ================= */
+/* ==========================================================
+   CYBERWITHSANDISO DIGITAL LIBRARY
+========================================================== */
 
 .download-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .download-card {
-  background: var(--card-bg,black);
-  border-radius: 12px;
-  padding: 1.8rem;
-  text-align: center;
-  box-shadow: 0 0 20px red;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    position: relative;
+
+    background: #0f0f0f;
+
+    border: 1px solid rgba(255,0,0,.25);
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    transition: .35s;
+
+    box-shadow: 0 0 15px rgba(255,0,0,.15);
+
 }
 
-.download-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 30px red;
+.download-card:hover{
+
+    transform: translateY(-10px);
+
+    border-color:red;
+
+    box-shadow:
+    0 0 15px red,
+    0 0 35px rgba(255,0,0,.45);
+
 }
 
-.download-icon {
-  font-size: 2.8rem;
-  color: red;
-  margin-bottom: 0.8rem;
+/* ================= ICON ================= */
+
+.download-icon{
+
+    font-size:60px;
+
+    color:red;
+
+    margin-bottom:20px;
+
+    text-shadow:
+    0 0 15px red;
+
 }
 
-.download-card h3 {
-  margin: 0.5rem 0;
+/* ================= TITLES ================= */
+
+.download-card h3{
+
+    color:#fff;
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+    font-family:Orbitron,sans-serif;
+
 }
 
-.download-card p {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  margin-bottom: 1.2rem;
+.download-card h4{
+
+    color:red;
+
+    margin-bottom:18px;
+
+    font-size:17px;
+
+    font-weight:600;
+
 }
 
-.download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 1.2rem;
-  border-radius: 8px;
-  background: linear-gradient(135deg, red, white);
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease;
+/* ================= DESCRIPTION ================= */
+
+.download-card p{
+
+    color:#cccccc;
+
+    line-height:1.7;
+
+    font-size:15px;
+
+    margin-bottom:25px;
+
 }
 
-.download-btn:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, red, white);
+/* ================= DOWNLOAD BUTTON ================= */
+
+.download-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    background:linear-gradient(135deg,#ff0000,#ffffff);
+
+    color:#000;
+
+    transition:.3s;
+
+}
+
+.download-btn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 20px red;
+
+}
+
+/* ================= DISABLED BUTTON ================= */
+
+.download-card button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2a2a2a;
+
+    color:#888;
+
+    cursor:not-allowed;
+
+    font-weight:bold;
+
+}
+
+/* ================= LIBRARY BADGE ================= */
+
+.library-badge{
+
+    position:absolute;
+
+    top:18px;
+
+    right:-40px;
+
+    width:150px;
+
+    padding:8px;
+
+    background:red;
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    transform:rotate(45deg);
+
+    box-shadow:0 0 10px red;
+
+    letter-spacing:1px;
+
+}
+
+/* ================= COMING SOON ================= */
+
+.library-badge.coming{
+
+    background:#555;
+
+    box-shadow:none;
+
+}
+
+/* ================= FEATURED BOOK ================= */
+
+.featured-download{
+
+    border:2px solid red;
+
+    box-shadow:
+    0 0 25px rgba(255,0,0,.35);
+
+}
+
+.featured-download::before{
+
+    content:"⭐ FEATURED";
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:red;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+/* ================= COMING SOON ================= */
+
+.coming-soon{
+
+    opacity:.85;
+
+}
+
+/* ================= SECTION TITLE ================= */
+
+.downloads-section h2{
+
+    font-family:Orbitron,sans-serif;
+
+    color:white;
+
+    text-align:center;
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+    text-shadow:
+    0 0 15px red;
+
+}
+
+.section-subtitle{
+
+    text-align:center;
+
+    color:#bfbfbf;
+
+    max-width:850px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.download-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.download-card{
+
+padding:25px;
+
+}
+
+.download-icon{
+
+font-size:48px;
+
+}
+
+.downloads-section h2{
+
+font-size:32px;
+
+}
+
 }
 
 /* ====== CONTACT ====== */
