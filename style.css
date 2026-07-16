@@ -800,6 +800,76 @@ font-size: 0.75rem;
 .project-actions {
 margin-top: 10px;
 }
+
+/* ==========================================
+   FEATURED PROJECT
+========================================== */
+
+.featured-project{
+
+border:2px solid red;
+
+box-shadow:
+0 0 25px rgba(255,0,0,.45);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.featured-project:hover{
+
+box-shadow:
+0 0 20px red,
+0 0 40px rgba(255,0,0,.6);
+
+}
+
+.featured-ribbon{
+
+position:absolute;
+
+top:20px;
+
+right:-55px;
+
+width:190px;
+
+padding:10px;
+
+background:red;
+
+color:white;
+
+font-weight:bold;
+
+text-align:center;
+
+transform:rotate(45deg);
+
+letter-spacing:1px;
+
+z-index:5;
+
+box-shadow:0 0 20px red;
+
+}
+
+.featured-project h4{
+
+color:red;
+
+margin-top:-10px;
+
+margin-bottom:20px;
+
+font-size:18px;
+
+font-weight:600;
+
+}
+
 /* ===== FULLSCREEN IMAGE MODAL ===== */
 .modal {
   display: none;
