@@ -2707,9 +2707,235 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// =======================================
-// Create a unique visitor ID
-// =======================================
+/* ==========================================================
+   CyberWithSandiso
+   Certificates Gallery
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const modal = document.getElementById("certificateModal");
+    const modalImage = document.getElementById("certificatePreview");
+    const modalTitle = document.getElementById("certificateTitle");
+    const modalCaption = document.getElementById("certificateCaption");
+
+    const closeBtn = document.getElementById("closeCertificate");
+    const prevBtn = document.getElementById("prevCertificate");
+    const nextBtn = document.getElementById("nextCertificate");
+
+    const images = document.querySelectorAll(".certificate-image");
+    const previewButtons = document.querySelectorAll(".preview-btn");
+
+    let currentIndex = 0;
+
+    /* ==========================================
+       Open Certificate
+    ========================================== */
+
+    function openCertificate(index){
+
+        currentIndex = index;
+
+        const image = images[index];
+
+        modalImage.src = image.src;
+
+        modalImage.alt = image.alt;
+
+        const card = image.closest(".certificate-card");
+
+        const title = card.querySelector("h3").textContent;
+
+        const name = card.querySelector(".cert-name").textContent;
+
+        modalTitle.textContent = title;
+
+        modalCaption.textContent = name;
+
+        modal.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+    /* ==========================================
+       Close Viewer
+    ========================================== */
+
+    function closeCertificate(){
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+    /* ==========================================
+       Next
+    ========================================== */
+
+    function nextCertificate(){
+
+        currentIndex++;
+
+        if(currentIndex >= images.length){
+
+            currentIndex = 0;
+
+        }
+
+        openCertificate(currentIndex);
+
+    }
+
+    /* ==========================================
+       Previous
+    ========================================== */
+
+    function previousCertificate(){
+
+        currentIndex--;
+
+        if(currentIndex < 0){
+
+            currentIndex = images.length - 1;
+
+        }
+
+        openCertificate(currentIndex);
+
+    }
+
+    /* ==========================================
+       Image Click
+    ========================================== */
+
+    images.forEach((image,index)=>{
+
+        image.addEventListener("click",()=>{
+
+            openCertificate(index);
+
+        });
+
+    });
+
+    /* ==========================================
+       Preview Buttons
+    ========================================== */
+
+    previewButtons.forEach((button,index)=>{
+
+        button.addEventListener("click",()=>{
+
+            openCertificate(index);
+
+        });
+
+    });
+
+    /* ==========================================
+       Buttons
+    ========================================== */
+
+    closeBtn.addEventListener("click",closeCertificate);
+
+    nextBtn.addEventListener("click",nextCertificate);
+
+    prevBtn.addEventListener("click",previousCertificate);
+
+    /* ==========================================
+       Click Outside Image
+    ========================================== */
+
+    modal.addEventListener("click",(event)=>{
+
+        if(event.target===modal){
+
+            closeCertificate();
+
+        }
+
+    });
+
+    /* ==========================================
+       Keyboard Controls
+    ========================================== */
+
+    document.addEventListener("keydown",(event)=>{
+
+        if(!modal.classList.contains("active")) return;
+
+        switch(event.key){
+
+            case "Escape":
+
+                closeCertificate();
+
+                break;
+
+            case "ArrowRight":
+
+                nextCertificate();
+
+                break;
+
+            case "ArrowLeft":
+
+                previousCertificate();
+
+                break;
+
+        }
+
+    });
+
+    /* ==========================================
+       Swipe Support (Mobile)
+    ========================================== */
+
+    let startX = 0;
+
+    let endX = 0;
+
+    modal.addEventListener("touchstart",(e)=>{
+
+        startX = e.changedTouches[0].screenX;
+
+    });
+
+    modal.addEventListener("touchend",(e)=>{
+
+        endX = e.changedTouches[0].screenX;
+
+        if(startX - endX > 70){
+
+            nextCertificate();
+
+        }
+
+        if(endX - startX > 70){
+
+            previousCertificate();
+
+        }
+
+    });
+
+    /* ==========================================
+       Image Preload
+    ========================================== */
+
+    images.forEach(img=>{
+
+        const preload = new Image();
+
+        preload.src = img.src;
+
+    });
+
+});
+   
 </script>
 
 <script type="module" src="firebase.js"></script>
