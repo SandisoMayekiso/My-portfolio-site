@@ -2308,7 +2308,6 @@ font-size:32px;
 .contact-card {
   touch-action: manipulation;
 }
-}
 
 .contact-card:hover {
   transform: translateY(-6px);
@@ -4038,3 +4037,653 @@ padding:5px 8px;
   box-shadow: 0 4px 15px rgba(255, 51, 51, 0.2); /* Soft cyberpunk glow on hover */
 }
 
+/* ==========================================================
+   2026 PORTFOLIO RECRUITER REFRESH
+   Recruiter-first home, experience and CWS Academy
+========================================================== */
+
+/* ----------------------------------------------------------
+   GLOBAL POLISH
+---------------------------------------------------------- */
+
+:root {
+    --portfolio-red: #ff2020;
+    --portfolio-red-dark: #a80000;
+    --portfolio-panel: rgba(10, 10, 10, 0.92);
+    --portfolio-panel-soft: rgba(16, 16, 16, 0.82);
+    --portfolio-border: rgba(255, 50, 50, 0.20);
+    --portfolio-text: #f5f5f5;
+    --portfolio-muted: #b6b6b6;
+    --portfolio-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.36),
+        0 0 24px rgba(255, 0, 0, 0.08);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+}
+
+#main-content {
+    min-height: 100vh;
+}
+
+.page-section {
+    border-radius: 18px;
+}
+
+/* ----------------------------------------------------------
+   RECRUITER HOME HERO
+---------------------------------------------------------- */
+
+.portfolio-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 290px;
+    gap: 38px;
+    align-items: center;
+    margin-bottom: 34px;
+    padding: 42px;
+    border: 1px solid var(--portfolio-border);
+    border-radius: 22px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255, 0, 0, 0.10),
+            transparent 34%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(13, 13, 13, 0.98),
+            rgba(2, 2, 2, 0.96)
+        );
+    box-shadow: var(--portfolio-shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+.portfolio-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            var(--portfolio-red),
+            transparent
+        );
+    box-shadow: 0 0 16px red;
+}
+
+.portfolio-hero-copy {
+    min-width: 0;
+}
+
+.portfolio-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding: 6px 11px;
+    border: 1px solid rgba(255, 0, 0, 0.28);
+    border-radius: 999px;
+    background: rgba(255, 0, 0, 0.07);
+    color: #ff5c5c;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.portfolio-kicker::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: red;
+    box-shadow: 0 0 10px red;
+}
+
+.portfolio-hero h1 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+    line-height: 1.03;
+    letter-spacing: -1px;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.20);
+}
+
+.portfolio-hero h2 {
+    margin: 0 0 20px;
+    color: #e6e6e6;
+    font-size: clamp(1.1rem, 2vw, 1.55rem);
+    line-height: 1.45;
+}
+
+.portfolio-hero h2 span {
+    color: var(--portfolio-red);
+}
+
+.portfolio-hero-copy > p {
+    max-width: 850px;
+    margin-bottom: 26px;
+    color: var(--portfolio-muted);
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+.portfolio-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.portfolio-hero-actions .github-btn {
+    min-height: 44px;
+    padding: 11px 16px;
+    font-size: 0.83rem;
+}
+
+.portfolio-hero .main-right {
+    width: 100%;
+}
+
+.portfolio-hero .profile-card {
+    width: 100%;
+    max-width: 290px;
+    margin-inline: auto;
+    padding: 24px 20px;
+    background:
+        linear-gradient(
+            160deg,
+            rgba(16, 16, 16, 0.98),
+            rgba(2, 2, 2, 0.98)
+        );
+    border: 1px solid rgba(255, 0, 0, 0.26);
+}
+
+.portfolio-hero .profile-card h3 {
+    margin-top: 16px;
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.05rem;
+}
+
+.portfolio-hero .profile-card .muted {
+    color: #aaa;
+    font-size: 0.83rem;
+}
+
+.portfolio-hero .social-links-wrapper {
+    margin-top: 18px;
+}
+
+.portfolio-hero .social-icons-tier {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.portfolio-hero .social-icons-tier a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 0, 0, 0.22);
+    border-radius: 10px;
+    background: rgba(255, 0, 0, 0.05);
+    color: #fff;
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.portfolio-hero .social-icons-tier a:hover {
+    transform: translateY(-3px);
+    border-color: red;
+    color: red;
+    box-shadow: 0 0 16px rgba(255, 0, 0, 0.28);
+}
+
+/* ----------------------------------------------------------
+   CAPABILITY / PROOF CARDS
+---------------------------------------------------------- */
+
+.portfolio-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.portfolio-proof-card {
+    min-width: 0;
+    padding: 22px 18px;
+    border: 1px solid var(--portfolio-border);
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12, 12, 12, 0.95),
+            rgba(3, 3, 3, 0.95)
+        );
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.24);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.portfolio-proof-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 0, 0, 0.45);
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.34),
+        0 0 20px rgba(255, 0, 0, 0.13);
+}
+
+.portfolio-proof-card > i {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255, 0, 0, 0.22);
+    border-radius: 11px;
+    background: rgba(255, 0, 0, 0.06);
+    color: var(--portfolio-red);
+    font-size: 1.1rem;
+}
+
+.portfolio-proof-card strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #ffffff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+.portfolio-proof-card span {
+    display: block;
+    color: #999;
+    font-size: 0.78rem;
+    line-height: 1.55;
+}
+
+/* ----------------------------------------------------------
+   PROFILE / ABOUT POLISH
+---------------------------------------------------------- */
+
+.recruiter-about {
+    margin-bottom: 34px;
+}
+
+.recruiter-about .about-text {
+    padding-right: 0;
+}
+
+.recruiter-about h2 {
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.55rem;
+}
+
+.recruiter-about p:last-child {
+    margin-bottom: 0;
+}
+
+/* ----------------------------------------------------------
+   FEATURED WORK ON HOME
+---------------------------------------------------------- */
+
+.featured-home-projects {
+    padding: 34px 0 0;
+}
+
+.featured-home-projects .section-title {
+    margin-bottom: 8px;
+}
+
+.featured-home-projects .section-title h2 {
+    color: #fff;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
+}
+
+.featured-home-projects .projects-grid-vertical {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 24px;
+    gap: 22px;
+}
+
+.featured-home-projects .project-card {
+    padding-top: 24px;
+}
+
+.featured-home-projects .project-card h3 {
+    margin-top: 0;
+    font-size: 1.15rem;
+}
+
+.featured-home-projects .project-card .github-btn {
+    margin: 0 25px 25px;
+}
+
+/* ----------------------------------------------------------
+   PROFESSIONAL EXPERIENCE
+---------------------------------------------------------- */
+
+#experience {
+    padding: 48px 36px;
+}
+
+#experience > .section-title {
+    margin-bottom: 30px;
+}
+
+#experience > .section-title h2 {
+    color: #fff;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    text-shadow: 0 0 14px rgba(255, 0, 0, 0.24);
+}
+
+#experience .timeline {
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+#experience .timeline-content {
+    padding: 24px 26px 24px 34px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 18, 18, 0.96),
+            rgba(5, 5, 5, 0.96)
+        );
+    border: 1px solid rgba(255, 0, 0, 0.18);
+}
+
+#experience .timeline-content h3 {
+    margin-bottom: 6px;
+    color: #fff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.1rem;
+}
+
+#experience .timeline-content p {
+    color: #bbb;
+    line-height: 1.75;
+}
+
+#experience .project-points {
+    margin-top: 16px;
+    margin-left: 0;
+}
+
+/* ----------------------------------------------------------
+   CWS ACADEMY FEATURE
+---------------------------------------------------------- */
+
+#cws-academy {
+    padding: 54px 32px;
+}
+
+#cws-academy > .section-title {
+    margin-bottom: 30px;
+}
+
+#cws-academy > .section-title h2 {
+    color: #ffffff;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    text-shadow: 0 0 16px rgba(255, 0, 0, 0.35);
+}
+
+#cws-academy .project-card {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.cws-academy-project {
+    border-color: rgba(255, 0, 0, 0.48);
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255, 0, 0, 0.11),
+            transparent 30%
+        ),
+        #0b0b0b;
+}
+
+.cws-academy-project .image-wrapper,
+#cws-academy .image-wrapper {
+    height: clamp(260px, 42vw, 430px);
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 0, 0, 0.10),
+            transparent 60%
+        ),
+        #050505;
+}
+
+.cws-academy-project .image-wrapper img,
+#cws-academy .image-wrapper img {
+    object-fit: cover;
+    object-position: center top;
+}
+
+#cws-academy .project-card h3,
+.cws-academy-project h3 {
+    font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+#cws-academy .project-points {
+    columns: 2;
+    column-gap: 36px;
+}
+
+#cws-academy .project-points li {
+    break-inside: avoid;
+}
+
+/* ----------------------------------------------------------
+   IMPROVED SIDEBAR NAV SECTIONS
+---------------------------------------------------------- */
+
+.menu > h2 {
+    margin: 22px 18px 10px;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+.sidebar.collapsed .menu > h2 {
+    display: none;
+}
+
+/* ----------------------------------------------------------
+   DIGITAL LIBRARY ID / SECTION
+---------------------------------------------------------- */
+
+.digital-library-section {
+    padding: 60px 25px;
+    color: #fff;
+}
+
+.digital-library-section > h2 {
+    text-align: center;
+    margin-bottom: 14px;
+    color: #fff;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    text-shadow: 0 0 14px rgba(255, 0, 0, 0.36);
+}
+
+/* ----------------------------------------------------------
+   BUTTON ACCESSIBILITY / CONSISTENCY
+---------------------------------------------------------- */
+
+.github-btn:focus-visible,
+.contact-card:focus-visible,
+.menu a:focus-visible,
+.social-icons-tier a:focus-visible {
+    outline: 2px solid #ff4c4c;
+    outline-offset: 3px;
+}
+
+.github-btn {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ----------------------------------------------------------
+   PAGE HEADINGS
+---------------------------------------------------------- */
+
+#dashboardTitle {
+    color: #ffffff;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 0.4px;
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE RECRUITER LAYOUT
+---------------------------------------------------------- */
+
+@media (max-width: 1180px) {
+
+    .portfolio-proof-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .portfolio-hero {
+        grid-template-columns: minmax(0, 1fr) 250px;
+        padding: 34px;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .portfolio-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-hero .main-right {
+        order: -1;
+    }
+
+    .portfolio-hero .profile-card {
+        max-width: 330px;
+    }
+
+    .featured-home-projects .projects-grid-vertical {
+        grid-template-columns: 1fr;
+    }
+
+    #cws-academy .project-points {
+        columns: 1;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    #main-content {
+        padding: 1.2rem;
+    }
+
+    .portfolio-hero {
+        padding: 26px 20px;
+        gap: 28px;
+    }
+
+    .portfolio-hero-actions {
+        flex-direction: column;
+    }
+
+    .portfolio-hero-actions .github-btn {
+        width: 100%;
+    }
+
+    .portfolio-proof-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #experience,
+    #cws-academy {
+        padding: 36px 18px;
+    }
+
+    #experience .timeline-content {
+        padding: 20px 18px 20px 28px;
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .portfolio-hero h1 {
+        font-size: 2.05rem;
+    }
+
+    .portfolio-hero h2 {
+        font-size: 1rem;
+    }
+
+    .portfolio-hero-copy > p {
+        font-size: 0.9rem;
+    }
+
+    .portfolio-kicker {
+        font-size: 0.62rem;
+        letter-spacing: 1.25px;
+    }
+
+    .portfolio-proof-card {
+        padding: 18px 16px;
+    }
+
+    .featured-home-projects .project-card .github-btn {
+        margin-inline: 18px;
+    }
+
+    #cws-academy,
+    #experience {
+        padding-inline: 14px;
+    }
+
+}
+
+
+/* ----------------------------------------------------------
+   LIGHT THEME SAFETY FOR NEW COMPONENTS
+---------------------------------------------------------- */
+
+body:not(.dark-mode) .portfolio-hero,
+body:not(.dark-mode) .portfolio-proof-card,
+body:not(.dark-mode) #experience .timeline-content,
+body:not(.dark-mode) .cws-academy-project {
+    color: #f5f5f5;
+}
+
+/* ==========================================================
+   END 2026 PORTFOLIO RECRUITER REFRESH
+========================================================== */
