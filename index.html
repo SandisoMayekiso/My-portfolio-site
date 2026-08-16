@@ -1,255 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> CyberWithSandiso | Portfolio Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- ✅ Font Awesome CDN -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3N2331MKN5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-3N2331MKN5');
-</script>
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Sandiso Mayekiso | Junior Penetration Tester & Ethical Hacker
+    </title>
+
+    <meta
+        name="description"
+        content="Portfolio of Sandiso Mayekiso, a junior penetration tester and ethical hacker focused on web application security, network penetration testing, Active Directory, Linux, Python and practical cybersecurity labs."
+    >
+
+    <meta
+        name="keywords"
+        content="Sandiso Mayekiso, penetration tester, ethical hacker, cybersecurity, web application security, Active Directory, Nmap, Burp Suite, Metasploit, Wireshark, Python, South Africa"
+    >
+
+    <meta
+        name="author"
+        content="Sandiso Mayekiso"
+    >
+
+    <meta
+        property="og:title"
+        content="Sandiso Mayekiso | Junior Penetration Tester & Ethical Hacker"
+    >
+
+    <meta
+        property="og:description"
+        content="Hands-on cybersecurity portfolio featuring penetration testing projects, web security labs, Active Directory, Python automation and CWS Academy."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:url"
+        content="https://sandisomayekiso.github.io/My-portfolio-site/"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
+
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-3N2331MKN5"
+    ></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+
+        gtag(
+            "config",
+            "G-3N2331MKN5"
+        );
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body>
-    <div id="cyber-bg"></div> 
- <!-- Sidebar -->
-  <aside id="sidebar" class="sidebar">
-    <div class="brand">
-      <div class="brand-left">
-        <i class="fas fa-user-secret brand-icon"></i>
-       <span class="scan-text" id="scanText">RED-TEAMER</span>
-      </div>
-      <button id="collapse-btn" class="collapse-btn" aria-label="Toggle sidebar">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
 
-    </div>
-
-    <button id="theme-toggle" class="theme-toggle">
-  <i class="fas fa-moon"></i>
-</button>
-
-    <ul class="menu">
-      <li><a href="#" class="active" data-target="dashboard"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
-      <li><a href="#" data-target="projects"><i class="fas fa-folder-open"></i> <span>Projects</span></a></li>
-      <li><a href="#" data-target="events"><i class="fas fa-stream"></i> <span>Events</span></a></li>
-      <li><a href="#" data-target="certificates"><i class="fas fa-award"></i> <span>Certificates</span></a></li>
-      <li><a href="#" data-target="skills"><i class="fas fa-star"></i> <span>Skills</span></a></li>
-      <li><a href="#" data-target="Digital Library"><i class="fas fa-file-download"></i><span>Digital Library</span></a></li>
-      <li><a href="#" data-target="contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
-      <li><a href="#" data-target="visitor-stats"><i class="fas fa-chart-line"></i><span>Visitor Statistics</span></a></li>
-      
-      <h2>🔐Cyber Security Lab</h2>
-      
-      <li id="authMenu"><a href="#" data-target="auth"><i class="fas fa-user-lock"></i> <span>Tools and Resources</span></a></li>
-      <!-- SCANNER (auth only) -->
-      <li id="scannerMenu" class="hidden"><a href="#" data-target="scanner"><i class="fas fa-shield-alt"></i> <span>Security Scanner</span></a></li>
-      <!-- Security Quiz (Auth Only) -->
-      <li id="quizMenu" class="hidden"><a href="#" data-target="quiz"><i class="fas fa-brain"></i><span>Security Quiz</span></a></li>
-      <li id="cryptoMenu" class="hidden"><a href="#" data-target="crypto"><i class="fas fa-key"></i> <span>Crypto Playground</span></a></li>
-      <li id="tlsMenu" class="hidden"><a href="#" data-target="tls"><i class="fas fa-lock"></i> <span>HTTPS & TLS Validation</span></a></li>
-      <li id="ifaMenu" class="hidden"><a href="#" data-target="input-analysis"><i class="fas fa-search"></i> <span>Input Field Analysis</span></a></li>
-      <li id="libraryMenu" class="hidden"><a href="#" data-target="library"><i class="fas fa-book"></i> <span>Resources Library</span></a></li>
-      <li id="logoutMenu" class="hidden"><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
-    </ul>
-  </aside>
-
-  <!-- Main -->
-  <main id="main-content">
-    <header>
-      <h1 class="page-title" id="dashboardTitle">Dashboard</h1>
-    </header>
-
-    <!-- DASHBOARD -->
-    <section id="dashboard" class="page-section">
-      <div class="about">
-        <div class="about-text">
-          <h2>About Me</h2>
-          <p>Hi, I’m Sandiso 👋 — a Junior Penetration Tester / Ethical Hacker with a strong focus on offensive security, web application testing, network exploitation, and attack simulation. I have hands-on experience identifying, exploiting, and reporting security vulnerabilities, supported by solid fundamentals in networking, Linux, and Python scripting.
-
-            My offensive security skills are backed by strong IT and networking foundations, validated through an IT Engineering course training (CompTIA (A+, Network+, Server+, Security+) and Cisco CCNA), and certificate of completion from CollegeSA (Optimi College), alongside intensive hands-on training from the HyperionDev Cybersecurity Bootcamp.</p>
-          <p>I have completed TryHackMe’s Pre-security, web fundamentals, Cyber Security 101 and Junior Penetration Tester learning paths, gaining practical experience in reconnaissance, enumeration, privilege escalation, web application exploitation, vulnerability assessment, and penetration testing methodologies across Linux-based environments.</p>
-           <p>My core focus is offensive security, leveraging tools such as Nmap, Burp Suite, Metasploit, Nessus, and custom Python scripts to simulate real-world attacks. I also maintain working knowledge of defensive operations — including SIEM monitoring (Splunk), SOC workflows, and incident response fundamentals — enabling me to better understand, evade, and challenge defensive controls during security assessments.</p>
-          
-          <h3>🧰 Tools & Technologies</h3>
-          <table class="tools-table">
- <tr>
-  <th>Tool</th>
-  <th>Description</th>
-</tr>
-
-<tr>
-  <td>🐍 Python</td>
-  <td>Scripting, automation & data handling</td>
-</tr>
-
-<tr>
-  <td>🌐 HTML, CSS, JS</td>
-  <td>Responsive web design & interactivity</td>
-</tr>
-
-<tr>
-  <td>💻 VS Code</td>
-  <td>Primary development environment</td>
-</tr>
-
-<tr>
-  <td>🐧 Linux</td>
-  <td>Command-line mastery, system administration & security tooling</td>
-</tr>
-
-<tr>
-  <td>💣 Metasploit</td>
-  <td>Exploitation framework for penetration testing & vulnerability research</td>
-</tr>
-
-<tr>
-  <td>🔐 TryHackMe</td>
-  <td>Hands-on cybersecurity training</td>
-</tr>
-
-<tr>
-  <td>🧠 Git & GitHub</td>
-  <td>Version control & collaboration</td>
-</tr>
-
-<tr>
-  <td>📡 Wireshark</td>
-  <td>Network traffic analysis & packet inspection</td>
-</tr>
-
-<tr>
-  <td>📊 Splunk (SIEM)</td>
-  <td>Log analysis, monitoring & incident detection</td>
-</tr>
-
-<tr>
-  <td>☁️ Hosting</td>
-  <td>GitHub Pages, Netlify, or local servers</td>
-</tr>
-</table>
+    <div id="cyber-bg"></div>
 
 
-          <h3 class="section-title">Hands-On Offensive Experience</h3>
+    <!-- ==================================================
+         SIDEBAR
+    =================================================== -->
 
-<table class="highlight-table">
-  <thead>
-    <tr>
-      <th>Area</th>
-      <th>Experience</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Web Application Security</td>
-      <td>Identified and exploited common web vulnerabilities (OWASP Top 10) through labs and simulated environments</td>
-    </tr>
-    <tr>
-      <td>Windows Active Directory Labs</td>
-      <td>Configured Windows Server 2019 environments for AD attacks and privilege escalation practice</td>
-    </tr>
-    <tr>
-      <td>Penetration Testing Labs</td>
-      <td>Conducted reconnaissance, exploitation, and reporting across TryHackMe offensive pathways</td>
-    </tr>
-    <tr>
-      <td>Incident Awareness</td>
-      <td>Developed understanding of SOC detection and IR processes to improve stealth and attack realism</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+    <aside
+        id="sidebar"
+        class="sidebar"
+    >
 
-<aside class="main-right">
-  <section class="profile-card card">
+        <div class="brand">
 
-  <div class="profile-photo-wrapper">
-    <img src="images/profile.jpg" alt="Sandiso profile" class="profile-img">
-  </div>
+            <div class="brand-left">
 
-  <h3>Sandiso Mayekiso</h3>
-  <p class="muted">Penetration tester</p>
-  
+                <i class="fas fa-user-secret brand-icon"></i>
 
-  <!-- Clean Fixed Social Profile Connections Container -->
-  <div class="social-links-wrapper" style="margin-top: 15px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px;">
-  
-  <!-- Icon Tier -->
-    <div class="social-icons-tier" style="display: flex; gap: 20px; font-size: 1.3rem;">
-      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    </div>
+                <span
+                    class="scan-text"
+                    id="scanText"
+                >
+                    RED-TEAMER
+                </span>
 
-</div>
+            </div>
 
+            <button
+                id="collapse-btn"
+                class="collapse-btn"
+                aria-label="Toggle sidebar"
+                type="button"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-
-    
-
-</section>
-
-
-  <!-- Recent Activities -->
-  <section class="recent-activities card">
-    <div class="notifications-header">
-      <i class="fas fa-bell"></i>
-      <h4>Recent Activities</h4>
-    </div>
-
-    <div class="notifications-list">
-      <div class="notification-card success">
-        <i class="fas fa-check-circle"></i>
-        <div class="n-body">
-          <p>Volume I Handbook Completed</p>
-          <span class="timestamp"></span>
         </div>
-      </div>
 
-      <div class="notification-card info">
-        <i class="fas fa-info-circle"></i>
-        <div class="n-body">
-          <p>TryHackMe Web app Path in progress</p>
-          <span class="timestamp"></span>
-        </div>
-      </div>
 
-      <div class="notification-card warning">
-        <i class="fas fa-exclamation-triangle"></i>
-        <div class="n-body">
-          <p>System scan completed with warnings</p>
-          <span class="timestamp"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-</aside>
+        <button
+            id="theme-toggle"
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle theme"
+        >
+            <i class="fas fa-moon"></i>
+        </button>
 
-  </section>  
-  
-      <!-- PROJECTS -->
+
+        <ul class="menu">
+
+            <li>
+                <a
+                    href="#"
+                    class="active"
+                    data-target="dashboard"
+                >
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#"
+                    data-target="experience"
+                >
+                    <i class="fas fa-briefcase"></i>
+                    <span>Experience</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#"
+                    data-target="projects"
+                >
+                    <i class="fas fa-folder-open"></i>
+                    <span>Projects</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#"
+                    data-target="skills"
+                >
+                    <i class="fas fa-star"></i>
+                    <span>Skills</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#"
+                    data-target="certificates"
+                >
+                    <i class="fas fa-award"></i>
+                    <span>Certifications</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#"
+                    data-target="cws-academy"
+                >
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>CWS Academy</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#"
+                    data-target="digital-library"
+                >
+                    <i class="fas fa-file-download"></i>
+                    <span>Digital Library</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#"
+                    data-target="events"
+                >
+                    <i class="fas fa-stream"></i>
+                    <span>Timeline</span>
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#"
+                    data-target="contact"
+                >
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </li>
+
+            <h2>
+                🔐 Cyber Security Lab
+            </h2>
+
+            <li id="authMenu">
+                <a
+                    href="#"
+                    data-target="auth"
+                >
+                    <i class="fas fa-user-lock"></i>
+                    <span>Tools and Resources</span>
+                </a>
+            </li>
+
+            <li
+                id="scannerMenu"
+                class="hidden"
+            >
+                <a
+                    href="#"
+                    data-target="scanner"
+                >
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Security Scanner</span>
+                </a>
+            </li>
+
+            <li
+                id="quizMenu"
+                class="hidden"
+            >
+                <a
+                    href="#"
+                    data-target="quiz"
+                >
+                    <i class="fas fa-brain"></i>
+                    <span>Security Quiz</span>
+                </a>
+            </li>
+
+            <li
+                id="cryptoMenu"
+                class="hidden"
+            >
+                <a
+                    href="#"
+                    data-target="crypto"
+                >
+                    <i class="fas fa-key"></i>
+                    <span>Crypto Playground</span>
+                </a>
+            </li>
+
+            <li
+                id="tlsMenu"
+                class="hidden"
+            >
+                <a
+                    href="#"
+                    data-target="tls"
+                >
+                    <i class="fas fa-lock"></i>
+                    <span>HTTPS & TLS Validation</span>
+                </a>
+            </li>
+
+            <li
+                id="ifaMenu"
+                class="hidden"
+            >
+                <a
+                    href="#"
+                    data-target="input-analysis"
+                >
+                    <i class="fas fa-search"></i>
+                    <span>Input Field Analysis</span>
+                </a>
+            </li>
+
+            <li
+                id="libraryMenu"
+                class="hidden"
+            >
+                <a
+                    href="#"
+                    data-target="library"
+                >
+                    <i class="fas fa-book"></i>
+                    <span>Resources Library</span>
+                </a>
+            </li>
+
+            <li
+                id="logoutMenu"
+                class="hidden"
+            >
+                <a
+                    href="#"
+                    onclick="logout()"
+                >
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+    <!-- ==================================================
+         MAIN
+    =================================================== -->
+
+    <main id="main-content">
+
+        <header>
+
+            <h1
+                class="page-title"
+                id="dashboardTitle"
+            >
+                Home
+            </h1>
+
+        </header>
+
+
+        <!-- ==================================================
+             RECRUITER HOME
+        =================================================== -->
+
+        <section
+            id="dashboard"
+            class="page-section"
+        >
+
+            <div class="portfolio-hero">
+
+                <div class="portfolio-hero-copy">
+
+                    <span class="portfolio-kicker">
+                        OFFENSIVE SECURITY PORTFOLIO
+                    </span>
+
+                    <h1>
+                        Sandiso Mayekiso
+                    </h1>
+
+                    <h2>
+                        Junior Penetration Tester
+                        <span>
+                            / Ethical Hacker
+                        </span>
+                    </h2>
+
+                    <p>
+                        I build and document hands-on cybersecurity projects
+                        focused on web application security, network penetration
+                        testing, Linux, Active Directory, Python automation and
+                        controlled attack simulation.
+                    </p>
+
+                    <div class="portfolio-hero-actions">
+
+                        <a
+                            href="#"
+                            class="github-btn portfolio-nav-btn"
+                            data-target="projects"
+                        >
+                            <i class="fas fa-folder-open"></i>
+                            View Security Projects
+                        </a>
+
+                        <a
+                            href="docs/Sandiso_Mayekiso_CV.pdf"
+                            class="github-btn"
+                            download
+                        >
+                            <i class="fas fa-download"></i>
+                            Download CV
+                        </a>
+
+                        <a
+                            href="https://github.com/SandisoMayekiso"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-btn"
+                        >
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-btn"
+                        >
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <aside class="main-right">
+
+                    <section class="profile-card card">
+
+                        <div class="profile-photo-wrapper">
+
+                            <img
+                                src="images/profile.jpg"
+                                alt="Sandiso Mayekiso"
+                                class="profile-img"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Sandiso Mayekiso
+                        </h3>
+
+                        <p class="muted">
+                            Junior Penetration Tester
+                        </p>
+
+                        <div class="social-links-wrapper">
+
+                            <div class="social-icons-tier">
+
+                                <a
+                                    href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="LinkedIn"
+                                >
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+
+                                <a
+                                    href="https://github.com/SandisoMayekiso"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="GitHub"
+                                >
+                                    <i class="fab fa-github"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </aside>
+
+            </div>
+
+
+            <div class="portfolio-proof-grid">
+
+                <div class="card portfolio-proof-card">
+
+                    <i class="fas fa-globe"></i>
+
+                    <strong>
+                        Web Application Security
+                    </strong>
+
+                    <span>
+                        Burp Suite, SQLi, XSS, OWASP testing
+                    </span>
+
+                </div>
+
+                <div class="card portfolio-proof-card">
+
+                    <i class="fas fa-network-wired"></i>
+
+                    <strong>
+                        Network Security
+                    </strong>
+
+                    <span>
+                        Nmap, Wireshark, service enumeration
+                    </span>
+
+                </div>
+
+                <div class="card portfolio-proof-card">
+
+                    <i class="fas fa-building-shield"></i>
+
+                    <strong>
+                        Active Directory
+                    </strong>
+
+                    <span>
+                        Windows Server, AD labs, identity security
+                    </span>
+
+                </div>
+
+                <div class="card portfolio-proof-card">
+
+                    <i class="fab fa-python"></i>
+
+                    <strong>
+                        Security Automation
+                    </strong>
+
+                    <span>
+                        Python, Bash and custom security tooling
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="about recruiter-about">
+
+                <div class="about-text">
+
+                    <h2>
+                        Profile
+                    </h2>
+
+                    <p>
+                        I am a junior penetration tester and ethical hacker
+                        focused on offensive security, web application testing,
+                        network exploitation and attack simulation. My hands-on
+                        work is supported by networking, Linux, Windows Server
+                        and Python foundations.
+                    </p>
+
+                    <p>
+                        I have completed structured cybersecurity training and
+                        practical learning paths covering reconnaissance,
+                        enumeration, vulnerability analysis, privilege
+                        escalation, web application testing and professional
+                        reporting.
+                    </p>
+
+                    <p>
+                        I also maintain defensive-security awareness through
+                        Wireshark analysis, SIEM concepts, log analysis and
+                        incident-response fundamentals, helping me understand
+                        how offensive activity is detected and investigated.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="featured-home-projects">
+
+                <div class="section-title">
+
+                    <h2>
+                        Featured Security Work
+                    </h2>
+
+                </div>
+
+                <div class="projects-grid-vertical">
+
+                    <div class="project-card">
+
+                        <h3>
+                            Web App Security Testing Lab
+                        </h3>
+
+                        <p>
+                            Custom Flask and SQLite application used for
+                            controlled SQL injection and XSS testing with
+                            Burp Suite.
+                        </p>
+
+                        <a
+                            href="https://github.com/SandisoMayekiso/Web-Application-Security-Testing-Lab"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-btn"
+                        >
+                            View Case Study
+                        </a>
+
+                    </div>
+
+                    <div class="project-card">
+
+                        <h3>
+                            Metasploitable 2
+                        </h3>
+
+                        <p>
+                            Service enumeration, vulnerable-service analysis,
+                            exploitation and post-exploitation in an isolated lab.
+                        </p>
+
+                        <a
+                            href="https://github.com/SandisoMayekiso/Metasploitable-2-Remote-Root-Compromise-vsFTPd-2.3.4-"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-btn"
+                        >
+                            View Write-up
+                        </a>
+
+                    </div>
+
+                    <div class="project-card">
+
+                        <h3>
+                            Wireshark Traffic Analysis
+                        </h3>
+
+                        <p>
+                            Packet analysis across ARP, TCP, UDP, TLS and QUIC
+                            with practical network-behavior interpretation.
+                        </p>
+
+                        <a
+                            href="https://github.com/SandisoMayekiso/Wireshark-Network-Analysis-ARP-Traffic-Investigation"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-btn"
+                        >
+                            View Analysis
+                        </a>
+
+                    </div>
+
+                    <div class="project-card featured-project">
+
+                        <h3>
+                            CWS Academy
+                        </h3>
+
+                        <p>
+                            Cybersecurity learning platform with courses, labs,
+                            assessments, Firebase authentication, profiles,
+                            progress tracking and access-control architecture.
+                        </p>
+
+                        <a
+                            href="https://sandisomayekiso.github.io/CyberWithSandiso/index.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="github-btn"
+                        >
+                            Visit CWS Academy
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             PROFESSIONAL EXPERIENCE
+        =================================================== -->
+
+        <section
+            id="experience"
+            class="page-section hidden"
+        >
+
+            <div class="section-title">
+
+                <h2>
+                    Professional Experience
+                </h2>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            Technical Operations / Device Support
+                        </h3>
+
+                        <span class="timeline-date">
+                            Banking Environment
+                        </span>
+
+                        <p>
+                            Monitor and troubleshoot technical issues affecting
+                            operational cash devices, investigate incidents,
+                            perform technical checks, document outcomes and
+                            escalate faults within a controlled financial-services
+                            environment.
+                        </p>
+
+                        <ul class="project-points">
+                            <li>Technical troubleshooting and incident investigation</li>
+                            <li>Operational monitoring and escalation</li>
+                            <li>Working within controlled banking processes</li>
+                            <li>Documentation and issue tracking</li>
+                            <li>Confidentiality and risk awareness</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            Customer Service / Sales Experience
+                        </h3>
+
+                        <p>
+                            Earlier customer-facing and sales roles developed
+                            communication, problem solving, stakeholder support
+                            and the ability to explain technical or service issues
+                            clearly.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-icon">
+                        <i class="fas fa-boxes-stacked"></i>
+                    </div>
+
+                    <div class="timeline-content">
+
+                        <h3>
+                            Stock / Warehouse Operations
+                        </h3>
+
+                        <p>
+                            Previous operational experience included inventory
+                            handling, process discipline and responsibility for
+                            accurate stock movement.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             CWS ACADEMY
+        =================================================== -->
+
+        <section
+            id="cws-academy"
+            class="page-section hidden"
+        >
+
+            <div class="section-title">
+
+                <h2>
+                    CWS Academy
+                </h2>
+
+            </div>
+
+
+            <div class="project-card featured-project">
+
+                <div class="featured-ribbon">
+                    ACTIVE PROJECT
+                </div>
+
+                <div class="image-wrapper">
+
+                    <img
+                        src="images/cws-academy.png"
+                        alt="CWS Academy cybersecurity learning platform"
+                    >
+
+                </div>
+
+                <h3>
+                    CyberWithSandiso CWS Academy
+                </h3>
+
+                <p>
+                    CWS Academy is a cybersecurity learning platform I am
+                    actively designing and developing. It brings together
+                    structured learning content and application development
+                    into one portfolio project.
+                </p>
+
+                <ul class="project-points">
+                    <li>12-course cybersecurity catalogue</li>
+                    <li>Free and future Pro learning paths</li>
+                    <li>Cybersecurity, networking, Linux, Bash and Python</li>
+                    <li>Active Directory and penetration-testing pathways</li>
+                    <li>Firebase Authentication and Firestore</li>
+                    <li>Student profiles and learning preferences</li>
+                    <li>Course progress, labs and assessments architecture</li>
+                    <li>Access-control and entitlement system</li>
+                    <li>Responsive public and authenticated interfaces</li>
+                </ul>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://sandisomayekiso.github.io/CyberWithSandiso/index.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="github-btn"
+                    >
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                        Visit Live CWS Academy
+                    </a>
+
+                    <a
+                        href="https://github.com/SandisoMayekiso/CyberWithSandiso"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="github-btn"
+                    >
+                        <i class="fab fa-github"></i>
+                        View Repository
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
 <section id="projects" class="projects-section page-section hidden">
   <h2>🚀 Projects and Case studies</h2>
 
   <div class="projects-grid-vertical">
+
+
+<div class="project-card featured-project cws-academy-project"
+     data-image="images/cws-academy.png">
+
+    <div class="featured-ribbon">
+        ⭐ FEATURED BUILD
+    </div>
+
+    <div class="image-wrapper">
+        <img
+            src="images/cws-academy.png"
+            alt="CWS Academy cybersecurity learning platform"
+        >
+    </div>
+
+    <h3>
+        🛡️ CWS Academy — Cybersecurity Learning Platform
+    </h3>
+
+    <p>
+        A full cybersecurity learning platform I am designing and developing
+        under the CyberWithSandiso brand. The platform combines structured
+        courses, practical labs, assessments, Firebase authentication,
+        student profiles, progress tracking, access control and future
+        subscription features.
+    </p>
+
+    <ul class="project-points">
+        <li>📚 12-course cybersecurity learning catalogue</li>
+        <li>🧪 Practical labs and guided exercises</li>
+        <li>🔐 Firebase Authentication and Firestore</li>
+        <li>📈 Student progress and profile management</li>
+        <li>🧭 Learning paths across Linux, Python, Active Directory and pentesting</li>
+        <li>👑 Pro course access architecture currently in development</li>
+    </ul>
+
+    <div class="project-links">
+
+        <a
+            href="https://sandisomayekiso.github.io/CyberWithSandiso/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-btn"
+        >
+            <i class="fas fa-arrow-up-right-from-square"></i>
+            Visit CWS Academy
+        </a>
+
+        <a
+            href="https://github.com/SandisoMayekiso/CyberWithSandiso"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-btn"
+        >
+            <i class="fab fa-github"></i>
+            View Source
+        </a>
+
+    </div>
+
+</div>
+
 
     <!-- ===============================================================
      FEATURED PROJECT
@@ -315,9 +1022,6 @@
             <i class="fas fa-download"></i>
 
             Download Handbook
-
-        </a>
-
 
         </a>
 
@@ -608,6 +1312,7 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
 
 
     <!-- ===================== EVENTS (TIMELINE) ===================== -->
+
 <section id="events" class="events-section page-section hidden">
   <div class="section-title">
     <h2>Events & Updates</h2>
@@ -1374,6 +2079,7 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
 </div>
     
     <!-- SKILLS -->
+
 <section id="skills" class="skills-section page-section hidden">
   <h2>Skills & Tools</h2>
   <div class="skills-grid">
@@ -1466,7 +2172,7 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
      CYBERWITHSANDISO DIGITAL LIBRARY
 =========================================================== -->
 
-<section id="Digital Library" class="Digital Library-section page-section hidden">
+<section id="digital-library" class="digital-library-section page-section hidden">
 
     <h2>
         <i class="fas fa-book-open"></i>
@@ -1884,10 +2590,6 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
 
 </section>
 
-
-   
-
-    <!-- CONTACT -->
 <section id="contact" class="contact-section page-section hidden">
   <h2>Get in Touch</h2>
   <p class="contact-subtitle">
@@ -1951,256 +2653,6 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
         PORTFOLIO ANALYTICS DASHBOARD
 =========================================== -->
 
-<section id="visitor-stats" class="page-section hidden">
-
-<div class="analytics-header">
-
-<div>
-
-<h2>
-<i class="fas fa-chart-line"></i>
-Portfolio Analytics
-</h2>
-
-<p>
-Real-time portfolio performance overview
-</p>
-
-</div>
-
-<div class="last-update">
-
-<i class="fas fa-sync-alt"></i>
-
-<span id="lastUpdated">
-Updating...
-</span>
-
-</div>
-
-</div>
-
-
-<!-- KPI Cards -->
-
-<div class="analytics-grid">
-
-<div class="metric-card">
-
-<div class="metric-icon blue">
-<i class="fas fa-users"></i>
-</div>
-
-<div>
-
-<h4>Total Visitors</h4>
-
-<h2 id="visitor-count">0</h2>
-
-<span class="trend positive">
-▲ 12.8%
-</span>
-
-</div>
-
-</div>
-
-
-
-<div class="metric-card">
-
-<div class="metric-icon green">
-<i class="fas fa-user-clock"></i>
-</div>
-
-<div>
-
-<h4>Active Now</h4>
-
-<h2 id="activeUsers">0</h2>
-
-<span class="live-dot"></span>
-Live
-
-</div>
-
-</div>
-
-
-
-<div class="metric-card">
-
-<div class="metric-icon orange">
-<i class="fas fa-calendar-day"></i>
-</div>
-
-<div>
-
-<h4>Today's Visits</h4>
-
-<h2 id="today-visitors">0</h2>
-
-<span class="trend positive">
-▲ 5.1%
-</span>
-
-</div>
-
-</div>
-
-
-
-<div class="metric-card">
-
-<div class="metric-icon purple">
-<i class="fas fa-chart-area"></i>
-</div>
-
-<div>
-
-<h4>This Week</h4>
-
-<h2 id="weeklyVisitors">0</h2>
-
-<span class="trend negative">
-▼ 2.3%
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="analytics-layout">
-
-<div class="analytics-panel">
-
-<h3>
-Traffic Overview
-</h3>
-
-<canvas id="visitorChart"></canvas>
-
-</div>
-
-
-
-<div class="analytics-panel">
-
-<h3>
-Devices
-</h3>
-
-<canvas id="deviceChart"></canvas>
-
-</div>
-
-</div>
-
-
-
-<div class="analytics-bottom">
-
-<div class="analytics-panel">
-
-<h3>
-Traffic Sources
-</h3>
-
-<div class="progress-row">
-
-<span>Direct</span>
-
-<div class="progress">
-
-<div style="width:62%"></div>
-
-</div>
-
-<span>62%</span>
-
-</div>
-
-<div class="progress-row">
-
-<span>GitHub</span>
-
-<div class="progress">
-
-<div style="width:18%"></div>
-
-</div>
-
-<span>18%</span>
-
-</div>
-
-<div class="progress-row">
-
-<span>LinkedIn</span>
-
-<div class="progress">
-
-<div style="width:13%"></div>
-
-</div>
-
-<span>13%</span>
-
-</div>
-
-<div class="progress-row">
-
-<span>Search</span>
-
-<div class="progress">
-
-<div style="width:7%"></div>
-
-</div>
-
-<span>7%</span>
-
-</div>
-
-</div>
-
-
-
-<div class="analytics-panel">
-
-<h3>
-Top Countries
-</h3>
-
-<ul class="country-list">
-
-<li>🇿🇦 South Africa <span>42%</span></li>
-
-<li>🇺🇸 United States <span>21%</span></li>
-
-<li>🇬🇧 United Kingdom <span>13%</span></li>
-
-<li>🇳🇱 Netherlands <span>9%</span></li>
-
-<li>🌍 Others <span>15%</span></li>
-
-</ul>
-
-</div>
-
-</div>
-
-</section>
-    
-
-<!-- Firebase config must be loaded first -->
-
-
-<!-- Auth UI section -->
 <section id="auth" class="page-section hidden">
   <h2>🔐 Cyber Security Lab</h2>
 
@@ -2284,875 +2736,82 @@ Top Countries
   </div>
 </section>
 
+    </main>
 
 
-<section id="scanner" class="page-section hidden">
-  <h2>🔐 Authorized Web Security Scan</h2>
+    <!-- ==================================================
+         PROJECT IMAGE MODAL
+    =================================================== -->
 
-  <input type="url" id="targetUrl" placeholder="https://example.com" required />
+    <div
+        id="img-modal"
+        class="modal"
+    >
+        <span class="close">&times;</span>
 
-  <select id="scanMode">
-    <option value="lab">Lab Environment</option>
-    <option value="verified">Verified Domain</option>
-  </select>
-
-  <label>
-    <input type="checkbox" id="scanConsentCheckbox" />
-    I confirm I own this system or have explicit permission to test it
-  </label>
-
-  <button id="startScanBtn">Start Scan</button>
-
-
-  <div id="scanResult"></div>
-
-  <div class="progress-container">
-  <div id="progressBar" class="progress-bar">0%</div>
-  </div>
-
-
-</section>
-
-<section id="quiz" class="page-section hidden">
-
-  <div class="quiz-container">
-
-    <!-- ================= HEADER ================= -->
-    <div class="quiz-header">
-      <h2>Cyber Security Knowledge Assessment</h2>
-      <p>
-        Test your cybersecurity knowledge across multiple levels — from awareness
-        fundamentals to advanced ethical hacking concepts.
-      </p>
+        <img
+            id="modal-full-img"
+            alt="Project preview"
+        >
     </div>
 
-    <!-- ================= LEVEL SELECT ================= -->
-    <div class="quiz-level-select">
-      <h3>Select Difficulty Level</h3>
-      <div class="level-buttons">
-        <button data-level="beginner">Beginner</button>
-        <button data-level="intermediate">Intermediate</button>
-        <button data-level="advanced">Advanced</button>
-      </div>
-    </div>
 
-    <!-- ================= QUIZ AREA ================= -->
-    <div id="quizArea" class="hidden">
+    <!-- ==================================================
+         CERTIFICATE MODAL
+    =================================================== -->
 
-      <!-- Progress -->
-      <div class="quiz-progress">
-        <span id="questionCounter">Question 1 of 10</span>
-        <div class="progress-bar-container">
-          <div id="quizProgressBar" class="progress-bar"></div>
+    <div
+        id="certificateModal"
+        class="certificate-modal"
+    >
+
+        <button
+            id="closeCertificate"
+            class="close-cert"
+            type="button"
+        >
+            <i class="fas fa-times"></i>
+        </button>
+
+        <button
+            id="prevCertificate"
+            class="modal-nav prev"
+            type="button"
+        >
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <img
+            id="certificatePreview"
+            class="certificate-modal-image"
+            src=""
+            alt="Certificate Preview"
+        >
+
+        <button
+            id="nextCertificate"
+            class="modal-nav next"
+            type="button"
+        >
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="certificate-info">
+
+            <h3 id="certificateTitle"></h3>
+
+            <p id="certificateCaption"></p>
+
         </div>
-      </div>
-
-      <!-- Question -->
-      <div class="question-box">
-        <h3 id="questionText">
-          Question will appear here...
-        </h3>
-      </div>
-
-      <!-- Answers -->
-      <div id="answerButtons" class="answers-container">
-        <!-- JS will inject answer buttons here -->
-      </div>
-
-      <!-- Controls -->
-      <div class="quiz-controls">
-        <button id="nextQuestionBtn">Next Question</button>
-      </div>
 
     </div>
 
-    <!-- ================= RESULT SECTION ================= -->
-    <div id="quizResult" class="quiz-result hidden">
 
-      <h3>Assessment Complete</h3>
+    <!-- ==================================================
+         SCRIPTS
+    =================================================== -->
 
-      <p><strong>Your Score:</strong> <span id="finalScore">0</span></p>
-      <p><strong>Difficulty Level:</strong> <span id="finalLevel">Beginner</span></p>
-      <p><strong>Performance Rating:</strong> <span id="performanceRating">Intermediate</span></p>
+    <script src="script.js"></script>
 
-      <div class="result-message">
-        <p id="resultFeedback">
-        </p>
-      </div>
-
-      <button id="restartQuizBtn">Retake Assessment</button>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="crypto" class="page-section hidden">
-  <h2>🔐 Crypto Playground</h2>
-
-  <p class="muted">Interactive, in-browser cryptography sandbox for learning. Keys and operations stay in the browser.</p>
-
-  <div class="crypto-grid">
-    <div class="crypto-left">
-      <label for="cpKeyName">Key Pair Name</label>
-      <input id="cpKeyName" type="text" placeholder="e.g., demo-key-1" />
-
-      <div class="row">
-        <button id="cpGenKeyBtn" type="button">Generate Key Pair</button>
-        <button id="cpExportPubBtn" type="button" class="secondary">Export Public</button>
-        <button id="cpExportPrivBtn" type="button" class="secondary">Export Private</button>
-      </div>
-
-      <hr />
-
-      <label for="cpSignMessage">Message to sign</label>
-      <textarea id="cpSignMessage" placeholder="Type a message to sign"></textarea>
-      <div class="row">
-        <button id="cpSignBtn" type="button">Sign Message</button>
-        <button id="cpVerifyBtn" type="button" class="secondary">Verify Signature</button>
-      </div>
-
-      <label for="cpSignatureOut">Signature (base64)</label>
-      <textarea id="cpSignatureOut" readonly class="output"></textarea>
-
-      <hr />
-
-      <label for="cpHashInput">Text to hash (SHA-256)</label>
-      <input id="cpHashInput" type="text" placeholder="Text to hash" />
-      <div class="row">
-        <button id="cpHashBtn" type="button">Compute Hash</button>
-        <button id="cpCopyHash" type="button" class="secondary">Copy</button>
-      </div>
-      <div>
-        <label>Hash (hex)</label>
-        <div id="cpHashOut" class="output">—</div>
-      </div>
-
-      <hr />
-
-      <label for="cpPlaintext">Plaintext for AES-GCM</label>
-      <textarea id="cpPlaintext" placeholder="Text to encrypt"></textarea>
-      <div class="row">
-        <button id="cpDeriveBtn" type="button">Derive Shared Key</button>
-        <button id="cpEncryptBtn" type="button" class="secondary">Encrypt</button>
-        <button id="cpDecryptBtn" type="button" class="secondary">Decrypt</button>
-      </div>
-
-      <label for="cpCipherOut">Ciphertext (base64 JSON)</label>
-      <textarea id="cpCipherOut" readonly class="output"></textarea>
-    </div>
-
-    <aside class="crypto-right">
-      <div class="section-title">
-        <strong>Keys</strong>
-        <span id="cpKeyStatus" class="badge">No Key</span>
-      </div>
-
-      <div>
-        <div class="small muted">Public Key (base64 JWK)</div>
-        <pre id="cpPubKey" class="output">—</pre>
-      </div>
-
-      <div style="margin-top:10px">
-        <div class="small muted">Private Key (base64 JWK)</div>
-        <pre id="cpPrivKey" class="output">—</pre>
-      </div>
-
-      <div style="margin-top:12px">
-        <div class="section-title"><strong>Derived Secret</strong><span class="small muted">ECDH</span></div>
-        <div id="cpDerivedOut" class="output">—</div>
-      </div>
-
-      <div style="margin-top:12px">
-        <div class="section-title"><strong>Operations Log</strong></div>
-        <div id="cpOpLog" class="output">No operations yet.</div>
-        <div class="row" style="margin-top:8px">
-          <button id="cpDownloadReport" type="button">⬇️ Download Report</button>
-          <button id="cpClearLog" type="button" class="secondary">Clear</button>
-        </div>
-      </div>
-
-      <div style="margin-top:12px" class="small muted">
-        <p>Notes</p>
-        <ul>
-          <li>All crypto runs locally in your browser.</li>
-          <li>Do not use for production secrets.</li>
-        </ul>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section id="tls" class="page-section hidden">
-  <h2>🔒 HTTPS & TLS Validation</h2>
-
-  <p class="muted">Quick checks for TLS configuration, certificate chain, and HTTPS headers. Runs client-side checks and optionally queries a backend if available.</p>
-
-  <div class="tls-grid">
-    <div class="tls-left">
-      <label for="tlsTargetUrl">Target URL</label>
-      <input id="tlsTargetUrl" type="url" placeholder="https://example.com" />
-
-      <label for="tlsCheckMode">Check Mode</label>
-      <select id="tlsCheckMode">
-        <option value="quick">Quick (client-side)</option>
-        <option value="full">Full (backend scan if available)</option>
-      </select>
-
-      <label class="checkbox-label">
-        <input id="tlsConsent" type="checkbox" />
-        I confirm I own this domain or have explicit permission to test
-      </label>
-
-      <div class="row">
-        <button id="tlsRunBtn" type="button">Run Validation</button>
-        <button id="tlsClearBtn" type="button" class="secondary">Clear</button>
-      </div>
-
-      <div class="progress-container">
-        <div id="tlsProgress" class="progress-bar">0%</div>
-      </div>
-
-      <div style="margin-top:12px">
-        <label for="tlsOutput">Summary</label>
-        <textarea id="tlsOutput" readonly class="output" placeholder="Results will appear here"></textarea>
-      </div>
-
-      <div style="margin-top:10px" class="small muted">
-        <p>Notes</p>
-        <ul>
-          <li>Client-side checks are limited by browser capabilities.</li>
-          <li>Use Full mode only if your backend scan endpoint is configured and you have permission.</li>
-        </ul>
-      </div>
-    </div>
-
-    <aside class="tls-right">
-      <div class="section-title">
-        <strong>Certificate</strong>
-        <span id="tlsCertStatus" class="badge">No Check</span>
-      </div>
-
-      <div>
-        <div class="small muted">Issuer</div>
-        <pre id="tlsIssuer" class="output">—</pre>
-      </div>
-
-      <div style="margin-top:10px">
-        <div class="small muted">Valid From / To</div>
-        <pre id="tlsValidity" class="output">—</pre>
-      </div>
-
-      <div style="margin-top:10px">
-        <div class="small muted">TLS Version / Cipher</div>
-        <pre id="tlsCipher" class="output">—</pre>
-      </div>
-
-      <div style="margin-top:12px">
-        <div class="section-title"><strong>Headers</strong></div>
-        <pre id="tlsHeaders" class="output">—</pre>
-      </div>
-
-      <div style="margin-top:12px">
-        <div class="section-title"><strong>Operations Log</strong></div>
-        <pre id="tlsLog" class="output">No operations yet.</pre>
-        <div class="row" style="margin-top:8px">
-          <button id="tlsDownloadReport" type="button">⬇️ Download Report</button>
-          <button id="tlsClearLog" type="button" class="secondary">Clear</button>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section id="input-analysis" class="page-section hidden">
-  <h2>🔍 Input Field Analysis</h2>
-
-  <p class="muted">Analyze form inputs for common issues: missing attributes, autocomplete, maxlength, input type mismatches, and potential injection sinks. Client-side checks only — no active probing.</p>
-
-  <div class="ifa-grid">
-    <div class="ifa-left">
-      <label for="ifaTargetUrl">Page URL (to analyze)</label>
-      <input id="ifaTargetUrl" type="url" placeholder="https://example.com/contact" />
-
-      <label for="ifaSelector">Form selector (CSS)</label>
-      <input id="ifaSelector" type="text" placeholder="form, form#contact, form.login" />
-
-      <label for="ifaConsent" class="checkbox-label">
-        <input id="ifaConsent" type="checkbox" />
-        I confirm I own this page or have permission to analyze it
-      </label>
-
-      <div class="row">
-        <button id="ifaRunBtn" type="button">Run Analysis</button>
-        <button id="ifaClearBtn" type="button" class="secondary">Clear</button>
-      </div>
-
-      <div style="margin-top:12px">
-        <label for="ifaSummary">Summary</label>
-        <textarea id="ifaSummary" readonly class="output" placeholder="Analysis summary will appear here"></textarea>
-      </div>
-    </div>
-
-    <aside class="ifa-right">
-      <div class="section-title">
-        <strong>Findings</strong>
-        <span id="ifaStatus" class="badge">Idle</span>
-      </div>
-
-      <div style="margin-top:8px">
-        <div class="small muted">Inputs Found</div>
-        <pre id="ifaInputs" class="output">—</pre>
-      </div>
-
-      <div style="margin-top:10px">
-        <div class="small muted">Potential Issues</div>
-        <pre id="ifaIssues" class="output">—</pre>
-      </div>
-
-      <div style="margin-top:12px">
-        <div class="section-title"><strong>Operations Log</strong></div>
-        <pre id="ifaLog" class="output">No operations yet.</pre>
-        <div class="row" style="margin-top:8px">
-          <button id="ifaDownloadReport" type="button">⬇️ Download Report</button>
-          <button id="ifaClearLog" type="button" class="secondary">Clear</button>
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<!-- ===================== LIBRARY SECTION  ===================== -->
-<section id="library" class="page-section hidden">
-  <div class="library-inner">
-    <header class="library-header">
-      <h2>📚 Cyber Security Resources</h2>
-      <p class="muted">Curated PDFs, guides, and reference materials. Click View to preview or Download to save a copy.</p>
-    </header>
-
-    <div class="library-controls">
-      <input id="libSearch" type="search" placeholder="Search resources (title, tag)"/>
-      <select id="libFilter">
-        <option value="all">All</option>
-        <option value="pdf">PDF</option>
-        <option value="guide">Guide</option>
-        <option value="cheatsheet">Cheatsheet</option>
-      </select>
-    </div>
-
-    <div id="libList" class="lib-list" aria-live="polite"></div>
-
-    <div class="lib-footer">
-      <small class="muted">Resources are for learning and reference. Only analyze or scan sites you own or have permission to test.</small>
-    </div>
-  </div>
-
-  
-  <div id="libViewer" class="lib-viewer hidden" role="dialog" aria-modal="true" aria-label="Resource preview">
-    <div class="lib-viewer__backdrop"></div>
-    <div class="lib-viewer__panel">
-      <div class="lib-viewer__header">
-        <strong id="libViewerTitle">Preview</strong>
-        <button id="libViewerClose" class="btn-icon" aria-label="Close preview">✕</button>
-      </div>
-      <div class="lib-viewer__body">
-        <iframe id="libViewerFrame" src="" frameborder="0" sandbox="allow-same-origin allow-scripts allow-forms" title="Resource preview"></iframe>
-      </div>
-      <div class="lib-viewer__actions">
-        <a id="libViewerDownload" class="btn" download>⬇️ Download</a>
-        <button id="libViewerOpenNew" class="btn secondary">Open in new tab</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-</main>
-
-
- <script>
-
-"use strict";
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* ===================== ELEMENT CACHE ===================== */
-  const sidebar = document.getElementById("sidebar");
-  const collapseBtn = document.getElementById("collapse-btn");
-  const mainContent = document.getElementById("main-content");
-  const menu = document.querySelector(".menu");
-  const sections = document.querySelectorAll(".page-section");
-  const pageTitle = document.querySelector(".page-title");
-  const themeToggle = document.getElementById("theme-toggle");
-
-  const imgModal = document.getElementById("img-modal");
-  const modalImg = document.getElementById("modal-full-img");
-  const modalClose = imgModal?.querySelector(".close");
-
-  /* ===================== SIDEBAR STATE ===================== */
-  const restoreSidebar = () => {
-    const collapsed = localStorage.getItem("sidebarCollapsed") === "true";
-    sidebar?.classList.toggle("collapsed", collapsed);
-    mainContent?.classList.toggle("expanded", collapsed);
-  };
-
-  restoreSidebar();
-
-  collapseBtn?.addEventListener("click", () => {
-    sidebar.classList.toggle("collapsed");
-    mainContent.classList.toggle("expanded");
-    localStorage.setItem(
-      "sidebarCollapsed",
-      sidebar.classList.contains("collapsed")
-    );
-  });
-
-  document.addEventListener("keydown", e => {
-    if (e.ctrlKey && e.key.toLowerCase() === "b") {
-      sidebar.classList.toggle("collapsed");
-      mainContent.classList.toggle("expanded");
-    }
-  });
-
-  /* ===================== PAGE NAVIGATION ===================== */
-  menu?.addEventListener("click", e => {
-    const link = e.target.closest("a[data-target]");
-    if (!link) return;
-
-    e.preventDefault();
-
-    menu.querySelectorAll("a").forEach(a => a.classList.remove("active"));
-    link.classList.add("active");
-
-    sections.forEach(sec => sec.classList.add("hidden"));
-
-    const target = document.getElementById(link.dataset.target);
-    if (target) {
-      target.classList.remove("hidden");
-      const label = link.querySelector("span");
-      if (label) pageTitle.textContent = label.textContent;
-    }
-  });
-
-  /* ===================== THEME TOGGLE ===================== */
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-  }
-
-  themeToggle?.addEventListener("click", () => {
-    const dark = document.body.classList.toggle("dark-mode");
-    localStorage.setItem("theme", dark ? "dark" : "light");
-    themeToggle.innerHTML = dark
-      ? '<i class="fas fa-sun"></i>'
-      : '<i class="fas fa-moon"></i>';
-  });
-
-  /* ===================== TIMELINE ANIMATION ===================== */
-  const timelineItems = document.querySelectorAll(".timeline-item");
-
-  const revealTimeline = () => {
-    const trigger = window.innerHeight * 0.85;
-    timelineItems.forEach(item => {
-      if (item.getBoundingClientRect().top < trigger) {
-        item.classList.add("visible");
-      }
-    });
-  };
-
-  window.addEventListener("scroll", revealTimeline);
-  revealTimeline();
-
-  /* ===================== MODAL (SECURE) ===================== */
-  document.addEventListener("click", e => {
-    const card = e.target.closest(".project-card");
-    if (!card) return;
-
-    if (
-      e.target.closest(".github-btn") ||
-      e.target.classList.contains("slide-btn")
-    ) return;
-
-    const activeSlide = card.querySelector(".slide.active");
-    const imgSrc = activeSlide?.src || card.dataset.image;
-
-    if (imgSrc && imgModal && modalImg) {
-      modalImg.src = imgSrc;
-      imgModal.style.display = "flex";
-    }
-  });
-
-  modalClose?.addEventListener("click", () => {
-    imgModal.style.display = "none";
-    modalImg.src = "";
-  });
-
-  imgModal?.addEventListener("click", e => {
-    if (e.target === imgModal) {
-      imgModal.style.display = "none";
-      modalImg.src = "";
-    }
-  });
-
-  /* ===================== SLIDESHOW ===================== */
-  document.querySelectorAll(".slideshow-card").forEach(card => {
-    const slides = card.querySelectorAll(".slide");
-    let index = 0;
-
-    const show = i => {
-      slides.forEach(s => s.classList.remove("active"));
-      slides[i].classList.add("active");
-    };
-
-    card.querySelector(".prev")?.addEventListener("click", e => {
-      e.stopPropagation();
-      index = index === 0 ? slides.length - 1 : index - 1;
-      show(index);
-    });
-
-    card.querySelector(".next")?.addEventListener("click", e => {
-      e.stopPropagation();
-      index = index === slides.length - 1 ? 0 : index + 1;
-      show(index);
-    });
-  });
-
-  /* ===================== TOUCH SWIPE ===================== */
-  document.querySelectorAll(".image-wrapper").forEach(wrapper => {
-    let startX = 0;
-
-    wrapper.addEventListener("touchstart", e => {
-      startX = e.touches[0].clientX;
-    });
-
-    wrapper.addEventListener("touchend", e => {
-      const endX = e.changedTouches[0].clientX;
-      const card = wrapper.closest(".slideshow-card");
-      if (!card) return;
-
-      if (startX - endX > 50) card.querySelector(".next")?.click();
-      if (endX - startX > 50) card.querySelector(".prev")?.click();
-    });
-  });
-
-  /* ===================== CYBER BACKGROUND ===================== */
-  const cyberBg = document.getElementById("cyber-bg");
-  if (cyberBg) {
-    const symbols = ["</>", "{}", "[]", "0101", "TCP", "UDP", "SSH", "TLS"];
-
-    for (let i = 0; i < 60; i++) {
-      const span = document.createElement("span");
-      span.className = "cyber-symbol";
-      span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-      span.style.left = Math.random() * 100 + "vw";
-      span.style.fontSize = 14 + Math.random() * 14 + "px";
-      span.style.animationDuration = 15 + Math.random() * 25 + "s";
-      cyberBg.appendChild(span);
-    }
-  }
-
-  /* ===================== SCAN TEXT (XSS SAFE) ===================== */
-  const scanText = document.getElementById("scanText");
-  if (scanText) {
-    const text = scanText.textContent;
-    scanText.textContent = "";
-    [...text].forEach(char => {
-      const span = document.createElement("span");
-      span.textContent = char;
-      scanText.appendChild(span);
-    });
-  }
-
-  /* ===================== DASHBOARD ANIMATION ===================== */
-  const dashboardTitle = document.getElementById("dashboardTitle");
-  if (dashboardTitle) {
-    const finalText = "DASHBOARD";
-    const binary = ["0", "1"];
-    let i = 0;
-
-    const animate = () => {
-      if (i <= finalText.length) {
-        dashboardTitle.textContent = finalText
-          .split("")
-          .map((c, idx) =>
-            idx < i ? c : binary[Math.floor(Math.random() * 2)]
-          )
-          .join("");
-        i++;
-        setTimeout(animate, 180);
-      } else {
-        dashboardTitle.textContent = finalText;
-      }
-    };
-
-    animate();
-  }
-});
-
-/* ==========================================================
-   CyberWithSandiso
-   Certificates Gallery
-========================================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const modal = document.getElementById("certificateModal");
-    const modalImage = document.getElementById("certificatePreview");
-    const modalTitle = document.getElementById("certificateTitle");
-    const modalCaption = document.getElementById("certificateCaption");
-
-    const closeBtn = document.getElementById("closeCertificate");
-    const prevBtn = document.getElementById("prevCertificate");
-    const nextBtn = document.getElementById("nextCertificate");
-
-    const images = document.querySelectorAll(".certificate-image");
-    const previewButtons = document.querySelectorAll(".preview-btn");
-
-    let currentIndex = 0;
-
-    /* ==========================================
-       Open Certificate
-    ========================================== */
-
-    function openCertificate(index){
-
-        currentIndex = index;
-
-        const image = images[index];
-
-        modalImage.src = image.src;
-
-        modalImage.alt = image.alt;
-
-        const card = image.closest(".certificate-card");
-
-        const title = card.querySelector("h3").textContent;
-
-        const name = card.querySelector(".cert-name").textContent;
-
-        modalTitle.textContent = title;
-
-        modalCaption.textContent = name;
-
-        modal.classList.add("active");
-
-        document.body.style.overflow = "hidden";
-
-    }
-
-    /* ==========================================
-       Close Viewer
-    ========================================== */
-
-    function closeCertificate(){
-
-        modal.classList.remove("active");
-
-        document.body.style.overflow = "";
-
-    }
-
-    /* ==========================================
-       Next
-    ========================================== */
-
-    function nextCertificate(){
-
-        currentIndex++;
-
-        if(currentIndex >= images.length){
-
-            currentIndex = 0;
-
-        }
-
-        openCertificate(currentIndex);
-
-    }
-
-    /* ==========================================
-       Previous
-    ========================================== */
-
-    function previousCertificate(){
-
-        currentIndex--;
-
-        if(currentIndex < 0){
-
-            currentIndex = images.length - 1;
-
-        }
-
-        openCertificate(currentIndex);
-
-    }
-
-    /* ==========================================
-       Image Click
-    ========================================== */
-
-    images.forEach((image,index)=>{
-
-        image.addEventListener("click",()=>{
-
-            openCertificate(index);
-
-        });
-
-    });
-
-    /* ==========================================
-       Preview Buttons
-    ========================================== */
-
-    previewButtons.forEach((button,index)=>{
-
-        button.addEventListener("click",()=>{
-
-            openCertificate(index);
-
-        });
-
-    });
-
-    /* ==========================================
-       Buttons
-    ========================================== */
-
-    closeBtn.addEventListener("click",closeCertificate);
-
-    nextBtn.addEventListener("click",nextCertificate);
-
-    prevBtn.addEventListener("click",previousCertificate);
-
-    /* ==========================================
-       Click Outside Image
-    ========================================== */
-
-    modal.addEventListener("click",(event)=>{
-
-        if(event.target===modal){
-
-            closeCertificate();
-
-        }
-
-    });
-
-    /* ==========================================
-       Keyboard Controls
-    ========================================== */
-
-    document.addEventListener("keydown",(event)=>{
-
-        if(!modal.classList.contains("active")) return;
-
-        switch(event.key){
-
-            case "Escape":
-
-                closeCertificate();
-
-                break;
-
-            case "ArrowRight":
-
-                nextCertificate();
-
-                break;
-
-            case "ArrowLeft":
-
-                previousCertificate();
-
-                break;
-
-        }
-
-    });
-
-    /* ==========================================
-       Swipe Support (Mobile)
-    ========================================== */
-
-    let startX = 0;
-
-    let endX = 0;
-
-    modal.addEventListener("touchstart",(e)=>{
-
-        startX = e.changedTouches[0].screenX;
-
-    });
-
-    modal.addEventListener("touchend",(e)=>{
-
-        endX = e.changedTouches[0].screenX;
-
-        if(startX - endX > 70){
-
-            nextCertificate();
-
-        }
-
-        if(endX - startX > 70){
-
-            previousCertificate();
-
-        }
-
-    });
-
-    /* ==========================================
-       Image Preload
-    ========================================== */
-
-    images.forEach(img=>{
-
-        const preload = new Image();
-
-        preload.src = img.src;
-
-    });
-
-});
-   
-</script>
-
-<script type="module" src="firebase.js"></script>
-
-
-
-<footer id="siteFooter">
-  &copy; 2026 CyberWithSandiso
-</footer>
-
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
