@@ -246,18 +246,15 @@ logPortfolioVisitor();
   setupLiveAnalyticsDashboard();
 
   /* ---------- Track Authentication State ---------- */
-  onAuthStateChanged(auth, (user) => {
-    document.body.classList.remove("auth-loading");
-    document.body.classList.add("auth-loaded");
-    if (user) {
-      activateAuthenticatedUI(user);
-    } else {
-      scannerMenu?.classList.add("hidden");
-      quizMenu?.classList.add("hidden");
-      cryptoMenu?.classList.add("hidden");
-      logoutMenu?.classList.add("hidden");
-    }
-  });
+  /*
+   * The full authentication UI is handled inside DOMContentLoaded
+   * below. Keeping a second top-level UI controller here caused
+   * duplicate navigation changes and could reference menu variables
+   * outside their scope.
+   *
+   * We therefore only expose the Firebase auth state through the
+   * DOMContentLoaded handler further down.
+   */
 
 /* ===================== AUTH MODULE ===================== */
 document.addEventListener("DOMContentLoaded", () => {
@@ -281,7 +278,159 @@ document.addEventListener("DOMContentLoaded", () => {
   const scannerMenu = document.getElementById("scannerMenu");
   const quizMenu = document.getElementById("quizMenu");
   const cryptoMenu = document.getElementById("cryptoMenu");
+  const tlsMenu = document.getElementById("tlsMenu");
+  const ifaMenu = document.getElementById("ifaMenu");
+  const libraryMenu = document.getElementById("libraryMenu");
   const logoutMenu = document.getElementById("logoutMenu");
+
+  /* ---------- Portfolio navigation compatibility ---------- */
+
+  const publicPortfolioTargets =
+    new Set([
+      "dashboard",
+      "experience",
+      "projects",
+      "skills",
+      "certificates",
+      "cws-academy",
+      "digital-library",
+      "events",
+      "contact",
+      "auth"
+    ]);
+
+
+  document
+    .querySelectorAll(
+      ".menu a[data-target]"
+    )
+    .forEach(
+      link => {
+
+        const targetId =
+          link.dataset.target;
+
+
+        if (
+          !publicPortfolioTargets.has(
+            targetId
+          )
+        ) {
+
+          return;
+
+        }
+
+
+        link.addEventListener(
+          "click",
+          (event) => {
+
+            const targetSection =
+              document.getElementById(
+                targetId
+              );
+
+
+            if (!targetSection) {
+
+              return;
+
+            }
+
+
+            event.preventDefault();
+
+
+            document
+              .querySelectorAll(
+                ".page-section"
+              )
+              .forEach(
+                section =>
+                  section.classList.add(
+                    "hidden"
+                  )
+              );
+
+
+            targetSection.classList.remove(
+              "hidden"
+            );
+
+
+            document
+              .querySelectorAll(
+                ".menu a"
+              )
+              .forEach(
+                item =>
+                  item.classList.remove(
+                    "active"
+                  )
+              );
+
+
+            link.classList.add(
+              "active"
+            );
+
+
+            const pageTitle =
+              document.getElementById(
+                "dashboardTitle"
+              );
+
+
+            if (pageTitle) {
+
+              const titleMap = {
+
+                dashboard:
+                  "Home",
+
+                experience:
+                  "Professional Experience",
+
+                projects:
+                  "Projects",
+
+                skills:
+                  "Skills & Tools",
+
+                certificates:
+                  "Certifications",
+
+                "cws-academy":
+                  "CWS Academy",
+
+                "digital-library":
+                  "Digital Library",
+
+                events:
+                  "Timeline",
+
+                contact:
+                  "Contact",
+
+                auth:
+                  "Cyber Security Lab"
+
+              };
+
+
+              pageTitle.textContent =
+                titleMap[targetId] ||
+                "Portfolio";
+
+            }
+
+          }
+        );
+
+      }
+    );
+
 
   /* ---------- Small defensive check ---------- */
   if (!auth) {
@@ -362,27 +511,64 @@ document.addEventListener("DOMContentLoaded", () => {
     if (enrollPhoneBtn) enrollPhoneBtn.disabled = !!state;
   }
 
-  function activateAuthenticatedUI(user) {
-    scannerMenu?.classList.remove("hidden");
-    quizMenu?.classList.remove("hidden");
-    cryptoMenu?.classList.remove("hidden");
-    logoutMenu?.classList.remove("hidden");
+  function setAuthenticatedMenuVisibility(
+    authenticated
+  ) {
 
-    document.querySelectorAll(".page-section").forEach(s => s.classList.add("hidden"));
-    const scanner = document.getElementById("scanner");
-    if (scanner) {
-      scanner.classList.remove("hidden");
-      document.querySelectorAll(".menu a").forEach(a => a.classList.remove("active"));
-      document.querySelector('.menu a[data-target="scanner"]')?.classList.add("active");
-    } else if (dashboardSection) {
-      dashboardSection.classList.remove("hidden");
-      document.querySelectorAll(".menu a").forEach(a => a.classList.remove("active"));
-      document.querySelector('.menu a[data-target="dashboard"]')?.classList.add("active");
-    }
+    const menus = [
+      scannerMenu,
+      quizMenu,
+      cryptoMenu,
+      tlsMenu,
+      ifaMenu,
+      libraryMenu,
+      logoutMenu
+    ];
+
+
+    menus.forEach((menu) => {
+
+      if (!menu) return;
+
+
+      menu.classList.toggle(
+        "hidden",
+        !authenticated
+      );
+
+    });
+
+  }
+
+
+  function activateAuthenticatedUI(user) {
+
+    /*
+     * Authentication unlocks the private Security Lab menu
+     * items, but it must NOT take over the public portfolio.
+     *
+     * A recruiter can remain on Home, Experience, Projects,
+     * CWS Academy, Certifications, etc. after authentication.
+     */
+
+    setAuthenticatedMenuVisibility(
+      true
+    );
+
 
     resetAuthForm();
-    showMessage("", "info");
-    setTimeout(() => document.getElementById("targetUrl")?.focus(), 50);
+
+    showMessage(
+      "",
+      "info"
+    );
+
+
+    console.log(
+      "Authenticated portfolio user:",
+      user?.email || user?.uid || "unknown"
+    );
+
   }
 
   /* ---------- Password reset ---------- */
@@ -667,73 +853,318 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- Logout ---------- */
   window.logout = async () => {
+
     try {
-      await signOut(auth);
-      showMessage("Logged out.");
-      document.querySelectorAll(".page-section").forEach(s => s.classList.add("hidden"));
+
+      await signOut(
+        auth
+      );
+
+
+      setAuthenticatedMenuVisibility(
+        false
+      );
+
+
+      showMessage(
+        "Logged out."
+      );
+
+
+      document
+        .querySelectorAll(
+          ".page-section"
+        )
+        .forEach(
+          section =>
+            section.classList.add(
+              "hidden"
+            )
+        );
+
+
       if (dashboardSection) {
-        dashboardSection.classList.remove("hidden");
-        document.querySelectorAll(".menu a").forEach(a => a.classList.remove("active"));
-        document.querySelector('.menu a[data-target="dashboard"]')?.classList.add("active");
-      } else {
-        document.getElementById("auth")?.classList.remove("hidden");
-        document.querySelectorAll(".menu a").forEach(a => a.classList.remove("active"));
-        document.querySelector('.menu a[data-target="auth"]')?.classList.add("active");
+
+        dashboardSection.classList.remove(
+          "hidden"
+        );
+
       }
-    } catch (err) {
-      console.error("Logout failed:", err);
-      showMessage("Logout failed.", "error");
+
+
+      document
+        .querySelectorAll(
+          ".menu a"
+        )
+        .forEach(
+          link =>
+            link.classList.remove(
+              "active"
+            )
+        );
+
+
+      document
+        .querySelector(
+          '.menu a[data-target="dashboard"]'
+        )
+        ?.classList.add(
+          "active"
+        );
+
     }
+    catch (err) {
+
+      console.error(
+        "Logout failed:",
+        err
+      );
+
+
+      showMessage(
+        "Logout failed.",
+        "error"
+      );
+
+    }
+
   };
 
   /* ---------- Auth state handler ---------- */
-  onAuthStateChanged(auth, (user) => {
-    document.body.classList.remove("auth-loading");
-    document.body.classList.add("auth-loaded");
+  onAuthStateChanged(
+    auth,
+    (user) => {
 
-    function showSection(id) {
-      document.querySelectorAll(".page-section").forEach(s => s.classList.add("hidden"));
-      const el = document.getElementById(id);
-      if (el) el.classList.remove("hidden");
-      document.querySelectorAll(".menu a").forEach(a => a.classList.remove("active"));
-      document.querySelector(`.menu a[data-target="${id}"]`)?.classList.add("active");
-    }
+      document.body.classList.remove(
+        "auth-loading"
+      );
 
-    if (user && user.emailVerified !== false) {
-      activateAuthenticatedUI(user);
-      console.log("User logged in:", user.email);
-    } else {
-      scannerMenu?.classList.add("hidden");
-      quizMenu?.classList.add("hidden");
-      cryptoMenu?.classList.add("hidden");
-      logoutMenu?.classList.add("hidden");
+      document.body.classList.add(
+        "auth-loaded"
+      );
 
-      const activeMenu = document.querySelector(".menu a.active");
-      const explicitTarget = activeMenu?.dataset?.target;
 
-      if (explicitTarget === "auth") {
-        showSection("auth");
-      } else if (dashboardSection) {
-        showSection("dashboard");
-      } else {
-        document.querySelectorAll(".page-section").forEach(s => s.classList.add("hidden"));
-        document.getElementById("auth")?.classList.add("hidden");
+      const hasVisibleSection =
+        Array.from(
+          document.querySelectorAll(
+            ".page-section"
+          )
+        )
+          .some(
+            section =>
+              !section.classList.contains(
+                "hidden"
+              )
+          );
+
+
+      if (
+        user &&
+        user.emailVerified !== false
+      ) {
+
+        activateAuthenticatedUI(
+          user
+        );
+
+
+        /*
+         * Do not force Scanner after login.
+         * Only fall back to Home when nothing is visible.
+         */
+
+        if (
+          !hasVisibleSection &&
+          dashboardSection
+        ) {
+
+          dashboardSection.classList.remove(
+            "hidden"
+          );
+
+
+          document
+            .querySelector(
+              '.menu a[data-target="dashboard"]'
+            )
+            ?.classList.add(
+              "active"
+            );
+
+        }
+
+
+        console.log(
+          "User logged in:",
+          user.email
+        );
+
+      }
+      else {
+
+        setAuthenticatedMenuVisibility(
+          false
+        );
+
+
+        /*
+         * If the visitor is currently looking at an
+         * authenticated-only lab section when their session
+         * disappears, return safely to the public Home page.
+         */
+
+        const privateTargets = new Set([
+          "scanner",
+          "quiz",
+          "crypto",
+          "tls",
+          "input-analysis",
+          "library"
+        ]);
+
+
+        const visiblePrivateSection =
+          Array.from(
+            document.querySelectorAll(
+              ".page-section:not(.hidden)"
+            )
+          )
+            .find(
+              section =>
+                privateTargets.has(
+                  section.id
+                )
+            );
+
+
+        if (
+          visiblePrivateSection &&
+          dashboardSection
+        ) {
+
+          document
+            .querySelectorAll(
+              ".page-section"
+            )
+            .forEach(
+              section =>
+                section.classList.add(
+                  "hidden"
+                )
+            );
+
+
+          dashboardSection.classList.remove(
+            "hidden"
+          );
+
+
+          document
+            .querySelectorAll(
+              ".menu a"
+            )
+            .forEach(
+              link =>
+                link.classList.remove(
+                  "active"
+                )
+            );
+
+
+          document
+            .querySelector(
+              '.menu a[data-target="dashboard"]'
+            )
+            ?.classList.add(
+              "active"
+            );
+
+        }
+        else if (
+          !hasVisibleSection &&
+          dashboardSection
+        ) {
+
+          dashboardSection.classList.remove(
+            "hidden"
+          );
+
+        }
+
+
+        resetAuthForm();
+
       }
 
+    },
+    (authError) => {
+
+      console.error(
+        "onAuthStateChanged error:",
+        authError
+      );
+
+
+      document.body.classList.remove(
+        "auth-loading"
+      );
+
+      document.body.classList.add(
+        "auth-loaded"
+      );
+
+
+      setAuthenticatedMenuVisibility(
+        false
+      );
+
+
+      if (dashboardSection) {
+
+        document
+          .querySelectorAll(
+            ".page-section"
+          )
+          .forEach(
+            section =>
+              section.classList.add(
+                "hidden"
+              )
+          );
+
+
+        dashboardSection.classList.remove(
+          "hidden"
+        );
+
+
+        document
+          .querySelectorAll(
+            ".menu a"
+          )
+          .forEach(
+            link =>
+              link.classList.remove(
+                "active"
+              )
+          );
+
+
+        document
+          .querySelector(
+            '.menu a[data-target="dashboard"]'
+          )
+          ?.classList.add(
+            "active"
+          );
+
+      }
+
+
       resetAuthForm();
+
     }
-  }, (error) => {
-    console.error("onAuthStateChanged error:", error);
-    document.body.classList.remove("auth-loading");
-    document.body.classList.add("auth-loaded");
-    if (dashboardSection) {
-      document.querySelectorAll(".page-section").forEach(s => s.classList.add("hidden"));
-      dashboardSection.classList.remove("hidden");
-      document.querySelectorAll(".menu a").forEach(a => a.classList.remove("active"));
-      document.querySelector('.menu a[data-target="dashboard"]')?.classList.add("active");
-    }
-    resetAuthForm();
-  });
+  );
 
   // End DOMContentLoaded
 });
@@ -2437,4 +2868,3 @@ function awardBadge(percentage) {
     renderList(resources);
   });
 })();
-
