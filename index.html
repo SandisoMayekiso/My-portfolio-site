@@ -1,961 +1,710 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sandiso Mayekiso | Junior Penetration Tester & Ethical Hacker</title>
 
-    <meta charset="UTF-8">
+  <meta
+    name="description"
+    content="Cybersecurity portfolio of Sandiso Mayekiso, a junior penetration tester and ethical hacker focused on web application security, network penetration testing, Linux, Python, Active Directory and practical security labs."
+  >
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <meta
+    name="author"
+    content="Sandiso Mayekiso"
+  >
+  <link rel="stylesheet" href="style.css" />
+  <!-- ✅ Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3N2331MKN5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <title>
-        Sandiso Mayekiso | Junior Penetration Tester & Ethical Hacker
-    </title>
+  gtag('config', 'G-3N2331MKN5');
+</script>
 
-    <meta
-        name="description"
-        content="Portfolio of Sandiso Mayekiso, a junior penetration tester and ethical hacker focused on web application security, network penetration testing, Active Directory, Linux, Python and practical cybersecurity labs."
-    >
-
-    <meta
-        name="keywords"
-        content="Sandiso Mayekiso, penetration tester, ethical hacker, cybersecurity, web application security, Active Directory, Nmap, Burp Suite, Metasploit, Wireshark, Python, South Africa"
-    >
-
-    <meta
-        name="author"
-        content="Sandiso Mayekiso"
-    >
-
-    <meta
-        property="og:title"
-        content="Sandiso Mayekiso | Junior Penetration Tester & Ethical Hacker"
-    >
-
-    <meta
-        property="og:description"
-        content="Hands-on cybersecurity portfolio featuring penetration testing projects, web security labs, Active Directory, Python automation and CWS Academy."
-    >
-
-    <meta
-        property="og:type"
-        content="website"
-    >
-
-    <meta
-        property="og:url"
-        content="https://sandisomayekiso.github.io/My-portfolio-site/"
-    >
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    >
-
-    <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-3N2331MKN5"
-    ></script>
-
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag("js", new Date());
-
-        gtag(
-            "config",
-            "G-3N2331MKN5"
-        );
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
+    <div id="cyber-bg"></div> 
+ <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <div class="brand">
+      <div class="brand-left">
+        <i class="fas fa-user-secret brand-icon"></i>
+       <span class="scan-text" id="scanText">RED-TEAMER</span>
+      </div>
+      <button id="collapse-btn" class="collapse-btn" aria-label="Toggle sidebar">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
-    <div id="cyber-bg"></div>
+    </div>
 
+    <button id="theme-toggle" class="theme-toggle">
+  <i class="fas fa-moon"></i>
+</button>
 
-    <!-- ==================================================
-         SIDEBAR
-    =================================================== -->
+    <ul class="menu">
 
-    <aside
-        id="sidebar"
-        class="sidebar"
-    >
+      <li>
+        <a href="#" class="active" data-target="dashboard">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
 
-        <div class="brand">
+      <li>
+        <a href="#" data-target="experience">
+          <i class="fas fa-briefcase"></i>
+          <span>Experience</span>
+        </a>
+      </li>
 
-            <div class="brand-left">
+      <li>
+        <a href="#" data-target="projects">
+          <i class="fas fa-folder-open"></i>
+          <span>Projects</span>
+        </a>
+      </li>
 
-                <i class="fas fa-user-secret brand-icon"></i>
+      <li>
+        <a href="#" data-target="skills">
+          <i class="fas fa-star"></i>
+          <span>Skills</span>
+        </a>
+      </li>
 
-                <span
-                    class="scan-text"
-                    id="scanText"
-                >
-                    RED-TEAMER
-                </span>
+      <li>
+        <a href="#" data-target="certificates">
+          <i class="fas fa-award"></i>
+          <span>Certifications</span>
+        </a>
+      </li>
 
-            </div>
+      <li>
+        <a href="#" data-target="cws-academy">
+          <i class="fas fa-graduation-cap"></i>
+          <span>CWS Academy</span>
+        </a>
+      </li>
 
-            <button
-                id="collapse-btn"
-                class="collapse-btn"
-                aria-label="Toggle sidebar"
-                type="button"
+      <li>
+        <a href="#" data-target="digital-library">
+          <i class="fas fa-file-download"></i>
+          <span>Digital Library</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" data-target="events">
+          <i class="fas fa-stream"></i>
+          <span>Timeline</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" data-target="contact">
+          <i class="fas fa-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li>
+
+      <h2>🔐 Cyber Security Lab</h2>
+
+      <li id="authMenu">
+        <a href="#" data-target="auth">
+          <i class="fas fa-user-lock"></i>
+          <span>Tools & Resources</span>
+        </a>
+      </li>
+
+      <li id="scannerMenu" class="hidden">
+        <a href="#" data-target="scanner">
+          <i class="fas fa-shield-alt"></i>
+          <span>Security Scanner</span>
+        </a>
+      </li>
+
+      <li id="quizMenu" class="hidden">
+        <a href="#" data-target="quiz">
+          <i class="fas fa-brain"></i>
+          <span>Security Quiz</span>
+        </a>
+      </li>
+
+      <li id="cryptoMenu" class="hidden">
+        <a href="#" data-target="crypto">
+          <i class="fas fa-key"></i>
+          <span>Crypto Playground</span>
+        </a>
+      </li>
+
+      <li id="tlsMenu" class="hidden">
+        <a href="#" data-target="tls">
+          <i class="fas fa-lock"></i>
+          <span>HTTPS & TLS Validation</span>
+        </a>
+      </li>
+
+      <li id="ifaMenu" class="hidden">
+        <a href="#" data-target="input-analysis">
+          <i class="fas fa-search"></i>
+          <span>Input Field Analysis</span>
+        </a>
+      </li>
+
+      <li id="libraryMenu" class="hidden">
+        <a href="#" data-target="library">
+          <i class="fas fa-book"></i>
+          <span>Resources Library</span>
+        </a>
+      </li>
+
+      <li id="logoutMenu" class="hidden">
+        <a href="#" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main id="main-content">
+    <header>
+      <h1 class="page-title" id="dashboardTitle">Home</h1>
+    </header>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page-section">
+
+      <div class="portfolio-hero">
+
+        <div class="portfolio-hero-copy">
+
+          <span class="portfolio-kicker">
+            OFFENSIVE SECURITY PORTFOLIO
+          </span>
+
+          <h1>
+            Sandiso Mayekiso
+          </h1>
+
+          <h2>
+            Junior Penetration Tester
+            <span>/ Ethical Hacker</span>
+          </h2>
+
+          <p>
+            I build and document hands-on cybersecurity projects focused on
+            web application security, network penetration testing, Linux,
+            Active Directory, Python automation and controlled attack
+            simulation.
+          </p>
+
+          <div class="portfolio-hero-actions">
+
+            <a
+              href="#"
+              class="github-btn"
+              data-home-target="projects"
             >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+              <i class="fas fa-folder-open"></i>
+              View Security Projects
+            </a>
+
+            <a
+              href="docs/Sandiso_Mayekiso_CV.pdf"
+              class="github-btn"
+              download
+            >
+              <i class="fas fa-download"></i>
+              Download CV
+            </a>
+
+            <a
+              href="https://github.com/SandisoMayekiso"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-btn"
+            >
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-btn"
+            >
+              <i class="fab fa-linkedin"></i>
+              LinkedIn
+            </a>
+
+          </div>
 
         </div>
 
 
-        <button
-            id="theme-toggle"
-            class="theme-toggle"
-            type="button"
-            aria-label="Toggle theme"
-        >
-            <i class="fas fa-moon"></i>
-        </button>
+        <div class="profile-card card">
 
-
-        <ul class="menu">
-
-            <li>
-                <a
-                    href="#"
-                    class="active"
-                    data-target="dashboard"
-                >
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#"
-                    data-target="experience"
-                >
-                    <i class="fas fa-briefcase"></i>
-                    <span>Experience</span>
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#"
-                    data-target="projects"
-                >
-                    <i class="fas fa-folder-open"></i>
-                    <span>Projects</span>
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#"
-                    data-target="skills"
-                >
-                    <i class="fas fa-star"></i>
-                    <span>Skills</span>
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#"
-                    data-target="certificates"
-                >
-                    <i class="fas fa-award"></i>
-                    <span>Certifications</span>
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#"
-                    data-target="cws-academy"
-                >
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>CWS Academy</span>
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#"
-                    data-target="digital-library"
-                >
-                    <i class="fas fa-file-download"></i>
-                    <span>Digital Library</span>
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#"
-                    data-target="events"
-                >
-                    <i class="fas fa-stream"></i>
-                    <span>Timeline</span>
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#"
-                    data-target="contact"
-                >
-                    <i class="fas fa-envelope"></i>
-                    <span>Contact</span>
-                </a>
-            </li>
-
-            <h2>
-                🔐 Cyber Security Lab
-            </h2>
-
-            <li id="authMenu">
-                <a
-                    href="#"
-                    data-target="auth"
-                >
-                    <i class="fas fa-user-lock"></i>
-                    <span>Tools and Resources</span>
-                </a>
-            </li>
-
-            <li
-                id="scannerMenu"
-                class="hidden"
+          <div class="profile-photo-wrapper">
+            <img
+              src="images/profile.jpg"
+              alt="Sandiso Mayekiso"
+              class="profile-img"
             >
-                <a
-                    href="#"
-                    data-target="scanner"
-                >
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Security Scanner</span>
-                </a>
-            </li>
+          </div>
 
-            <li
-                id="quizMenu"
-                class="hidden"
+          <h3>Sandiso Mayekiso</h3>
+
+          <p class="muted">
+            Junior Penetration Tester
+          </p>
+
+          <div class="social-links-wrapper">
+
+            <div class="social-icons-tier">
+
+              <a
+                href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+
+              <a
+                href="https://github.com/SandisoMayekiso"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="portfolio-proof-grid">
+
+        <div class="card portfolio-proof-card">
+          <i class="fas fa-globe"></i>
+          <strong>Web Application Security</strong>
+          <span>Burp Suite, SQL injection, XSS and OWASP testing</span>
+        </div>
+
+        <div class="card portfolio-proof-card">
+          <i class="fas fa-network-wired"></i>
+          <strong>Network Security</strong>
+          <span>Nmap, Wireshark, TCP/IP and service enumeration</span>
+        </div>
+
+        <div class="card portfolio-proof-card">
+          <i class="fas fa-building-shield"></i>
+          <strong>Active Directory</strong>
+          <span>Windows Server, domains, identity and security labs</span>
+        </div>
+
+        <div class="card portfolio-proof-card">
+          <i class="fab fa-python"></i>
+          <strong>Security Automation</strong>
+          <span>Python, Bash and custom security tooling</span>
+        </div>
+
+      </div>
+
+
+      <div class="about recruiter-about">
+
+        <div class="about-text">
+
+          <h2>Profile</h2>
+
+          <p>
+            I am a junior penetration tester and ethical hacker focused on
+            offensive security, web application testing, network exploitation
+            and attack simulation. My technical work is supported by
+            networking, Linux, Windows Server and Python foundations.
+          </p>
+
+          <p>
+            My practical training includes reconnaissance, enumeration,
+            vulnerability analysis, privilege escalation, web application
+            testing, security reporting and controlled exploitation in lab
+            environments.
+          </p>
+
+          <p>
+            I also maintain defensive-security awareness through Wireshark
+            analysis, SIEM concepts, log analysis and incident-response
+            fundamentals.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="featured-home-projects">
+
+        <div class="section-title">
+          <h2>Featured Security Work</h2>
+        </div>
+
+        <div class="projects-grid-vertical">
+
+          <div class="project-card">
+
+            <h3>Web Application Security Testing Lab</h3>
+
+            <p>
+              Custom Flask and SQLite application used for controlled SQL
+              injection and XSS testing with Burp Suite.
+            </p>
+
+            <a
+              href="https://github.com/SandisoMayekiso/Web-Application-Security-Testing-Lab"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-btn"
             >
-                <a
-                    href="#"
-                    data-target="quiz"
-                >
-                    <i class="fas fa-brain"></i>
-                    <span>Security Quiz</span>
-                </a>
-            </li>
+              View Case Study
+            </a>
 
-            <li
-                id="cryptoMenu"
-                class="hidden"
+          </div>
+
+
+          <div class="project-card">
+
+            <h3>Metasploitable 2</h3>
+
+            <p>
+              Service enumeration, vulnerability analysis, exploitation and
+              post-exploitation in an isolated lab.
+            </p>
+
+            <a
+              href="https://github.com/SandisoMayekiso/Metasploitable-2-Remote-Root-Compromise-vsFTPd-2.3.4-"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-btn"
             >
-                <a
-                    href="#"
-                    data-target="crypto"
-                >
-                    <i class="fas fa-key"></i>
-                    <span>Crypto Playground</span>
-                </a>
-            </li>
+              View Write-up
+            </a>
 
-            <li
-                id="tlsMenu"
-                class="hidden"
+          </div>
+
+
+          <div class="project-card">
+
+            <h3>Wireshark Traffic Analysis</h3>
+
+            <p>
+              Packet analysis across ARP, TCP, UDP, TLS and QUIC with
+              practical network-behaviour interpretation.
+            </p>
+
+            <a
+              href="https://github.com/SandisoMayekiso/Wireshark-Network-Analysis-ARP-Traffic-Investigation"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-btn"
             >
-                <a
-                    href="#"
-                    data-target="tls"
-                >
-                    <i class="fas fa-lock"></i>
-                    <span>HTTPS & TLS Validation</span>
-                </a>
-            </li>
+              View Analysis
+            </a>
 
-            <li
-                id="ifaMenu"
-                class="hidden"
-            >
-                <a
-                    href="#"
-                    data-target="input-analysis"
-                >
-                    <i class="fas fa-search"></i>
-                    <span>Input Field Analysis</span>
-                </a>
-            </li>
+          </div>
 
-            <li
-                id="libraryMenu"
-                class="hidden"
-            >
-                <a
-                    href="#"
-                    data-target="library"
-                >
-                    <i class="fas fa-book"></i>
-                    <span>Resources Library</span>
-                </a>
-            </li>
 
-            <li
-                id="logoutMenu"
-                class="hidden"
-            >
-                <a
-                    href="#"
-                    onclick="logout()"
-                >
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </a>
-            </li>
+          <div class="project-card featured-project">
 
-        </ul>
+            <div class="featured-ribbon">
+              ACTIVE BUILD
+            </div>
 
-    </aside>
+            <h3>CWS Academy</h3>
+
+            <p>
+              Cybersecurity learning platform with structured courses,
+              practical labs, assessments, Firebase authentication, student
+              profiles, progress tracking and access-control architecture.
+            </p>
+
+            <div class="project-links">
+
+              <a
+                href="https://sandisomayekiso.github.io/CyberWithSandiso/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="github-btn"
+              >
+                Visit CWS Academy
+              </a>
+
+              <a
+                href="https://github.com/SandisoMayekiso/CyberWithSandiso"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="github-btn"
+              >
+                View Source
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
 
 
     <!-- ==================================================
-         MAIN
+         PROFESSIONAL EXPERIENCE
     =================================================== -->
 
-    <main id="main-content">
-
-        <header>
-
-            <h1
-                class="page-title"
-                id="dashboardTitle"
-            >
-                Home
-            </h1>
-
-        </header>
-
-
-        <!-- ==================================================
-             RECRUITER HOME
-        =================================================== -->
-
-        <section
-            id="dashboard"
-            class="page-section"
-        >
-
-            <div class="portfolio-hero">
-
-                <div class="portfolio-hero-copy">
-
-                    <span class="portfolio-kicker">
-                        OFFENSIVE SECURITY PORTFOLIO
-                    </span>
-
-                    <h1>
-                        Sandiso Mayekiso
-                    </h1>
-
-                    <h2>
-                        Junior Penetration Tester
-                        <span>
-                            / Ethical Hacker
-                        </span>
-                    </h2>
-
-                    <p>
-                        I build and document hands-on cybersecurity projects
-                        focused on web application security, network penetration
-                        testing, Linux, Active Directory, Python automation and
-                        controlled attack simulation.
-                    </p>
+    <section
+      id="experience"
+      class="page-section hidden"
+    >
 
-                    <div class="portfolio-hero-actions">
+      <div class="section-title">
+        <h2>Professional Experience</h2>
+      </div>
 
-                        <a
-                            href="#"
-                            class="github-btn portfolio-nav-btn"
-                            data-target="projects"
-                        >
-                            <i class="fas fa-folder-open"></i>
-                            View Security Projects
-                        </a>
+      <div class="timeline">
 
-                        <a
-                            href="docs/Sandiso_Mayekiso_CV.pdf"
-                            class="github-btn"
-                            download
-                        >
-                            <i class="fas fa-download"></i>
-                            Download CV
-                        </a>
+        <div class="timeline-item">
 
-                        <a
-                            href="https://github.com/SandisoMayekiso"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="github-btn"
-                        >
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </a>
+          <div class="timeline-icon">
+            <i class="fas fa-building"></i>
+          </div>
 
-                        <a
-                            href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="github-btn"
-                        >
-                            <i class="fab fa-linkedin"></i>
-                            LinkedIn
-                        </a>
+          <div class="timeline-content">
 
-                    </div>
+            <h3>
+              Technical Operations / Device Support
+            </h3>
 
-                </div>
+            <span class="timeline-date">
+              Banking Environment
+            </span>
 
+            <p>
+              Monitor and troubleshoot technical issues affecting operational
+              cash devices, investigate incidents, perform technical checks,
+              document outcomes and escalate faults within a controlled
+              financial-services environment.
+            </p>
 
-                <aside class="main-right">
+            <ul class="project-points">
+              <li>Technical troubleshooting and incident investigation</li>
+              <li>Operational monitoring and escalation</li>
+              <li>Documentation and issue tracking</li>
+              <li>Confidentiality and operational risk awareness</li>
+              <li>Working within controlled banking processes</li>
+            </ul>
 
-                    <section class="profile-card card">
+          </div>
 
-                        <div class="profile-photo-wrapper">
+        </div>
 
-                            <img
-                                src="images/profile.jpg"
-                                alt="Sandiso Mayekiso"
-                                class="profile-img"
-                            >
 
-                        </div>
+        <div class="timeline-item">
 
-                        <h3>
-                            Sandiso Mayekiso
-                        </h3>
+          <div class="timeline-icon">
+            <i class="fas fa-headset"></i>
+          </div>
 
-                        <p class="muted">
-                            Junior Penetration Tester
-                        </p>
+          <div class="timeline-content">
 
-                        <div class="social-links-wrapper">
+            <h3>
+              Customer Service / Sales Experience
+            </h3>
 
-                            <div class="social-icons-tier">
+            <p>
+              Earlier customer-facing roles developed communication, problem
+              solving, stakeholder support and the ability to explain issues
+              clearly.
+            </p>
 
-                                <a
-                                    href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="LinkedIn"
-                                >
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
+          </div>
 
-                                <a
-                                    href="https://github.com/SandisoMayekiso"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="GitHub"
-                                >
-                                    <i class="fab fa-github"></i>
-                                </a>
+        </div>
 
-                            </div>
 
-                        </div>
+        <div class="timeline-item">
 
-                    </section>
+          <div class="timeline-icon">
+            <i class="fas fa-boxes-stacked"></i>
+          </div>
 
-                </aside>
+          <div class="timeline-content">
 
-            </div>
+            <h3>
+              Stock / Warehouse Operations
+            </h3>
 
+            <p>
+              Previous operational experience included inventory handling,
+              process discipline and responsibility for accurate stock
+              movement.
+            </p>
 
-            <div class="portfolio-proof-grid">
+          </div>
 
-                <div class="card portfolio-proof-card">
+        </div>
 
-                    <i class="fas fa-globe"></i>
+      </div>
 
-                    <strong>
-                        Web Application Security
-                    </strong>
+    </section>
 
-                    <span>
-                        Burp Suite, SQLi, XSS, OWASP testing
-                    </span>
 
-                </div>
+    <!-- ==================================================
+         CWS ACADEMY
+    =================================================== -->
 
-                <div class="card portfolio-proof-card">
-
-                    <i class="fas fa-network-wired"></i>
-
-                    <strong>
-                        Network Security
-                    </strong>
-
-                    <span>
-                        Nmap, Wireshark, service enumeration
-                    </span>
-
-                </div>
-
-                <div class="card portfolio-proof-card">
-
-                    <i class="fas fa-building-shield"></i>
-
-                    <strong>
-                        Active Directory
-                    </strong>
-
-                    <span>
-                        Windows Server, AD labs, identity security
-                    </span>
-
-                </div>
-
-                <div class="card portfolio-proof-card">
-
-                    <i class="fab fa-python"></i>
-
-                    <strong>
-                        Security Automation
-                    </strong>
-
-                    <span>
-                        Python, Bash and custom security tooling
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="about recruiter-about">
-
-                <div class="about-text">
-
-                    <h2>
-                        Profile
-                    </h2>
-
-                    <p>
-                        I am a junior penetration tester and ethical hacker
-                        focused on offensive security, web application testing,
-                        network exploitation and attack simulation. My hands-on
-                        work is supported by networking, Linux, Windows Server
-                        and Python foundations.
-                    </p>
-
-                    <p>
-                        I have completed structured cybersecurity training and
-                        practical learning paths covering reconnaissance,
-                        enumeration, vulnerability analysis, privilege
-                        escalation, web application testing and professional
-                        reporting.
-                    </p>
-
-                    <p>
-                        I also maintain defensive-security awareness through
-                        Wireshark analysis, SIEM concepts, log analysis and
-                        incident-response fundamentals, helping me understand
-                        how offensive activity is detected and investigated.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="featured-home-projects">
-
-                <div class="section-title">
-
-                    <h2>
-                        Featured Security Work
-                    </h2>
-
-                </div>
-
-                <div class="projects-grid-vertical">
-
-                    <div class="project-card">
-
-                        <h3>
-                            Web App Security Testing Lab
-                        </h3>
-
-                        <p>
-                            Custom Flask and SQLite application used for
-                            controlled SQL injection and XSS testing with
-                            Burp Suite.
-                        </p>
-
-                        <a
-                            href="https://github.com/SandisoMayekiso/Web-Application-Security-Testing-Lab"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="github-btn"
-                        >
-                            View Case Study
-                        </a>
-
-                    </div>
-
-                    <div class="project-card">
-
-                        <h3>
-                            Metasploitable 2
-                        </h3>
-
-                        <p>
-                            Service enumeration, vulnerable-service analysis,
-                            exploitation and post-exploitation in an isolated lab.
-                        </p>
-
-                        <a
-                            href="https://github.com/SandisoMayekiso/Metasploitable-2-Remote-Root-Compromise-vsFTPd-2.3.4-"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="github-btn"
-                        >
-                            View Write-up
-                        </a>
-
-                    </div>
-
-                    <div class="project-card">
-
-                        <h3>
-                            Wireshark Traffic Analysis
-                        </h3>
-
-                        <p>
-                            Packet analysis across ARP, TCP, UDP, TLS and QUIC
-                            with practical network-behavior interpretation.
-                        </p>
-
-                        <a
-                            href="https://github.com/SandisoMayekiso/Wireshark-Network-Analysis-ARP-Traffic-Investigation"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="github-btn"
-                        >
-                            View Analysis
-                        </a>
-
-                    </div>
-
-                    <div class="project-card featured-project">
-
-                        <h3>
-                            CWS Academy
-                        </h3>
-
-                        <p>
-                            Cybersecurity learning platform with courses, labs,
-                            assessments, Firebase authentication, profiles,
-                            progress tracking and access-control architecture.
-                        </p>
-
-                        <a
-                            href="https://sandisomayekiso.github.io/CyberWithSandiso/index.html"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="github-btn"
-                        >
-                            Visit CWS Academy
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             PROFESSIONAL EXPERIENCE
-        =================================================== -->
-
-        <section
-            id="experience"
-            class="page-section hidden"
-        >
-
-            <div class="section-title">
-
-                <h2>
-                    Professional Experience
-                </h2>
-
-            </div>
-
-
-            <div class="timeline">
-
-                <div class="timeline-item">
-
-                    <div class="timeline-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-
-                    <div class="timeline-content">
-
-                        <h3>
-                            Technical Operations / Device Support
-                        </h3>
-
-                        <span class="timeline-date">
-                            Banking Environment
-                        </span>
-
-                        <p>
-                            Monitor and troubleshoot technical issues affecting
-                            operational cash devices, investigate incidents,
-                            perform technical checks, document outcomes and
-                            escalate faults within a controlled financial-services
-                            environment.
-                        </p>
-
-                        <ul class="project-points">
-                            <li>Technical troubleshooting and incident investigation</li>
-                            <li>Operational monitoring and escalation</li>
-                            <li>Working within controlled banking processes</li>
-                            <li>Documentation and issue tracking</li>
-                            <li>Confidentiality and risk awareness</li>
-                        </ul>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <div class="timeline-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-
-                    <div class="timeline-content">
-
-                        <h3>
-                            Customer Service / Sales Experience
-                        </h3>
-
-                        <p>
-                            Earlier customer-facing and sales roles developed
-                            communication, problem solving, stakeholder support
-                            and the ability to explain technical or service issues
-                            clearly.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <div class="timeline-icon">
-                        <i class="fas fa-boxes-stacked"></i>
-                    </div>
-
-                    <div class="timeline-content">
-
-                        <h3>
-                            Stock / Warehouse Operations
-                        </h3>
-
-                        <p>
-                            Previous operational experience included inventory
-                            handling, process discipline and responsibility for
-                            accurate stock movement.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             CWS ACADEMY
-        =================================================== -->
-
-        <section
-            id="cws-academy"
-            class="page-section hidden"
-        >
-
-            <div class="section-title">
-
-                <h2>
-                    CWS Academy
-                </h2>
-
-            </div>
-
-
-            <div class="project-card featured-project">
-
-                <div class="featured-ribbon">
-                    ACTIVE PROJECT
-                </div>
-
-                <div class="image-wrapper">
-
-                    <img
-                        src="images/cws-academy.png"
-                        alt="CWS Academy cybersecurity learning platform"
-                    >
-
-                </div>
-
-                <h3>
-                    CyberWithSandiso CWS Academy
-                </h3>
-
-                <p>
-                    CWS Academy is a cybersecurity learning platform I am
-                    actively designing and developing. It brings together
-                    structured learning content and application development
-                    into one portfolio project.
-                </p>
-
-                <ul class="project-points">
-                    <li>12-course cybersecurity catalogue</li>
-                    <li>Free and future Pro learning paths</li>
-                    <li>Cybersecurity, networking, Linux, Bash and Python</li>
-                    <li>Active Directory and penetration-testing pathways</li>
-                    <li>Firebase Authentication and Firestore</li>
-                    <li>Student profiles and learning preferences</li>
-                    <li>Course progress, labs and assessments architecture</li>
-                    <li>Access-control and entitlement system</li>
-                    <li>Responsive public and authenticated interfaces</li>
-                </ul>
-
-                <div class="project-links">
-
-                    <a
-                        href="https://sandisomayekiso.github.io/CyberWithSandiso/index.html"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="github-btn"
-                    >
-                        <i class="fas fa-arrow-up-right-from-square"></i>
-                        Visit Live CWS Academy
-                    </a>
-
-                    <a
-                        href="https://github.com/SandisoMayekiso/CyberWithSandiso"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="github-btn"
-                    >
-                        <i class="fab fa-github"></i>
-                        View Repository
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-<section id="projects" class="projects-section page-section hidden">
-  <h2>🚀 Projects and Case studies</h2>
-
-  <div class="projects-grid-vertical">
-
-
-<div class="project-card featured-project cws-academy-project"
-     data-image="images/cws-academy.png">
-
-    <div class="featured-ribbon">
-        ⭐ FEATURED BUILD
-    </div>
-
-    <div class="image-wrapper">
-        <img
-            src="images/cws-academy.png"
-            alt="CWS Academy cybersecurity learning platform"
-        >
-    </div>
-
-    <h3>
-        🛡️ CWS Academy — Cybersecurity Learning Platform
-    </h3>
-
-    <p>
-        A full cybersecurity learning platform I am designing and developing
-        under the CyberWithSandiso brand. The platform combines structured
-        courses, practical labs, assessments, Firebase authentication,
-        student profiles, progress tracking, access control and future
-        subscription features.
-    </p>
-
-    <ul class="project-points">
-        <li>📚 12-course cybersecurity learning catalogue</li>
-        <li>🧪 Practical labs and guided exercises</li>
-        <li>🔐 Firebase Authentication and Firestore</li>
-        <li>📈 Student progress and profile management</li>
-        <li>🧭 Learning paths across Linux, Python, Active Directory and pentesting</li>
-        <li>👑 Pro course access architecture currently in development</li>
-    </ul>
-
-    <div class="project-links">
-
-        <a
+    <section
+      id="cws-academy"
+      class="page-section hidden"
+    >
+
+      <div class="section-title">
+        <h2>CWS Academy</h2>
+      </div>
+
+      <div class="project-card featured-project cws-academy-project">
+
+        <div class="featured-ribbon">
+          ACTIVE PROJECT
+        </div>
+
+        <h3>
+          CyberWithSandiso CWS Academy
+        </h3>
+
+        <p>
+          CWS Academy is a cybersecurity learning platform I am actively
+          designing and developing. It combines cybersecurity education,
+          practical training and application development in one project.
+        </p>
+
+        <ul class="project-points">
+          <li>12-course cybersecurity catalogue</li>
+          <li>Free and future Pro learning paths</li>
+          <li>Networking, Linux, Bash and Python curricula</li>
+          <li>Active Directory and penetration-testing pathways</li>
+          <li>Firebase Authentication and Firestore</li>
+          <li>Student profiles and learning preferences</li>
+          <li>Progress, labs and assessment architecture</li>
+          <li>Entitlement and access-control design</li>
+          <li>Responsive public and authenticated interfaces</li>
+        </ul>
+
+        <div class="project-links">
+
+          <a
             href="https://sandisomayekiso.github.io/CyberWithSandiso/index.html"
             target="_blank"
             rel="noopener noreferrer"
             class="github-btn"
-        >
+          >
             <i class="fas fa-arrow-up-right-from-square"></i>
-            Visit CWS Academy
-        </a>
+            Visit Live CWS Academy
+          </a>
 
-        <a
+          <a
             href="https://github.com/SandisoMayekiso/CyberWithSandiso"
             target="_blank"
             rel="noopener noreferrer"
             class="github-btn"
-        >
+          >
             <i class="fab fa-github"></i>
-            View Source
-        </a>
+            View Repository
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section id="projects" class="projects-section page-section hidden">
+  <h2>🚀 Projects and Case studies</h2>
+
+  <div class="projects-grid-vertical">
+
+  <div class="project-card featured-project cws-academy-project">
+
+    <div class="featured-ribbon">
+      ⭐ FEATURED BUILD
+    </div>
+
+    <h3>
+      🛡️ CWS Academy — Cybersecurity Learning Platform
+    </h3>
+
+    <p>
+      An active cybersecurity learning-platform project combining structured
+      education, practical labs and Firebase-backed student functionality.
+    </p>
+
+    <ul class="project-points">
+      <li>12 cybersecurity courses</li>
+      <li>Firebase Authentication and Firestore</li>
+      <li>Student profiles and progress architecture</li>
+      <li>Practical labs and assessments</li>
+      <li>Free and future Pro access-control design</li>
+    </ul>
+
+    <div class="project-links">
+
+      <a
+        href="https://sandisomayekiso.github.io/CyberWithSandiso/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="github-btn"
+      >
+        Visit CWS Academy
+      </a>
+
+      <a
+        href="https://github.com/SandisoMayekiso/CyberWithSandiso"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="github-btn"
+      >
+        View Repository
+      </a>
 
     </div>
 
-</div>
+  </div>
 
 
     <!-- ===============================================================
@@ -1022,6 +771,9 @@
             <i class="fas fa-download"></i>
 
             Download Handbook
+
+        </a>
+
 
         </a>
 
@@ -1312,7 +1064,6 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
 
 
     <!-- ===================== EVENTS (TIMELINE) ===================== -->
-
 <section id="events" class="events-section page-section hidden">
   <div class="section-title">
     <h2>Events & Updates</h2>
@@ -2079,7 +1830,6 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
 </div>
     
     <!-- SKILLS -->
-
 <section id="skills" class="skills-section page-section hidden">
   <h2>Skills & Tools</h2>
   <div class="skills-grid">
@@ -2590,2099 +2340,6 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
 
 </section>
 
-<section id="contact" class="contact-section page-section hidden">
-  <h2>Get in Touch</h2>
-  <p class="contact-subtitle">
-    Feel free to reach out for collaborations, opportunities, or questions.
-  </p>
-
-  <div class="contact-grid">
-
-  <a class="contact-card" href="tel:0658571926">
-    <i class="fas fa-phone"></i>
-    <span>065 857 1926</span>
-  </a>
-
-  <a class="contact-card" href="https://wa.me/0658571926" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-    <span>WhatsApp</span>
-  </a>
-
-  <a class="contact-card" href="mailto:mayekisosandiso@gmail.com">
-  <i class="fas fa-envelope"></i>
-  <span>Email Me</span>
-</a>
-
-
-  <a class="contact-card" href="https://github.com/SandisoMayekiso/My-portfolio-site/blob/main/README.md" target="_blank" rel="noopener noreferrer">
-    <i class="fab fa-github"></i>
-    <span>GitHub</span>
-  </a>
-
-  <a class="contact-card" href="https://www.linkedin.com/in/sandiso-mayekiso-4824aa129" target="_blank" rel="noopener noreferrer">
-    <i class="fab fa-linkedin"></i>
-    <span>LinkedIn</span>
-  </a>
-
-</div>
-
-
-  <!-- Contact Form -->
-  <form class="contact-form" action="https://formspree.io/f/xdkykylg" method="POST">
-  <input type="text" name="_gotcha" style="display:none">
-
-  <label for="name"></label>
-  <input id="name" type="text" name="name" placeholder="Your Name" required>
-
-  <label for="email"></label>
-  <input id="email" type="email" name="email" placeholder="Your Email" required>
-
-  <label for="message"></label>
-  <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-
-  <button type="submit">Send Message</button>
-  <p id="form-status" class="form-status"></p>
-</form>
-
-
-</section>
-
-
-
-<!-- ===========================================
-        PORTFOLIO ANALYTICS DASHBOARD
-=========================================== -->
-
-<section id="auth" class="page-section hidden">
-  <h2>🔐 Cyber Security Lab</h2>
-
-  <p>Create an account to access exclusive cybersecurity tools and testing environments.</p>
-
-  <div class="tools-preview">
-    <ul>
-      <li><strong>Web Scanning Tool</strong></li>
-      <li><strong>Security Quiz Web App</strong> <span></span></li>
-      <li><strong>Crypto Playground</strong> <span></span></li>
-      <li><strong>HTTPS & TLS Validation</strong> <span></span></li>
-      <li><strong>Input Field Analysis</strong> <span></span></li>
-      <li><strong>Cyber Security Resources</strong> <span></span></li>
-    </ul>
-  </div>
-
-  <div class="consent-text">
-    <p>By creating an account or signing in, you confirm that you understand and agree to the following:</p>
-    <ul>
-      <li>This web scanning tool is provided for <strong>educational purposes, personal projects, and legal security testing only</strong>.</li>
-      <li>You may only scan websites or applications that you <strong>own, manage, or have explicit permission to test</strong>.</li>
-      <li>Unauthorized scanning, probing, or testing of third‑party systems <strong>without written consent is strictly prohibited</strong>.</li>
-      <li>This tool must <strong>not</strong> be used for illegal activity, malicious intent, or to cause harm, disruption, or data loss.</li>
-      <li>All activity may be logged for <strong>security, monitoring, and compliance purposes</strong>.</li>
-      <li>Failure to follow these rules may result in <strong>account suspension or permanent access removal</strong>.</li>
-    </ul>
-    <p>By continuing, you agree to use this tool <strong>responsibly, ethically, and within the law</strong>.</p>
-  </div>
-
-  <div class="consent-checkbox">
-    <input type="checkbox" id="consentCheckbox">
-    <label for="consentCheckbox">I have read and agree to the terms above.</label>
-  </div>
-
-  <!-- ✅ FIX: Wrapped credentials and direct login/signup actions inside a semantic form tag -->
-  <form id="loginForm" autocomplete="on">
-    <!-- Auth inputs -->
-    <div class="auth-fields">
-      <input type="email" id="authEmail" placeholder="Email" autocomplete="username" required>
-      <input type="password" id="authPassword" placeholder="Password" autocomplete="current-password" required>
-    </div>
-
-    <!-- Buttons -->
-    <div class="auth-buttons">
-      <!-- Changed buttons to explicit semantic submission types -->
-      <button type="submit" id="loginBtn" disabled>Sign In</button>
-      <button type="button" id="signupBtn" disabled>Create Account</button>
-      <button type="button" id="resetBtn" disabled>Reset Password</button>
-    </div>
-  </form>
-
-  <!-- Optional: change email and MFA enrollment (Kept outside main form) -->
-  <div class="auth-advanced">
-    <input type="tel" id="phoneNumber" placeholder="Phone (E.164, e.g. +27123456789)">
-    <button id="enrollPhoneBtn" type="button">Enroll Phone (MFA)</button>
-    <button id="changeEmailBtn" type="button">Change Email</button>
-  </div>
-
-  <!-- Social Login Gateways (Kept outside main form) -->
-  <div class="social-login-separator" style="text-align: center; margin: 1.5rem 0; color: #888; font-size: 0.85rem; position: relative;">
-    <span style="background: var(--card-bg, #1a1a1a); padding: 0 10px; position: relative; z-index: 1;">OR CONTINUE WITH</span>
-    <div style="position: absolute; top: 50%; left: 0; right: 0; border-top: 1px solid #333; z-index: 0;"></div>
-  </div>
-
-  <div class="social-auth-grid" style="display: flex; gap: 12px; margin-top: 1rem; justify-content: center;">
-    <button id="googleLoginBtn" type="button" class="social-btn" aria-label="Sign in with Google" style="flex: 1; padding: 12px; border: 1px solid #333; background: #222; color: #fff; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 500; transition: background 0.2s;">
-      <i class="fab fa-google" style="color: #db4437;"></i> Google
-    </button>
-    <button id="githubLoginBtn" type="button" class="social-btn" aria-label="Sign in with GitHub" style="flex: 1; padding: 12px; border: 1px solid #333; background: #222; color: #fff; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 500; transition: background 0.2s;">
-      <i class="fab fa-github"></i> GitHub
-    </button>
-  </div>
-
-  <!-- Recaptcha container (invisible) required for phone auth / MFA -->
-  <div id="recaptcha-container" style="display:none;"></div>
-
-  <div class="disclaimer-compact">
-    ⚠ All tools and resources on this site are demo-based and intended 
-    strictly for educational purposes. Only test systems you own or have 
-    written authorization to assess. Misuse is prohibited.
-  </div>
-</section>
-
-    </main>
-
-
-    <!-- ==================================================
-         PROJECT IMAGE MODAL
-    =================================================== -->
-
-    <div
-        id="img-modal"
-        class="modal"
-    >
-        <span class="close">&times;</span>
-
-        <img
-            id="modal-full-img"
-            alt="Project preview"
-        >
-    </div>
-
-
-    <!-- ==================================================
-         CERTIFICATE MODAL
-    =================================================== -->
-
-    <div
-        id="certificateModal"
-        class="certificate-modal"
-    >
-
-        <button
-            id="closeCertificate"
-            class="close-cert"
-            type="button"
-        >
-            <i class="fas fa-times"></i>
-        </button>
-
-        <button
-            id="prevCertificate"
-            class="modal-nav prev"
-            type="button"
-        >
-            <i class="fas fa-chevron-left"></i>
-        </button>
-
-        <img
-            id="certificatePreview"
-            class="certificate-modal-image"
-            src=""
-            alt="Certificate Preview"
-        >
-
-        <button
-            id="nextCertificate"
-            class="modal-nav next"
-            type="button"
-        >
-            <i class="fas fa-chevron-right"></i>
-        </button>
-
-        <div class="certificate-info">
-
-            <h3 id="certificateTitle"></h3>
-
-            <p id="certificateCaption"></p>
-
-        </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         INLINE PORTFOLIO JAVASCRIPT
-    =================================================== -->
-
-    <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3N2331MKN5');
-</script>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-
-</head>
-
-<body>
-    <div id="cyber-bg"></div> 
- <!-- Sidebar -->
-  <aside id="sidebar" class="sidebar">
-    <div class="brand">
-      <div class="brand-left">
-        <i class="fas fa-user-secret brand-icon"></i>
-       <span class="scan-text" id="scanText">RED-TEAMER</span>
-      </div>
-      <button id="collapse-btn" class="collapse-btn" aria-label="Toggle sidebar">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-
-    </div>
-
-    <button id="theme-toggle" class="theme-toggle">
-  <i class="fas fa-moon"></i>
-</button>
-
-    <ul class="menu">
-      <li><a href="#" class="active" data-target="dashboard"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
-      <li><a href="#" data-target="projects"><i class="fas fa-folder-open"></i> <span>Projects</span></a></li>
-      <li><a href="#" data-target="events"><i class="fas fa-stream"></i> <span>Events</span></a></li>
-      <li><a href="#" data-target="certificates"><i class="fas fa-award"></i> <span>Certificates</span></a></li>
-      <li><a href="#" data-target="skills"><i class="fas fa-star"></i> <span>Skills</span></a></li>
-      <li><a href="#" data-target="Digital Library"><i class="fas fa-file-download"></i><span>Digital Library</span></a></li>
-      <li><a href="#" data-target="contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
-      <li><a href="#" data-target="visitor-stats"><i class="fas fa-chart-line"></i><span>Visitor Statistics</span></a></li>
-      
-      <h2>🔐Cyber Security Lab</h2>
-      
-      <li id="authMenu"><a href="#" data-target="auth"><i class="fas fa-user-lock"></i> <span>Tools and Resources</span></a></li>
-      <!-- SCANNER (auth only) -->
-      <li id="scannerMenu" class="hidden"><a href="#" data-target="scanner"><i class="fas fa-shield-alt"></i> <span>Security Scanner</span></a></li>
-      <!-- Security Quiz (Auth Only) -->
-      <li id="quizMenu" class="hidden"><a href="#" data-target="quiz"><i class="fas fa-brain"></i><span>Security Quiz</span></a></li>
-      <li id="cryptoMenu" class="hidden"><a href="#" data-target="crypto"><i class="fas fa-key"></i> <span>Crypto Playground</span></a></li>
-      <li id="tlsMenu" class="hidden"><a href="#" data-target="tls"><i class="fas fa-lock"></i> <span>HTTPS & TLS Validation</span></a></li>
-      <li id="ifaMenu" class="hidden"><a href="#" data-target="input-analysis"><i class="fas fa-search"></i> <span>Input Field Analysis</span></a></li>
-      <li id="libraryMenu" class="hidden"><a href="#" data-target="library"><i class="fas fa-book"></i> <span>Resources Library</span></a></li>
-      <li id="logoutMenu" class="hidden"><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
-    </ul>
-  </aside>
-
-  <!-- Main -->
-  <main id="main-content">
-    <header>
-      <h1 class="page-title" id="dashboardTitle">Dashboard</h1>
-    </header>
-
-    <!-- DASHBOARD -->
-    <section id="dashboard" class="page-section">
-      <div class="about">
-        <div class="about-text">
-          <h2>About Me</h2>
-          <p>Hi, I’m Sandiso 👋 — a Junior Penetration Tester / Ethical Hacker with a strong focus on offensive security, web application testing, network exploitation, and attack simulation. I have hands-on experience identifying, exploiting, and reporting security vulnerabilities, supported by solid fundamentals in networking, Linux, and Python scripting.
-
-            My offensive security skills are backed by strong IT and networking foundations, validated through an IT Engineering course training (CompTIA (A+, Network+, Server+, Security+) and Cisco CCNA), and certificate of completion from CollegeSA (Optimi College), alongside intensive hands-on training from the HyperionDev Cybersecurity Bootcamp.</p>
-          <p>I have completed TryHackMe’s Pre-security, web fundamentals, Cyber Security 101 and Junior Penetration Tester learning paths, gaining practical experience in reconnaissance, enumeration, privilege escalation, web application exploitation, vulnerability assessment, and penetration testing methodologies across Linux-based environments.</p>
-           <p>My core focus is offensive security, leveraging tools such as Nmap, Burp Suite, Metasploit, Nessus, and custom Python scripts to simulate real-world attacks. I also maintain working knowledge of defensive operations — including SIEM monitoring (Splunk), SOC workflows, and incident response fundamentals — enabling me to better understand, evade, and challenge defensive controls during security assessments.</p>
-          
-          <h3>🧰 Tools & Technologies</h3>
-          <table class="tools-table">
- <tr>
-  <th>Tool</th>
-  <th>Description</th>
-</tr>
-
-<tr>
-  <td>🐍 Python</td>
-  <td>Scripting, automation & data handling</td>
-</tr>
-
-<tr>
-  <td>🌐 HTML, CSS, JS</td>
-  <td>Responsive web design & interactivity</td>
-</tr>
-
-<tr>
-  <td>💻 VS Code</td>
-  <td>Primary development environment</td>
-</tr>
-
-<tr>
-  <td>🐧 Linux</td>
-  <td>Command-line mastery, system administration & security tooling</td>
-</tr>
-
-<tr>
-  <td>💣 Metasploit</td>
-  <td>Exploitation framework for penetration testing & vulnerability research</td>
-</tr>
-
-<tr>
-  <td>🔐 TryHackMe</td>
-  <td>Hands-on cybersecurity training</td>
-</tr>
-
-<tr>
-  <td>🧠 Git & GitHub</td>
-  <td>Version control & collaboration</td>
-</tr>
-
-<tr>
-  <td>📡 Wireshark</td>
-  <td>Network traffic analysis & packet inspection</td>
-</tr>
-
-<tr>
-  <td>📊 Splunk (SIEM)</td>
-  <td>Log analysis, monitoring & incident detection</td>
-</tr>
-
-<tr>
-  <td>☁️ Hosting</td>
-  <td>GitHub Pages, Netlify, or local servers</td>
-</tr>
-</table>
-
-
-          <h3 class="section-title">Hands-On Offensive Experience</h3>
-
-<table class="highlight-table">
-  <thead>
-    <tr>
-      <th>Area</th>
-      <th>Experience</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Web Application Security</td>
-      <td>Identified and exploited common web vulnerabilities (OWASP Top 10) through labs and simulated environments</td>
-    </tr>
-    <tr>
-      <td>Windows Active Directory Labs</td>
-      <td>Configured Windows Server 2019 environments for AD attacks and privilege escalation practice</td>
-    </tr>
-    <tr>
-      <td>Penetration Testing Labs</td>
-      <td>Conducted reconnaissance, exploitation, and reporting across TryHackMe offensive pathways</td>
-    </tr>
-    <tr>
-      <td>Incident Awareness</td>
-      <td>Developed understanding of SOC detection and IR processes to improve stealth and attack realism</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<aside class="main-right">
-  <section class="profile-card card">
-
-  <div class="profile-photo-wrapper">
-    <img src="images/profile.jpg" alt="Sandiso profile" class="profile-img">
-  </div>
-
-  <h3>Sandiso Mayekiso</h3>
-  <p class="muted">Penetration tester</p>
-  
-
-  <!-- Clean Fixed Social Profile Connections Container -->
-  <div class="social-links-wrapper" style="margin-top: 15px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px;">
-  
-  <!-- Icon Tier -->
-    <div class="social-icons-tier" style="display: flex; gap: 20px; font-size: 1.3rem;">
-      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    </div>
-
-</div>
-
-
-
-    
-
-</section>
-
-
-  <!-- Recent Activities -->
-  <section class="recent-activities card">
-    <div class="notifications-header">
-      <i class="fas fa-bell"></i>
-      <h4>Recent Activities</h4>
-    </div>
-
-    <div class="notifications-list">
-      <div class="notification-card success">
-        <i class="fas fa-check-circle"></i>
-        <div class="n-body">
-          <p>Volume I Handbook Completed</p>
-          <span class="timestamp"></span>
-        </div>
-      </div>
-
-      <div class="notification-card info">
-        <i class="fas fa-info-circle"></i>
-        <div class="n-body">
-          <p>TryHackMe Web app Path in progress</p>
-          <span class="timestamp"></span>
-        </div>
-      </div>
-
-      <div class="notification-card warning">
-        <i class="fas fa-exclamation-triangle"></i>
-        <div class="n-body">
-          <p>System scan completed with warnings</p>
-          <span class="timestamp"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-</aside>
-
-  </section>  
-  
-      <!-- PROJECTS -->
-<section id="projects" class="projects-section page-section hidden">
-  <h2>🚀 Projects and Case studies</h2>
-
-  <div class="projects-grid-vertical">
-
-    <!-- ===============================================================
-     FEATURED PROJECT
-     CYBERWITHSANDISO PROFESSIONAL PENETRATION TESTING SERIES
-=============================================================== -->
-
-<div class="project-card featured-project"
-     data-image="images/cws-volume1-cover.png">
-
-    <div class="featured-ribbon">
-        ⭐ FEATURED
-    </div>
-
-    <div class="image-wrapper">
-        <img src="images/cws-volume1-cover.png"
-             alt="CyberWithSandiso Professional Penetration Testing Series">
-    </div>
-
-    <h3>
-        📚 CyberWithSandiso Professional Penetration Testing Series
-    </h3>
-
-    <h4>
-        Volume I – Footprinting & Reconnaissance Handbook
-    </h4>
-
-    <p>
-
-        A professionally written penetration testing handbook designed to
-        teach ethical hacking methodology from beginner to intermediate level.
-
-        <br><br>
-
-        The handbook covers professional reconnaissance techniques,
-        footprinting, OSINT, enumeration,
-        documentation, reporting,
-        and offensive security best practices.
-
-    </p>
-
-    <ul class="project-points">
-
-        <li>📖 36+ pages of professional technical documentation</li>
-
-        <li>🛡 Complete penetration testing methodology</li>
-
-        <li>🌍 Passive & Active Reconnaissance</li>
-
-        <li>🔍 OSINT & Enumeration</li>
-
-        <li>📊 Reporting & Documentation</li>
-
-        <li>🧪 Practical laboratory roadmap (Volume II)</li>
-
-    </ul>
-
-    <div class="project-links">
-
-        <a href="docs/CWS_Volume_I.pdf"
-           class="github-btn"
-           download>
-
-            <i class="fas fa-download"></i>
-
-            Download Handbook
-
-        </a>
-
-
-        </a>
-
-    </div>
-
-</div>
-
-    
-    <div class="project-card" data-image="images/bookstore_inventory.jpg">
-      <div class="image-wrapper">
-        <img src="images/bookstore_inventory.jpg" alt="">
-      </div>
-      <h3>Bookstore Inventory</h3>
-      <p>Python & SQLite inventory system.</p>
-      <a href="https://github.com/SandisoMayekiso/Bookstore_inventory_system/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="github-btn">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-    </div>
-
-    <div class="project-card" data-image="images/metadata-gui.png">
-      <div class="image-wrapper">
-        <img src="images/metadata-gui.png" alt="">
-      </div>
-      <h3>Metadata GUI</h3>
-      <p>Digital forensics metadata editor.</p>
-      <a href="https://github.com/SandisoMayekiso/Digital_Forensics_app/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="github-btn">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-    </div>
-
-    <div class="project-card" data-image="images/task_manager_gui.png">
-      <div class="image-wrapper">
-        <img src="images/task_manager_gui.png" alt="">
-      </div>
-      <h3>Task Manager</h3>
-      <p>Task tracking and reporting system.</p>
-      <a href="https://github.com/SandisoMayekiso/task-manager-gui/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="github-btn">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-    </div>
-
-    <div class="project-card" data-image="images/tryhackme-labs.png">
-      <div class="image-wrapper">
-        <img src="images/tryhackme-labs.png" alt="">
-      </div>
-      <h3>TryHackMe Labs</h3>
-      <p>Completed paths on tryhackme.</p>
-      <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="github-btn">
-        <i class="fab fa-github"></i> View on GitHub
-      </a>
-    </div>
-
-    <div class="project-card slideshow-card" data-image="images/eternalblue.png">
-  <div class="image-wrapper">
-    <img src="images/eternalblue.png" class="slide active" alt="">
-    <img src="images/eternalblue1.png" class="slide" alt="">
-    <img src="images/eternalblue2.png" class="slide" alt="">
-    <img src="images/eternalblue3.png" class="slide" alt="">
-    <img src="images/eternalblue4.png" class="slide" alt="">
-
-    <button class="slide-btn prev">&#10094;</button>
-    <button class="slide-btn next">&#10095;</button>
-  </div>
-
-  <h3>EternalBlue Exploit</h3>
-  <p>MS17-010 Windows exploit.</p>
-  <a href="https://github.com/SandisoMayekiso/TryHackMe-Writeups/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="github-btn">
-    <i class="fab fa-github"></i> View more on GitHub
-  </a>
-</div>
-
-  <!-- ===================== METASPLOITABLE PROJECTS ===================== -->
-
-<!-- Metasploitable 1 -->
-<div class="project-card" data-image="images/metasploitable1.png">
-  <div class="image-wrapper">
-    <img src="images/metasploitable1.png" alt="Metasploitable 1">
-  </div>
-
-  <h3>Metasploitable 1 – Penetration Test</h3>
-  <p>
-    Vulnerable Linux VM exploited in a controlled lab environment. Focused on
-    service enumeration, exploitation, and privilege escalation.
-  </p>
-
-  <ul class="project-points">
-    <li>🔍 Enumeration: Nmap, service/version detection</li>
-    <li>🧨 Exploitation: Telnet, FTP, vulnerable services</li>
-    <li>⬆️ Privilege Escalation: SUID binaries & misconfigurations</li>
-    <li>🛠 Tools: Metasploit, LinEnum, manual exploitation</li>
-  </ul>
-
-  <div class="project-links">
-    <a href="https://github.com/SandisoMayekiso/Metasploitable/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="github-btn">
-      <i class="fab fa-github"></i> View Write‑up
-    </a>
-  </div>
-</div>
-
-
-<!-- Metasploitable 2 -->
-<div class="project-card" data-image="images/metasploitable2.png">
-  <div class="image-wrapper">
-    <img src="images/metasploitable2.png" alt="Metasploitable 2 exploitation lab">
-  </div>
-
-  <h3>Metasploitable 2 – Remote Root Exploitation</h3>
-
-  <p>
-    Hands-on penetration testing lab focused on identifying vulnerable services
-    and exploiting real-world misconfigurations in a controlled environment.
-  </p>
-
-  <ul class="project-points">
-    <li>🔍 Enumeration: Nmap host & service version scanning</li>
-    <li>🧨 Exploitation: vsFTPd 2.3.4 backdoor (root shell)</li>
-    <li>📦 Post-Exploitation: System enumeration & credential access</li>
-    <li>🛡️ Defensive Insight: Risk analysis & mitigation recommendations</li>
-  </ul>
-
-  <div class="project-links">
-    <a href="https://github.com/SandisoMayekiso/Metasploitable-2-Remote-Root-Compromise-vsFTPd-2.3.4-/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="github-btn">
-      <i class="fab fa-github"></i> View Write-up
-    </a>
-  </div>
-</div>
-
-
-<!-- =============================================================== -->
-
-<!-- BASIC PENTESTING CASE STUDY PROJECT CARD -->
-<div class="project-card" data-image="images/basic-pentesting.png">
-<div class="image-wrapper">
-<img src="images/basic-pentesting.png" alt="Basic Pentesting Case Study">
-</div>
-
-
-<h3>Basic Pentesting – ProFTPD Backdoor</h3>
-<p>
-Real-world style penetration testing case study completed during a cybersecurity bootcamp.
-Focused on service enumeration, vulnerability research, exploit validation, and professional reporting.
-</p>
-
-
-<ul class="project-tags">
-<li>Penetration Testing</li>
-<li>Metasploit</li>
-<li>Nmap</li>
-<li>Linux</li>
-<li>Bootcamp Case Study</li>
-</ul>
-
-
-<div class="project-actions">
-<a href="https://github.com/SandisoMayekiso/Basic-Pentesting-Case-Study-ProFTPD-Backdoor-Analysis-Black-box-Limited-information-/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="github-btn">
-<i class="fab fa-github"></i> View Case Study
-</a>
-</div>
-</div>
-
-<!-- Mr. Robot CTF -->
-<div class="project-card" data-image="images/mr-robot.png">
-  <div class="image-wrapper">
-    <img src="images/mr-robot.png" alt="Mr. Robot CTF">
-  </div>
-
-  <h3>Mr. Robot CTF – Web App Penetration Test</h3>
-
-  <p>
-    End-to-end penetration testing of a vulnerable WordPress web application
-    performed in a controlled lab environment.
-  </p>
-
-  <ul class="project-points">
-    <li>🔍 Network & web enumeration</li>
-    <li>👤 WordPress user enumeration</li>
-    <li>🔐 Credential attacks (Hydra)</li>
-    <li>💥 Metasploit exploitation</li>
-    <li>⬆️ Linux privilege escalation (SUID)</li>
-  </ul>
-
-  <div class="project-links">
-    <a href="https://github.com/SandisoMayekiso/-Mr.-Robot-CTF-Web-Application-Penetration-Testing-Walkthrough/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="github-btn">
-      <i class="fab fa-github"></i> View Write-up
-    </a>
-  </div>
-</div>
-
-<!-- Wireshark Network Traffic Analysis -->
-<div class="project-card" data-image="images/wireshark-analysis.png">
-  <div class="image-wrapper">
-    <img src="images/wireshark-analysis.png" alt="Wireshark Network Traffic Analysis">
-  </div>
-
-  <h3>Wireshark Network Traffic Analysis</h3>
-
-  <p>
-    Hands-on network traffic analysis using Wireshark to identify normal
-    and anomalous behavior within a local network environment.
-    Focused on protocol inspection, ARP behavior, and traffic interpretation.
-  </p>
-
-  <ul class="project-points">
-    <li>📡 Captured and analyzed live network traffic</li>
-    <li>🧭 Investigated ARP broadcast requests and address resolution</li>
-    <li>🔍 Identified protocols: ARP, TCP, UDP, TLS, QUIC</li>
-    <li>🛡️ Applied traffic analysis techniques used in SOC environments</li>
-    <li>🧼 Sanitized captures to follow OPSEC and data-handling best practices</li>
-  </ul>
-
-  <div class="project-links">
-    <a href="https://github.com/SandisoMayekiso/Wireshark-Network-Analysis-ARP-Traffic-Investigation" target="_blank" rel="noopener noreferrer" class="github-btn">
-      <i class="fab fa-github"></i> View Analysis
-    </a>
-  </div>
-</div>
-
-    <!-- OWASP Juice Shop – SQL Injection -->
-<div class="project-card" data-image="images/owasp-juice-shop.png">
-  <div class="image-wrapper">
-    <img src="images/owasp-juice-shop.png" alt="OWASP Juice Shop SQL Injection">
-  </div>
-
-  <h3>OWASP Juice Shop – SQL Injection</h3>
-
-  <p>
-    Web application penetration testing case study focused on identifying
-    and exploiting an authentication bypass vulnerability caused by
-    insecure SQL query handling.
-  </p>
-
-  <ul class="project-points">
-    <li>🔐 Vulnerability: SQL Injection (Authentication Bypass)</li>
-    <li>🧪 Target: OWASP Juice Shop (intentionally vulnerable app)</li>
-    <li>📡 Tested login API using Burp Suite</li>
-    <li>📊 Impact analysis aligned with OWASP Top 10</li>
-    <li>🛡️ Documented remediation and secure coding practices</li>
-  </ul>
-
-  <div class="project-links">
-    <a href="https://github.com/SandisoMayekiso/SQL-Injection-Practice-OWASP-Juice-Shop/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="github-btn">
-      <i class="fab fa-github"></i> View Case Study
-    </a>
-  </div>
-</div>
-
-    <!-- Web Application Security Testing Lab -->
-<div class="project-card" data-image="images/webapp-sqli-xss.png">
-  <div class="image-wrapper">
-    <img src="images/webapp-sqli-xss.png" alt="Web Application Security Testing Lab">
-  </div>
-
-  <h3>Web App Security Testing Lab – SQLi & XSS</h3>
-
-  <p>
-    Custom-built vulnerable Flask web application used to simulate a real-world
-    web application penetration test. Focused on manual SQL Injection and XSS
-    testing using Burp Suite.
-  </p>
-
-  <ul class="project-points">
-    <li>🧪 Manual SQL Injection testing (authentication bypass)</li>
-    <li>🔍 Reflected XSS testing with false-positive analysis</li>
-    <li>📡 HTTP interception & manipulation using Burp Suite</li>
-    <li>🛠 Flask, SQLite, Jinja2 templating</li>
-    <li>🛡️ Secure coding & mitigation recommendations</li>
-  </ul>
-
-  <div class="project-links">
-    <a href="https://github.com/SandisoMayekiso/Web-Application-Security-Testing-Lab/blob/main/README.md"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="github-btn">
-      <i class="fab fa-github"></i> View Project
-    </a>
-  </div>
-</div>
-    
-  </div>
-</section>
-
-<!-- FULLSCREEN IMAGE MODAL -->
-<div id="img-modal" class="modal">
-  <span class="close">&times;</span>
-  <img id="modal-full-img">
-</div>
-
-
-
-    <!-- ===================== EVENTS (TIMELINE) ===================== -->
-<section id="events" class="events-section page-section hidden">
-  <div class="section-title">
-    <h2>Events & Updates</h2>
-  </div>
-
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
-      <div class="timeline-content">
-        <h3>Cybersecurity Engineering Bootcamp</h3>
-        <span class="timeline-date">June 2025</span>
-        <p>
-          Successfully completed a Cybersecurity Engineering Bootcamp with
-          hands-on labs covering networking fundamentals, Linux administration,
-          web security, and penetration testing basics.
-        </p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-icon"><i class="fas fa-code"></i></div>
-      <div class="timeline-content">
-        <h3>Penetration Testing Lab Project</h3>
-        <span class="timeline-date">September 2025</span>
-        <p>
-          Built and documented penetration testing lab exercises focusing on
-          enumeration, vulnerability discovery, and exploitation techniques.
-        </p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-icon"><i class="fas fa-shield-alt"></i></div>
-      <div class="timeline-content">
-        <h3>Cybersecurity Challenges & CTF Labs</h3>
-        <span class="timeline-date">November 2025</span>
-        <p>
-          Participated in hands-on cybersecurity challenges involving web
-          application testing, Linux privilege escalation, and defensive
-          analysis in controlled lab environments.
-        </p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
-      <div class="timeline-content">
-        <h3>Personal Cybersecurity Project</h3>
-        <span class="timeline-date">December 2025</span>
-        <p>
-          Developed several Python-based projects, including a Bookstore Inventory System with a Tkinter GUI and SQLite backend, a File Metadata Extractor for detailed file information, and a Flask-based Task Manager web app for portfolio demonstration."
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-  
-</section>
-
-
-   <!-- ==========================================================
-     CERTIFICATIONS & LEARNING CENTER
-     CyberWithSandiso Portfolio
-=========================================================== -->
-
-<section id="certificates" class="certificates-section page-section hidden">
-
-    <!-- ================= Header ================= -->
-
-    <div class="section-header">
-
-        <h2 class="section-title">
-            <i class="fas fa-award"></i>
-            Certifications & Learning Center
-        </h2>
-
-        <p class="section-subtitle">
-            A collection of my cybersecurity certifications, professional training, bootcamps,
-            learning transcripts, and hands-on learning paths completed throughout my
-            cybersecurity journey.
-        </p>
-
-    </div>
-
-    <!-- ================= Statistics ================= -->
-
-    <div class="certificate-stats">
-
-        <div class="stat-card">
-            <i class="fas fa-certificate"></i>
-            <h3>10</h3>
-            <span>Total Certificates</span>
-        </div>
-
-        <div class="stat-card">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>3</h3>
-            <span>Formal Higher Education & Diplomas</span>
-        </div>
-
-        <div class="stat-card">
-            <i class="fas fa-book-open"></i>
-            <h3>2</h3>
-            <span>Accredited & ProfessionaL Bootcamps</span>
-        </div>
-
-        <div class="stat-card">
-            <i class="fas fa-file-alt"></i>
-            <h3>5</h3>
-            <span>Continuous Professional Development</span>
-        </div>
-
-    </div>
-
-    <!-- ================= Certificate Grid ================= -->
-
-    <div class="certificates-grid">
-
-        <!-- ======================================== -->
-        <!-- HyperionDev -->
-        <!-- ======================================== -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge bootcamp">
-                Bootcamp
-            </span>
-
-            <img
-                src="images/hyperiondev-bootcamp.jpg"
-                alt="HyperionDev Cybersecurity Bootcamp"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>HyperionDev</h3>
-
-                <p class="cert-name">
-                    Cybersecurity Bootcamp
-                </p>
-
-                <p class="cert-description">
-                    Intensive cybersecurity bootcamp covering ethical hacking,
-                    networking, Linux, Windows, web security,
-                    penetration testing and professional reporting.
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- ======================================== -->
-        <!-- Optimi -->
-        <!-- ======================================== -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge engineering">
-                Engineering
-            </span>
-
-            <img
-                src="images/optimi-it-engineering.jpg"
-                alt="Optimi IT Engineering"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>Optimi</h3>
-
-                <p class="cert-name">
-
-                    IT Engineering Certification
-
-                </p>
-
-                <p class="cert-description">
-
-                    Computer hardware, operating systems,
-                    networking fundamentals,
-                    troubleshooting and IT support.
-
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- ======================================== -->
-        <!-- IT Transcript -->
-        <!-- ======================================== -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge transcript">
-
-                Transcript
-
-            </span>
-
-            <img
-                src="images/it-engineer-transcript.png"
-                alt="IT Engineering Transcript"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>IT Engineering</h3>
-
-                <p class="cert-name">
-
-                    Learning Transcript
-
-                </p>
-
-                <p class="cert-description">
-
-                    Official transcript showing completed
-                    IT Engineering coursework and progress.
-
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                    <a
-                        href="docs/it-engineer-transcript.pdf"
-                        target="_blank"
-                        class="pdf-btn">
-
-                        <i class="fas fa-file-pdf"></i>
-
-                        PDF
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- ======================================== -->
-        <!-- Cyber Transcript -->
-        <!-- ======================================== -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge transcript">
-
-                Transcript
-
-            </span>
-
-            <img
-                src="images/cybersecurity-transcript.png"
-                alt="Cybersecurity Transcript"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>Cybersecurity</h3>
-
-                <p class="cert-name">
-
-                    Learning Transcript
-
-                </p>
-
-                <p class="cert-description">
-
-                    Academic record of cybersecurity
-                    modules and practical assessments.
-
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                    <a
-                        href="docs/cybersecurity-transcript.pdf"
-                        target="_blank"
-                        class="pdf-btn">
-
-                        <i class="fas fa-file-pdf"></i>
-
-                        PDF
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- ======================================== -->
-        <!-- THM Pre Security -->
-        <!-- ======================================== -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge tryhackme">
-
-                TryHackMe
-
-            </span>
-
-            <img
-                src="images/tryhackme-pre-security.png"
-                alt="TryHackMe Pre Security"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>Pre Security</h3>
-
-                <p class="cert-name">
-
-                    Learning Path
-
-                </p>
-
-                <p class="cert-description">
-
-                    Networking, Linux,
-                    Windows fundamentals,
-                    web basics and cyber foundations.
-
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- Cyber 101 -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge tryhackme">
-
-                TryHackMe
-
-            </span>
-
-            <img
-                src="images/tryhackme-cyber101.jpg"
-                alt="TryHackMe Cyber Security 101"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>Cyber Security 101</h3>
-
-                <p class="cert-name">
-
-                    Learning Path
-
-                </p>
-
-                <p class="cert-description">
-
-                    Introduction to cyber security,
-                    threats, vulnerabilities,
-                    defensive security and ethical hacking.
-
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- Junior Pentester -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge tryhackme">
-
-                TryHackMe
-
-            </span>
-
-            <img
-                src="images/tryhackme-jr-pentester.jpg"
-                alt="Junior Penetration Tester"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>Junior Penetration Tester</h3>
-
-                <p class="cert-name">
-
-                    Learning Path
-
-                </p>
-
-                <p class="cert-description">
-
-                    Enumeration, exploitation,
-                    privilege escalation,
-                    web attacks and reporting.
-
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- Web Hacking -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge tryhackme">
-
-                TryHackMe
-
-            </span>
-
-            <img
-                src="images/tryhackme-web-hacking.png"
-                alt="Web Hacking"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>Web Hacking</h3>
-
-                <p class="cert-name">
-
-                    Learning Path
-
-                </p>
-
-                <p class="cert-description">
-
-                    OWASP Top 10,
-                    Burp Suite,
-                    SQL Injection,
-                    XSS,
-                    Authentication,
-                    SSRF,
-                    CSRF and more.
-
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- ======================================== -->
-        <!-- Business Management N4 -->
-        <!-- ======================================== -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge bootcamp">
-                N4
-            </span>
-
-            <img
-                src="images/N4 certificate.png"
-                alt="College of Cape Town N4"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>College of Cape Town</h3>
-
-                <p class="cert-name">
-                    N4 Certificate
-                </p>
-
-                <p class="cert-description">
-                    Introductory Accounting, Entrepreneurship,
-                    and Business Management, Management Communication,
-                    Computer Practice.
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-      <!-- ======================================== -->
-        <!-- Business Management N5 -->
-        <!-- ======================================== -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge bootcamp">
-                N5
-            </span>
-
-            <img
-                src="images/N5 certificate.png"
-                alt="College of Cape Town N4"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>College of Cape Town</h3>
-
-                <p class="cert-name">
-                    N5 Certificate
-                </p>
-
-                <p class="cert-description">
-                    Entrepreneurship,
-                    and Business Management, Sales Management, Public Relations,
-                    Computer Practice.
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- ======================================== -->
-        <!-- Business Management N6 -->
-        <!-- ======================================== -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge bootcamp">
-                N6
-            </span>
-
-            <img
-                src="images/N6 certificate.png"
-                alt="College of Cape Town N4"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>College of Cape Town</h3>
-
-                <p class="cert-name">
-                    N6 Certificate
-                </p>
-
-                <p class="cert-description">
-                    Entrepreneurship,
-                    and Business Management, Sales Management, Public Relations,
-                    Cost and Management Accounting.
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- ======================================== -->
-        <!-- MICTSETA TRAINING STATEMENT OF RESULTS -->
-        <!-- ======================================== -->
-
-        <article class="certificate-card">
-
-            <span class="cert-badge bootcamp">
-                MICT SETA TRAINING STATEMENT OF RESULTS
-            </span>
-
-            <img
-                src="images/Technical Support.png"
-                alt="MICTSETA TRAINING STATEMENT OF RESULTS"
-                class="certificate-image">
-
-            <div class="certificate-content">
-
-                <h3>Technical Support Training (EOH Abantu, accredited by MICT SETA)</h3>
-
-                <p class="cert-name">
-                    Computer Systems Support/Technical Support 
-                </p>
-
-                <p class="cert-description">
-                    Demonstrate an understanding of preventative maintenance, environmental and safety issues in a computer environment (Level 3, 6 credits)
-                    Explain computer architecture concepts (Level 4, 7 credits)
-                    Describe the types of computer systems and associated hardware configurations (Level 4, 6 credits)
-                    Describe Synchronous/Asynchronous Communication with computers (Level 3, 6 credits)
-                    Explain how data is stored on computers (Level 4, 7 credits)
-                    Describe data communications (Level 3, 4 credits)
-                </p>
-
-                <div class="certificate-actions">
-
-                    <button class="preview-btn">
-
-                        <i class="fas fa-search-plus"></i>
-
-                        Preview
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-    </div>
-
-    
-</section>
-
-<!-- ==========================================================
-        CERTIFICATE LIGHTBOX
-=========================================================== -->
-
-<div id="certificateModal" class="certificate-modal">
-
-    <button id="closeCertificate" class="close-cert">
-
-        <i class="fas fa-times"></i>
-
-    </button>
-
-    <button id="prevCertificate" class="modal-nav prev">
-
-        <i class="fas fa-chevron-left"></i>
-
-    </button>
-
-    <img
-        id="certificatePreview"
-        class="certificate-modal-image"
-        src=""
-        alt="Certificate Preview">
-
-    <button id="nextCertificate" class="modal-nav next">
-
-        <i class="fas fa-chevron-right"></i>
-
-    </button>
-
-    <div class="certificate-info">
-
-        <h3 id="certificateTitle"></h3>
-
-        <p id="certificateCaption"></p>
-
-    </div>
-
-</div>
-    
-    <!-- SKILLS -->
-<section id="skills" class="skills-section page-section hidden">
-  <h2>Skills & Tools</h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <i class="fas fa-shield-alt"></i>
-      <h3>Cybersecurity</h3>
-      <p>Pen testing & defense</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-sitemap"></i>
-      <h3>Networking</h3>
-      <p>Routing, switching, TCP/IP</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-server"></i>
-      <h3>System Admin</h3>
-      <p>Windows Server & Linux</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-code"></i>
-      <h3>Web Dev</h3>
-      <p>HTML, CSS, JS, Python</p>
-    </div>
-    <div class="skill-card">
-      <i class="fab fa-github"></i>
-      <h3>Version Control</h3>
-      <p>Git & GitHub</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-cloud-upload-alt"></i>
-      <h3>Hosting</h3>
-      <p>GitHub Pages, Netlify</p>
-    </div>
-  </div>
-
-  <!-- Enhanced Skills Table -->
-  <h3>Detailed Skills Overview</h3>
-  <table class="skills-table">
-    <thead>
-      <tr>
-        <th>Skill</th>
-        <th>Tools / Technologies</th>
-        <th>Experience Level</th>
-        <th>Rating</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><i class="fas fa-shield-alt skill-icon"></i> Cybersecurity</td>
-        <td>Nmap, Burp Suite, Metasploit, LinPEAS, Wireshark</td>
-        <td><span class="skill-level advanced">Junior or entry-level</span></td>
-        <td>n/a</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-network-wired skill-icon"></i> Networking</td>
-        <td>Cisco Routers, Switches, TCP/IP, Wireshark</td>
-        <td><span class="skill-level intermediate">Junior or entry-level</span></td>
-        <td>n/a</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-server skill-icon"></i> System Admin</td>
-        <td>Windows Server, Linux, Active Directory</td>
-        <td><span class="skill-level intermediate">Junior or entry-level</span></td>
-        <td>n/a</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-code skill-icon"></i> Web Development</td>
-        <td>HTML, CSS, JavaScript, Python, Firebase</td>
-        <td><span class="skill-level intermediate">Junior or entry-level</span></td>
-        <td>n/a</td>
-      </tr>
-      <tr>
-        <td><i class="fab fa-github skill-icon"></i> Version Control</td>
-        <td>Git, GitHub, GitHub Pages</td>
-        <td><span class="skill-level advanced">Junior or entry-level</span></td>
-        <td>n/a</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-cloud-upload-alt skill-icon"></i> Hosting</td>
-        <td>Netlify, GitHub Pages</td>
-        <td><span class="skill-level intermediate">Junior or entry-level</span></td>
-        <td>n/a</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-
-<!-- ==========================================================
-     CYBERWITHSANDISO DIGITAL LIBRARY
-=========================================================== -->
-
-<section id="Digital Library" class="Digital Library-section page-section hidden">
-
-    <h2>
-        <i class="fas fa-book-open"></i>
-        CyberWithSandiso Digital Library
-    </h2>
-
-    <p class="section-subtitle">
-        Explore my professional cybersecurity publications, practical laboratory manuals,
-        penetration testing handbooks, CV, and educational resources.
-    </p>
-
-    <div class="download-grid">
-
-        <!-- ======================================================
-             CV
-        ====================================================== -->
-
-        <div class="download-card">
-
-            <i class="fas fa-user-tie download-icon"></i>
-
-            <h3>Curriculum Vitae</h3>
-
-            <p>
-                Updated CV covering cybersecurity,
-                penetration testing,
-                IT support,
-                certifications,
-                technical projects,
-                and professional experience.
-            </p>
-
-            <a href="docs/Sandiso_Mayekiso_CV.pdf"
-               download
-               class="download-btn">
-
-                <i class="fas fa-download"></i>
-
-                Download CV
-
-            </a>
-
-        </div>
-
-        <!-- ======================================================
-             COVER LETTER
-        ====================================================== -->
-
-        <div class="download-card">
-
-            <i class="fas fa-file-signature download-icon"></i>
-
-            <h3>Professional Cover Letter</h3>
-
-            <p>
-                General cybersecurity cover letter suitable for
-                penetration testing,
-                SOC,
-                IT support,
-                and security analyst positions.
-            </p>
-
-            <a href="docs/Sandiso_Mayekiso_Cover_Letter.pdf"
-               download
-               class="download-btn">
-
-                <i class="fas fa-download"></i>
-
-                Download Cover Letter
-
-            </a>
-
-        </div>
-
-        <!-- ======================================================
-             VOLUME I
-        ====================================================== -->
-
-        <div class="download-card featured-download">
-
-            <span class="library-badge">
-                AVAILABLE
-            </span>
-
-            <i class="fas fa-book-open download-icon"></i>
-
-            <h3>
-
-                Volume I
-
-            </h3>
-
-            <h4>
-
-                Footprinting & Reconnaissance Handbook
-
-            </h4>
-
-            <p>
-
-                A professional handbook introducing the complete
-                penetration testing methodology including:
-
-                <br><br>
-
-                ✔ Ethical Hacking Fundamentals
-
-                <br>
-
-                ✔ Rules of Engagement
-
-                <br>
-
-                ✔ Footprinting
-
-                <br>
-
-                ✔ Passive Reconnaissance
-
-                <br>
-
-                ✔ Active Reconnaissance
-
-                <br>
-
-                ✔ Enumeration
-
-                <br>
-
-                ✔ Reporting
-
-                <br>
-
-                ✔ Professional Methodology
-
-                <br><br>
-
-                <strong>Version:</strong> 1.0
-
-            </p>
-
-            <a href="docs/CWS_Volume_I.pdf"
-
-               download
-
-               class="download-btn">
-
-                <i class="fas fa-download"></i>
-
-                Download Volume I
-
-            </a>
-
-        </div>
-
-        <!-- ======================================================
-             VOLUME II
-        ====================================================== -->
-
-        <div class="download-card coming-soon">
-
-            <span class="library-badge coming">
-
-                COMING SOON
-
-            </span>
-
-            <i class="fas fa-laptop-code download-icon"></i>
-
-            <h3>
-
-                Volume II
-
-            </h3>
-
-            <h4>
-
-                Practical Laboratory Manual
-
-            </h4>
-
-            <p>
-
-                Build a professional penetration testing laboratory
-                from scratch using:
-
-                <br><br>
-
-                • VMware
-
-                <br>
-
-                • Kali Linux
-
-                <br>
-
-                • Windows Server
-
-                <br>
-
-                • Windows 11
-
-                <br>
-
-                • Metasploitable
-
-                <br>
-
-                • DVWA
-
-                <br>
-
-                • OWASP Juice Shop
-
-                <br>
-
-                • Enterprise Networking
-
-            </p>
-
-            <button disabled>
-
-                Currently Writing...
-
-            </button>
-
-        </div>
-
-        <!-- ======================================================
-             VOLUME III
-        ====================================================== -->
-
-        <div class="download-card coming-soon">
-
-            <span class="library-badge coming">
-
-                PLANNED
-
-            </span>
-
-            <i class="fas fa-server download-icon"></i>
-
-            <h3>
-
-                Volume III
-
-            </h3>
-
-            <h4>
-
-                Active Directory &
-                Windows Security
-
-            </h4>
-
-            <p>
-
-                Active Directory,
-                Kerberos,
-                LDAP,
-                SMB,
-                BloodHound,
-                PowerShell,
-                Windows privilege escalation
-                and enterprise security.
-
-            </p>
-
-            <button disabled>
-
-                Coming Soon
-
-            </button>
-
-        </div>
-
-        <!-- ======================================================
-             VOLUME IV
-        ====================================================== -->
-
-        <div class="download-card coming-soon">
-
-            <span class="library-badge coming">
-
-                PLANNED
-
-            </span>
-
-            <i class="fas fa-globe download-icon"></i>
-
-            <h3>
-
-                Volume IV
-
-            </h3>
-
-            <h4>
-
-                Web Application Security
-
-            </h4>
-
-            <p>
-
-                OWASP Top 10,
-                Burp Suite,
-                SQL Injection,
-                XSS,
-                Authentication,
-                API Security,
-                Secure Coding.
-
-            </p>
-
-            <button disabled>
-
-                Coming Soon
-
-            </button>
-
-        </div>
-
-        <!-- ======================================================
-             VOLUME V
-        ====================================================== -->
-
-        <div class="download-card coming-soon">
-
-            <span class="library-badge coming">
-
-                PLANNED
-
-            </span>
-
-            <i class="fas fa-network-wired download-icon"></i>
-
-            <h3>
-
-                Volume V
-
-            </h3>
-
-            <h4>
-
-                Network Penetration Testing
-
-            </h4>
-
-            <p>
-
-                Enterprise network assessments,
-                VLANs,
-                firewalls,
-                segmentation,
-                routing,
-                privilege escalation,
-                reporting.
-
-            </p>
-
-            <button disabled>
-
-                Coming Soon
-
-            </button>
-
-        </div>
-
-        <!-- ======================================================
-             VOLUME VI
-        ====================================================== -->
-
-        <div class="download-card coming-soon">
-
-            <span class="library-badge coming">
-
-                FUTURE
-
-            </span>
-
-            <i class="fas fa-user-secret download-icon"></i>
-
-            <h3>
-
-                Volume VI
-
-            </h3>
-
-            <h4>
-
-                Red Team Operations
-
-            </h4>
-
-            <p>
-
-                Complete penetration testing engagements,
-                reporting,
-                documentation,
-                attack simulation,
-                evidence collection,
-                executive reporting.
-
-            </p>
-
-            <button disabled>
-
-                Coming Soon
-
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
 
    
 
@@ -4750,256 +2407,6 @@ Focused on service enumeration, vulnerability research, exploit validation, and 
         PORTFOLIO ANALYTICS DASHBOARD
 =========================================== -->
 
-<section id="visitor-stats" class="page-section hidden">
-
-<div class="analytics-header">
-
-<div>
-
-<h2>
-<i class="fas fa-chart-line"></i>
-Portfolio Analytics
-</h2>
-
-<p>
-Real-time portfolio performance overview
-</p>
-
-</div>
-
-<div class="last-update">
-
-<i class="fas fa-sync-alt"></i>
-
-<span id="lastUpdated">
-Updating...
-</span>
-
-</div>
-
-</div>
-
-
-<!-- KPI Cards -->
-
-<div class="analytics-grid">
-
-<div class="metric-card">
-
-<div class="metric-icon blue">
-<i class="fas fa-users"></i>
-</div>
-
-<div>
-
-<h4>Total Visitors</h4>
-
-<h2 id="visitor-count">0</h2>
-
-<span class="trend positive">
-▲ 12.8%
-</span>
-
-</div>
-
-</div>
-
-
-
-<div class="metric-card">
-
-<div class="metric-icon green">
-<i class="fas fa-user-clock"></i>
-</div>
-
-<div>
-
-<h4>Active Now</h4>
-
-<h2 id="activeUsers">0</h2>
-
-<span class="live-dot"></span>
-Live
-
-</div>
-
-</div>
-
-
-
-<div class="metric-card">
-
-<div class="metric-icon orange">
-<i class="fas fa-calendar-day"></i>
-</div>
-
-<div>
-
-<h4>Today's Visits</h4>
-
-<h2 id="today-visitors">0</h2>
-
-<span class="trend positive">
-▲ 5.1%
-</span>
-
-</div>
-
-</div>
-
-
-
-<div class="metric-card">
-
-<div class="metric-icon purple">
-<i class="fas fa-chart-area"></i>
-</div>
-
-<div>
-
-<h4>This Week</h4>
-
-<h2 id="weeklyVisitors">0</h2>
-
-<span class="trend negative">
-▼ 2.3%
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="analytics-layout">
-
-<div class="analytics-panel">
-
-<h3>
-Traffic Overview
-</h3>
-
-<canvas id="visitorChart"></canvas>
-
-</div>
-
-
-
-<div class="analytics-panel">
-
-<h3>
-Devices
-</h3>
-
-<canvas id="deviceChart"></canvas>
-
-</div>
-
-</div>
-
-
-
-<div class="analytics-bottom">
-
-<div class="analytics-panel">
-
-<h3>
-Traffic Sources
-</h3>
-
-<div class="progress-row">
-
-<span>Direct</span>
-
-<div class="progress">
-
-<div style="width:62%"></div>
-
-</div>
-
-<span>62%</span>
-
-</div>
-
-<div class="progress-row">
-
-<span>GitHub</span>
-
-<div class="progress">
-
-<div style="width:18%"></div>
-
-</div>
-
-<span>18%</span>
-
-</div>
-
-<div class="progress-row">
-
-<span>LinkedIn</span>
-
-<div class="progress">
-
-<div style="width:13%"></div>
-
-</div>
-
-<span>13%</span>
-
-</div>
-
-<div class="progress-row">
-
-<span>Search</span>
-
-<div class="progress">
-
-<div style="width:7%"></div>
-
-</div>
-
-<span>7%</span>
-
-</div>
-
-</div>
-
-
-
-<div class="analytics-panel">
-
-<h3>
-Top Countries
-</h3>
-
-<ul class="country-list">
-
-<li>🇿🇦 South Africa <span>42%</span></li>
-
-<li>🇺🇸 United States <span>21%</span></li>
-
-<li>🇬🇧 United Kingdom <span>13%</span></li>
-
-<li>🇳🇱 Netherlands <span>9%</span></li>
-
-<li>🌍 Others <span>15%</span></li>
-
-</ul>
-
-</div>
-
-</div>
-
-</section>
-    
-
-<!-- Firebase config must be loaded first -->
-
-
-<!-- Auth UI section -->
 <section id="auth" class="page-section hidden">
   <h2>🔐 Cyber Security Lab</h2>
 
@@ -5533,6 +2940,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  /* ===================== HOME CTA NAVIGATION ===================== */
+  document
+    .querySelectorAll(
+      "[data-home-target]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          event => {
+
+            event.preventDefault();
+
+            const targetId =
+              button.dataset.homeTarget;
+
+            const matchingMenuLink =
+              menu?.querySelector(
+                `a[data-target="${targetId}"]`
+              );
+
+            if (matchingMenuLink) {
+
+              matchingMenuLink.click();
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
   /* ===================== THEME TOGGLE ===================== */
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
@@ -5663,30 +3105,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ===================== DASHBOARD ANIMATION ===================== */
-  const dashboardTitle = document.getElementById("dashboardTitle");
-  if (dashboardTitle) {
-    const finalText = "DASHBOARD";
-    const binary = ["0", "1"];
-    let i = 0;
+  /* ===================== HOME TITLE ===================== */
+  const dashboardTitle =
+    document.getElementById(
+      "dashboardTitle"
+    );
 
-    const animate = () => {
-      if (i <= finalText.length) {
-        dashboardTitle.textContent = finalText
-          .split("")
-          .map((c, idx) =>
-            idx < i ? c : binary[Math.floor(Math.random() * 2)]
-          )
-          .join("");
-        i++;
-        setTimeout(animate, 180);
-      } else {
-        dashboardTitle.textContent = finalText;
-      }
-    };
-
-    animate();
+  if (
+    dashboardTitle &&
+    !dashboardTitle.textContent.trim()
+  ) {
+    dashboardTitle.textContent =
+      "Home";
   }
+
 });
 
 /* ==========================================================
@@ -5920,15 +3352,14 @@ document.addEventListener("DOMContentLoaded", () => {
    
 </script>
 
+<script type="module" src="firebase.js"></script>
 
-    <!-- ==================================================
-         FIREBASE
-    =================================================== -->
 
-    <script
-        type="module"
-        src="firebase.js"
-    ></script>
+
+<footer id="siteFooter">
+  &copy; 2026 CyberWithSandiso
+</footer>
 
 </body>
+
 </html>
