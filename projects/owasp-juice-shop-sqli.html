@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>OWASP Juice Shop SQL Injection Case Study | Sandiso Mayekiso</title>
+
+  <meta
+    name="description"
+    content="Controlled web application penetration testing case study by Sandiso Mayekiso covering SQL injection assessment in OWASP Juice Shop."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+</head>
+
+<body>
+
+<header class="case-header">
+  <div class="case-header-inner">
+
+    <a href="../index.html#projects" class="case-back">
+      <i class="fa-solid fa-arrow-left"></i>
+      Back to Portfolio
+    </a>
+
+    <a href="../index.html" class="case-brand">
+      SM / RED TEAM
+    </a>
+
+  </div>
+</header>
+
+
+<main class="case-main">
+
+  <!-- ===================================================
+       HERO
+  ==================================================== -->
+
+  <section class="case-hero">
+
+    <div class="case-hero-copy">
+
+      <span class="case-kicker">
+        WEB APPLICATION PENETRATION TESTING
+      </span>
+
+      <h1>
+        OWASP Juice Shop
+        <br>
+        SQL Injection
+      </h1>
+
+      <p>
+        A controlled web-security exercise using OWASP Juice Shop to
+        investigate unsafe application input handling, identify SQL injection
+        behavior and document the security impact and remediation.
+      </p>
+
+      <div class="case-meta">
+
+        <div>
+          <span>ROLE</span>
+          <strong>Web Application Tester</strong>
+        </div>
+
+        <div>
+          <span>ENVIRONMENT</span>
+          <strong>Intentionally Vulnerable Lab</strong>
+        </div>
+
+        <div>
+          <span>STATUS</span>
+          <strong>Completed</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="case-terminal-card">
+
+      <span>$ workflow</span>
+
+      <strong>
+        Map → Intercept → Test → Validate → Assess → Report
+      </strong>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       OBJECTIVE
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">01</span>
+
+    <div>
+
+      <h2>Objective</h2>
+
+      <p>
+        The objective of this project was to practise identifying and
+        validating SQL injection within an application intentionally designed
+        for security training.
+      </p>
+
+      <p>
+        The exercise focused on understanding the relationship between
+        user-controlled input, application requests and backend database
+        queries rather than treating SQL injection as only a payload-based
+        attack.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       ENVIRONMENT
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">02</span>
+
+    <div>
+
+      <h2>Lab Environment</h2>
+
+      <div class="case-tags">
+        <span>OWASP Juice Shop</span>
+        <span>Burp Suite</span>
+        <span>Browser DevTools</span>
+        <span>HTTP</span>
+        <span>SQL Injection</span>
+        <span>Web Security</span>
+        <span>Input Validation</span>
+        <span>Authentication Testing</span>
+      </div>
+
+      <p>
+        OWASP Juice Shop was used as the target because it is intentionally
+        vulnerable and designed for legal application-security training.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       METHODOLOGY
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">03</span>
+
+    <div>
+
+      <h2>Methodology</h2>
+
+      <ol class="case-steps">
+
+        <li>
+          <strong>Application Mapping</strong>
+
+          <p>
+            Reviewed accessible application functionality and identified
+            locations where user-controlled input was submitted to the server.
+          </p>
+        </li>
+
+        <li>
+          <strong>Request Interception</strong>
+
+          <p>
+            Used Burp Suite to inspect HTTP requests and understand how
+            application input was transmitted to backend functionality.
+          </p>
+        </li>
+
+        <li>
+          <strong>Input Behavior Testing</strong>
+
+          <p>
+            Modified input values inside the training environment and observed
+            differences in application responses.
+          </p>
+        </li>
+
+        <li>
+          <strong>Vulnerability Identification</strong>
+
+          <p>
+            Identified behavior consistent with unsafe handling of input in
+            backend database queries.
+          </p>
+        </li>
+
+        <li>
+          <strong>Controlled Validation</strong>
+
+          <p>
+            Confirmed the weakness only to the level required to demonstrate
+            security impact inside the intentionally vulnerable lab.
+          </p>
+        </li>
+
+        <li>
+          <strong>Impact Analysis</strong>
+
+          <p>
+            Considered how equivalent weaknesses in a real application could
+            affect authentication, confidentiality and database integrity.
+          </p>
+        </li>
+
+        <li>
+          <strong>Reporting</strong>
+
+          <p>
+            Documented the affected functionality, observed behavior, impact
+            and recommended defensive controls.
+          </p>
+        </li>
+
+      </ol>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       FINDING
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">04</span>
+
+    <div>
+
+      <h2>Finding</h2>
+
+      <article class="finding-card">
+
+        <div class="finding-header">
+
+          <div>
+            <span class="finding-id">WEB-003</span>
+            <h3>SQL Injection in Application Input</h3>
+          </div>
+
+          <span class="severity severity-high">
+            HIGH
+          </span>
+
+        </div>
+
+        <p>
+          Testing within the intentionally vulnerable application demonstrated
+          that user-controlled input could influence backend SQL logic. This
+          illustrates the risk created when untrusted input is incorporated
+          into database queries without safe parameterization.
+        </p>
+
+
+        <div class="finding-grid">
+
+          <div>
+
+            <span>ATTACK SURFACE</span>
+
+            <p>
+              Application functionality accepting user-controlled values that
+              were processed by backend database logic.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <span>IMPACT</span>
+
+            <p>
+              In a real application, SQL injection may allow unauthorized
+              access to information, authentication bypass, modification of
+              database content or other database actions depending on the
+              application's privileges.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <span>ROOT CAUSE</span>
+
+            <p>
+              Unsafe construction of database queries using untrusted
+              application input.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <span>REMEDIATION</span>
+
+            <p>
+              Use parameterized queries or prepared statements, enforce
+              authorization independently of user input and apply least
+              privilege to database accounts.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       TESTING FLOW
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">05</span>
+
+    <div>
+
+      <h2>Testing Flow</h2>
+
+      <div class="case-evidence-grid">
+
+        <div>
+          <i class="fa-solid fa-globe"></i>
+          <span>Map Application</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-arrows-left-right"></i>
+          <span>Intercept Requests</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-code"></i>
+          <span>Analyze Input Handling</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-database"></i>
+          <span>Validate Database Impact</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       EVIDENCE
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">06</span>
+
+    <div>
+
+      <h2>Evidence</h2>
+
+      <p>
+        Recruiter-facing evidence for this project can include sanitized
+        screenshots showing the relevant Juice Shop functionality, intercepted
+        HTTP request structure, response differences and confirmation that the
+        vulnerability was successfully validated.
+      </p>
+
+      <div class="case-evidence-grid">
+
+        <div>
+          <i class="fa-solid fa-window-maximize"></i>
+          <span>Application Interface</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-code-branch"></i>
+          <span>HTTP Request</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Response Analysis</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-file-shield"></i>
+          <span>Finding Report</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       REMEDIATION
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">07</span>
+
+    <div>
+
+      <h2>Remediation</h2>
+
+      <ul class="case-lessons">
+
+        <li>
+          Use parameterized queries or prepared statements for database
+          operations.
+        </li>
+
+        <li>
+          Never construct SQL queries by directly concatenating untrusted
+          application input.
+        </li>
+
+        <li>
+          Apply server-side validation as an additional defensive control.
+        </li>
+
+        <li>
+          Use least-privilege database accounts so application compromise does
+          not automatically provide unrestricted database permissions.
+        </li>
+
+        <li>
+          Implement authorization checks independently of client-supplied
+          values.
+        </li>
+
+        <li>
+          Avoid exposing detailed database errors to application users.
+        </li>
+
+        <li>
+          Include SQL injection testing in secure development and application
+          security review processes.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       LESSONS
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">08</span>
+
+    <div>
+
+      <h2>Lessons Learned</h2>
+
+      <ul class="case-lessons">
+
+        <li>
+          SQL injection is fundamentally an input-to-query trust problem.
+        </li>
+
+        <li>
+          Understanding HTTP requests helps reveal how browser input reaches
+          backend application functionality.
+        </li>
+
+        <li>
+          Burp Suite provides visibility into application behavior that is not
+          always obvious from the user interface.
+        </li>
+
+        <li>
+          Successful validation should demonstrate risk without performing
+          unnecessary actions beyond the assessment objective.
+        </li>
+
+        <li>
+          Remediation guidance is an essential part of professional
+          penetration-testing work.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       SKILLS
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">09</span>
+
+    <div>
+
+      <h2>Skills Demonstrated</h2>
+
+      <div class="case-tags">
+        <span>Web Application Testing</span>
+        <span>OWASP Juice Shop</span>
+        <span>Burp Suite</span>
+        <span>HTTP Analysis</span>
+        <span>SQL Injection</span>
+        <span>Input Validation</span>
+        <span>Vulnerability Validation</span>
+        <span>Impact Analysis</span>
+        <span>Remediation</span>
+        <span>Security Reporting</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       CTA
+  ==================================================== -->
+
+  <section class="case-cta">
+
+    <div>
+
+      <span>PORTFOLIO</span>
+
+      <h2>
+        Explore more security case studies
+      </h2>
+
+    </div>
+
+    <a
+      href="../index.html#projects"
+      class="btn btn-primary"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+      View Projects
+    </a>
+
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+  <div>
+    <span>Sandiso Mayekiso</span>
+    <p>Junior Penetration Tester / Ethical Hacker</p>
+  </div>
+
+  <p>
+    CyberWithSandiso
+  </p>
+
+</footer>
+
+</body>
+</html>

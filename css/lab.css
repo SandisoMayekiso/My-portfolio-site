@@ -1,0 +1,2675 @@
+/* =========================================================
+   SANDISO MAYEKISO
+   CYBER SECURITY LAB
+   lab.css
+========================================================= */
+
+
+/* =========================================================
+   1. LAB SHELL
+========================================================= */
+
+.lab-header {
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        1200;
+
+    min-height:
+        72px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(5, 5, 5, 0.94);
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+
+}
+
+
+.lab-nav {
+
+    width:
+        min(
+            calc(100% - 40px),
+            var(--max-width)
+        );
+
+    margin-inline:
+        auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+}
+
+
+.lab-brand {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.82rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.lab-brand-mark {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        10px;
+
+    background:
+        var(--red-soft);
+
+    color:
+        var(--red);
+
+    box-shadow:
+        var(--glow);
+
+}
+
+
+.lab-nav-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.lab-nav-link {
+
+    min-height:
+        38px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        8px 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.76rem;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+}
+
+
+.lab-nav-link:hover {
+
+    border-color:
+        var(--red-border);
+
+    color:
+        var(--red);
+
+}
+
+
+.lab-logout-btn {
+
+    font:
+        inherit;
+
+}
+
+
+.lab-main {
+
+    width:
+        min(
+            calc(100% - 40px),
+            var(--max-width)
+        );
+
+    margin-inline:
+        auto;
+
+}
+
+
+/* =========================================================
+   2. HERO
+========================================================= */
+
+.lab-hero {
+
+    min-height:
+        480px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(280px, 0.55fr);
+
+    gap:
+        48px;
+
+    align-items:
+        center;
+
+    padding:
+        80px 0;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.lab-kicker {
+
+    display:
+        inline-block;
+
+    margin-bottom:
+        12px;
+
+    color:
+        var(--red);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.15em;
+
+}
+
+
+.lab-hero h1 {
+
+    margin:
+        0;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            6rem
+        );
+
+    line-height:
+        0.95;
+
+    letter-spacing:
+        -0.045em;
+
+}
+
+
+.lab-hero h1 strong {
+
+    display:
+        block;
+
+    color:
+        var(--red);
+
+    font-weight:
+        inherit;
+
+}
+
+
+.lab-hero p {
+
+    max-width:
+        760px;
+
+    margin:
+        22px 0 0;
+
+    color:
+        var(--text-soft);
+
+    line-height:
+        1.85;
+
+}
+
+
+.lab-status-card {
+
+    min-height:
+        180px;
+
+    padding:
+        24px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 32, 32, 0.055),
+            var(--bg-card)
+        );
+
+    box-shadow:
+        var(--glow);
+
+}
+
+
+.lab-status-card > span {
+
+    color:
+        var(--red);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.65rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.12em;
+
+}
+
+
+.lab-status-card strong {
+
+    display:
+        block;
+
+    margin-top:
+        12px;
+
+    font-size:
+        1rem;
+
+}
+
+
+.lab-status-card small {
+
+    display:
+        block;
+
+    margin-top:
+        8px;
+
+    color:
+        var(--text-muted);
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   3. AUTH PANEL
+========================================================= */
+
+.lab-auth-panel {
+
+    margin:
+        36px 0 0;
+
+    padding:
+        24px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        24px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        var(--bg-card);
+
+}
+
+
+.lab-auth-panel > div {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        16px;
+
+}
+
+
+.lab-auth-panel > div > i {
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    flex:
+        0 0 44px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        10px;
+
+    background:
+        var(--red-soft);
+
+    color:
+        var(--red);
+
+}
+
+
+.lab-auth-panel span {
+
+    color:
+        var(--red);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.64rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.12em;
+
+}
+
+
+.lab-auth-panel h2 {
+
+    margin:
+        5px 0 8px;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        1.1rem;
+
+}
+
+
+.lab-auth-panel p {
+
+    margin:
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.86rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   4. TOOLS
+========================================================= */
+
+.lab-tools-section {
+
+    padding:
+        90px 0;
+
+}
+
+
+.lab-tools-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap:
+        18px;
+
+}
+
+
+.lab-tool-card {
+
+    min-height:
+        320px;
+
+    padding:
+        24px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 15, 18, 0.98),
+            rgba(7, 7, 9, 0.98)
+        );
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+
+}
+
+
+.lab-tool-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        var(--red-border);
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+.lab-tool-icon {
+
+    width:
+        46px;
+
+    height:
+        46px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin-bottom:
+        16px;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        12px;
+
+    background:
+        var(--red-soft);
+
+    color:
+        var(--red);
+
+    font-size:
+        1.05rem;
+
+}
+
+
+.lab-tool-access {
+
+    align-self:
+        flex-start;
+
+    padding:
+        5px 8px;
+
+    margin-bottom:
+        13px;
+
+    border-radius:
+        999px;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.58rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.09em;
+
+}
+
+
+.lab-tool-access.public {
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color:
+        var(--text-muted);
+
+}
+
+
+.lab-tool-access.protected {
+
+    border:
+        1px solid var(--red-border);
+
+    background:
+        var(--red-soft);
+
+    color:
+        var(--red);
+
+}
+
+
+.lab-tool-card h3 {
+
+    margin:
+        0;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        1.05rem;
+
+}
+
+
+.lab-tool-card p {
+
+    margin:
+        13px 0 20px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.84rem;
+
+    line-height:
+        1.72;
+
+}
+
+
+.lab-tool-btn {
+
+    margin-top:
+        auto;
+
+    padding:
+        0;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    background:
+        transparent;
+
+    color:
+        var(--red);
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+}
+
+
+.lab-tool-btn:hover {
+
+    color:
+        #ffffff;
+
+}
+
+
+/* =========================================================
+   5. WORKSPACE
+========================================================= */
+
+.lab-workspace {
+
+    margin:
+        0 0 90px;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        var(--bg-card);
+
+    box-shadow:
+        var(--shadow),
+        var(--glow);
+
+    overflow:
+        hidden;
+
+}
+
+
+.lab-workspace-header {
+
+    min-height:
+        78px;
+
+    padding:
+        18px 22px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(255, 255, 255, 0.012);
+
+}
+
+
+.lab-workspace-header span {
+
+    color:
+        var(--red);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.6rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.1em;
+
+}
+
+
+.lab-workspace-header h2 {
+
+    margin:
+        4px 0 0;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        1.1rem;
+
+}
+
+
+.lab-workspace-close {
+
+    min-height:
+        38px;
+
+    padding:
+        8px 11px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        8px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+
+    color:
+        var(--text-soft);
+
+    cursor:
+        pointer;
+
+}
+
+
+.lab-workspace-close:hover {
+
+    border-color:
+        var(--red-border);
+
+    color:
+        var(--red);
+
+}
+
+
+.lab-tool-panel {
+
+    padding:
+        28px;
+
+}
+
+
+/* =========================================================
+   6. WARNING / INFO
+========================================================= */
+
+.lab-warning {
+
+    display:
+        flex;
+
+    gap:
+        12px;
+
+    padding:
+        16px;
+
+    margin-bottom:
+        22px;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        10px;
+
+    background:
+        var(--red-soft);
+
+}
+
+
+.lab-warning i {
+
+    margin-top:
+        3px;
+
+    color:
+        var(--red);
+
+}
+
+
+.lab-warning p {
+
+    margin:
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.82rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+.lab-info-card {
+
+    display:
+        flex;
+
+    gap:
+        16px;
+
+    padding:
+        20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        rgba(255, 255, 255, 0.015);
+
+}
+
+
+.lab-info-card > i {
+
+    width:
+        40px;
+
+    height:
+        40px;
+
+    flex:
+        0 0 40px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        10px;
+
+    background:
+        var(--red-soft);
+
+    color:
+        var(--red);
+
+}
+
+
+.lab-info-card h3 {
+
+    margin:
+        0;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.98rem;
+
+}
+
+
+.lab-info-card p {
+
+    margin:
+        8px 0 0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.84rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   7. FORMS
+========================================================= */
+
+.lab-form {
+
+    display:
+        grid;
+
+    gap:
+        12px;
+
+}
+
+
+.lab-form label {
+
+    color:
+        var(--text);
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.lab-form input,
+.lab-form textarea {
+
+    width:
+        100%;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color:
+        var(--text);
+
+    padding:
+        12px 13px;
+
+    outline:
+        none;
+
+    resize:
+        vertical;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+
+}
+
+
+.lab-form input:focus,
+.lab-form textarea:focus {
+
+    border-color:
+        var(--red-border);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 32, 32, 0.05);
+
+}
+
+
+.lab-action-row {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        10px;
+
+    margin-top:
+        4px;
+
+}
+
+
+/* =========================================================
+   8. OUTPUTS
+========================================================= */
+
+.lab-output {
+
+    min-height:
+        90px;
+
+    margin-top:
+        20px;
+
+    padding:
+        16px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    background:
+        #08080a;
+
+    color:
+        var(--text-soft);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        0.8rem;
+
+    line-height:
+        1.7;
+
+    white-space:
+        pre-wrap;
+
+    word-break:
+        break-word;
+
+}
+
+
+.lab-feedback {
+
+    min-height:
+        20px;
+
+    margin:
+        8px 0 0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.8rem;
+
+}
+
+
+.lab-feedback.success {
+
+    color:
+        #ffffff;
+
+}
+
+
+.lab-feedback.error {
+
+    color:
+        var(--red);
+
+}
+
+
+/* =========================================================
+   9. QUIZ
+========================================================= */
+
+.lab-panel-label {
+
+    display:
+        inline-block;
+
+    color:
+        var(--red);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.62rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.1em;
+
+}
+
+
+#quizQuestion {
+
+    margin:
+        8px 0 20px;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        1.1rem;
+
+    line-height:
+        1.45;
+
+}
+
+
+.quiz-options {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        10px;
+
+}
+
+
+.quiz-options button {
+
+    min-height:
+        48px;
+
+    padding:
+        10px 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+
+    color:
+        var(--text-soft);
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color var(--transition),
+        background var(--transition),
+        color var(--transition);
+
+}
+
+
+.quiz-options button:hover {
+
+    border-color:
+        var(--red-border);
+
+    background:
+        var(--red-soft);
+
+    color:
+        var(--red);
+
+}
+
+
+.quiz-options button.correct {
+
+    border-color:
+        rgba(255, 255, 255, 0.24);
+
+    color:
+        #ffffff;
+
+}
+
+
+.quiz-options button.incorrect {
+
+    border-color:
+        var(--red-border);
+
+    background:
+        var(--red-soft);
+
+    color:
+        var(--red);
+
+}
+
+
+/* =========================================================
+   10. TLS
+========================================================= */
+
+.tls-checklist {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        10px;
+
+    margin-top:
+        18px;
+
+}
+
+
+.tls-checklist > div {
+
+    min-height:
+        50px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    padding:
+        12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(255, 255, 255, 0.015);
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.8rem;
+
+}
+
+
+.tls-checklist i {
+
+    color:
+        var(--red);
+
+}
+
+
+/* =========================================================
+   11. RESOURCE LIBRARY
+========================================================= */
+
+.resource-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        14px;
+
+}
+
+
+.resource-grid article {
+
+    min-height:
+        170px;
+
+    padding:
+        18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        rgba(255, 255, 255, 0.015);
+
+}
+
+
+.resource-grid article > span {
+
+    color:
+        var(--red);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.6rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.1em;
+
+}
+
+
+.resource-grid h3 {
+
+    margin:
+        9px 0;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.95rem;
+
+}
+
+
+.resource-grid p {
+
+    margin:
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.8rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+/* =========================================================
+   12. AUTH MODAL
+========================================================= */
+
+.lab-modal {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        2000;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    background:
+        rgba(0, 0, 0, 0.78);
+
+    backdrop-filter:
+        blur(8px);
+
+}
+
+
+.lab-modal-card {
+
+    position:
+        relative;
+
+    width:
+        min(
+            100%,
+            460px
+        );
+
+    padding:
+        28px;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        #0b0b0e;
+
+    box-shadow:
+        var(--shadow),
+        var(--glow);
+
+}
+
+
+.lab-modal-card h2 {
+
+    margin:
+        0;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        1.5rem;
+
+}
+
+
+.lab-modal-card > p {
+
+    margin:
+        10px 0 22px;
+
+    color:
+        var(--text-soft);
+
+    line-height:
+        1.7;
+
+}
+
+
+.lab-modal-close {
+
+    position:
+        absolute;
+
+    top:
+        14px;
+
+    right:
+        14px;
+
+    width:
+        36px;
+
+    height:
+        36px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        8px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+
+    color:
+        var(--text-soft);
+
+    cursor:
+        pointer;
+
+}
+
+
+.lab-modal-close:hover {
+
+    border-color:
+        var(--red-border);
+
+    color:
+        var(--red);
+
+}
+
+
+/* =========================================================
+   13. AUTH STATES
+========================================================= */
+
+body.lab-authenticated
+.lab-auth-panel {
+
+    display:
+        none;
+
+}
+
+
+body.lab-authenticated
+.lab-tool-card[data-protected="true"]
+.lab-tool-access {
+
+    border-color:
+        var(--border);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color:
+        var(--text-muted);
+
+}
+
+
+body.lab-authenticated
+.lab-tool-card[data-protected="true"]
+.lab-tool-access::before {
+
+    content:
+        "UNLOCKED";
+
+}
+
+
+body.lab-authenticated
+.lab-tool-card[data-protected="true"]
+.lab-tool-access {
+
+    font-size:
+        0;
+
+}
+
+
+body.lab-authenticated
+.lab-tool-card[data-protected="true"]
+.lab-tool-access::before {
+
+    font-size:
+        0.58rem;
+
+}
+
+
+/* =========================================================
+   14. RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .lab-tools-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .lab-hero {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .lab-status-card {
+
+        max-width:
+            520px;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .lab-main,
+    .lab-nav {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+
+    .lab-nav-actions {
+
+        gap:
+            6px;
+
+    }
+
+
+    .lab-nav-link {
+
+        padding:
+            8px 9px;
+
+        font-size:
+            0.7rem;
+
+    }
+
+
+    .lab-hero {
+
+        padding:
+            60px 0;
+
+    }
+
+
+    .lab-auth-panel {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .lab-auth-panel .btn {
+
+        width:
+            100%;
+
+    }
+
+
+    .lab-tools-grid,
+    .quiz-options,
+    .tls-checklist,
+    .resource-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .lab-workspace-header {
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .lab-tool-panel {
+
+        padding:
+            20px;
+
+    }
+
+
+    .lab-action-row {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .lab-action-row .btn {
+
+        width:
+            100%;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .lab-brand > span:last-child {
+
+        display:
+            none;
+
+    }
+
+
+    .lab-hero h1 {
+
+        font-size:
+            3rem;
+
+    }
+
+
+    .lab-status-card,
+    .lab-auth-panel,
+    .lab-tool-card,
+    .lab-modal-card {
+
+        padding:
+            20px;
+
+    }
+
+
+    .lab-workspace-header {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .lab-workspace-close {
+
+        width:
+            100%;
+
+        justify-content:
+            center;
+
+    }
+
+}
+
+/* =========================================================
+   15. ETHICS / AUTHORIZATION NOTICE
+========================================================= */
+
+.lab-ethics-notice {
+
+    margin:
+        36px 0 0;
+
+    padding:
+        24px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        48px minmax(0, 1fr);
+
+    gap:
+        16px;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 32, 32, 0.075),
+            rgba(15, 15, 18, 0.98)
+        );
+
+}
+
+
+.lab-ethics-icon {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        12px;
+
+    background:
+        var(--red-soft);
+
+    color:
+        var(--red);
+
+}
+
+
+.lab-ethics-copy > span {
+
+    color:
+        var(--red);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        0.64rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.12em;
+
+}
+
+
+.lab-ethics-copy h2 {
+
+    margin:
+        6px 0 10px;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.5;
+
+}
+
+
+.lab-ethics-copy p {
+
+    margin:
+        7px 0 0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.84rem;
+
+    line-height:
+        1.72;
+
+}
+
+
+/* =========================================================
+   16. AUTH TABS / PROVIDERS
+========================================================= */
+
+.lab-auth-tabs {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        6px;
+
+    margin-bottom:
+        14px;
+
+    padding:
+        4px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(255, 255, 255, 0.015);
+
+}
+
+
+.lab-auth-tab {
+
+    min-height:
+        40px;
+
+    border:
+        0;
+
+    border-radius:
+        7px;
+
+    background:
+        transparent;
+
+    color:
+        var(--text-muted);
+
+    cursor:
+        pointer;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.lab-auth-tab.active {
+
+    background:
+        var(--red-soft);
+
+    color:
+        var(--red);
+
+}
+
+
+.lab-provider-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr;
+
+    gap:
+        9px;
+
+}
+
+
+.lab-provider-btn {
+
+    min-height:
+        44px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        9px;
+
+    padding:
+        10px 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(255, 255, 255, 0.022);
+
+    color:
+        var(--text);
+
+    cursor:
+        pointer;
+
+    font-weight:
+        700;
+
+}
+
+
+.lab-provider-btn:hover {
+
+    border-color:
+        var(--red-border);
+
+    background:
+        var(--red-soft);
+
+}
+
+
+.lab-provider-btn i {
+
+    font-size:
+        1rem;
+
+}
+
+
+.lab-auth-divider {
+
+    position:
+        relative;
+
+    margin:
+        16px 0;
+
+    text-align:
+        center;
+
+}
+
+
+.lab-auth-divider::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    height:
+        1px;
+
+    background:
+        var(--border);
+
+}
+
+
+.lab-auth-divider span {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    padding:
+        0 9px;
+
+    background:
+        #0b0b0e;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.66rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.lab-register-only {
+
+    display:
+        grid;
+
+    gap:
+        12px;
+
+}
+
+
+.lab-forgot-btn {
+
+    justify-self:
+        start;
+
+    padding:
+        2px 0;
+
+    border:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        var(--text-muted);
+
+    cursor:
+        pointer;
+
+    font-size:
+        0.75rem;
+
+}
+
+
+.lab-forgot-btn:hover {
+
+    color:
+        var(--red);
+
+}
+
+
+.lab-auth-safety-note {
+
+    display:
+        flex;
+
+    gap:
+        10px;
+
+    margin-top:
+        18px;
+
+    padding:
+        12px;
+
+    border:
+        1px solid var(--red-border);
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(255, 32, 32, 0.05);
+
+}
+
+
+.lab-auth-safety-note i {
+
+    margin-top:
+        3px;
+
+    color:
+        var(--red);
+
+}
+
+
+.lab-auth-safety-note p {
+
+    margin:
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.72rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+@media (max-width: 700px) {
+
+    .lab-ethics-notice {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   17. COMPACT AUTH MODAL — FIT VIEWPORT
+========================================================= */
+
+.lab-modal {
+
+    padding:
+        12px;
+
+    overflow-y:
+        auto;
+
+}
+
+
+.lab-modal-card {
+
+    width:
+        min(
+            100%,
+            430px
+        );
+
+    max-height:
+        calc(100dvh - 24px);
+
+    padding:
+        22px;
+
+    overflow-y:
+        auto;
+
+    overscroll-behavior:
+        contain;
+
+    scrollbar-width:
+        thin;
+
+}
+
+
+.lab-modal-card .lab-kicker {
+
+    margin-bottom:
+        7px;
+
+}
+
+
+.lab-modal-card h2 {
+
+    font-size:
+        1.3rem;
+
+}
+
+
+.lab-modal-card > p {
+
+    margin:
+        7px 0 14px;
+
+    font-size:
+        0.8rem;
+
+    line-height:
+        1.5;
+
+}
+
+
+.lab-auth-tabs {
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.lab-auth-tab {
+
+    min-height:
+        36px;
+
+}
+
+
+.lab-provider-grid {
+
+    gap:
+        7px;
+
+}
+
+
+.lab-provider-btn {
+
+    min-height:
+        39px;
+
+    padding:
+        8px 10px;
+
+    font-size:
+        0.78rem;
+
+}
+
+
+.lab-auth-divider {
+
+    margin:
+        10px 0;
+
+}
+
+
+.lab-modal-card .lab-form {
+
+    gap:
+        8px;
+
+}
+
+
+.lab-modal-card .lab-form label {
+
+    font-size:
+        0.73rem;
+
+}
+
+
+.lab-modal-card .lab-form input {
+
+    min-height:
+        39px;
+
+    padding:
+        8px 11px;
+
+}
+
+
+.lab-modal-card .lab-form .btn {
+
+    min-height:
+        39px;
+
+    margin-top:
+        2px;
+
+}
+
+
+.lab-register-only {
+
+    gap:
+        8px;
+
+}
+
+
+.lab-forgot-btn {
+
+    font-size:
+        0.7rem;
+
+}
+
+
+.lab-auth-safety-note {
+
+    margin-top:
+        12px;
+
+    padding:
+        9px 10px;
+
+}
+
+
+.lab-auth-safety-note p {
+
+    font-size:
+        0.67rem;
+
+    line-height:
+        1.45;
+
+}
+
+
+@media (max-height: 760px) {
+
+    .lab-modal {
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .lab-modal-card {
+
+        margin:
+            auto 0;
+
+        padding:
+            18px 20px;
+
+    }
+
+
+    .lab-modal-card .lab-kicker {
+
+        display:
+            none;
+
+    }
+
+
+    .lab-modal-card > p {
+
+        margin-bottom:
+            10px;
+
+    }
+
+
+    .lab-auth-safety-note {
+
+        margin-top:
+            9px;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .lab-modal {
+
+        padding:
+            8px;
+
+    }
+
+
+    .lab-modal-card {
+
+        max-height:
+            calc(100dvh - 16px);
+
+        padding:
+            18px 16px;
+
+    }
+
+
+    .lab-modal-close {
+
+        top:
+            10px;
+
+        right:
+            10px;
+
+        width:
+            32px;
+
+        height:
+            32px;
+
+    }
+
+}

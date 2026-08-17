@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Cyber Security Lab | Sandiso Mayekiso
+  </title>
+
+  <meta
+    name="description"
+    content="Interactive cybersecurity training lab by Sandiso Mayekiso featuring security-analysis tools, quizzes, cryptography demonstrations, TLS inspection and input-analysis exercises."
+  >
+
+  <meta
+    name="author"
+    content="Sandiso Mayekiso"
+  >
+
+  <meta
+    name="theme-color"
+    content="#050505"
+  >
+
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/lab.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- ==================================================
+       HEADER
+  =================================================== -->
+
+  <header class="lab-header">
+
+    <nav class="lab-nav">
+
+      <a
+        href="index.html"
+        class="lab-brand"
+      >
+        <span class="lab-brand-mark">
+          SM
+        </span>
+
+        <span>
+          Cyber Security Lab
+        </span>
+      </a>
+
+
+      <div class="lab-nav-actions">
+
+        <a
+          href="index.html"
+          class="lab-nav-link"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          Portfolio
+        </a>
+
+        <button
+          type="button"
+          id="labLogoutBtn"
+          class="lab-nav-link lab-logout-btn"
+          hidden
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </button>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <main class="lab-main">
+
+
+    <!-- ==================================================
+         HERO
+    =================================================== -->
+
+    <section class="lab-hero">
+
+      <div>
+
+        <span class="lab-kicker">
+          INTERACTIVE SECURITY PROJECT
+        </span>
+
+        <h1>
+          Cyber
+          <strong>
+            Security Lab
+          </strong>
+        </h1>
+
+        <p>
+          A collection of cybersecurity learning tools and demonstrations
+          designed for controlled, authorized and educational use.
+        </p>
+
+      </div>
+
+
+      <div class="lab-status-card">
+
+        <span>
+          LAB STATUS
+        </span>
+
+        <strong id="labStatusText">
+          Public tools available
+        </strong>
+
+        <small>
+          Some advanced tools may require authentication.
+        </small>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         AUTHORIZATION / LEARNING NOTICE
+    =================================================== -->
+
+    <section class="lab-ethics-notice">
+
+      <div class="lab-ethics-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+
+      <div class="lab-ethics-copy">
+
+        <span>
+          AUTHORIZED LEARNING ONLY
+        </span>
+
+        <h2>
+          This lab is for testing, training and cybersecurity education.
+        </h2>
+
+        <p>
+          Do not use these tools to hack, scan, probe or test websites,
+          networks, accounts or systems that you do not own or do not have
+          explicit permission to assess.
+        </p>
+
+        <p>
+          By using the Cyber Security Lab, you agree to practise only in
+          controlled environments, intentionally vulnerable labs, your own
+          systems, or systems where you have clear authorization.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         AUTH ACCESS
+    =================================================== -->
+
+    <section
+      class="lab-auth-panel"
+      id="labAuthPanel"
+    >
+
+      <div>
+
+        <i class="fa-solid fa-user-shield"></i>
+
+        <div>
+
+          <span>
+            OPTIONAL ACCOUNT
+          </span>
+
+          <h2>
+            Sign in or create an account
+          </h2>
+
+          <p>
+            Public learning tools remain available without an account.
+            Sign in to unlock protected lab features and future saved
+            learning activity.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="btn btn-primary"
+        id="openAuthBtn"
+      >
+        <i class="fa-solid fa-lock"></i>
+        Sign In / Register
+      </button>
+
+    </section>
+
+
+    <!-- ==================================================
+         LAB TOOLS
+    =================================================== -->
+
+    <section class="lab-tools-section">
+
+      <div class="section-heading">
+
+        <span>
+          SECURITY TOOLS
+        </span>
+
+        <h2>
+          Explore the
+          <strong>
+            lab.
+          </strong>
+        </h2>
+
+      </div>
+
+
+      <div class="lab-tools-grid">
+
+
+        <article
+          class="lab-tool-card"
+          data-tool="scanner"
+          data-protected="true"
+        >
+
+          <div class="lab-tool-icon">
+            <i class="fa-solid fa-radar"></i>
+          </div>
+
+          <span class="lab-tool-access protected">
+            AUTH REQUIRED
+          </span>
+
+          <h3>
+            Security Scanner
+          </h3>
+
+          <p>
+            Run controlled security checks against systems you own or are
+            explicitly authorized to test.
+          </p>
+
+          <button
+            type="button"
+            class="lab-tool-btn"
+            data-open-tool="scanner"
+          >
+            Open Scanner
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </article>
+
+
+        <article
+          class="lab-tool-card"
+          data-tool="quiz"
+          data-protected="false"
+        >
+
+          <div class="lab-tool-icon">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+
+          <span class="lab-tool-access public">
+            PUBLIC
+          </span>
+
+          <h3>
+            Security Quiz
+          </h3>
+
+          <p>
+            Test your cybersecurity knowledge across networking, web security,
+            Linux and general security concepts.
+          </p>
+
+          <button
+            type="button"
+            class="lab-tool-btn"
+            data-open-tool="quiz"
+          >
+            Start Quiz
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </article>
+
+
+        <article
+          class="lab-tool-card"
+          data-tool="crypto"
+          data-protected="false"
+        >
+
+          <div class="lab-tool-icon">
+            <i class="fa-solid fa-key"></i>
+          </div>
+
+          <span class="lab-tool-access public">
+            PUBLIC
+          </span>
+
+          <h3>
+            Crypto Playground
+          </h3>
+
+          <p>
+            Explore encoding, hashing and cryptography concepts through
+            controlled demonstrations.
+          </p>
+
+          <button
+            type="button"
+            class="lab-tool-btn"
+            data-open-tool="crypto"
+          >
+            Open Playground
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </article>
+
+
+        <article
+          class="lab-tool-card"
+          data-tool="tls"
+          data-protected="false"
+        >
+
+          <div class="lab-tool-icon">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+
+          <span class="lab-tool-access public">
+            PUBLIC
+          </span>
+
+          <h3>
+            HTTPS & TLS Inspector
+          </h3>
+
+          <p>
+            Learn how HTTPS, certificates and TLS-related browser trust
+            indicators work.
+          </p>
+
+          <button
+            type="button"
+            class="lab-tool-btn"
+            data-open-tool="tls"
+          >
+            Inspect TLS
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </article>
+
+
+        <article
+          class="lab-tool-card"
+          data-tool="input-analysis"
+          data-protected="false"
+        >
+
+          <div class="lab-tool-icon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+
+          <span class="lab-tool-access public">
+            PUBLIC
+          </span>
+
+          <h3>
+            Input Field Analysis
+          </h3>
+
+          <p>
+            Explore how web inputs are handled and why secure validation and
+            output encoding matter.
+          </p>
+
+          <button
+            type="button"
+            class="lab-tool-btn"
+            data-open-tool="input-analysis"
+          >
+            Analyze Inputs
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </article>
+
+
+        <article
+          class="lab-tool-card"
+          data-tool="library"
+          data-protected="false"
+        >
+
+          <div class="lab-tool-icon">
+            <i class="fa-solid fa-book"></i>
+          </div>
+
+          <span class="lab-tool-access public">
+            PUBLIC
+          </span>
+
+          <h3>
+            Resources Library
+          </h3>
+
+          <p>
+            Access curated cybersecurity references, methodology notes and
+            learning resources.
+          </p>
+
+          <button
+            type="button"
+            class="lab-tool-btn"
+            data-open-tool="library"
+          >
+            Open Library
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         TOOL WORKSPACE
+    =================================================== -->
+
+    <section
+      class="lab-workspace"
+      id="labWorkspace"
+      hidden
+    >
+
+      <div class="lab-workspace-header">
+
+        <div>
+
+          <span>
+            ACTIVE TOOL
+          </span>
+
+          <h2 id="workspaceTitle">
+            Security Lab
+          </h2>
+
+        </div>
+
+        <button
+          type="button"
+          class="lab-workspace-close"
+          id="closeWorkspaceBtn"
+        >
+          <i class="fa-solid fa-xmark"></i>
+          Close
+        </button>
+
+      </div>
+
+
+      <!-- ===============================================
+           SCANNER
+      ================================================ -->
+
+      <div
+        class="lab-tool-panel"
+        id="scannerPanel"
+        hidden
+      >
+
+        <div class="lab-warning">
+
+          <i class="fa-solid fa-triangle-exclamation"></i>
+
+          <p>
+            Only test systems you own or have explicit authorization to
+            assess. Unauthorized scanning may violate laws, policies or terms
+            of service.
+          </p>
+
+        </div>
+
+
+        <form
+          id="scannerForm"
+          class="lab-form"
+        >
+
+          <label for="scannerTarget">
+            Authorized Target
+          </label>
+
+          <input
+            type="text"
+            id="scannerTarget"
+            placeholder="example.com"
+            autocomplete="off"
+          >
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+          >
+            Run Check
+          </button>
+
+        </form>
+
+
+        <div
+          class="lab-output"
+          id="scannerOutput"
+          hidden
+        ></div>
+
+      </div>
+
+
+      <!-- ===============================================
+           QUIZ
+      ================================================ -->
+
+      <div
+        class="lab-tool-panel"
+        id="quizPanel"
+        hidden
+      >
+
+        <div id="quizQuestionArea">
+
+          <span class="lab-panel-label">
+            QUESTION
+          </span>
+
+          <h3 id="quizQuestion">
+            Which protocol translates domain names into IP addresses?
+          </h3>
+
+
+          <div
+            class="quiz-options"
+            id="quizOptions"
+          >
+
+            <button
+              type="button"
+              data-answer="FTP"
+            >
+              FTP
+            </button>
+
+            <button
+              type="button"
+              data-answer="DNS"
+            >
+              DNS
+            </button>
+
+            <button
+              type="button"
+              data-answer="SSH"
+            >
+              SSH
+            </button>
+
+            <button
+              type="button"
+              data-answer="SMTP"
+            >
+              SMTP
+            </button>
+
+          </div>
+
+
+          <p
+            id="quizFeedback"
+            class="lab-feedback"
+          ></p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===============================================
+           CRYPTO
+      ================================================ -->
+
+      <div
+        class="lab-tool-panel"
+        id="cryptoPanel"
+        hidden
+      >
+
+        <div class="lab-form">
+
+          <label for="cryptoInput">
+            Text
+          </label>
+
+          <textarea
+            id="cryptoInput"
+            rows="5"
+            placeholder="Enter text to encode or hash..."
+          ></textarea>
+
+
+          <div class="lab-action-row">
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="base64EncodeBtn"
+            >
+              Base64 Encode
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="base64DecodeBtn"
+            >
+              Base64 Decode
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="sha256Btn"
+            >
+              SHA-256
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <pre
+          class="lab-output"
+          id="cryptoOutput"
+        ></pre>
+
+      </div>
+
+
+      <!-- ===============================================
+           TLS
+      ================================================ -->
+
+      <div
+        class="lab-tool-panel"
+        id="tlsPanel"
+        hidden
+      >
+
+        <div class="lab-info-card">
+
+          <i class="fa-solid fa-lock"></i>
+
+          <div>
+
+            <h3>
+              HTTPS & TLS
+            </h3>
+
+            <p>
+              HTTPS uses TLS to protect data in transit between compatible
+              clients and servers. Certificate validation helps clients
+              determine whether they can trust the server identity presented
+              during the connection.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="tls-checklist">
+
+          <div>
+            <i class="fa-solid fa-check"></i>
+            HTTPS URL
+          </div>
+
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Valid certificate chain
+          </div>
+
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Hostname validation
+          </div>
+
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Modern TLS configuration
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===============================================
+           INPUT ANALYSIS
+      ================================================ -->
+
+      <div
+        class="lab-tool-panel"
+        id="input-analysisPanel"
+        hidden
+      >
+
+        <div class="lab-form">
+
+          <label for="inputAnalysisText">
+            Sample Input
+          </label>
+
+          <textarea
+            id="inputAnalysisText"
+            rows="5"
+            placeholder="Enter sample text..."
+          ></textarea>
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="analyzeInputBtn"
+          >
+            Analyze Input
+          </button>
+
+        </div>
+
+
+        <div
+          class="lab-output"
+          id="inputAnalysisOutput"
+          hidden
+        ></div>
+
+      </div>
+
+
+      <!-- ===============================================
+           LIBRARY
+      ================================================ -->
+
+      <div
+        class="lab-tool-panel"
+        id="libraryPanel"
+        hidden
+      >
+
+        <div class="resource-grid">
+
+          <article>
+
+            <span>
+              METHODOLOGY
+            </span>
+
+            <h3>
+              Penetration Testing Workflow
+            </h3>
+
+            <p>
+              Reconnaissance → Enumeration → Vulnerability Analysis →
+              Controlled Validation → Reporting.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <span>
+              FRAMEWORK
+            </span>
+
+            <h3>
+              MITRE ATT&CK
+            </h3>
+
+            <p>
+              Use ATT&CK to understand adversary tactics, techniques and
+              observable behaviors.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <span>
+              WEB SECURITY
+            </span>
+
+            <h3>
+              OWASP
+            </h3>
+
+            <p>
+              Review common application-security risks and secure development
+              guidance.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <span>
+              NETWORKING
+            </span>
+
+            <h3>
+              Packet Analysis
+            </h3>
+
+            <p>
+              Build practical understanding of TCP/IP, DNS, TLS, ARP and
+              network conversations.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         AUTH MODAL
+    =================================================== -->
+
+    <div
+      class="lab-modal"
+      id="labAuthModal"
+      hidden
+    >
+
+      <div class="lab-modal-card">
+
+        <button
+          type="button"
+          class="lab-modal-close"
+          id="closeAuthBtn"
+          aria-label="Close authentication form"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <span class="lab-kicker">
+          LAB ACCOUNT
+        </span>
+
+        <h2 id="labAuthTitle">
+          Sign In
+        </h2>
+
+        <p id="labAuthDescription">
+          Sign in to unlock protected Cyber Security Lab tools.
+        </p>
+
+
+        <div
+          class="lab-auth-tabs"
+          role="tablist"
+          aria-label="Authentication options"
+        >
+
+          <button
+            type="button"
+            id="labSignInTab"
+            class="lab-auth-tab active"
+            data-auth-mode="signin"
+            aria-selected="true"
+          >
+            Sign In
+          </button>
+
+          <button
+            type="button"
+            id="labRegisterTab"
+            class="lab-auth-tab"
+            data-auth-mode="register"
+            aria-selected="false"
+          >
+            Register
+          </button>
+
+        </div>
+
+
+        <div class="lab-provider-grid">
+
+          <button
+            type="button"
+            class="lab-provider-btn"
+            id="googleSignInBtn"
+          >
+            <i class="fa-brands fa-google"></i>
+            Continue with Google
+          </button>
+
+          <button
+            type="button"
+            class="lab-provider-btn"
+            id="githubSignInBtn"
+          >
+            <i class="fa-brands fa-github"></i>
+            Continue with GitHub
+          </button>
+
+        </div>
+
+
+        <div class="lab-auth-divider">
+          <span>OR</span>
+        </div>
+
+
+        <form
+          id="labLoginForm"
+          class="lab-form"
+        >
+
+          <div
+            class="lab-register-only"
+            id="labNameGroup"
+            hidden
+          >
+
+            <label for="labDisplayName">
+              Display Name
+            </label>
+
+            <input
+              type="text"
+              id="labDisplayName"
+              autocomplete="name"
+              maxlength="80"
+            >
+
+          </div>
+
+
+          <label for="labEmail">
+            Email
+          </label>
+
+          <input
+            type="email"
+            id="labEmail"
+            autocomplete="email"
+            required
+          >
+
+
+          <label for="labPassword">
+            Password
+          </label>
+
+          <input
+            type="password"
+            id="labPassword"
+            autocomplete="current-password"
+            minlength="6"
+            required
+          >
+
+
+          <div
+            class="lab-register-only"
+            id="labConfirmPasswordGroup"
+            hidden
+          >
+
+            <label for="labConfirmPassword">
+              Confirm Password
+            </label>
+
+            <input
+              type="password"
+              id="labConfirmPassword"
+              autocomplete="new-password"
+              minlength="6"
+            >
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="labAuthSubmitBtn"
+          >
+            Sign In
+          </button>
+
+
+          <button
+            type="button"
+            class="lab-forgot-btn"
+            id="labForgotPasswordBtn"
+          >
+            Forgot password?
+          </button>
+
+
+          <p
+            id="labAuthMessage"
+            class="lab-feedback"
+            aria-live="polite"
+          ></p>
+
+        </form>
+
+
+        <div class="lab-auth-safety-note">
+
+          <i class="fa-solid fa-circle-info"></i>
+
+          <p>
+            Access to this lab does not grant permission to test third-party
+            systems. Use all security tools only on systems you own or are
+            explicitly authorized to assess.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div>
+
+      <span>
+        Sandiso Mayekiso
+      </span>
+
+      <p>
+        Cyber Security Lab
+      </p>
+
+    </div>
+
+    <p>
+      Controlled & authorized use only
+    </p>
+
+  </footer>
+
+
+  <!-- ==================================================
+       LAB JAVASCRIPT
+  =================================================== -->
+
+  <script src="js/lab.js"></script>
+
+
+  <!-- ==================================================
+       FIREBASE AUTHENTICATION
+  =================================================== -->
+
+  <script
+    type="module"
+    src="firebase.js"
+  ></script>
+
+
+</body>
+</html>

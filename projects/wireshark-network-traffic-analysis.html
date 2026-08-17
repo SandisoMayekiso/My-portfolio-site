@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Wireshark Network Traffic Analysis | Sandiso Mayekiso</title>
+
+  <meta
+    name="description"
+    content="Network traffic analysis case study by Sandiso Mayekiso covering ARP, TCP, UDP, TLS and QUIC packet analysis using Wireshark in a controlled lab."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+</head>
+
+<body>
+
+  <header class="case-header">
+
+    <div class="case-header-inner">
+
+      <a href="../index.html#projects" class="case-back">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Portfolio
+      </a>
+
+      <a href="../index.html" class="case-brand">
+        SM / RED TEAM
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <main class="case-main">
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="case-hero">
+
+      <div class="case-hero-copy">
+
+        <span class="case-kicker">
+          NETWORK TRAFFIC ANALYSIS
+        </span>
+
+        <h1>
+          Wireshark
+          <br>
+          Traffic Analysis
+        </h1>
+
+        <p>
+          A packet-analysis project focused on understanding how common
+          network protocols appear on the wire and using Wireshark to inspect
+          ARP, TCP, UDP, TLS and QUIC traffic in a controlled environment.
+        </p>
+
+
+        <div class="case-meta">
+
+          <div>
+            <span>ROLE</span>
+            <strong>Network Security Analyst</strong>
+          </div>
+
+          <div>
+            <span>ENVIRONMENT</span>
+            <strong>Controlled Lab</strong>
+          </div>
+
+          <div>
+            <span>STATUS</span>
+            <strong>Completed</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="case-terminal-card">
+
+        <span>$ workflow</span>
+
+        <strong>
+          Capture → Filter → Inspect → Correlate → Interpret → Document
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         OBJECTIVE
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        01
+      </span>
+
+      <div>
+
+        <h2>
+          Objective
+        </h2>
+
+        <p>
+          The objective of this project was to strengthen practical network
+          analysis skills by capturing traffic and examining how different
+          protocols behave at packet level.
+        </p>
+
+        <p>
+          Rather than treating Wireshark as only a packet viewer, the project
+          focused on understanding conversations between hosts, protocol
+          fields, connection establishment, encrypted traffic indicators and
+          how packet evidence can support security investigations.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ENVIRONMENT
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        02
+      </span>
+
+      <div>
+
+        <h2>
+          Analysis Environment
+        </h2>
+
+        <div class="case-tags">
+          <span>Wireshark</span>
+          <span>Linux</span>
+          <span>TCP/IP</span>
+          <span>ARP</span>
+          <span>TCP</span>
+          <span>UDP</span>
+          <span>TLS</span>
+          <span>QUIC</span>
+          <span>Display Filters</span>
+          <span>Packet Inspection</span>
+        </div>
+
+        <p>
+          Traffic was captured and reviewed in a controlled environment where
+          network activity could be generated and analyzed without inspecting
+          third-party communications.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         METHODOLOGY
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        03
+      </span>
+
+      <div>
+
+        <h2>
+          Methodology
+        </h2>
+
+        <ol class="case-steps">
+
+          <li>
+            <strong>Traffic Capture</strong>
+
+            <p>
+              Selected the appropriate network interface and captured traffic
+              generated during controlled network activity.
+            </p>
+          </li>
+
+          <li>
+            <strong>Traffic Reduction</strong>
+
+            <p>
+              Used Wireshark display filters to isolate protocols and reduce
+              unrelated packets from the analysis view.
+            </p>
+          </li>
+
+          <li>
+            <strong>Protocol Inspection</strong>
+
+            <p>
+              Expanded packet layers and reviewed addressing, ports, flags,
+              protocol fields and other relevant metadata.
+            </p>
+          </li>
+
+          <li>
+            <strong>Conversation Correlation</strong>
+
+            <p>
+              Related individual packets to the larger communication flow
+              between endpoints.
+            </p>
+          </li>
+
+          <li>
+            <strong>Behavior Interpretation</strong>
+
+            <p>
+              Compared observed packet behavior with expected protocol
+              operation to understand what the traffic represented.
+            </p>
+          </li>
+
+          <li>
+            <strong>Documentation</strong>
+
+            <p>
+              Recorded observations and translated packet-level evidence into
+              understandable network-security findings.
+            </p>
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PROTOCOL ANALYSIS
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        04
+      </span>
+
+      <div>
+
+        <h2>
+          Protocol Analysis
+        </h2>
+
+
+        <article class="finding-card">
+
+          <div class="finding-header">
+
+            <div>
+              <span class="finding-id">PROTO-01</span>
+              <h3>ARP — Local Address Resolution</h3>
+            </div>
+
+            <span class="severity severity-medium">
+              ANALYSIS
+            </span>
+
+          </div>
+
+          <p>
+            Reviewed ARP request and reply traffic to understand how systems
+            on a local network associate IPv4 addresses with MAC addresses.
+          </p>
+
+          <div class="finding-grid">
+
+            <div>
+              <span>OBSERVED</span>
+              <p>
+                Broadcast requests identifying a target IPv4 address followed
+                by responses containing the corresponding hardware address.
+              </p>
+            </div>
+
+            <div>
+              <span>SECURITY RELEVANCE</span>
+              <p>
+                Understanding normal ARP behavior provides a foundation for
+                recognizing suspicious address-resolution activity and
+                investigating local network anomalies.
+              </p>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="finding-card">
+
+          <div class="finding-header">
+
+            <div>
+              <span class="finding-id">PROTO-02</span>
+              <h3>TCP — Connection-Oriented Communication</h3>
+            </div>
+
+            <span class="severity severity-medium">
+              ANALYSIS
+            </span>
+
+          </div>
+
+          <p>
+            Examined TCP conversations to identify connection establishment,
+            source and destination ports, sequence information and TCP flags.
+          </p>
+
+          <div class="finding-grid">
+
+            <div>
+              <span>OBSERVED</span>
+              <p>
+                Packet sequences showing the establishment and continuation of
+                stateful communications between endpoints.
+              </p>
+            </div>
+
+            <div>
+              <span>SECURITY RELEVANCE</span>
+              <p>
+                TCP analysis helps identify service connections, unexpected
+                destinations, failed connection patterns and unusual session
+                behavior.
+              </p>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="finding-card">
+
+          <div class="finding-header">
+
+            <div>
+              <span class="finding-id">PROTO-03</span>
+              <h3>UDP — Connectionless Traffic</h3>
+            </div>
+
+            <span class="severity severity-medium">
+              ANALYSIS
+            </span>
+
+          </div>
+
+          <p>
+            Reviewed UDP datagrams and compared their behavior with
+            connection-oriented TCP communications.
+          </p>
+
+          <div class="finding-grid">
+
+            <div>
+              <span>OBSERVED</span>
+              <p>
+                Lightweight datagrams containing source and destination port
+                information without a TCP-style connection handshake.
+              </p>
+            </div>
+
+            <div>
+              <span>SECURITY RELEVANCE</span>
+              <p>
+                UDP traffic analysis is useful when investigating services
+                that do not establish traditional TCP sessions and when
+                identifying unexpected datagram activity.
+              </p>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="finding-card">
+
+          <div class="finding-header">
+
+            <div>
+              <span class="finding-id">PROTO-04</span>
+              <h3>TLS — Encrypted Application Traffic</h3>
+            </div>
+
+            <span class="severity severity-medium">
+              ANALYSIS
+            </span>
+
+          </div>
+
+          <p>
+            Examined encrypted TLS traffic to distinguish visible connection
+            metadata from application content protected by encryption.
+          </p>
+
+          <div class="finding-grid">
+
+            <div>
+              <span>OBSERVED</span>
+              <p>
+                TLS-related records and encrypted application data where the
+                packet payload was not directly readable as normal plaintext.
+              </p>
+            </div>
+
+            <div>
+              <span>SECURITY RELEVANCE</span>
+              <p>
+                Even when content is encrypted, endpoint, timing, protocol and
+                connection metadata can remain valuable during network
+                investigations.
+              </p>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="finding-card">
+
+          <div class="finding-header">
+
+            <div>
+              <span class="finding-id">PROTO-05</span>
+              <h3>QUIC — Modern Encrypted Transport</h3>
+            </div>
+
+            <span class="severity severity-medium">
+              ANALYSIS
+            </span>
+
+          </div>
+
+          <p>
+            Identified QUIC traffic and reviewed how modern web communication
+            can operate differently from traditional TLS-over-TCP traffic.
+          </p>
+
+          <div class="finding-grid">
+
+            <div>
+              <span>OBSERVED</span>
+              <p>
+                QUIC traffic transported over UDP, demonstrating why analysts
+                should not assume modern encrypted web activity will always
+                appear as conventional TCP-based HTTPS sessions.
+              </p>
+            </div>
+
+            <div>
+              <span>SECURITY RELEVANCE</span>
+              <p>
+                Familiarity with QUIC helps analysts correctly interpret
+                modern browser and application traffic during packet
+                investigations.
+              </p>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ANALYSIS WORKFLOW
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        05
+      </span>
+
+      <div>
+
+        <h2>
+          Analysis Workflow
+        </h2>
+
+        <div class="case-evidence-grid">
+
+          <div>
+            <i class="fa-solid fa-satellite-dish"></i>
+            <span>Capture Traffic</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-filter"></i>
+            <span>Apply Filters</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Inspect Packets</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>Correlate Conversations</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         EVIDENCE
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        06
+      </span>
+
+      <div>
+
+        <h2>
+          Evidence
+        </h2>
+
+        <p>
+          This case study can be strengthened with sanitized screenshots from
+          the packet captures. Useful recruiter-facing evidence includes an
+          ARP exchange, a TCP conversation, UDP traffic and examples showing
+          TLS and QUIC identification.
+        </p>
+
+        <div class="case-evidence-grid">
+
+          <div>
+            <i class="fa-solid fa-network-wired"></i>
+            <span>ARP Exchange</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+            <span>TCP Conversation</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>UDP Datagram</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-lock"></i>
+            <span>TLS / QUIC Traffic</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SECURITY VALUE
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        07
+      </span>
+
+      <div>
+
+        <h2>
+          Security Value
+        </h2>
+
+        <ul class="case-lessons">
+
+          <li>
+            Packet analysis can confirm what systems are actually
+            communicating across a network.
+          </li>
+
+          <li>
+            Protocol knowledge makes it easier to distinguish normal network
+            behavior from activity requiring further investigation.
+          </li>
+
+          <li>
+            Network metadata remains valuable even when application payloads
+            are encrypted.
+          </li>
+
+          <li>
+            Display filters allow large captures to be reduced to relevant
+            traffic efficiently.
+          </li>
+
+          <li>
+            Packet-level evidence can support incident investigation,
+            troubleshooting and penetration-testing observations.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         LESSONS
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        08
+      </span>
+
+      <div>
+
+        <h2>
+          Lessons Learned
+        </h2>
+
+        <ul class="case-lessons">
+
+          <li>
+            Understanding TCP/IP fundamentals significantly improves Wireshark
+            analysis.
+          </li>
+
+          <li>
+            Individual packets make more sense when interpreted as part of a
+            complete conversation.
+          </li>
+
+          <li>
+            Source and destination addresses, ports and protocol fields provide
+            important context during investigations.
+          </li>
+
+          <li>
+            Encryption changes what an analyst can inspect, but it does not
+            make all network activity invisible.
+          </li>
+
+          <li>
+            Modern protocols such as QUIC require analysts to understand
+            traffic beyond traditional TCP-based web communications.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SKILLS
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        09
+      </span>
+
+      <div>
+
+        <h2>
+          Skills Demonstrated
+        </h2>
+
+        <div class="case-tags">
+          <span>Wireshark</span>
+          <span>Packet Analysis</span>
+          <span>TCP/IP</span>
+          <span>ARP</span>
+          <span>TCP</span>
+          <span>UDP</span>
+          <span>TLS</span>
+          <span>QUIC</span>
+          <span>Display Filters</span>
+          <span>Network Troubleshooting</span>
+          <span>Traffic Interpretation</span>
+          <span>Security Analysis</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CTA
+    ==================================================== -->
+
+    <section class="case-cta">
+
+      <div>
+
+        <span>
+          PORTFOLIO
+        </span>
+
+        <h2>
+          Explore more security case studies
+        </h2>
+
+      </div>
+
+      <a
+        href="../index.html#projects"
+        class="btn btn-primary"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+        View Projects
+      </a>
+
+    </section>
+
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div>
+      <span>Sandiso Mayekiso</span>
+      <p>Junior Penetration Tester / Ethical Hacker</p>
+    </div>
+
+    <p>
+      CyberWithSandiso
+    </p>
+
+  </footer>
+
+</body>
+</html>

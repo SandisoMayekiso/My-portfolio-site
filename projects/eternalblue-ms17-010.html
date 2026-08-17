@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EternalBlue / MS17-010 Case Study | Sandiso Mayekiso</title>
+
+  <meta
+    name="description"
+    content="Controlled penetration testing case study by Sandiso Mayekiso covering discovery, SMB enumeration, MS17-010 validation and remediation analysis in an isolated Windows lab."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+</head>
+
+<body>
+
+  <header class="case-header">
+
+    <div class="case-header-inner">
+
+      <a href="../index.html#projects" class="case-back">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Portfolio
+      </a>
+
+      <a href="../index.html" class="case-brand">
+        SM / RED TEAM
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <main class="case-main">
+
+
+    <section class="case-hero">
+
+      <div class="case-hero-copy">
+
+        <span class="case-kicker">
+          WINDOWS / SMB SECURITY
+        </span>
+
+        <h1>
+          EternalBlue
+          <br>
+          MS17-010
+        </h1>
+
+        <p>
+          A controlled Windows penetration-testing exercise focused on host
+          discovery, SMB service enumeration, identification of an
+          MS17-010-vulnerable target and validation inside an isolated lab.
+        </p>
+
+
+        <div class="case-meta">
+
+          <div>
+            <span>ROLE</span>
+            <strong>Penetration Tester</strong>
+          </div>
+
+          <div>
+            <span>ENVIRONMENT</span>
+            <strong>Isolated Windows Lab</strong>
+          </div>
+
+          <div>
+            <span>STATUS</span>
+            <strong>Completed</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="case-terminal-card">
+
+        <span>$ methodology</span>
+
+        <strong>
+          Discover → Enumerate → Assess → Validate → Document → Remediate
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        01
+      </span>
+
+      <div>
+
+        <h2>
+          Objective
+        </h2>
+
+        <p>
+          The objective was to practise a structured Windows network
+          penetration-testing workflow by identifying an SMB-exposed host,
+          determining whether it was affected by MS17-010 and validating the
+          risk only inside a deliberately vulnerable training environment.
+        </p>
+
+        <p>
+          The exercise emphasized disciplined enumeration, vulnerability
+          verification, impact analysis and remediation guidance.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        02
+      </span>
+
+      <div>
+
+        <h2>
+          Lab Environment
+        </h2>
+
+        <div class="case-tags">
+          <span>Kali Linux</span>
+          <span>Windows Target</span>
+          <span>VMware</span>
+          <span>Nmap</span>
+          <span>SMB</span>
+          <span>MS17-010</span>
+          <span>Metasploit Framework</span>
+        </div>
+
+        <p>
+          The attacker and target systems were hosted in a private virtual
+          network. Testing was limited to systems intentionally configured for
+          training.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        03
+      </span>
+
+      <div>
+
+        <h2>
+          Methodology
+        </h2>
+
+        <ol class="case-steps">
+
+          <li>
+            <strong>Host Discovery</strong>
+
+            <p>
+              Identified the Windows target inside the isolated lab network.
+            </p>
+          </li>
+
+          <li>
+            <strong>Port Scanning</strong>
+
+            <p>
+              Enumerated reachable TCP services and identified SMB-related
+              exposure.
+            </p>
+          </li>
+
+          <li>
+            <strong>SMB Enumeration</strong>
+
+            <p>
+              Reviewed SMB service information and gathered enough context to
+              determine whether further vulnerability assessment was justified.
+            </p>
+          </li>
+
+          <li>
+            <strong>Vulnerability Assessment</strong>
+
+            <p>
+              Assessed the target for indicators associated with the
+              MS17-010 vulnerability rather than assuming exposure based only
+              on the presence of SMB.
+            </p>
+          </li>
+
+          <li>
+            <strong>Controlled Validation</strong>
+
+            <p>
+              Confirmed the security impact inside the authorized lab without
+              extending testing beyond the target required to demonstrate the
+              risk.
+            </p>
+          </li>
+
+          <li>
+            <strong>Post-Validation Review</strong>
+
+            <p>
+              Verified that successful exploitation could lead to severe host
+              compromise and documented the affected attack surface.
+            </p>
+          </li>
+
+          <li>
+            <strong>Reporting</strong>
+
+            <p>
+              Recorded the finding, likely impact, remediation actions and
+              lessons learned.
+            </p>
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        04
+      </span>
+
+      <div>
+
+        <h2>
+          Finding
+        </h2>
+
+
+        <article class="finding-card">
+
+          <div class="finding-header">
+
+            <div>
+
+              <span class="finding-id">
+                WIN-001
+              </span>
+
+              <h3>
+                SMB Service Vulnerable to MS17-010
+              </h3>
+
+            </div>
+
+            <span class="severity severity-high">
+              CRITICAL
+            </span>
+
+          </div>
+
+
+          <p>
+            The lab target exposed SMB and was confirmed to be affected by
+            MS17-010, a critical Windows vulnerability associated with remote
+            code execution risk on unpatched systems.
+          </p>
+
+
+          <div class="finding-grid">
+
+            <div>
+
+              <span>
+                ATTACK SURFACE
+              </span>
+
+              <p>
+                The Windows host exposed SMB services to the attacker's network
+                segment.
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                IMPACT
+              </span>
+
+              <p>
+                Successful exploitation can result in unauthorized code
+                execution, host compromise and potential lateral movement
+                opportunities in a real network.
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                ROOT CAUSE
+              </span>
+
+              <p>
+                Missing security updates left the operating system vulnerable
+                to a known critical SMB flaw.
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                REMEDIATION
+              </span>
+
+              <p>
+                Apply the relevant Microsoft security updates, remove
+                unsupported operating systems, restrict SMB exposure and
+                maintain regular vulnerability and patch-management processes.
+              </p>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        05
+      </span>
+
+      <div>
+
+        <h2>
+          Attack Path
+        </h2>
+
+        <div class="case-evidence-grid">
+
+          <div>
+            <i class="fa-solid fa-network-wired"></i>
+            <span>Windows Host Discovery</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-share-nodes"></i>
+            <span>SMB Exposure</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>MS17-010 Assessment</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-shield-virus"></i>
+            <span>Controlled Validation</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        06
+      </span>
+
+      <div>
+
+        <h2>
+          Evidence
+        </h2>
+
+        <p>
+          Recruiter-facing evidence for this project can include sanitized
+          screenshots of the target discovery process, SMB service
+          identification, vulnerability assessment results and the final
+          confirmation of impact in the controlled environment.
+        </p>
+
+        <div class="case-evidence-grid">
+
+          <div>
+            <i class="fa-solid fa-radar"></i>
+            <span>Network Discovery</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-server"></i>
+            <span>SMB Enumeration</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-bug"></i>
+            <span>Vulnerability Validation</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-file-shield"></i>
+            <span>Remediation Notes</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        07
+      </span>
+
+      <div>
+
+        <h2>
+          Remediation
+        </h2>
+
+        <ul class="case-lessons">
+
+          <li>
+            Apply Microsoft security updates addressing MS17-010.
+          </li>
+
+          <li>
+            Remove or upgrade unsupported Windows systems.
+          </li>
+
+          <li>
+            Restrict SMB access to only trusted systems and network segments.
+          </li>
+
+          <li>
+            Disable unnecessary SMB services and legacy protocols.
+          </li>
+
+          <li>
+            Use internal firewalls and segmentation to reduce lateral movement.
+          </li>
+
+          <li>
+            Maintain continuous vulnerability scanning and patch verification.
+          </li>
+
+          <li>
+            Monitor SMB-related events and unusual lateral network activity.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        08
+      </span>
+
+      <div>
+
+        <h2>
+          Lessons Learned
+        </h2>
+
+        <ul class="case-lessons">
+
+          <li>
+            Service exposure must be assessed in context; SMB alone does not
+            prove vulnerability.
+          </li>
+
+          <li>
+            Patch management remains one of the most important controls
+            against known critical vulnerabilities.
+          </li>
+
+          <li>
+            Windows network enumeration is a core part of identifying real
+            attack paths.
+          </li>
+
+          <li>
+            Critical vulnerabilities should be validated carefully and only
+            within authorized scope.
+          </li>
+
+          <li>
+            Reporting should connect the technical issue to likely operational
+            impact and practical remediation.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        09
+      </span>
+
+      <div>
+
+        <h2>
+          Skills Demonstrated
+        </h2>
+
+        <div class="case-tags">
+          <span>Windows Security</span>
+          <span>SMB Enumeration</span>
+          <span>Nmap</span>
+          <span>Vulnerability Assessment</span>
+          <span>MS17-010</span>
+          <span>Metasploit</span>
+          <span>Controlled Exploitation</span>
+          <span>Risk Analysis</span>
+          <span>Security Reporting</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-cta">
+
+      <div>
+
+        <span>
+          PORTFOLIO
+        </span>
+
+        <h2>
+          Explore more security case studies
+        </h2>
+
+      </div>
+
+      <a
+        href="../index.html#projects"
+        class="btn btn-primary"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+        View Projects
+      </a>
+
+    </section>
+
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div>
+      <span>Sandiso Mayekiso</span>
+      <p>Junior Penetration Tester / Ethical Hacker</p>
+    </div>
+
+    <p>
+      CyberWithSandiso
+    </p>
+
+  </footer>
+
+</body>
+</html>

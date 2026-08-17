@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Web Application Security Testing Lab | Sandiso Mayekiso</title>
+
+  <meta
+    name="description"
+    content="Web application security case study by Sandiso Mayekiso covering a controlled Flask and SQLite lab used to practise SQL injection and XSS testing."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+</head>
+
+<body>
+
+  <header class="case-header">
+
+    <div class="case-header-inner">
+
+      <a
+        href="../index.html#projects"
+        class="case-back"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Portfolio
+      </a>
+
+      <a
+        href="../index.html"
+        class="case-brand"
+      >
+        SM / RED TEAM
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <main class="case-main">
+
+
+    <section class="case-hero">
+
+      <div class="case-hero-copy">
+
+        <span class="case-kicker">
+          WEB APPLICATION SECURITY
+        </span>
+
+        <h1>
+          Web Application Security Testing Lab
+        </h1>
+
+        <p>
+          A deliberately vulnerable Flask and SQLite application used to
+          practise controlled SQL injection and cross-site scripting testing,
+          request inspection and remediation-oriented reporting.
+        </p>
+
+
+        <div class="case-meta">
+
+          <div>
+            <span>ROLE</span>
+            <strong>Security Tester / Developer</strong>
+          </div>
+
+          <div>
+            <span>ENVIRONMENT</span>
+            <strong>Local Controlled Lab</strong>
+          </div>
+
+          <div>
+            <span>STATUS</span>
+            <strong>Completed</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="case-terminal-card">
+
+        <span>$ methodology</span>
+
+        <strong>
+          Build → Proxy → Test → Validate → Remediate
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        01
+      </span>
+
+      <div>
+
+        <h2>
+          Objective
+        </h2>
+
+        <p>
+          Build a small web application that could be safely tested for
+          common input-handling weaknesses without targeting a third-party
+          system.
+        </p>
+
+        <p>
+          The project focused on understanding how unsanitized input and
+          unsafe database-query patterns can create exploitable application
+          behaviour, while also practising the reporting and remediation side
+          of web security testing.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        02
+      </span>
+
+      <div>
+
+        <h2>
+          Lab Environment
+        </h2>
+
+        <div class="case-tags">
+          <span>Kali Linux</span>
+          <span>Burp Suite</span>
+          <span>Python</span>
+          <span>Flask</span>
+          <span>SQLite</span>
+          <span>Jinja2</span>
+          <span>Browser DevTools</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        03
+      </span>
+
+      <div>
+
+        <h2>
+          Methodology
+        </h2>
+
+        <ol class="case-steps">
+
+          <li>
+            <strong>Application Review</strong>
+            <p>
+              Reviewed the application's input points, authentication flow,
+              database interactions and rendered output.
+            </p>
+          </li>
+
+          <li>
+            <strong>Request Inspection</strong>
+            <p>
+              Routed requests through Burp Suite to inspect parameters,
+              headers and server responses.
+            </p>
+          </li>
+
+          <li>
+            <strong>Controlled Input Testing</strong>
+            <p>
+              Tested lab inputs for unsafe SQL construction and unescaped
+              client-visible content within the deliberately vulnerable
+              environment.
+            </p>
+          </li>
+
+          <li>
+            <strong>Validation</strong>
+            <p>
+              Confirmed observable application behaviour and documented the
+              affected input paths.
+            </p>
+          </li>
+
+          <li>
+            <strong>Remediation Review</strong>
+            <p>
+              Compared vulnerable patterns with safer parameterized queries,
+              output encoding and input-handling practices.
+            </p>
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        04
+      </span>
+
+      <div>
+
+        <h2>
+          Findings
+        </h2>
+
+
+        <article class="finding-card">
+
+          <div class="finding-header">
+
+            <div>
+              <span class="finding-id">WEB-001</span>
+              <h3>Unsafe SQL Query Construction</h3>
+            </div>
+
+            <span class="severity severity-high">
+              HIGH
+            </span>
+
+          </div>
+
+          <p>
+            The vulnerable lab intentionally included a database interaction
+            pattern where user-controlled values could influence query logic.
+            This was used to demonstrate why concatenating user input into SQL
+            statements is unsafe.
+          </p>
+
+          <div class="finding-grid">
+
+            <div>
+              <span>IMPACT</span>
+              <p>
+                In a real application, unsafe query construction can expose
+                data, bypass intended application logic or affect database
+                integrity depending on permissions and query context.
+              </p>
+            </div>
+
+            <div>
+              <span>REMEDIATION</span>
+              <p>
+                Use parameterized queries or prepared statements, apply
+                appropriate authorization checks and avoid dynamically
+                constructing SQL from untrusted input.
+              </p>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="finding-card">
+
+          <div class="finding-header">
+
+            <div>
+              <span class="finding-id">WEB-002</span>
+              <h3>Unsafe HTML Output Handling</h3>
+            </div>
+
+            <span class="severity severity-medium">
+              MEDIUM
+            </span>
+
+          </div>
+
+          <p>
+            The lab included intentionally unsafe rendering behaviour to
+            demonstrate how user-controlled content can become executable
+            browser content when escaping and output handling are bypassed.
+          </p>
+
+          <div class="finding-grid">
+
+            <div>
+              <span>IMPACT</span>
+              <p>
+                Cross-site scripting can allow attacker-controlled script
+                execution within a victim's browser context and may affect
+                sessions, page content or user trust.
+              </p>
+            </div>
+
+            <div>
+              <span>REMEDIATION</span>
+              <p>
+                Preserve framework auto-escaping, use context-aware output
+                encoding and avoid marking untrusted content as safe HTML.
+              </p>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        05
+      </span>
+
+      <div>
+
+        <h2>
+          Evidence & Documentation
+        </h2>
+
+        <p>
+          The supporting repository documents the vulnerable application,
+          testing workflow and lab implementation. Screenshots or sanitized
+          request/response examples can be added here as the project is
+          refined for recruiter review.
+        </p>
+
+        <div class="case-evidence-grid">
+
+          <div>
+            <i class="fa-solid fa-code"></i>
+            <span>Application Source</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-arrows-left-right"></i>
+            <span>Burp Request Analysis</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-database"></i>
+            <span>Database Logic</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-file-shield"></i>
+            <span>Remediation Notes</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        06
+      </span>
+
+      <div>
+
+        <h2>
+          Lessons Learned
+        </h2>
+
+        <ul class="case-lessons">
+          <li>
+            Vulnerability testing is more valuable when the underlying code
+            path is understood.
+          </li>
+          <li>
+            Burp Suite is useful not only for payload testing but for
+            understanding application request flow.
+          </li>
+          <li>
+            Parameterized SQL and safe output handling directly address
+            entire classes of common web vulnerabilities.
+          </li>
+          <li>
+            A useful pentest deliverable should explain impact and remediation,
+            not just show that a weakness exists.
+          </li>
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <section class="case-cta">
+
+      <div>
+
+        <span>PROJECT SOURCE</span>
+
+        <h2>
+          Review the supporting repository
+        </h2>
+
+      </div>
+
+      <a
+        href="https://github.com/SandisoMayekiso/Web-Application-Security-Testing-Lab"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary"
+      >
+        <i class="fa-brands fa-github"></i>
+        View GitHub
+      </a>
+
+    </section>
+
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div>
+      <span>Sandiso Mayekiso</span>
+      <p>Junior Penetration Tester / Ethical Hacker</p>
+    </div>
+
+    <p>
+      CyberWithSandiso
+    </p>
+
+  </footer>
+
+</body>
+</html>

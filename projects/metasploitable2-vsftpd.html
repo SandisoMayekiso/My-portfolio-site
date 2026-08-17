@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Metasploitable 2 vsFTPd 2.3.4 Case Study | Sandiso Mayekiso</title>
+
+  <meta
+    name="description"
+    content="Controlled penetration testing case study by Sandiso Mayekiso covering service discovery, enumeration and validation of the intentionally vulnerable vsFTPd 2.3.4 service in a Metasploitable 2 lab."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+</head>
+
+<body>
+
+  <header class="case-header">
+
+    <div class="case-header-inner">
+
+      <a href="../index.html#projects" class="case-back">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Portfolio
+      </a>
+
+      <a href="../index.html" class="case-brand">
+        SM / RED TEAM
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <main class="case-main">
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="case-hero">
+
+      <div class="case-hero-copy">
+
+        <span class="case-kicker">
+          NETWORK PENETRATION TESTING
+        </span>
+
+        <h1>
+          Metasploitable 2
+          <br>
+          vsFTPd 2.3.4
+        </h1>
+
+        <p>
+          A controlled penetration-testing lab focused on identifying,
+          enumerating and validating an intentionally vulnerable FTP service
+          running on Metasploitable 2.
+        </p>
+
+
+        <div class="case-meta">
+
+          <div>
+            <span>ROLE</span>
+            <strong>Penetration Tester</strong>
+          </div>
+
+          <div>
+            <span>ENVIRONMENT</span>
+            <strong>Isolated VMware Lab</strong>
+          </div>
+
+          <div>
+            <span>STATUS</span>
+            <strong>Completed</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="case-terminal-card">
+
+        <span>$ methodology</span>
+
+        <strong>
+          Discover → Scan → Enumerate → Research → Validate → Report
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         01 OBJECTIVE
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        01
+      </span>
+
+      <div>
+
+        <h2>
+          Objective
+        </h2>
+
+        <p>
+          The objective of this lab was to practise a structured penetration
+          testing workflow against an intentionally vulnerable Linux target.
+          The exercise focused on discovering the target, identifying exposed
+          network services, enumerating FTP and investigating whether the
+          detected software version was associated with a known vulnerability.
+        </p>
+
+        <p>
+          The environment was intentionally created for security training.
+          Testing was restricted to the isolated lab system.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         02 LAB
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        02
+      </span>
+
+      <div>
+
+        <h2>
+          Lab Environment
+        </h2>
+
+        <div class="case-tags">
+          <span>Kali Linux</span>
+          <span>Metasploitable 2</span>
+          <span>VMware</span>
+          <span>Nmap</span>
+          <span>FTP</span>
+          <span>vsFTPd 2.3.4</span>
+          <span>Metasploit Framework</span>
+          <span>Linux</span>
+        </div>
+
+        <p>
+          Kali Linux was used as the testing system and Metasploitable 2 as
+          the deliberately vulnerable target. Both virtual machines were kept
+          inside a controlled lab network.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         03 METHODOLOGY
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        03
+      </span>
+
+      <div>
+
+        <h2>
+          Methodology
+        </h2>
+
+        <ol class="case-steps">
+
+          <li>
+            <strong>Host Discovery</strong>
+
+            <p>
+              Identified the target system within the isolated laboratory
+              network before performing service enumeration.
+            </p>
+          </li>
+
+
+          <li>
+            <strong>Port & Service Scanning</strong>
+
+            <p>
+              Used Nmap to identify listening TCP services and gather
+              service/version information from the target.
+            </p>
+          </li>
+
+
+          <li>
+            <strong>FTP Enumeration</strong>
+
+            <p>
+              Investigated the FTP service exposed on TCP port 21 and
+              identified the server software as vsFTPd 2.3.4.
+            </p>
+          </li>
+
+
+          <li>
+            <strong>Vulnerability Research</strong>
+
+            <p>
+              Compared the identified service and version against known
+              vulnerability information and available security-testing
+              references.
+            </p>
+          </li>
+
+
+          <li>
+            <strong>Controlled Validation</strong>
+
+            <p>
+              Validated the known vulnerable service only against the
+              intentionally vulnerable Metasploitable 2 target within the
+              isolated environment.
+            </p>
+          </li>
+
+
+          <li>
+            <strong>Post-Validation Review</strong>
+
+            <p>
+              Reviewed the resulting access and gathered only the minimum
+              information required to confirm successful validation before
+              ending the test.
+            </p>
+          </li>
+
+
+          <li>
+            <strong>Reporting</strong>
+
+            <p>
+              Documented the affected service, security impact, evidence,
+              remediation guidance and lessons learned.
+            </p>
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         04 FINDING
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        04
+      </span>
+
+      <div>
+
+        <h2>
+          Finding
+        </h2>
+
+
+        <article class="finding-card">
+
+          <div class="finding-header">
+
+            <div>
+
+              <span class="finding-id">
+                NET-001
+              </span>
+
+              <h3>
+                Vulnerable vsFTPd 2.3.4 Service
+              </h3>
+
+            </div>
+
+            <span class="severity severity-high">
+              CRITICAL
+            </span>
+
+          </div>
+
+
+          <p>
+            Service enumeration identified vsFTPd 2.3.4 running on the
+            target FTP service. The intentionally vulnerable Metasploitable 2
+            image contains the compromised release commonly used to
+            demonstrate the historical vsFTPd 2.3.4 backdoor vulnerability.
+          </p>
+
+
+          <div class="finding-grid">
+
+            <div>
+
+              <span>
+                ATTACK SURFACE
+              </span>
+
+              <p>
+                TCP port 21 exposed an outdated FTP service that disclosed
+                enough version information to support vulnerability research.
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                IMPACT
+              </span>
+
+              <p>
+                A vulnerable backdoored service may allow unauthorized remote
+                command execution and can lead to complete compromise of the
+                affected host.
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                ROOT CAUSE
+              </span>
+
+              <p>
+                Use of a known compromised and obsolete version of the FTP
+                server software.
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                REMEDIATION
+              </span>
+
+              <p>
+                Remove the affected version, install software only from
+                trusted sources, verify package integrity, patch unsupported
+                services and restrict unnecessary network exposure.
+              </p>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         05 ATTACK PATH
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        05
+      </span>
+
+      <div>
+
+        <h2>
+          Attack Path
+        </h2>
+
+        <div class="case-evidence-grid">
+
+          <div>
+            <i class="fa-solid fa-network-wired"></i>
+            <span>Target Discovery</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Service Enumeration</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>Vulnerability Identification</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-terminal"></i>
+            <span>Controlled Validation</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         06 EVIDENCE
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        06
+      </span>
+
+      <div>
+
+        <h2>
+          Evidence
+        </h2>
+
+        <p>
+          Evidence for this project can include sanitized screenshots of the
+          Nmap service scan, FTP version identification, vulnerability
+          research and successful validation inside the training environment.
+        </p>
+
+        <p>
+          When publishing lab evidence, sensitive information and unnecessary
+          exploitation detail should be excluded where it does not improve
+          the technical explanation.
+        </p>
+
+
+        <div class="case-evidence-grid">
+
+          <div>
+            <i class="fa-solid fa-radar"></i>
+            <span>Nmap Scan</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-server"></i>
+            <span>Service Version</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-bug"></i>
+            <span>Vulnerability Mapping</span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-file-shield"></i>
+            <span>Finding Documentation</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         07 REMEDIATION
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        07
+      </span>
+
+      <div>
+
+        <h2>
+          Remediation
+        </h2>
+
+        <ul class="case-lessons">
+
+          <li>
+            Remove vulnerable or unsupported versions of vsFTPd.
+          </li>
+
+          <li>
+            Obtain server packages only from trusted repositories and
+            validated distribution channels.
+          </li>
+
+          <li>
+            Verify package integrity where checksums or signed packages are
+            available.
+          </li>
+
+          <li>
+            Disable FTP when the service is not required.
+          </li>
+
+          <li>
+            Restrict management and file-transfer services using network
+            segmentation and firewall rules.
+          </li>
+
+          <li>
+            Maintain asset and software inventories so outdated services can
+            be identified and remediated.
+          </li>
+
+          <li>
+            Perform routine vulnerability scanning and patch management.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         08 LESSONS
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        08
+      </span>
+
+      <div>
+
+        <h2>
+          Lessons Learned
+        </h2>
+
+        <ul class="case-lessons">
+
+          <li>
+            Accurate service-version detection can significantly narrow
+            vulnerability research.
+          </li>
+
+          <li>
+            An open port alone is not necessarily a vulnerability; the
+            service, configuration and software version must be investigated.
+          </li>
+
+          <li>
+            Enumeration should come before exploitation.
+          </li>
+
+          <li>
+            Known vulnerabilities should be validated carefully rather than
+            assumed solely from a version string.
+          </li>
+
+          <li>
+            Successful penetration testing includes remediation guidance and
+            business impact, not only technical exploitation.
+          </li>
+
+          <li>
+            Controlled labs provide a safe environment for developing
+            repeatable penetration-testing methodology.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SKILLS DEMONSTRATED
+    ==================================================== -->
+
+    <section class="case-section">
+
+      <span class="case-section-number">
+        09
+      </span>
+
+      <div>
+
+        <h2>
+          Skills Demonstrated
+        </h2>
+
+        <div class="case-tags">
+          <span>Network Reconnaissance</span>
+          <span>Nmap</span>
+          <span>Service Enumeration</span>
+          <span>Vulnerability Research</span>
+          <span>Linux</span>
+          <span>Metasploit</span>
+          <span>Controlled Exploitation</span>
+          <span>Security Reporting</span>
+          <span>Remediation Analysis</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CTA
+    ==================================================== -->
+
+    <section class="case-cta">
+
+      <div>
+
+        <span>
+          PORTFOLIO
+        </span>
+
+        <h2>
+          Explore more penetration-testing projects
+        </h2>
+
+      </div>
+
+      <a
+        href="../index.html#projects"
+        class="btn btn-primary"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+        View Projects
+      </a>
+
+    </section>
+
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div>
+      <span>Sandiso Mayekiso</span>
+      <p>Junior Penetration Tester / Ethical Hacker</p>
+    </div>
+
+    <p>
+      CyberWithSandiso
+    </p>
+
+  </footer>
+
+</body>
+</html>

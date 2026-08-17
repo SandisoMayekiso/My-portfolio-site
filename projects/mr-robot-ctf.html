@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mr Robot CTF Case Study | Sandiso Mayekiso</title>
+
+  <meta
+    name="description"
+    content="Controlled penetration testing case study by Sandiso Mayekiso covering reconnaissance, web enumeration, credential discovery, initial access and privilege escalation in the intentionally vulnerable Mr Robot CTF lab."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+</head>
+
+<body>
+
+<header class="case-header">
+  <div class="case-header-inner">
+
+    <a href="../index.html#projects" class="case-back">
+      <i class="fa-solid fa-arrow-left"></i>
+      Back to Portfolio
+    </a>
+
+    <a href="../index.html" class="case-brand">
+      SM / RED TEAM
+    </a>
+
+  </div>
+</header>
+
+
+<main class="case-main">
+
+
+  <!-- ===================================================
+       HERO
+  ==================================================== -->
+
+  <section class="case-hero">
+
+    <div class="case-hero-copy">
+
+      <span class="case-kicker">
+        END-TO-END PENETRATION TESTING
+      </span>
+
+      <h1>
+        Mr Robot
+        <br>
+        CTF
+      </h1>
+
+      <p>
+        An end-to-end penetration-testing lab covering reconnaissance,
+        service and web enumeration, credential discovery, controlled initial
+        access, Linux enumeration and privilege-escalation analysis against an
+        intentionally vulnerable CTF target.
+      </p>
+
+
+      <div class="case-meta">
+
+        <div>
+          <span>ROLE</span>
+          <strong>Penetration Tester</strong>
+        </div>
+
+        <div>
+          <span>ENVIRONMENT</span>
+          <strong>Isolated CTF Lab</strong>
+        </div>
+
+        <div>
+          <span>STATUS</span>
+          <strong>Completed</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="case-terminal-card">
+
+      <span>$ attack-chain</span>
+
+      <strong>
+        Recon → Enumerate → Discover → Access → Escalate → Report
+      </strong>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       OBJECTIVE
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">01</span>
+
+    <div>
+
+      <h2>Objective</h2>
+
+      <p>
+        The objective of the Mr Robot CTF project was to practise a complete
+        penetration-testing workflow rather than focusing on a single
+        vulnerability.
+      </p>
+
+      <p>
+        The exercise required identifying the target's exposed attack surface,
+        investigating web content, discovering useful information, obtaining
+        controlled access and continuing host enumeration to identify a path
+        toward higher privileges.
+      </p>
+
+      <p>
+        All activity was performed against an intentionally vulnerable
+        training machine inside an isolated environment.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       LAB
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">02</span>
+
+    <div>
+
+      <h2>Lab Environment</h2>
+
+      <div class="case-tags">
+        <span>Kali Linux</span>
+        <span>Mr Robot CTF</span>
+        <span>VMware</span>
+        <span>Nmap</span>
+        <span>Linux</span>
+        <span>HTTP</span>
+        <span>Web Enumeration</span>
+        <span>Credential Analysis</span>
+        <span>Privilege Escalation</span>
+      </div>
+
+      <p>
+        Kali Linux was used as the assessment system while the Mr Robot
+        virtual machine served as the intentionally vulnerable target.
+        Network access was restricted to the training environment.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       METHODOLOGY
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">03</span>
+
+    <div>
+
+      <h2>Methodology</h2>
+
+      <ol class="case-steps">
+
+        <li>
+          <strong>Host Discovery</strong>
+
+          <p>
+            Identified the target machine within the isolated lab network.
+          </p>
+        </li>
+
+        <li>
+          <strong>Port & Service Enumeration</strong>
+
+          <p>
+            Enumerated reachable services and identified the web application
+            as an important part of the exposed attack surface.
+          </p>
+        </li>
+
+        <li>
+          <strong>Web Enumeration</strong>
+
+          <p>
+            Reviewed publicly accessible application content, directories and
+            files for information that could support further assessment.
+          </p>
+        </li>
+
+        <li>
+          <strong>Information & Credential Discovery</strong>
+
+          <p>
+            Correlated information discovered during enumeration and assessed
+            whether it could be used to reach protected functionality.
+          </p>
+        </li>
+
+        <li>
+          <strong>Controlled Initial Access</strong>
+
+          <p>
+            Validated an authorized path to the target within the CTF
+            environment and confirmed the resulting level of access.
+          </p>
+        </li>
+
+        <li>
+          <strong>Local Enumeration</strong>
+
+          <p>
+            Inspected the compromised host for users, permissions, binaries,
+            configuration and other information relevant to privilege
+            escalation.
+          </p>
+        </li>
+
+        <li>
+          <strong>Privilege Escalation Analysis</strong>
+
+          <p>
+            Identified a local weakness that demonstrated how insufficiently
+            restricted system capabilities could allow a lower-privileged
+            foothold to become more serious.
+          </p>
+        </li>
+
+        <li>
+          <strong>Reporting</strong>
+
+          <p>
+            Documented the attack chain, security weaknesses, impact,
+            remediation and lessons learned.
+          </p>
+        </li>
+
+      </ol>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       ATTACK CHAIN
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">04</span>
+
+    <div>
+
+      <h2>Attack Chain</h2>
+
+      <div class="case-evidence-grid">
+
+        <div>
+          <i class="fa-solid fa-radar"></i>
+          <span>Reconnaissance</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-globe"></i>
+          <span>Web Enumeration</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-key"></i>
+          <span>Access Path Discovery</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-arrow-up-right-dots"></i>
+          <span>Privilege Escalation</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       FINDINGS
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">05</span>
+
+    <div>
+
+      <h2>Key Findings</h2>
+
+
+      <article class="finding-card">
+
+        <div class="finding-header">
+
+          <div>
+            <span class="finding-id">CTF-001</span>
+            <h3>Sensitive Information Exposed Through Web Content</h3>
+          </div>
+
+          <span class="severity severity-medium">
+            MEDIUM
+          </span>
+
+        </div>
+
+        <p>
+          Web enumeration revealed information that could assist an attacker
+          with subsequent stages of the assessment.
+        </p>
+
+        <div class="finding-grid">
+
+          <div>
+            <span>IMPACT</span>
+
+            <p>
+              Exposed files and application information can reduce the effort
+              required to identify users, credentials, technologies or other
+              useful attack paths.
+            </p>
+          </div>
+
+          <div>
+            <span>REMEDIATION</span>
+
+            <p>
+              Review publicly accessible content, remove unnecessary sensitive
+              files and ensure deployment processes do not expose internal or
+              security-relevant information.
+            </p>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <article class="finding-card">
+
+        <div class="finding-header">
+
+          <div>
+            <span class="finding-id">CTF-002</span>
+            <h3>Weak Access-Control / Credential Path</h3>
+          </div>
+
+          <span class="severity severity-high">
+            HIGH
+          </span>
+
+        </div>
+
+        <p>
+          Information gathered during enumeration contributed to a viable
+          path toward protected application functionality and initial access.
+        </p>
+
+        <div class="finding-grid">
+
+          <div>
+            <span>IMPACT</span>
+
+            <p>
+              Weak credential controls or exposed authentication information
+              can allow unauthorized users to reach privileged application
+              functionality.
+            </p>
+          </div>
+
+          <div>
+            <span>REMEDIATION</span>
+
+            <p>
+              Enforce strong credential policies, protect authentication
+              material, rate-limit login attempts and use multi-factor
+              authentication where appropriate.
+            </p>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <article class="finding-card">
+
+        <div class="finding-header">
+
+          <div>
+            <span class="finding-id">CTF-003</span>
+            <h3>Local Privilege Escalation Opportunity</h3>
+          </div>
+
+          <span class="severity severity-high">
+            HIGH
+          </span>
+
+        </div>
+
+        <p>
+          Local enumeration identified a system configuration that could be
+          abused inside the CTF to increase privileges beyond the initial
+          foothold.
+        </p>
+
+        <div class="finding-grid">
+
+          <div>
+            <span>IMPACT</span>
+
+            <p>
+              A low-privileged compromise may become a full system compromise
+              when local permissions or privileged binaries are configured
+              insecurely.
+            </p>
+          </div>
+
+          <div>
+            <span>REMEDIATION</span>
+
+            <p>
+              Audit privileged binaries and permissions, remove unnecessary
+              elevated capabilities and apply least-privilege principles to
+              users and services.
+            </p>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       EVIDENCE
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">06</span>
+
+    <div>
+
+      <h2>Evidence</h2>
+
+      <p>
+        Recruiter-facing evidence can include sanitized screenshots showing
+        service enumeration, discovered web resources, the initial-access
+        milestone and local enumeration that led to privilege escalation.
+      </p>
+
+      <div class="case-evidence-grid">
+
+        <div>
+          <i class="fa-solid fa-network-wired"></i>
+          <span>Service Scan</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-folder-tree"></i>
+          <span>Web Discovery</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-terminal"></i>
+          <span>Initial Foothold</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-user-shield"></i>
+          <span>Privilege Review</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       REMEDIATION
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">07</span>
+
+    <div>
+
+      <h2>Remediation</h2>
+
+      <ul class="case-lessons">
+
+        <li>
+          Remove unnecessary files and sensitive information from publicly
+          accessible web directories.
+        </li>
+
+        <li>
+          Enforce strong authentication and credential-management controls.
+        </li>
+
+        <li>
+          Apply login rate limiting and account lockout protections where
+          appropriate.
+        </li>
+
+        <li>
+          Apply least privilege to application and operating-system users.
+        </li>
+
+        <li>
+          Audit privileged executables, file permissions and local security
+          configuration.
+        </li>
+
+        <li>
+          Patch and maintain web applications, plugins and operating-system
+          components.
+        </li>
+
+        <li>
+          Monitor authentication and privilege-related events for suspicious
+          activity.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       LESSONS
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">08</span>
+
+    <div>
+
+      <h2>Lessons Learned</h2>
+
+      <ul class="case-lessons">
+
+        <li>
+          Thorough enumeration can reveal attack paths that automated
+          vulnerability scanning alone may not explain.
+        </li>
+
+        <li>
+          Small pieces of information can become significant when correlated
+          across multiple stages of an assessment.
+        </li>
+
+        <li>
+          Initial access is only one stage of a penetration test; local
+          enumeration determines how serious that foothold may become.
+        </li>
+
+        <li>
+          Privilege escalation often depends on configuration and permissions,
+          not only software vulnerabilities.
+        </li>
+
+        <li>
+          End-to-end labs help develop the ability to connect individual
+          techniques into a structured attack path.
+        </li>
+
+        <li>
+          Professional reporting should explain the complete chain from
+          exposure to impact and remediation.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       SKILLS
+  ==================================================== -->
+
+  <section class="case-section">
+
+    <span class="case-section-number">09</span>
+
+    <div>
+
+      <h2>Skills Demonstrated</h2>
+
+      <div class="case-tags">
+        <span>Reconnaissance</span>
+        <span>Nmap</span>
+        <span>Web Enumeration</span>
+        <span>Linux</span>
+        <span>Credential Analysis</span>
+        <span>Initial Access</span>
+        <span>Local Enumeration</span>
+        <span>Privilege Escalation</span>
+        <span>Attack-Path Analysis</span>
+        <span>Security Reporting</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       CTA
+  ==================================================== -->
+
+  <section class="case-cta">
+
+    <div>
+
+      <span>PORTFOLIO</span>
+
+      <h2>
+        Explore more penetration-testing case studies
+      </h2>
+
+    </div>
+
+    <a
+      href="../index.html#projects"
+      class="btn btn-primary"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+      View Projects
+    </a>
+
+  </section>
+
+
+</main>
+
+
+<footer class="site-footer">
+
+  <div>
+    <span>Sandiso Mayekiso</span>
+    <p>Junior Penetration Tester / Ethical Hacker</p>
+  </div>
+
+  <p>CyberWithSandiso</p>
+
+</footer>
+
+</body>
+</html>
