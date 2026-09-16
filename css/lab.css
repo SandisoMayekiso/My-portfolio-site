@@ -1,14 +1,3 @@
-/* =========================================================
-   SANDISO MAYEKISO
-   CYBER SECURITY LAB
-   lab.css
-========================================================= */
-
-
-/* =========================================================
-   1. LAB SHELL
-========================================================= */
-
 .lab-header {
 
     position:
@@ -43,7 +32,6 @@
 
 }
 
-
 .lab-nav {
 
     width:
@@ -69,7 +57,6 @@
 
 }
 
-
 .lab-brand {
 
     display:
@@ -92,7 +79,6 @@
         700;
 
 }
-
 
 .lab-brand-mark {
 
@@ -128,7 +114,6 @@
 
 }
 
-
 .lab-nav-actions {
 
     display:
@@ -141,7 +126,6 @@
         10px;
 
 }
-
 
 .lab-nav-link {
 
@@ -183,7 +167,6 @@
 
 }
 
-
 .lab-nav-link:hover {
 
     border-color:
@@ -194,14 +177,12 @@
 
 }
 
-
 .lab-logout-btn {
 
     font:
         inherit;
 
 }
-
 
 .lab-main {
 
@@ -215,11 +196,6 @@
         auto;
 
 }
-
-
-/* =========================================================
-   2. HERO
-========================================================= */
 
 .lab-hero {
 
@@ -247,7 +223,6 @@
 
 }
 
-
 .lab-kicker {
 
     display:
@@ -274,7 +249,6 @@
 
 }
 
-
 .lab-hero h1 {
 
     margin:
@@ -299,7 +273,6 @@
 
 }
 
-
 .lab-hero h1 strong {
 
     display:
@@ -312,7 +285,6 @@
         inherit;
 
 }
-
 
 .lab-hero p {
 
@@ -329,7 +301,6 @@
         1.85;
 
 }
-
 
 .lab-status-card {
 
@@ -366,7 +337,6 @@
 
 }
 
-
 .lab-status-card > span {
 
     color:
@@ -387,7 +357,6 @@
 
 }
 
-
 .lab-status-card strong {
 
     display:
@@ -400,7 +369,6 @@
         1rem;
 
 }
-
 
 .lab-status-card small {
 
@@ -417,11 +385,6 @@
         1.6;
 
 }
-
-
-/* =========================================================
-   3. AUTH PANEL
-========================================================= */
 
 .lab-auth-panel {
 
@@ -454,7 +417,6 @@
 
 }
 
-
 .lab-auth-panel > div {
 
     display:
@@ -467,7 +429,6 @@
         16px;
 
 }
-
 
 .lab-auth-panel > div > i {
 
@@ -503,7 +464,6 @@
 
 }
 
-
 .lab-auth-panel span {
 
     color:
@@ -524,7 +484,6 @@
 
 }
 
-
 .lab-auth-panel h2 {
 
     margin:
@@ -538,7 +497,6 @@
         1.1rem;
 
 }
-
 
 .lab-auth-panel p {
 
@@ -556,18 +514,12 @@
 
 }
 
-
-/* =========================================================
-   4. TOOLS
-========================================================= */
-
 .lab-tools-section {
 
     padding:
         90px 0;
 
 }
-
 
 .lab-tools-grid {
 
@@ -581,7 +533,6 @@
         18px;
 
 }
-
 
 .lab-tool-card {
 
@@ -617,7 +568,6 @@
 
 }
 
-
 .lab-tool-card:hover {
 
     transform:
@@ -630,7 +580,6 @@
         var(--shadow);
 
 }
-
 
 .lab-tool-icon {
 
@@ -669,7 +618,6 @@
 
 }
 
-
 .lab-tool-access {
 
     align-self:
@@ -699,7 +647,6 @@
 
 }
 
-
 .lab-tool-access.public {
 
     border:
@@ -712,7 +659,6 @@
         var(--text-muted);
 
 }
-
 
 .lab-tool-access.protected {
 
@@ -727,7 +673,6 @@
 
 }
 
-
 .lab-tool-card h3 {
 
     margin:
@@ -741,7 +686,6 @@
         1.05rem;
 
 }
-
 
 .lab-tool-card p {
 
@@ -758,7 +702,6 @@
         1.72;
 
 }
-
 
 .lab-tool-btn {
 
@@ -794,18 +737,12 @@
 
 }
 
-
 .lab-tool-btn:hover {
 
     color:
         #ffffff;
 
 }
-
-
-/* =========================================================
-   5. WORKSPACE
-========================================================= */
 
 .lab-workspace {
 
@@ -829,7 +766,6 @@
         hidden;
 
 }
-
 
 .lab-workspace-header {
 
@@ -859,7 +795,6 @@
 
 }
 
-
 .lab-workspace-header span {
 
     color:
@@ -880,7 +815,6 @@
 
 }
 
-
 .lab-workspace-header h2 {
 
     margin:
@@ -894,7 +828,6 @@
         1.1rem;
 
 }
-
 
 .lab-workspace-close {
 
@@ -930,7 +863,6 @@
 
 }
 
-
 .lab-workspace-close:hover {
 
     border-color:
@@ -941,18 +873,12 @@
 
 }
 
-
 .lab-tool-panel {
 
     padding:
         28px;
 
 }
-
-
-/* =========================================================
-   6. WARNING / INFO
-========================================================= */
 
 .lab-warning {
 
@@ -979,7 +905,6 @@
 
 }
 
-
 .lab-warning i {
 
     margin-top:
@@ -989,7 +914,6 @@
         var(--red);
 
 }
-
 
 .lab-warning p {
 
@@ -1006,7 +930,6 @@
         1.7;
 
 }
-
 
 .lab-info-card {
 
@@ -1029,7 +952,6 @@
         rgba(255, 255, 255, 0.015);
 
 }
-
 
 .lab-info-card > i {
 
@@ -1065,7 +987,6 @@
 
 }
 
-
 .lab-info-card h3 {
 
     margin:
@@ -1079,7 +1000,6 @@
         0.98rem;
 
 }
-
 
 .lab-info-card p {
 
@@ -1097,11 +1017,6 @@
 
 }
 
-
-/* =========================================================
-   7. FORMS
-========================================================= */
-
 .lab-form {
 
     display:
@@ -1111,7 +1026,6 @@
         12px;
 
 }
-
 
 .lab-form label {
 
@@ -1125,7 +1039,6 @@
         700;
 
 }
-
 
 .lab-form input,
 .lab-form textarea {
@@ -1160,7 +1073,6 @@
 
 }
 
-
 .lab-form input:focus,
 .lab-form textarea:focus {
 
@@ -1171,7 +1083,6 @@
         0 0 0 3px rgba(255, 32, 32, 0.05);
 
 }
-
 
 .lab-action-row {
 
@@ -1188,11 +1099,6 @@
         4px;
 
 }
-
-
-/* =========================================================
-   8. OUTPUTS
-========================================================= */
 
 .lab-output {
 
@@ -1235,7 +1141,6 @@
 
 }
 
-
 .lab-feedback {
 
     min-height:
@@ -1252,7 +1157,6 @@
 
 }
 
-
 .lab-feedback.success {
 
     color:
@@ -1260,18 +1164,12 @@
 
 }
 
-
 .lab-feedback.error {
 
     color:
         var(--red);
 
 }
-
-
-/* =========================================================
-   9. QUIZ
-========================================================= */
 
 .lab-panel-label {
 
@@ -1296,7 +1194,6 @@
 
 }
 
-
 #quizQuestion {
 
     margin:
@@ -1314,7 +1211,6 @@
 
 }
 
-
 .quiz-options {
 
     display:
@@ -1327,7 +1223,6 @@
         10px;
 
 }
-
 
 .quiz-options button {
 
@@ -1359,7 +1254,6 @@
 
 }
 
-
 .quiz-options button:hover {
 
     border-color:
@@ -1373,7 +1267,6 @@
 
 }
 
-
 .quiz-options button.correct {
 
     border-color:
@@ -1383,7 +1276,6 @@
         #ffffff;
 
 }
-
 
 .quiz-options button.incorrect {
 
@@ -1397,11 +1289,6 @@
         var(--red);
 
 }
-
-
-/* =========================================================
-   10. TLS
-========================================================= */
 
 .tls-checklist {
 
@@ -1418,7 +1305,6 @@
         18px;
 
 }
-
 
 .tls-checklist > div {
 
@@ -1454,18 +1340,12 @@
 
 }
 
-
 .tls-checklist i {
 
     color:
         var(--red);
 
 }
-
-
-/* =========================================================
-   11. RESOURCE LIBRARY
-========================================================= */
 
 .resource-grid {
 
@@ -1479,7 +1359,6 @@
         14px;
 
 }
-
 
 .resource-grid article {
 
@@ -1499,7 +1378,6 @@
         rgba(255, 255, 255, 0.015);
 
 }
-
 
 .resource-grid article > span {
 
@@ -1521,7 +1399,6 @@
 
 }
 
-
 .resource-grid h3 {
 
     margin:
@@ -1535,7 +1412,6 @@
         0.95rem;
 
 }
-
 
 .resource-grid p {
 
@@ -1552,11 +1428,6 @@
         1.7;
 
 }
-
-
-/* =========================================================
-   12. AUTH MODAL
-========================================================= */
 
 .lab-modal {
 
@@ -1589,7 +1460,6 @@
 
 }
 
-
 .lab-modal-card {
 
     position:
@@ -1619,7 +1489,6 @@
 
 }
 
-
 .lab-modal-card h2 {
 
     margin:
@@ -1634,7 +1503,6 @@
 
 }
 
-
 .lab-modal-card > p {
 
     margin:
@@ -1647,7 +1515,6 @@
         1.7;
 
 }
-
 
 .lab-modal-close {
 
@@ -1692,7 +1559,6 @@
 
 }
 
-
 .lab-modal-close:hover {
 
     border-color:
@@ -1703,11 +1569,6 @@
 
 }
 
-
-/* =========================================================
-   13. AUTH STATES
-========================================================= */
-
 body.lab-authenticated
 .lab-auth-panel {
 
@@ -1715,7 +1576,6 @@ body.lab-authenticated
         none;
 
 }
-
 
 body.lab-authenticated
 .lab-tool-card[data-protected="true"]
@@ -1732,7 +1592,6 @@ body.lab-authenticated
 
 }
 
-
 body.lab-authenticated
 .lab-tool-card[data-protected="true"]
 .lab-tool-access::before {
@@ -1741,7 +1600,6 @@ body.lab-authenticated
         "UNLOCKED";
 
 }
-
 
 body.lab-authenticated
 .lab-tool-card[data-protected="true"]
@@ -1752,7 +1610,6 @@ body.lab-authenticated
 
 }
 
-
 body.lab-authenticated
 .lab-tool-card[data-protected="true"]
 .lab-tool-access::before {
@@ -1761,11 +1618,6 @@ body.lab-authenticated
         0.58rem;
 
 }
-
-
-/* =========================================================
-   14. RESPONSIVE
-========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -1776,14 +1628,12 @@ body.lab-authenticated
 
     }
 
-
     .lab-hero {
 
         grid-template-columns:
             1fr;
 
     }
-
 
     .lab-status-card {
 
@@ -1793,7 +1643,6 @@ body.lab-authenticated
     }
 
 }
-
 
 @media (max-width: 700px) {
 
@@ -1805,14 +1654,12 @@ body.lab-authenticated
 
     }
 
-
     .lab-nav-actions {
 
         gap:
             6px;
 
     }
-
 
     .lab-nav-link {
 
@@ -1824,14 +1671,12 @@ body.lab-authenticated
 
     }
 
-
     .lab-hero {
 
         padding:
             60px 0;
 
     }
-
 
     .lab-auth-panel {
 
@@ -1843,14 +1688,12 @@ body.lab-authenticated
 
     }
 
-
     .lab-auth-panel .btn {
 
         width:
             100%;
 
     }
-
 
     .lab-tools-grid,
     .quiz-options,
@@ -1862,14 +1705,12 @@ body.lab-authenticated
 
     }
 
-
     .lab-workspace-header {
 
         align-items:
             flex-start;
 
     }
-
 
     .lab-tool-panel {
 
@@ -1878,14 +1719,12 @@ body.lab-authenticated
 
     }
 
-
     .lab-action-row {
 
         flex-direction:
             column;
 
     }
-
 
     .lab-action-row .btn {
 
@@ -1896,7 +1735,6 @@ body.lab-authenticated
 
 }
 
-
 @media (max-width: 480px) {
 
     .lab-brand > span:last-child {
@@ -1906,14 +1744,12 @@ body.lab-authenticated
 
     }
 
-
     .lab-hero h1 {
 
         font-size:
             3rem;
 
     }
-
 
     .lab-status-card,
     .lab-auth-panel,
@@ -1925,14 +1761,12 @@ body.lab-authenticated
 
     }
 
-
     .lab-workspace-header {
 
         flex-direction:
             column;
 
     }
-
 
     .lab-workspace-close {
 
@@ -1945,10 +1779,6 @@ body.lab-authenticated
     }
 
 }
-
-/* =========================================================
-   15. ETHICS / AUTHORIZATION NOTICE
-========================================================= */
 
 .lab-ethics-notice {
 
@@ -1982,7 +1812,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-ethics-icon {
 
     width:
@@ -2014,7 +1843,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-ethics-copy > span {
 
     color:
@@ -2035,7 +1863,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-ethics-copy h2 {
 
     margin:
@@ -2053,7 +1880,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-ethics-copy p {
 
     margin:
@@ -2069,11 +1895,6 @@ body.lab-authenticated
         1.72;
 
 }
-
-
-/* =========================================================
-   16. AUTH TABS / PROVIDERS
-========================================================= */
 
 .lab-auth-tabs {
 
@@ -2103,7 +1924,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-auth-tab {
 
     min-height:
@@ -2132,7 +1952,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-auth-tab.active {
 
     background:
@@ -2142,7 +1961,6 @@ body.lab-authenticated
         var(--red);
 
 }
-
 
 .lab-provider-grid {
 
@@ -2156,7 +1974,6 @@ body.lab-authenticated
         9px;
 
 }
-
 
 .lab-provider-btn {
 
@@ -2198,7 +2015,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-provider-btn:hover {
 
     border-color:
@@ -2209,14 +2025,12 @@ body.lab-authenticated
 
 }
 
-
 .lab-provider-btn i {
 
     font-size:
         1rem;
 
 }
-
 
 .lab-auth-divider {
 
@@ -2230,7 +2044,6 @@ body.lab-authenticated
         center;
 
 }
-
 
 .lab-auth-divider::before {
 
@@ -2257,7 +2070,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-auth-divider span {
 
     position:
@@ -2283,7 +2095,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-register-only {
 
     display:
@@ -2293,7 +2104,6 @@ body.lab-authenticated
         12px;
 
 }
-
 
 .lab-forgot-btn {
 
@@ -2320,14 +2130,12 @@ body.lab-authenticated
 
 }
 
-
 .lab-forgot-btn:hover {
 
     color:
         var(--red);
 
 }
-
 
 .lab-auth-safety-note {
 
@@ -2354,7 +2162,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-auth-safety-note i {
 
     margin-top:
@@ -2364,7 +2171,6 @@ body.lab-authenticated
         var(--red);
 
 }
-
 
 .lab-auth-safety-note p {
 
@@ -2382,7 +2188,6 @@ body.lab-authenticated
 
 }
 
-
 @media (max-width: 700px) {
 
     .lab-ethics-notice {
@@ -2394,11 +2199,6 @@ body.lab-authenticated
 
 }
 
-
-/* =========================================================
-   17. COMPACT AUTH MODAL — FIT VIEWPORT
-========================================================= */
-
 .lab-modal {
 
     padding:
@@ -2408,7 +2208,6 @@ body.lab-authenticated
         auto;
 
 }
-
 
 .lab-modal-card {
 
@@ -2435,7 +2234,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-modal-card .lab-kicker {
 
     margin-bottom:
@@ -2443,14 +2241,12 @@ body.lab-authenticated
 
 }
 
-
 .lab-modal-card h2 {
 
     font-size:
         1.3rem;
 
 }
-
 
 .lab-modal-card > p {
 
@@ -2465,14 +2261,12 @@ body.lab-authenticated
 
 }
 
-
 .lab-auth-tabs {
 
     margin-bottom:
         10px;
 
 }
-
 
 .lab-auth-tab {
 
@@ -2481,14 +2275,12 @@ body.lab-authenticated
 
 }
 
-
 .lab-provider-grid {
 
     gap:
         7px;
 
 }
-
 
 .lab-provider-btn {
 
@@ -2503,14 +2295,12 @@ body.lab-authenticated
 
 }
 
-
 .lab-auth-divider {
 
     margin:
         10px 0;
 
 }
-
 
 .lab-modal-card .lab-form {
 
@@ -2519,14 +2309,12 @@ body.lab-authenticated
 
 }
 
-
 .lab-modal-card .lab-form label {
 
     font-size:
         0.73rem;
 
 }
-
 
 .lab-modal-card .lab-form input {
 
@@ -2538,7 +2326,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-modal-card .lab-form .btn {
 
     min-height:
@@ -2549,7 +2336,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-register-only {
 
     gap:
@@ -2557,14 +2343,12 @@ body.lab-authenticated
 
 }
 
-
 .lab-forgot-btn {
 
     font-size:
         0.7rem;
 
 }
-
 
 .lab-auth-safety-note {
 
@@ -2576,7 +2360,6 @@ body.lab-authenticated
 
 }
 
-
 .lab-auth-safety-note p {
 
     font-size:
@@ -2587,7 +2370,6 @@ body.lab-authenticated
 
 }
 
-
 @media (max-height: 760px) {
 
     .lab-modal {
@@ -2596,7 +2378,6 @@ body.lab-authenticated
             flex-start;
 
     }
-
 
     .lab-modal-card {
 
@@ -2608,7 +2389,6 @@ body.lab-authenticated
 
     }
 
-
     .lab-modal-card .lab-kicker {
 
         display:
@@ -2616,14 +2396,12 @@ body.lab-authenticated
 
     }
 
-
     .lab-modal-card > p {
 
         margin-bottom:
             10px;
 
     }
-
 
     .lab-auth-safety-note {
 
@@ -2634,7 +2412,6 @@ body.lab-authenticated
 
 }
 
-
 @media (max-width: 480px) {
 
     .lab-modal {
@@ -2643,7 +2420,6 @@ body.lab-authenticated
             8px;
 
     }
-
 
     .lab-modal-card {
 
@@ -2654,7 +2430,6 @@ body.lab-authenticated
             18px 16px;
 
     }
-
 
     .lab-modal-close {
 
