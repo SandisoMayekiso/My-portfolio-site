@@ -1,24 +1,6 @@
-/* =========================================================
-   SANDISO MAYEKISO
-   RED TEAM PORTFOLIO
-   main.js
-========================================================= */
-
 "use strict";
 
-
-/* =========================================================
-   DOM READY
-========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
-
-    console.log("Red Team Portfolio initialized");
-
-
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
 
     const navToggle =
         document.getElementById("navToggle");
@@ -49,10 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const yearElement =
         document.getElementById("year");
 
-
-    /* =====================================================
-       CURRENT YEAR
-    ===================================================== */
+    
 
     if (yearElement) {
 
@@ -61,10 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    /* =====================================================
-       MOBILE NAVIGATION
-    ===================================================== */
+    
 
     function openNavigation() {
 
@@ -93,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
     function closeNavigation() {
 
         if (
@@ -121,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
     function toggleNavigation() {
 
         if (!navMenu) {
@@ -144,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
     if (navToggle) {
 
         navToggle.addEventListener(
@@ -160,7 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
     navLinks.forEach(link => {
 
         link.addEventListener(
@@ -173,7 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
     });
-
 
     document.addEventListener(
         "click",
@@ -211,7 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-
     document.addEventListener(
         "keydown",
         event => {
@@ -226,7 +196,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     );
-
 
     window.addEventListener(
         "resize",
@@ -243,10 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-
-    /* =====================================================
-       PROJECT FILTERING
-    ===================================================== */
+    
 
     function filterProjects(
         selectedFilter
@@ -263,13 +229,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 .split(/\s+/)
                 .filter(Boolean);
 
-
             const shouldShow =
                 selectedFilter === "all" ||
                 categories.includes(
                     selectedFilter
                 );
-
 
             card.classList.toggle(
                 "hidden",
@@ -279,7 +243,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
-
 
     projectFilters.forEach(button => {
 
@@ -292,7 +255,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         button.dataset.filter ||
                         "all"
                     ).toLowerCase();
-
 
                 projectFilters.forEach(
                     filterButton => {
@@ -309,7 +271,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 );
 
-
                 button.classList.add(
                     "active"
                 );
@@ -318,7 +279,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     "aria-pressed",
                     "true"
                 );
-
 
                 filterProjects(
                     selectedFilter
@@ -329,10 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-    /*
-     * Initialize project filters.
-     */
+    
 
     projectFilters.forEach(
         button => {
@@ -349,13 +306,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-
     filterProjects("all");
 
-
-    /* =====================================================
-       ACTIVE NAVIGATION
-    ===================================================== */
+    
 
     function setActiveNavigation(
         sectionId
@@ -372,7 +325,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 linkTarget ===
                 `#${sectionId}`;
 
-
             link.classList.toggle(
                 "active",
                 isActive
@@ -381,7 +333,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
-
 
     if (
         "IntersectionObserver" in window &&
@@ -404,7 +355,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     a.intersectionRatio
                             );
 
-
                     if (
                         !visibleSections.length
                     ) {
@@ -413,12 +363,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     }
 
-
                     const activeSection =
                         visibleSections[0]
                             .target
                             .id;
-
 
                     if (activeSection) {
 
@@ -446,7 +394,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             );
 
-
         sections.forEach(section => {
 
             sectionObserver.observe(
@@ -457,16 +404,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    /* =====================================================
-       SMOOTH INTERNAL NAVIGATION
-    ===================================================== */
+    
 
     const internalLinks =
         document.querySelectorAll(
             'a[href^="#"]'
         );
-
 
     internalLinks.forEach(link => {
 
@@ -479,7 +422,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         "href"
                     );
 
-
                 if (
                     !href ||
                     href === "#"
@@ -489,12 +431,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
-
                 const target =
                     document.querySelector(
                         href
                     );
-
 
                 if (!target) {
 
@@ -502,9 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 }
 
-
                 event.preventDefault();
-
 
                 target.scrollIntoView({
                     behavior:
@@ -514,11 +452,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         "start"
                 });
 
-
-                /*
-                 * Keep the URL useful without
-                 * causing a second browser jump.
-                 */
+                
 
                 if (
                     history.pushState
@@ -537,10 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-    /* =====================================================
-       REVEAL ON SCROLL
-    ===================================================== */
+    
 
     const revealElements =
         document.querySelectorAll(
@@ -560,7 +491,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ].join(",")
         );
 
-
     revealElements.forEach(
         element => {
 
@@ -570,7 +500,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     );
-
 
     if (
         "IntersectionObserver" in window
@@ -591,11 +520,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             }
 
-
                             entry.target.classList.add(
                                 "revealed"
                             );
-
 
                             revealObserver.unobserve(
                                 entry.target
@@ -613,7 +540,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         "0px 0px -40px 0px"
                 }
             );
-
 
         revealElements.forEach(
             element => {
@@ -639,16 +565,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    /* =====================================================
-       HEADER SCROLL STATE
-    ===================================================== */
+    
 
     const siteHeader =
         document.querySelector(
             ".site-header"
         );
-
 
     function updateHeaderState() {
 
@@ -658,7 +580,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-
         siteHeader.classList.toggle(
             "scrolled",
             window.scrollY > 20
@@ -666,9 +587,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
     updateHeaderState();
-
 
     window.addEventListener(
         "scroll",
@@ -679,16 +598,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-
-    /* =====================================================
-       HERO TERMINAL STATUS
-    ===================================================== */
+    
 
     const terminalCursor =
         document.querySelector(
             ".terminal-cursor"
         );
-
 
     if (terminalCursor) {
 
@@ -699,16 +614,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    /* =====================================================
-       EXTERNAL LINK SECURITY
-    ===================================================== */
+    
 
     const externalLinks =
         document.querySelectorAll(
             'a[target="_blank"]'
         );
-
 
     externalLinks.forEach(link => {
 
@@ -723,7 +634,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 .filter(Boolean)
             );
 
-
         relValues.add(
             "noopener"
         );
@@ -731,7 +641,6 @@ document.addEventListener("DOMContentLoaded", () => {
         relValues.add(
             "noreferrer"
         );
-
 
         link.setAttribute(
             "rel",
@@ -742,10 +651,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-    /* =====================================================
-       PAGE RESTORE / HASH
-    ===================================================== */
+    
 
     if (window.location.hash) {
 
@@ -754,13 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.hash
             );
 
-
         if (initialTarget) {
-
-            /*
-             * Allow fonts/layout to settle
-             * before positioning the section.
-             */
 
             window.setTimeout(
                 () => {
