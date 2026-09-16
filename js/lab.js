@@ -1,20 +1,10 @@
-/* =========================================================
-   SANDISO MAYEKISO
-   CYBER SECURITY LAB
-   lab.js
-========================================================= */
-
 "use strict";
-
 
 document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-
-        /* =================================================
-           ELEMENTS
-        ================================================= */
+        
 
         const workspace =
             document.getElementById(
@@ -61,10 +51,7 @@ document.addEventListener(
                 "labStatusText"
             );
 
-
-        /* =================================================
-           TOOL METADATA
-        ================================================= */
+        
 
         const toolTitles = {
 
@@ -88,19 +75,12 @@ document.addEventListener(
 
         };
 
-
-        /*
-         * If a signed-out visitor selects a protected tool,
-         * remember it so we can open it after successful login.
-         */
+        
 
         let pendingProtectedTool =
             null;
 
-
-        /* =================================================
-           AUTH STATE HELPERS
-        ================================================= */
+        
 
         function isAuthenticated() {
 
@@ -112,7 +92,6 @@ document.addEventListener(
 
         }
 
-
         window.setLabAuthenticated =
             function setLabAuthenticated(
                 authenticated
@@ -123,7 +102,6 @@ document.addEventListener(
                         authenticated
                     );
 
-
                 document.body
                     .classList
                     .toggle(
@@ -131,12 +109,10 @@ document.addEventListener(
                         isNowAuthenticated
                     );
 
-
                 const logoutBtn =
                     document.getElementById(
                         "labLogoutBtn"
                     );
-
 
                 if (logoutBtn) {
 
@@ -144,7 +120,6 @@ document.addEventListener(
                         !isNowAuthenticated;
 
                 }
-
 
                 if (labStatusText) {
 
@@ -154,7 +129,6 @@ document.addEventListener(
                             : "Public tools available";
 
                 }
-
 
                 if (
                     isNowAuthenticated &&
@@ -166,11 +140,7 @@ document.addEventListener(
 
                 }
 
-
-                /*
-                 * Re-open the protected tool the visitor
-                 * originally selected before authentication.
-                 */
+                
 
                 if (
                     isNowAuthenticated &&
@@ -180,10 +150,8 @@ document.addEventListener(
                     const toolToOpen =
                         pendingProtectedTool;
 
-
                     pendingProtectedTool =
                         null;
-
 
                     window.setTimeout(
                         () => {
@@ -198,11 +166,7 @@ document.addEventListener(
 
                 }
 
-
-                /*
-                 * If the user signs out while a protected
-                 * workspace is open, close it.
-                 */
+                
 
                 if (
                     !isNowAuthenticated &&
@@ -214,7 +178,6 @@ document.addEventListener(
                         document.getElementById(
                             "scannerPanel"
                         );
-
 
                     if (
                         scannerPanel &&
@@ -229,10 +192,7 @@ document.addEventListener(
 
             };
 
-
-        /* =================================================
-           WORKSPACE
-        ================================================= */
+        
 
         function hideAllPanels() {
 
@@ -247,7 +207,6 @@ document.addEventListener(
 
         }
 
-
         function closeWorkspace() {
 
             if (!workspace) {
@@ -256,15 +215,12 @@ document.addEventListener(
 
             }
 
-
             hideAllPanels();
-
 
             workspace.hidden =
                 true;
 
         }
-
 
         function openWorkspace(
             toolName
@@ -279,12 +235,10 @@ document.addEventListener(
 
             }
 
-
             const panel =
                 document.getElementById(
                     `${toolName}Panel`
                 );
-
 
             if (!panel) {
 
@@ -292,13 +246,10 @@ document.addEventListener(
 
             }
 
-
             hideAllPanels();
-
 
             panel.hidden =
                 false;
-
 
             if (workspaceTitle) {
 
@@ -310,10 +261,8 @@ document.addEventListener(
 
             }
 
-
             workspace.hidden =
                 false;
-
 
             workspace.scrollIntoView({
                 behavior:
@@ -325,7 +274,6 @@ document.addEventListener(
 
         }
 
-
         if (closeWorkspaceBtn) {
 
             closeWorkspaceBtn
@@ -336,10 +284,7 @@ document.addEventListener(
 
         }
 
-
-        /* =================================================
-           TOOL ACCESS
-        ================================================= */
+        
 
         toolButtons.forEach(
             button => {
@@ -352,18 +297,15 @@ document.addEventListener(
                             button.dataset
                                 .openTool;
 
-
                         const card =
                             button.closest(
                                 ".lab-tool-card"
                             );
 
-
                         const isProtected =
                             card?.dataset
                                 .protected ===
                                 "true";
-
 
                         if (
                             isProtected &&
@@ -373,7 +315,6 @@ document.addEventListener(
                             pendingProtectedTool =
                                 toolName;
 
-
                             if (authModal) {
 
                                 authModal.hidden =
@@ -381,11 +322,9 @@ document.addEventListener(
 
                             }
 
-
                             return;
 
                         }
-
 
                         openWorkspace(
                             toolName
@@ -397,10 +336,7 @@ document.addEventListener(
             }
         );
 
-
-        /* =================================================
-           AUTH MODAL
-        ================================================= */
+        
 
         function closeAuthModal(
             clearPending = true
@@ -413,7 +349,6 @@ document.addEventListener(
 
             }
 
-
             if (clearPending) {
 
                 pendingProtectedTool =
@@ -422,7 +357,6 @@ document.addEventListener(
             }
 
         }
-
 
         if (openAuthBtn) {
 
@@ -433,7 +367,6 @@ document.addEventListener(
 
                         pendingProtectedTool =
                             null;
-
 
                         if (authModal) {
 
@@ -447,7 +380,6 @@ document.addEventListener(
 
         }
 
-
         if (closeAuthBtn) {
 
             closeAuthBtn
@@ -457,7 +389,6 @@ document.addEventListener(
                 );
 
         }
-
 
         if (authModal) {
 
@@ -480,7 +411,6 @@ document.addEventListener(
 
         }
 
-
         document.addEventListener(
             "keydown",
             event => {
@@ -497,10 +427,7 @@ document.addEventListener(
             }
         );
 
-
-        /* =================================================
-           SECURITY QUIZ
-        ================================================= */
+        
 
         const quizQuestion =
             document.getElementById(
@@ -516,7 +443,6 @@ document.addEventListener(
             document.getElementById(
                 "quizFeedback"
             );
-
 
         const quizQuestions = [
 
@@ -602,10 +528,8 @@ document.addEventListener(
 
         ];
 
-
         let quizIndex =
             0;
-
 
         function renderQuizQuestion() {
 
@@ -618,20 +542,16 @@ document.addEventListener(
 
             }
 
-
             const item =
                 quizQuestions[
                     quizIndex
                 ];
 
-
             quizQuestion.textContent =
                 item.question;
 
-
             quizOptions.innerHTML =
                 "";
-
 
             item.answers
                 .forEach(
@@ -642,18 +562,14 @@ document.addEventListener(
                                 "button"
                             );
 
-
                         button.type =
                             "button";
-
 
                         button.textContent =
                             answer;
 
-
                         button.dataset.answer =
                             answer;
-
 
                         button.addEventListener(
                             "click",
@@ -664,7 +580,6 @@ document.addEventListener(
                                 )
                         );
 
-
                         quizOptions
                             .appendChild(
                                 button
@@ -672,7 +587,6 @@ document.addEventListener(
 
                     }
                 );
-
 
             if (quizFeedback) {
 
@@ -686,7 +600,6 @@ document.addEventListener(
 
         }
 
-
         function answerQuiz(
             selectedButton,
             answer
@@ -697,7 +610,6 @@ document.addEventListener(
                     quizIndex
                 ];
 
-
             const buttons =
                 quizOptions
                     ?.querySelectorAll(
@@ -705,13 +617,11 @@ document.addEventListener(
                     ) ||
                 [];
 
-
             buttons.forEach(
                 button => {
 
                     button.disabled =
                         true;
-
 
                     if (
                         button.dataset.answer ===
@@ -727,11 +637,9 @@ document.addEventListener(
                 }
             );
 
-
             const correct =
                 answer ===
                 item.correct;
-
 
             if (!correct) {
 
@@ -743,7 +651,6 @@ document.addEventListener(
 
             }
 
-
             if (quizFeedback) {
 
                 quizFeedback.textContent =
@@ -751,14 +658,12 @@ document.addEventListener(
                         ? "Correct. Loading the next question..."
                         : `Not quite. The correct answer is ${item.correct}.`;
 
-
                 quizFeedback.className =
                     correct
                         ? "lab-feedback success"
                         : "lab-feedback error";
 
             }
-
 
             window.setTimeout(
                 () => {
@@ -770,7 +675,6 @@ document.addEventListener(
                         ) %
                         quizQuestions.length;
 
-
                     renderQuizQuestion();
 
                 },
@@ -779,13 +683,9 @@ document.addEventListener(
 
         }
 
-
         renderQuizQuestion();
 
-
-        /* =================================================
-           BASE64
-        ================================================= */
+        
 
         const cryptoInput =
             document.getElementById(
@@ -812,7 +712,6 @@ document.addEventListener(
                 "sha256Btn"
             );
 
-
         function encodeBase64(
             value
         ) {
@@ -823,10 +722,8 @@ document.addEventListener(
                         value
                     );
 
-
             let binary =
                 "";
-
 
             bytes.forEach(
                 byte => {
@@ -839,13 +736,11 @@ document.addEventListener(
                 }
             );
 
-
             return btoa(
                 binary
             );
 
         }
-
 
         function decodeBase64(
             value
@@ -856,7 +751,6 @@ document.addEventListener(
                     value
                 );
 
-
             const bytes =
                 Uint8Array.from(
                     binary,
@@ -866,14 +760,12 @@ document.addEventListener(
                         )
                 );
 
-
             return new TextDecoder()
                 .decode(
                     bytes
                 );
 
         }
-
 
         if (base64EncodeBtn) {
 
@@ -888,11 +780,9 @@ document.addEventListener(
 
                         }
 
-
                         const value =
                             cryptoInput?.value ||
                             "";
-
 
                         cryptoOutput.textContent =
                             value
@@ -905,7 +795,6 @@ document.addEventListener(
                 );
 
         }
-
 
         if (base64DecodeBtn) {
 
@@ -920,23 +809,19 @@ document.addEventListener(
 
                         }
 
-
                         const value =
                             cryptoInput?.value
                                 ?.trim() ||
                             "";
-
 
                         if (!value) {
 
                             cryptoOutput.textContent =
                                 "Enter Base64 text first.";
 
-
                             return;
 
                         }
-
 
                         try {
 
@@ -958,10 +843,7 @@ document.addEventListener(
 
         }
 
-
-        /* =================================================
-           SHA-256
-        ================================================= */
+        
 
         async function sha256(
             value
@@ -978,13 +860,11 @@ document.addEventListener(
 
             }
 
-
             const bytes =
                 new TextEncoder()
                     .encode(
                         value
                     );
-
 
             const digest =
                 await window.crypto
@@ -993,7 +873,6 @@ document.addEventListener(
                         "SHA-256",
                         bytes
                     );
-
 
             return Array
                 .from(
@@ -1018,7 +897,6 @@ document.addEventListener(
 
         }
 
-
         if (sha256Btn) {
 
             sha256Btn
@@ -1032,22 +910,18 @@ document.addEventListener(
 
                         }
 
-
                         const value =
                             cryptoInput?.value ||
                             "";
-
 
                         if (!value) {
 
                             cryptoOutput.textContent =
                                 "Enter text first.";
 
-
                             return;
 
                         }
-
 
                         try {
 
@@ -1058,13 +932,7 @@ document.addEventListener(
 
                         }
                         catch (err) {
-
-                            console.error(
-                                err
-                            );
-
-
-                            cryptoOutput.textContent =
+cryptoOutput.textContent =
                                 "Unable to calculate SHA-256 in this browser.";
 
                         }
@@ -1074,10 +942,7 @@ document.addEventListener(
 
         }
 
-
-        /* =================================================
-           INPUT ANALYSIS
-        ================================================= */
+        
 
         const inputAnalysisText =
             document.getElementById(
@@ -1094,7 +959,6 @@ document.addEventListener(
                 "inputAnalysisOutput"
             );
 
-
         function analyzeInput(
             value
         ) {
@@ -1105,15 +969,12 @@ document.addEventListener(
                     ""
                 );
 
-
             const observations =
                 [];
-
 
             observations.push(
                 `Length: ${text.length} characters`
             );
-
 
             if (
                 /<[^>]*>/.test(
@@ -1127,7 +988,6 @@ document.addEventListener(
 
             }
 
-
             if (
                 /['"`;]/.test(
                     text
@@ -1139,7 +999,6 @@ document.addEventListener(
                 );
 
             }
-
 
             if (
                 /https?:\/\//i.test(
@@ -1153,7 +1012,6 @@ document.addEventListener(
 
             }
 
-
             if (
                 /\s/.test(
                     text
@@ -1166,7 +1024,6 @@ document.addEventListener(
 
             }
 
-
             if (
                 !observations.length
             ) {
@@ -1177,16 +1034,13 @@ document.addEventListener(
 
             }
 
-
             observations.push(
                 "This analysis is educational only and does not determine whether input is malicious."
             );
 
-
             return observations;
 
         }
-
 
         if (analyzeInputBtn) {
 
@@ -1201,17 +1055,14 @@ document.addEventListener(
 
                         }
 
-
                         const result =
                             analyzeInput(
                                 inputAnalysisText
                                     ?.value
                             );
 
-
                         inputAnalysisOutput.hidden =
                             false;
-
 
                         inputAnalysisOutput.textContent =
                             result
@@ -1228,10 +1079,7 @@ document.addEventListener(
 
         }
 
-
-        /* =================================================
-           SCANNER — SAFE BROWSER DEMO
-        ================================================= */
+        
 
         const scannerForm =
             document.getElementById(
@@ -1247,7 +1095,6 @@ document.addEventListener(
             document.getElementById(
                 "scannerOutput"
             );
-
 
         function normalizeTarget(
             value
@@ -1269,7 +1116,6 @@ document.addEventListener(
 
         }
 
-
         function isValidHostname(
             value
         ) {
@@ -1284,14 +1130,12 @@ document.addEventListener(
 
             }
 
-
             return /^[a-z0-9.-]+$/i
                 .test(
                     value
                 );
 
         }
-
 
         if (scannerForm) {
 
@@ -1302,13 +1146,11 @@ document.addEventListener(
 
                         event.preventDefault();
 
-
                         if (!scannerOutput) {
 
                             return;
 
                         }
-
 
                         const target =
                             normalizeTarget(
@@ -1316,10 +1158,8 @@ document.addEventListener(
                                     ?.value
                             );
 
-
                         scannerOutput.hidden =
                             false;
-
 
                         if (
                             !isValidHostname(
@@ -1330,21 +1170,11 @@ document.addEventListener(
                             scannerOutput.textContent =
                                 "Enter a valid authorized hostname.";
 
-
                             return;
 
                         }
 
-
-                        /*
-                         * IMPORTANT:
-                         * This browser tool intentionally does not
-                         * perform network scanning.
-                         *
-                         * Real authorized scanning should be handled
-                         * by a trusted backend that verifies scope and
-                         * applies appropriate controls.
-                         */
+                        
 
                         scannerOutput.textContent =
                             [
@@ -1365,13 +1195,9 @@ document.addEventListener(
 
         }
 
-
-        /* =================================================
-           INITIAL STATE
-        ================================================= */
+        
 
         closeWorkspace();
-
 
         if (
             typeof window
@@ -1384,11 +1210,5 @@ document.addEventListener(
             );
 
         }
-
-
-        console.log(
-            "Cyber Security Lab initialized"
-        );
-
-    }
+}
 );
