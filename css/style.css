@@ -1,14 +1,3 @@
-/* =========================================================
-   SANDISO MAYEKISO
-   RED TEAM PORTFOLIO
-   style.css
-========================================================= */
-
-
-/* =========================================================
-   1. ROOT / RESET
-========================================================= */
-
 :root {
 
     --bg:
@@ -78,7 +67,6 @@
         180ms ease;
 }
 
-
 *,
 *::before,
 *::after {
@@ -87,7 +75,6 @@
         border-box;
 
 }
-
 
 html {
 
@@ -98,7 +85,6 @@ html {
         calc(var(--header-height) + 20px);
 
 }
-
 
 body {
 
@@ -125,7 +111,6 @@ body {
         hidden;
 
 }
-
 
 body::before {
 
@@ -158,7 +143,6 @@ body::before {
 
 }
 
-
 img {
 
     max-width:
@@ -168,7 +152,6 @@ img {
         block;
 
 }
-
 
 a {
 
@@ -180,7 +163,6 @@ a {
 
 }
 
-
 button,
 input,
 select,
@@ -191,14 +173,12 @@ textarea {
 
 }
 
-
 button {
 
     border:
         0;
 
 }
-
 
 ::selection {
 
@@ -209,11 +189,6 @@ button {
         #ffffff;
 
 }
-
-
-/* =========================================================
-   2. SHARED
-========================================================= */
 
 .section {
 
@@ -230,7 +205,6 @@ button {
         110px 0;
 
 }
-
 
 .section-alt {
 
@@ -262,7 +236,6 @@ button {
 
 }
 
-
 .section-heading {
 
     max-width:
@@ -272,7 +245,6 @@ button {
         46px;
 
 }
-
 
 .section-heading > span,
 .academy-label,
@@ -303,7 +275,6 @@ button {
 
 }
 
-
 .section-heading h2,
 .academy-copy h2,
 .contact-heading h2 {
@@ -330,7 +301,6 @@ button {
 
 }
 
-
 .section-heading h2 strong,
 .academy-copy h2 strong,
 .contact-heading h2 strong {
@@ -342,7 +312,6 @@ button {
         inherit;
 
 }
-
 
 .section-heading > p {
 
@@ -359,7 +328,6 @@ button {
         1.8;
 
 }
-
 
 .btn {
 
@@ -398,7 +366,6 @@ button {
 
 }
 
-
 .btn-primary {
 
     background:
@@ -416,7 +383,6 @@ button {
 
 }
 
-
 .btn-primary:hover {
 
     transform:
@@ -426,7 +392,6 @@ button {
         0 16px 34px rgba(255, 32, 32, 0.24);
 
 }
-
 
 .btn-secondary {
 
@@ -441,7 +406,6 @@ button {
 
 }
 
-
 .btn-secondary:hover {
 
     transform:
@@ -454,7 +418,6 @@ button {
         var(--red-soft);
 
 }
-
 
 .tag-row,
 .project-tags,
@@ -470,7 +433,6 @@ button {
         8px;
 
 }
-
 
 .tag-row span,
 .project-tags span,
@@ -495,11 +457,6 @@ button {
         0.72rem;
 
 }
-
-
-/* =========================================================
-   3. HEADER / NAV
-========================================================= */
 
 .site-header {
 
@@ -535,7 +492,6 @@ button {
 
 }
 
-
 .site-nav {
 
     width:
@@ -561,7 +517,6 @@ button {
 
 }
 
-
 .site-brand {
 
     display:
@@ -577,7 +532,6 @@ button {
         0;
 
 }
-
 
 .brand-mark {
 
@@ -623,7 +577,6 @@ button {
 
 }
 
-
 .brand-text {
 
     font-family:
@@ -641,7 +594,6 @@ button {
 
 }
 
-
 .nav-menu {
 
     display:
@@ -654,7 +606,6 @@ button {
         22px;
 
 }
-
 
 .nav-menu > a {
 
@@ -672,7 +623,6 @@ button {
 
 }
 
-
 .nav-menu > a:hover,
 .nav-menu > a.active {
 
@@ -680,7 +630,6 @@ button {
         var(--red);
 
 }
-
 
 .nav-cv-btn {
 
@@ -713,7 +662,6 @@ button {
 
 }
 
-
 .nav-toggle {
 
     display:
@@ -742,7 +690,6 @@ button {
 
 }
 
-
 .nav-toggle span {
 
     display:
@@ -762,11 +709,6 @@ button {
         opacity var(--transition);
 
 }
-
-
-/* =========================================================
-   4. HERO
-========================================================= */
 
 .hero {
 
@@ -789,7 +731,6 @@ button {
         hidden;
 
 }
-
 
 .hero::after {
 
@@ -824,7 +765,6 @@ button {
         none;
 
 }
-
 
 .hero-noise {
 
@@ -863,7 +803,6 @@ button {
 
 }
 
-
 .hero-layout {
 
     position:
@@ -895,7 +834,6 @@ button {
         center;
 
 }
-
 
 .hero-eyebrow {
 
@@ -929,7 +867,6 @@ button {
 
 }
 
-
 .status-dot {
 
     width:
@@ -948,7 +885,6 @@ button {
         0 0 14px var(--red);
 
 }
-
 
 .hero h1 {
 
@@ -974,7 +910,6 @@ button {
 
 }
 
-
 .hero h1 span {
 
     display:
@@ -987,7 +922,6 @@ button {
         0 0 26px rgba(255, 32, 32, 0.15);
 
 }
-
 
 .hero h2 {
 
@@ -1012,14 +946,12 @@ button {
 
 }
 
-
 .hero h2 strong {
 
     color:
         var(--text);
 
 }
-
 
 .hero-copy > p {
 
@@ -1040,7 +972,6 @@ button {
 
 }
 
-
 .hero-actions {
 
     display:
@@ -1057,7 +988,6 @@ button {
 
 }
 
-
 .hero-socials {
 
     display:
@@ -1073,7 +1003,6 @@ button {
         24px;
 
 }
-
 
 .hero-socials a {
 
@@ -1100,18 +1029,12 @@ button {
 
 }
 
-
 .hero-socials a:hover {
 
     color:
         var(--red);
 
 }
-
-
-/* =========================================================
-   5. TERMINAL
-========================================================= */
 
 .hero-terminal {
 
@@ -1136,7 +1059,6 @@ button {
         hidden;
 
 }
-
 
 .terminal-header {
 
@@ -1169,7 +1091,6 @@ button {
 
 }
 
-
 .terminal-dots {
 
     display:
@@ -1179,7 +1100,6 @@ button {
         7px;
 
 }
-
 
 .terminal-dots span {
 
@@ -1197,14 +1117,12 @@ button {
 
 }
 
-
 .terminal-dots span:first-child {
 
     background:
         var(--red);
 
 }
-
 
 .terminal-body {
 
@@ -1226,14 +1144,12 @@ button {
 
 }
 
-
 .terminal-body p {
 
     margin:
         0 0 8px;
 
 }
-
 
 .terminal-user {
 
@@ -1242,14 +1158,12 @@ button {
 
 }
 
-
 .terminal-path {
 
     color:
         #ffffff;
 
 }
-
 
 .terminal-output {
 
@@ -1267,7 +1181,6 @@ button {
 
 }
 
-
 .terminal-cursor-line {
 
     display:
@@ -1280,7 +1193,6 @@ button {
         5px;
 
 }
-
 
 .terminal-cursor {
 
@@ -1301,7 +1213,6 @@ button {
 
 }
 
-
 @keyframes blink {
 
     50% {
@@ -1312,11 +1223,6 @@ button {
     }
 
 }
-
-
-/* =========================================================
-   6. CAPABILITY STRIP
-========================================================= */
 
 .capability-strip {
 
@@ -1357,14 +1263,12 @@ button {
 
 }
 
-
 .capability-strip::-webkit-scrollbar {
 
     display:
         none;
 
 }
-
 
 .capability-strip span {
 
@@ -1389,7 +1293,6 @@ button {
 
 }
 
-
 .capability-strip span::before {
 
     content:
@@ -1402,11 +1305,6 @@ button {
         var(--red);
 
 }
-
-
-/* =========================================================
-   7. ABOUT
-========================================================= */
 
 .about-grid {
 
@@ -1425,7 +1323,6 @@ button {
 
 }
 
-
 .about-copy p {
 
     margin:
@@ -1442,7 +1339,6 @@ button {
 
 }
 
-
 .about-facts {
 
     display:
@@ -1455,7 +1351,6 @@ button {
         14px;
 
 }
-
 
 .about-facts article {
 
@@ -1489,7 +1384,6 @@ button {
 
 }
 
-
 .about-facts article:hover {
 
     transform:
@@ -1499,7 +1393,6 @@ button {
         var(--red-border);
 
 }
-
 
 .about-facts span {
 
@@ -1524,18 +1417,12 @@ button {
 
 }
 
-
 .about-facts strong {
 
     font-size:
         0.92rem;
 
 }
-
-
-/* =========================================================
-   8. EXPERIENCE
-========================================================= */
 
 .experience-list {
 
@@ -1552,7 +1439,6 @@ button {
         18px;
 
 }
-
 
 .experience-card {
 
@@ -1580,7 +1466,6 @@ button {
 
 }
 
-
 .experience-card:hover {
 
     transform:
@@ -1590,7 +1475,6 @@ button {
         var(--red-border);
 
 }
-
 
 .experience-index {
 
@@ -1624,14 +1508,12 @@ button {
 
 }
 
-
 .experience-content {
 
     padding:
         26px;
 
 }
-
 
 .experience-header {
 
@@ -1648,7 +1530,6 @@ button {
         20px;
 
 }
-
 
 .experience-header span {
 
@@ -1676,7 +1557,6 @@ button {
 
 }
 
-
 .experience-header h3 {
 
     margin:
@@ -1691,7 +1571,6 @@ button {
 
 }
 
-
 .experience-header > i {
 
     color:
@@ -1701,7 +1580,6 @@ button {
         1.15rem;
 
 }
-
 
 .experience-content > p {
 
@@ -1715,11 +1593,6 @@ button {
         1.8;
 
 }
-
-
-/* =========================================================
-   9. PROJECT FILTERS
-========================================================= */
 
 .project-filters {
 
@@ -1736,7 +1609,6 @@ button {
         28px;
 
 }
-
 
 .project-filter {
 
@@ -1771,7 +1643,6 @@ button {
 
 }
 
-
 .project-filter:hover,
 .project-filter.active {
 
@@ -1786,11 +1657,6 @@ button {
 
 }
 
-
-/* =========================================================
-   10. PROJECTS
-========================================================= */
-
 .projects-grid {
 
     display:
@@ -1803,7 +1669,6 @@ button {
         20px;
 
 }
-
 
 .project-card {
 
@@ -1846,7 +1711,6 @@ button {
 
 }
 
-
 .project-card:hover {
 
     transform:
@@ -1860,14 +1724,12 @@ button {
 
 }
 
-
 .project-card.hidden {
 
     display:
         none;
 
 }
-
 
 .project-card-featured {
 
@@ -1887,7 +1749,6 @@ button {
         );
 
 }
-
 
 .project-number {
 
@@ -1912,7 +1773,6 @@ button {
 
 }
 
-
 .project-category {
 
     margin-bottom:
@@ -1936,7 +1796,6 @@ button {
 
 }
 
-
 .project-card h3 {
 
     margin:
@@ -1954,7 +1813,6 @@ button {
 
 }
 
-
 .project-card > p {
 
     margin:
@@ -1971,7 +1829,6 @@ button {
 
 }
 
-
 .project-tags {
 
     margin-top:
@@ -1981,7 +1838,6 @@ button {
         10px;
 
 }
-
 
 .project-link-group {
 
@@ -1998,7 +1854,6 @@ button {
         22px;
 
 }
-
 
 .project-link {
 
@@ -2025,7 +1880,6 @@ button {
 
 }
 
-
 .project-link:hover {
 
     color:
@@ -2033,18 +1887,12 @@ button {
 
 }
 
-
 .project-link-secondary {
 
     color:
         var(--text-soft);
 
 }
-
-
-/* =========================================================
-   11. CWS ACADEMY FEATURE
-========================================================= */
 
 .section-academy {
 
@@ -2076,7 +1924,6 @@ button {
 
 }
 
-
 .academy-layout {
 
     max-width:
@@ -2100,14 +1947,12 @@ button {
 
 }
 
-
 .academy-copy h2 {
 
     margin:
         0;
 
 }
-
 
 .academy-copy h3 {
 
@@ -2118,7 +1963,6 @@ button {
         1.25rem;
 
 }
-
 
 .academy-copy > p {
 
@@ -2132,7 +1976,6 @@ button {
         1.8;
 
 }
-
 
 .academy-features {
 
@@ -2149,7 +1992,6 @@ button {
         28px 0;
 
 }
-
 
 .academy-features span {
 
@@ -2185,14 +2027,12 @@ button {
 
 }
 
-
 .academy-features i {
 
     color:
         var(--red);
 
 }
-
 
 .academy-actions {
 
@@ -2206,7 +2046,6 @@ button {
         12px;
 
 }
-
 
 .academy-window {
 
@@ -2227,7 +2066,6 @@ button {
         hidden;
 
 }
-
 
 .academy-window-top {
 
@@ -2257,7 +2095,6 @@ button {
 
 }
 
-
 .academy-window-top > div {
 
     display:
@@ -2267,7 +2104,6 @@ button {
         6px;
 
 }
-
 
 .academy-window-top > div span {
 
@@ -2285,14 +2121,12 @@ button {
 
 }
 
-
 .academy-window-top > div span:first-child {
 
     background:
         var(--red);
 
 }
-
 
 .academy-window-body {
 
@@ -2306,7 +2140,6 @@ button {
         120px minmax(0, 1fr);
 
 }
-
 
 .academy-sidebar {
 
@@ -2330,7 +2163,6 @@ button {
 
 }
 
-
 .academy-sidebar span {
 
     padding:
@@ -2347,7 +2179,6 @@ button {
 
 }
 
-
 .academy-sidebar .active {
 
     background:
@@ -2358,14 +2189,12 @@ button {
 
 }
 
-
 .academy-dashboard-demo {
 
     padding:
         22px;
 
 }
-
 
 .academy-demo-heading span {
 
@@ -2393,14 +2222,12 @@ button {
 
 }
 
-
 .academy-demo-heading strong {
 
     font-size:
         1rem;
 
 }
-
 
 .academy-demo-cards {
 
@@ -2417,7 +2244,6 @@ button {
         20px;
 
 }
-
 
 .academy-demo-cards div {
 
@@ -2454,11 +2280,6 @@ button {
 
 }
 
-
-/* =========================================================
-   12. SKILLS
-========================================================= */
-
 .skills-grid {
 
     display:
@@ -2471,7 +2292,6 @@ button {
         18px;
 
 }
-
 
 .skill-group {
 
@@ -2496,7 +2316,6 @@ button {
 
 }
 
-
 .skill-group:hover {
 
     transform:
@@ -2506,7 +2325,6 @@ button {
         var(--red-border);
 
 }
-
 
 .skill-icon {
 
@@ -2542,7 +2360,6 @@ button {
 
 }
 
-
 .skill-group h3 {
 
     margin:
@@ -2556,11 +2373,6 @@ button {
         1rem;
 
 }
-
-
-/* =========================================================
-   13. CERTIFICATIONS
-========================================================= */
 
 .cert-grid {
 
@@ -2581,7 +2393,6 @@ button {
 
 }
 
-
 .cert-card {
 
     min-height:
@@ -2600,7 +2411,6 @@ button {
         var(--bg-card);
 
 }
-
 
 .cert-card > span {
 
@@ -2622,7 +2432,6 @@ button {
 
 }
 
-
 .cert-card h3 {
 
     margin:
@@ -2636,7 +2445,6 @@ button {
         1rem;
 
 }
-
 
 .cert-card p {
 
@@ -2654,7 +2462,6 @@ button {
 
 }
 
-
 .cert-card-current {
 
     border-color:
@@ -2668,11 +2475,6 @@ button {
         );
 
 }
-
-
-/* =========================================================
-   14. PUBLICATIONS
-========================================================= */
 
 .publication-card {
 
@@ -2698,7 +2500,6 @@ button {
         var(--bg-card);
 
 }
-
 
 .publication-index {
 
@@ -2729,7 +2530,6 @@ button {
 
 }
 
-
 .publication-card h3 {
 
     margin:
@@ -2744,7 +2544,6 @@ button {
 
 }
 
-
 .publication-card p {
 
     color:
@@ -2754,11 +2553,6 @@ button {
         1.8;
 
 }
-
-
-/* =========================================================
-   15. SECURITY LAB CTA
-========================================================= */
 
 .security-lab-cta {
 
@@ -2805,7 +2599,6 @@ button {
 
 }
 
-
 .security-lab-cta h2 {
 
     margin:
@@ -2819,7 +2612,6 @@ button {
         1.7rem;
 
 }
-
 
 .security-lab-cta p {
 
@@ -2836,11 +2628,6 @@ button {
         1.75;
 
 }
-
-
-/* =========================================================
-   16. CONTACT
-========================================================= */
 
 .contact-layout {
 
@@ -2859,14 +2646,12 @@ button {
 
 }
 
-
 .contact-heading {
 
     margin-bottom:
         0;
 
 }
-
 
 .contact-heading p {
 
@@ -2881,7 +2666,6 @@ button {
 
 }
 
-
 .contact-links {
 
     display:
@@ -2891,7 +2675,6 @@ button {
         12px;
 
 }
-
 
 .contact-item {
 
@@ -2925,7 +2708,6 @@ button {
 
 }
 
-
 .contact-item:hover {
 
     transform:
@@ -2935,7 +2717,6 @@ button {
         var(--red-border);
 
 }
-
 
 .contact-item > i {
 
@@ -2968,7 +2749,6 @@ button {
 
 }
 
-
 .contact-item span {
 
     display:
@@ -2992,7 +2772,6 @@ button {
 
 }
 
-
 .contact-item strong {
 
     display:
@@ -3005,11 +2784,6 @@ button {
         0.85rem;
 
 }
-
-
-/* =========================================================
-   17. FOOTER
-========================================================= */
 
 .site-footer {
 
@@ -3045,7 +2819,6 @@ button {
 
 }
 
-
 .site-footer span {
 
     color:
@@ -3063,7 +2836,6 @@ button {
 
 }
 
-
 .site-footer p {
 
     margin:
@@ -3073,11 +2845,6 @@ button {
         0.75rem;
 
 }
-
-
-/* =========================================================
-   18. ACCESSIBILITY
-========================================================= */
 
 a:focus-visible,
 button:focus-visible {
@@ -3090,11 +2857,6 @@ button:focus-visible {
 
 }
 
-
-/* =========================================================
-   19. RESPONSIVE
-========================================================= */
-
 @media (max-width: 1050px) {
 
     .nav-menu {
@@ -3103,7 +2865,6 @@ button:focus-visible {
             15px;
 
     }
-
 
     .hero-layout,
     .academy-layout,
@@ -3115,14 +2876,12 @@ button:focus-visible {
 
     }
 
-
     .hero-terminal {
 
         max-width:
             760px;
 
     }
-
 
     .skills-grid,
     .cert-grid {
@@ -3131,7 +2890,6 @@ button:focus-visible {
             repeat(2, minmax(0, 1fr));
 
     }
-
 
     .academy-visual {
 
@@ -3142,7 +2900,6 @@ button:focus-visible {
 
 }
 
-
 @media (max-width: 860px) {
 
     .nav-toggle {
@@ -3151,7 +2908,6 @@ button:focus-visible {
             block;
 
     }
-
 
     .nav-menu {
 
@@ -3196,14 +2952,12 @@ button:focus-visible {
 
     }
 
-
     .nav-menu.open {
 
         display:
             flex;
 
     }
-
 
     .nav-menu > a {
 
@@ -3215,14 +2969,12 @@ button:focus-visible {
 
     }
 
-
     .nav-menu > a:hover {
 
         background:
             var(--red-soft);
 
     }
-
 
     .nav-cv-btn {
 
@@ -3231,14 +2983,12 @@ button:focus-visible {
 
     }
 
-
     .projects-grid {
 
         grid-template-columns:
             1fr;
 
     }
-
 
     .hero {
 
@@ -3247,14 +2997,12 @@ button:focus-visible {
 
     }
 
-
     .hero-layout {
 
         gap:
             42px;
 
     }
-
 
     .hero-terminal {
 
@@ -3263,14 +3011,12 @@ button:focus-visible {
 
     }
 
-
     .academy-window-body {
 
         grid-template-columns:
             95px minmax(0, 1fr);
 
     }
-
 
     .security-lab-cta {
 
@@ -3283,7 +3029,6 @@ button:focus-visible {
     }
 
 }
-
 
 @media (max-width: 680px) {
 
@@ -3300,7 +3045,6 @@ button:focus-visible {
 
     }
 
-
     .section-alt,
     .section-academy {
 
@@ -3309,14 +3053,12 @@ button:focus-visible {
 
     }
 
-
     .hero {
 
         padding:
             60px 14px;
 
     }
-
 
     .hero h1 {
 
@@ -3329,7 +3071,6 @@ button:focus-visible {
 
     }
 
-
     .hero-actions,
     .academy-actions {
 
@@ -3338,7 +3079,6 @@ button:focus-visible {
 
     }
 
-
     .hero-actions .btn,
     .academy-actions .btn {
 
@@ -3346,7 +3086,6 @@ button:focus-visible {
             100%;
 
     }
-
 
     .about-facts,
     .skills-grid,
@@ -3358,14 +3097,12 @@ button:focus-visible {
 
     }
 
-
     .experience-card {
 
         grid-template-columns:
             1fr;
 
     }
-
 
     .experience-index {
 
@@ -3386,14 +3123,12 @@ button:focus-visible {
 
     }
 
-
     .publication-card {
 
         grid-template-columns:
             1fr;
 
     }
-
 
     .publication-index {
 
@@ -3411,14 +3146,12 @@ button:focus-visible {
 
     }
 
-
     .academy-window-body {
 
         grid-template-columns:
             1fr;
 
     }
-
 
     .academy-sidebar {
 
@@ -3436,7 +3169,6 @@ button:focus-visible {
 
     }
 
-
     .academy-sidebar span {
 
         white-space:
@@ -3447,7 +3179,6 @@ button:focus-visible {
 
     }
 
-
     .security-lab-cta {
 
         width:
@@ -3457,7 +3188,6 @@ button:focus-visible {
             24px;
 
     }
-
 
     .site-footer {
 
@@ -3472,7 +3202,6 @@ button:focus-visible {
 
     }
 
-
     .contact-item strong {
 
         word-break:
@@ -3481,7 +3210,6 @@ button:focus-visible {
     }
 
 }
-
 
 @media (max-width: 480px) {
 
@@ -3492,14 +3220,12 @@ button:focus-visible {
 
     }
 
-
     .brand-text {
 
         display:
             none;
 
     }
-
 
     .terminal-body {
 
@@ -3511,14 +3237,12 @@ button:focus-visible {
 
     }
 
-
     .academy-demo-cards {
 
         grid-template-columns:
             1fr;
 
     }
-
 
     .project-card,
     .skill-group,
@@ -3528,7 +3252,6 @@ button:focus-visible {
             20px;
 
     }
-
 
     .experience-content {
 
