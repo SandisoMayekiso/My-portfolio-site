@@ -1,15 +1,3 @@
-/* =========================================================
-   SANDISO MAYEKISO
-   RED TEAM PORTFOLIO
-   CASE STUDY PAGES
-   case-study.css
-========================================================= */
-
-
-/* =========================================================
-   PAGE FOUNDATION
-========================================================= */
-
 body {
 
     background:
@@ -19,7 +7,6 @@ body {
         var(--text, #f5f5f5);
 
 }
-
 
 .case-main {
 
@@ -33,11 +20,6 @@ body {
         0 auto;
 
 }
-
-
-/* =========================================================
-   CASE HEADER
-========================================================= */
 
 .case-header {
 
@@ -73,7 +55,6 @@ body {
 
 }
 
-
 .case-header-inner {
 
     width:
@@ -99,7 +80,6 @@ body {
 
 }
 
-
 .case-back,
 .case-brand {
 
@@ -123,7 +103,6 @@ body {
 
 }
 
-
 .case-back {
 
     color:
@@ -131,14 +110,12 @@ body {
 
 }
 
-
 .case-back:hover {
 
     color:
         var(--red, #ff2020);
 
 }
-
 
 .case-brand {
 
@@ -153,11 +130,6 @@ body {
         0.08em;
 
 }
-
-
-/* =========================================================
-   HERO
-========================================================= */
 
 .case-hero {
 
@@ -182,14 +154,12 @@ body {
 
 }
 
-
 .case-hero-copy {
 
     min-width:
         0;
 
 }
-
 
 .case-kicker,
 .finding-id,
@@ -215,7 +185,6 @@ body {
         0.13em;
 
 }
-
 
 .case-hero h1 {
 
@@ -250,7 +219,6 @@ body {
 
 }
 
-
 .case-hero-copy > p {
 
     max-width:
@@ -270,7 +238,6 @@ body {
 
 }
 
-
 .case-meta {
 
     display:
@@ -286,7 +253,6 @@ body {
         28px;
 
 }
-
 
 .case-meta > div {
 
@@ -306,7 +272,6 @@ body {
         #0f0f12;
 
 }
-
 
 .case-meta span {
 
@@ -334,7 +299,6 @@ body {
 
 }
 
-
 .case-meta strong {
 
     display:
@@ -350,7 +314,6 @@ body {
         1.45;
 
 }
-
 
 .case-terminal-card {
 
@@ -397,7 +360,6 @@ body {
 
 }
 
-
 .case-terminal-card span {
 
     color:
@@ -407,7 +369,6 @@ body {
         0.82rem;
 
 }
-
 
 .case-terminal-card strong {
 
@@ -421,11 +382,6 @@ body {
         1.65;
 
 }
-
-
-/* =========================================================
-   MAIN CASE SECTIONS
-========================================================= */
 
 .case-section {
 
@@ -445,7 +401,6 @@ body {
         1px solid rgba(255,255,255,0.07);
 
 }
-
 
 .case-section-number {
 
@@ -467,14 +422,12 @@ body {
 
 }
 
-
 .case-section > div {
 
     min-width:
         0;
 
 }
-
 
 .case-section h2 {
 
@@ -500,7 +453,6 @@ body {
 
 }
 
-
 .case-section p {
 
     max-width:
@@ -520,11 +472,6 @@ body {
 
 }
 
-
-/* =========================================================
-   TAGS
-========================================================= */
-
 .case-tags {
 
     display:
@@ -540,7 +487,6 @@ body {
         8px 0 18px;
 
 }
-
 
 .case-tags span {
 
@@ -564,11 +510,6 @@ body {
 
 }
 
-
-/* =========================================================
-   METHODOLOGY STEPS
-========================================================= */
-
 .case-steps {
 
     display:
@@ -590,7 +531,6 @@ body {
         step;
 
 }
-
 
 .case-steps li {
 
@@ -616,7 +556,6 @@ body {
         step;
 
 }
-
 
 .case-steps li::before {
 
@@ -647,7 +586,6 @@ body {
 
 }
 
-
 .case-steps strong {
 
     color:
@@ -662,7 +600,6 @@ body {
 
 }
 
-
 .case-steps p {
 
     margin:
@@ -675,11 +612,6 @@ body {
         1.65;
 
 }
-
-
-/* =========================================================
-   FINDINGS
-========================================================= */
 
 .finding-card {
 
@@ -704,7 +636,6 @@ body {
 
 }
 
-
 .finding-header {
 
     display:
@@ -723,7 +654,6 @@ body {
         14px;
 
 }
-
 
 .finding-header h3 {
 
@@ -744,7 +674,6 @@ body {
         1.45;
 
 }
-
 
 .severity {
 
@@ -772,7 +701,6 @@ body {
 
 }
 
-
 .severity-high {
 
     border:
@@ -785,7 +713,6 @@ body {
         var(--red, #ff2020);
 
 }
-
 
 .severity-medium {
 
@@ -800,14 +727,12 @@ body {
 
 }
 
-
 .finding-card > p {
 
     margin-bottom:
         16px;
 
 }
-
 
 .finding-grid {
 
@@ -821,7 +746,6 @@ body {
         12px;
 
 }
-
 
 .finding-grid > div {
 
@@ -841,7 +765,6 @@ body {
         rgba(255,255,255,0.015);
 
 }
-
 
 .finding-grid span {
 
@@ -866,7 +789,6 @@ body {
 
 }
 
-
 .finding-grid p {
 
     margin:
@@ -879,11 +801,6 @@ body {
         1.62;
 
 }
-
-
-/* =========================================================
-   EVIDENCE / ATTACK PATH CARDS
-========================================================= */
 
 .case-evidence-grid {
 
@@ -900,7 +817,6 @@ body {
         20px;
 
 }
-
 
 .case-evidence-grid > div {
 
@@ -930,7 +846,6 @@ body {
 
 }
 
-
 .case-evidence-grid i {
 
     color:
@@ -940,7 +855,6 @@ body {
         1rem;
 
 }
-
 
 .case-evidence-grid span {
 
@@ -954,11 +868,6 @@ body {
         1.4;
 
 }
-
-
-/* =========================================================
-   LESSON / REMEDIATION LISTS
-========================================================= */
 
 .case-lessons {
 
@@ -981,7 +890,6 @@ body {
         none;
 
 }
-
 
 .case-lessons li {
 
@@ -1011,7 +919,6 @@ body {
 
 }
 
-
 .case-lessons li::before {
 
     content:
@@ -1033,11 +940,6 @@ body {
         800;
 
 }
-
-
-/* =========================================================
-   CTA
-========================================================= */
 
 .case-cta {
 
@@ -1075,7 +977,6 @@ body {
 
 }
 
-
 .case-cta h2 {
 
     margin:
@@ -1096,11 +997,6 @@ body {
 
 }
 
-
-/* =========================================================
-   FOOTER OVERRIDE
-========================================================= */
-
 .case-main + .site-footer,
 body > .site-footer {
 
@@ -1111,11 +1007,6 @@ body > .site-footer {
         );
 
 }
-
-
-/* =========================================================
-   TABLET
-========================================================= */
 
 @media (max-width: 900px) {
 
@@ -1132,7 +1023,6 @@ body > .site-footer {
 
     }
 
-
     .case-terminal-card {
 
         max-width:
@@ -1143,7 +1033,6 @@ body > .site-footer {
 
     }
 
-
     .case-evidence-grid {
 
         grid-template-columns:
@@ -1152,11 +1041,6 @@ body > .site-footer {
     }
 
 }
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 650px) {
 
@@ -1170,14 +1054,12 @@ body > .site-footer {
 
     }
 
-
     .case-header {
 
         min-height:
             62px;
 
     }
-
 
     .case-brand {
 
@@ -1186,7 +1068,6 @@ body > .site-footer {
 
     }
 
-
     .case-back {
 
         font-size:
@@ -1194,14 +1075,12 @@ body > .site-footer {
 
     }
 
-
     .case-hero {
 
         padding:
             44px 0 42px;
 
     }
-
 
     .case-hero h1 {
 
@@ -1214,14 +1093,12 @@ body > .site-footer {
 
     }
 
-
     .case-meta {
 
         grid-template-columns:
             1fr;
 
     }
-
 
     .case-section {
 
@@ -1236,7 +1113,6 @@ body > .site-footer {
 
     }
 
-
     .case-section-number {
 
         font-size:
@@ -1247,14 +1123,12 @@ body > .site-footer {
 
     }
 
-
     .case-section h2 {
 
         margin-bottom:
             15px;
 
     }
-
 
     .finding-header {
 
@@ -1266,7 +1140,6 @@ body > .site-footer {
 
     }
 
-
     .finding-grid,
     .case-evidence-grid {
 
@@ -1275,7 +1148,6 @@ body > .site-footer {
 
     }
 
-
     .case-steps li {
 
         padding:
@@ -1283,14 +1155,12 @@ body > .site-footer {
 
     }
 
-
     .case-steps li::before {
 
         left:
             15px;
 
     }
-
 
     .case-cta {
 
@@ -1308,7 +1178,6 @@ body > .site-footer {
 
     }
 
-
     .case-cta .btn {
 
         width:
@@ -1317,11 +1186,6 @@ body > .site-footer {
     }
 
 }
-
-
-/* =========================================================
-   VERY SMALL SCREENS
-========================================================= */
 
 @media (max-width: 420px) {
 
@@ -1332,14 +1196,12 @@ body > .site-footer {
 
     }
 
-
     .case-brand {
 
         display:
             none;
 
     }
-
 
     .case-terminal-card,
     .finding-card {
@@ -1348,7 +1210,6 @@ body > .site-footer {
             18px;
 
     }
-
 
     .case-evidence-grid > div {
 
