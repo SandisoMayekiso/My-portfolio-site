@@ -1,16 +1,5 @@
 "use strict";
 
-/* =========================================================
-   CYBERWITHSANDISO
-   CYBER SECURITY LAB AUTHENTICATION
-   firebase.js
-========================================================= */
-
-
-/* =========================================================
-   FIREBASE IMPORTS
-========================================================= */
-
 import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
@@ -28,11 +17,6 @@ import {
     GoogleAuthProvider,
     GithubAuthProvider
 } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
-
-
-/* =========================================================
-   FIREBASE CONFIG
-========================================================= */
 
 const firebaseConfig = {
 
@@ -56,11 +40,6 @@ const firebaseConfig = {
 
 };
 
-
-/* =========================================================
-   INITIALIZE
-========================================================= */
-
 const app =
     initializeApp(
         firebaseConfig
@@ -71,21 +50,11 @@ const auth =
         app
     );
 
-
-/* =========================================================
-   PROVIDERS
-========================================================= */
-
 const googleProvider =
     new GoogleAuthProvider();
 
 const githubProvider =
     new GithubAuthProvider();
-
-
-/* =========================================================
-   DOM
-========================================================= */
 
 const labLoginForm =
     document.getElementById(
@@ -172,18 +141,8 @@ const labLogoutBtn =
         "labLogoutBtn"
     );
 
-
-/* =========================================================
-   STATE
-========================================================= */
-
 let authMode =
     "signin";
-
-
-/* =========================================================
-   UI HELPERS
-========================================================= */
 
 function showAuthMessage(
     message,
@@ -196,16 +155,13 @@ function showAuthMessage(
 
     }
 
-
     labAuthMessage.textContent =
         message;
-
 
     labAuthMessage.className =
         `lab-feedback ${type}`;
 
 }
-
 
 function clearAuthMessage() {
 
@@ -216,7 +172,6 @@ function clearAuthMessage() {
 
 }
 
-
 function setLoading(
     loading
 ) {
@@ -225,7 +180,6 @@ function setLoading(
 
         labAuthSubmitBtn.disabled =
             loading;
-
 
         labAuthSubmitBtn.textContent =
             loading
@@ -238,14 +192,12 @@ function setLoading(
 
     }
 
-
     if (googleSignInBtn) {
 
         googleSignInBtn.disabled =
             loading;
 
     }
-
 
     if (githubSignInBtn) {
 
@@ -256,7 +208,6 @@ function setLoading(
 
 }
 
-
 function setAuthMode(
     mode
 ) {
@@ -266,10 +217,8 @@ function setAuthMode(
             ? "register"
             : "signin";
 
-
     const registering =
         authMode === "register";
-
 
     labSignInTab
         ?.classList
@@ -278,14 +227,12 @@ function setAuthMode(
             !registering
         );
 
-
     labRegisterTab
         ?.classList
         .toggle(
             "active",
             registering
         );
-
 
     labSignInTab
         ?.setAttribute(
@@ -295,7 +242,6 @@ function setAuthMode(
             )
         );
 
-
     labRegisterTab
         ?.setAttribute(
             "aria-selected",
@@ -304,14 +250,12 @@ function setAuthMode(
             )
         );
 
-
     if (labNameGroup) {
 
         labNameGroup.hidden =
             !registering;
 
     }
-
 
     if (labConfirmPasswordGroup) {
 
@@ -320,7 +264,6 @@ function setAuthMode(
 
     }
 
-
     if (labDisplayName) {
 
         labDisplayName.required =
@@ -328,14 +271,12 @@ function setAuthMode(
 
     }
 
-
     if (labConfirmPassword) {
 
         labConfirmPassword.required =
             registering;
 
     }
-
 
     if (labPassword) {
 
@@ -346,7 +287,6 @@ function setAuthMode(
 
     }
 
-
     if (labAuthTitle) {
 
         labAuthTitle.textContent =
@@ -355,7 +295,6 @@ function setAuthMode(
                 : "Sign In";
 
     }
-
 
     if (labAuthDescription) {
 
@@ -366,7 +305,6 @@ function setAuthMode(
 
     }
 
-
     if (labAuthSubmitBtn) {
 
         labAuthSubmitBtn.textContent =
@@ -376,7 +314,6 @@ function setAuthMode(
 
     }
 
-
     if (labForgotPasswordBtn) {
 
         labForgotPasswordBtn.hidden =
@@ -384,15 +321,9 @@ function setAuthMode(
 
     }
 
-
     clearAuthMessage();
 
 }
-
-
-/* =========================================================
-   FRIENDLY ERROR MESSAGES
-========================================================= */
 
 function getFriendlyAuthError(
     error
@@ -401,7 +332,6 @@ function getFriendlyAuthError(
     const code =
         error?.code ||
         "";
-
 
     const messages = {
 
@@ -437,7 +367,6 @@ function getFriendlyAuthError(
 
     };
 
-
     return (
         messages[
             code
@@ -448,20 +377,13 @@ function getFriendlyAuthError(
 
 }
 
-
-/* =========================================================
-   EMAIL / PASSWORD
-========================================================= */
-
 async function handleEmailPasswordAuth(
     event
 ) {
 
     event.preventDefault();
 
-
     clearAuthMessage();
-
 
     const email =
         String(
@@ -470,13 +392,11 @@ async function handleEmailPasswordAuth(
         )
             .trim();
 
-
     const password =
         String(
             labPassword?.value ||
             ""
         );
-
 
     if (
         !email ||
@@ -488,18 +408,15 @@ async function handleEmailPasswordAuth(
             "error"
         );
 
-
         return;
 
     }
-
 
     try {
 
         setLoading(
             true
         );
-
 
         if (
             authMode ===
@@ -512,14 +429,12 @@ async function handleEmailPasswordAuth(
                     ""
                 );
 
-
             const displayName =
                 String(
                     labDisplayName?.value ||
                     ""
                 )
                     .trim();
-
 
             if (
                 password !==
@@ -532,14 +447,12 @@ async function handleEmailPasswordAuth(
 
             }
 
-
             const credential =
                 await createUserWithEmailAndPassword(
                     auth,
                     email,
                     password
                 );
-
 
             if (
                 displayName
@@ -554,7 +467,6 @@ async function handleEmailPasswordAuth(
 
             }
 
-
             if (
                 !credential.user
                     .emailVerified
@@ -566,21 +478,56 @@ async function handleEmailPasswordAuth(
 
             }
 
+            await signOut(
+                auth
+            );
 
             showAuthMessage(
-                "Account created. A verification email has been sent.",
+                "Account created. Verify your email, then sign in.",
                 "success"
             );
 
         }
         else {
 
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+            const credential =
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
 
+            const providerIds =
+                credential.user
+                    .providerData
+                    .map(
+                        provider =>
+                            provider.providerId
+                    );
+
+            const passwordOnly =
+                providerIds.length === 1 &&
+                providerIds.includes(
+                    "password"
+                );
+
+            if (
+                passwordOnly &&
+                !credential.user.emailVerified
+            ) {
+
+                await signOut(
+                    auth
+                );
+
+                showAuthMessage(
+                    "Verify your email before using protected lab features.",
+                    "error"
+                );
+
+                return;
+
+            }
 
             showAuthMessage(
                 "Signed in successfully.",
@@ -591,14 +538,7 @@ async function handleEmailPasswordAuth(
 
     }
     catch (error) {
-
-        console.error(
-            "Email authentication failed:",
-            error
-        );
-
-
-        showAuthMessage(
+showAuthMessage(
             getFriendlyAuthError(
                 error
             ),
@@ -616,15 +556,9 @@ async function handleEmailPasswordAuth(
 
 }
 
-
-/* =========================================================
-   GOOGLE
-========================================================= */
-
 async function signInWithGoogle() {
 
     clearAuthMessage();
-
 
     try {
 
@@ -632,12 +566,10 @@ async function signInWithGoogle() {
             true
         );
 
-
         await signInWithPopup(
             auth,
             googleProvider
         );
-
 
         showAuthMessage(
             "Signed in with Google.",
@@ -646,14 +578,7 @@ async function signInWithGoogle() {
 
     }
     catch (error) {
-
-        console.error(
-            "Google sign-in failed:",
-            error
-        );
-
-
-        showAuthMessage(
+showAuthMessage(
             getFriendlyAuthError(
                 error
             ),
@@ -671,15 +596,9 @@ async function signInWithGoogle() {
 
 }
 
-
-/* =========================================================
-   GITHUB
-========================================================= */
-
 async function signInWithGitHub() {
 
     clearAuthMessage();
-
 
     try {
 
@@ -687,12 +606,10 @@ async function signInWithGitHub() {
             true
         );
 
-
         await signInWithPopup(
             auth,
             githubProvider
         );
-
 
         showAuthMessage(
             "Signed in with GitHub.",
@@ -701,14 +618,7 @@ async function signInWithGitHub() {
 
     }
     catch (error) {
-
-        console.error(
-            "GitHub sign-in failed:",
-            error
-        );
-
-
-        showAuthMessage(
+showAuthMessage(
             getFriendlyAuthError(
                 error
             ),
@@ -726,15 +636,9 @@ async function signInWithGitHub() {
 
 }
 
-
-/* =========================================================
-   PASSWORD RESET
-========================================================= */
-
 async function resetPassword() {
 
     clearAuthMessage();
-
 
     const email =
         String(
@@ -743,7 +647,6 @@ async function resetPassword() {
         )
             .trim();
 
-
     if (!email) {
 
         showAuthMessage(
@@ -751,14 +654,11 @@ async function resetPassword() {
             "error"
         );
 
-
         labEmail?.focus();
-
 
         return;
 
     }
-
 
     try {
 
@@ -767,7 +667,6 @@ async function resetPassword() {
             email
         );
 
-
         showAuthMessage(
             "Password reset email sent. Check your inbox and spam folder.",
             "success"
@@ -775,14 +674,7 @@ async function resetPassword() {
 
     }
     catch (error) {
-
-        console.error(
-            "Password reset failed:",
-            error
-        );
-
-
-        showAuthMessage(
+showAuthMessage(
             getFriendlyAuthError(
                 error
             ),
@@ -792,11 +684,6 @@ async function resetPassword() {
     }
 
 }
-
-
-/* =========================================================
-   LOGOUT
-========================================================= */
 
 async function logout() {
 
@@ -808,30 +695,37 @@ async function logout() {
 
     }
     catch (error) {
-
-        console.error(
-            "Logout failed:",
-            error
-        );
-
-    }
-
 }
 
-
-/* =========================================================
-   AUTH STATE
-========================================================= */
+}
 
 onAuthStateChanged(
     auth,
     user => {
 
-        const authenticated =
-            Boolean(
-                user
+        const providerIds =
+            user
+                ?.providerData
+                ?.map(
+                    provider =>
+                        provider.providerId
+                ) ||
+            [];
+
+        const passwordOnly =
+            providerIds.length === 1 &&
+            providerIds.includes(
+                "password"
             );
 
+        const authenticated =
+            Boolean(
+                user &&
+                (
+                    !passwordOnly ||
+                    user.emailVerified
+                )
+            );
 
         if (
             typeof window
@@ -845,40 +739,14 @@ onAuthStateChanged(
 
         }
 
-
-        if (
-            authenticated
-        ) {
-
-            console.log(
-                "Cyber Security Lab authenticated:",
-                user.email ||
-                user.uid
-            );
-
-        }
-        else {
-
-            console.log(
-                "Cyber Security Lab visitor is signed out."
-            );
-
-        }
-
     }
 );
-
-
-/* =========================================================
-   EVENTS
-========================================================= */
 
 labLoginForm
     ?.addEventListener(
         "submit",
         handleEmailPasswordAuth
     );
-
 
 labSignInTab
     ?.addEventListener(
@@ -889,7 +757,6 @@ labSignInTab
             )
     );
 
-
 labRegisterTab
     ?.addEventListener(
         "click",
@@ -899,13 +766,11 @@ labRegisterTab
             )
     );
 
-
 googleSignInBtn
     ?.addEventListener(
         "click",
         signInWithGoogle
     );
-
 
 githubSignInBtn
     ?.addEventListener(
@@ -913,13 +778,11 @@ githubSignInBtn
         signInWithGitHub
     );
 
-
 labForgotPasswordBtn
     ?.addEventListener(
         "click",
         resetPassword
     );
-
 
 labLogoutBtn
     ?.addEventListener(
@@ -927,16 +790,6 @@ labLogoutBtn
         logout
     );
 
-
-/* =========================================================
-   INITIAL MODE
-========================================================= */
-
 setAuthMode(
     "signin"
-);
-
-
-console.log(
-    "Cyber Security Lab Firebase authentication loaded."
 );
